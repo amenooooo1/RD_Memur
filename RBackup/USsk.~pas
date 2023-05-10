@@ -1,0 +1,241 @@
+unit USsk;
+
+interface
+
+uses
+  SysUtils, Windows, Messages, Classes, Graphics, Controls,
+  StdCtrls, Forms, DBCtrls, DB, Mask, ExtCtrls, Buttons, Grids, DBGrids,
+  DBTables, Uni, DBAccess, MemDS, ComCtrls;
+
+type
+  TFSsk = class(TForm)
+    Query1: TUniQuery;
+    DataSource1: TDataSource;
+    Query2: TUniQuery;
+    Panel2: TPanel;
+    DBNavigator: TDBNavigator;
+    TasBt: TBitBtn;
+    Vazgec: TBitBtn;
+    Panel3: TPanel;
+    EditSicno: TDBEdit;
+    EditYil: TDBEdit;
+    EditAy: TDBEdit;
+    EditAd: TDBEdit;
+    EditSoy: TDBEdit;
+    EditIDair: TDBEdit;
+    EditSskNo: TDBEdit;
+    EditSskg: TDBEdit;
+    EditSskMat: TDBEdit;
+    EditSskVer: TDBEdit;
+    EditSskV: TDBEdit;
+    EditGirTar: TDBEdit;
+    DBEdit1: TDBEdit;
+    EditCikTar: TDBEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label9: TLabel;
+    Label18: TLabel;
+    Label6: TLabel;
+    Label4: TLabel;
+    Label8: TLabel;
+    Label7: TLabel;
+    Label5: TLabel;
+    Label15: TLabel;
+    Label10: TLabel;
+    Label13: TLabel;
+    Label11: TLabel;
+    Label19: TLabel;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    Label20: TLabel;
+    Panel1: TPanel;
+    Label12: TLabel;
+    Label14: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    HazirBt: TBitBtn;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    DBGrid1: TDBGrid;
+    ProgressBar1: TProgressBar;
+    procedure Sil;
+    procedure Kayit;
+    procedure EditSicnoKeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure TasBtClick(Sender: TObject);
+    procedure HazirBtClick(Sender: TObject);
+    procedure VazgecClick(Sender: TObject);
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  FSsk: TFSsk;
+
+implementation
+
+uses  UMEMUR;
+
+{$R *.DFM}
+
+procedure TFSsk.EditSicnoKeyPress(Sender: TObject; var Key: Char);
+begin
+if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+end;
+
+
+procedure TFSsk.BitBtn4Click(Sender: TObject);
+begin
+Close;
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+procedure TFSsk.TasBtClick(Sender: TObject);
+begin
+Panel1.Visible:=True;
+Edit2.SetFocus;
+end;
+
+
+procedure TFSsk.HazirBtClick(Sender: TObject);
+begin
+Sil;
+ProgressBar1.Visible:=True;
+Query1.Close;
+Query1.ParamByName('Ay').Value:=Edit2.Text;
+Query1.ParamByName('Ay1').Value:=Edit3.Text;
+Query1.ParamByName('T1').Value:=StrToInt(Edit5.Text);
+Query1.ParamByName('T2').Value:=StrToInt(Edit4.Text);
+Query1.Open;
+ProgressBar1.Max:=Query1.RecordCount;
+with Query1 do
+begin
+ first;
+ while not eof do
+  begin
+    Kayit;
+    next;
+   end;
+  end;
+ProgressBar1.Visible:=False;
+end;
+
+procedure TFSsk.Kayit;
+begin
+with DMEMUR.TSSK do
+begin
+Try
+ SetKey;
+ FieldByName('Yil').asstring:=Query1.FieldByName('Yil').asstring;
+ FieldByName('Ay').asstring:=Query1.FieldByName('Ay').asstring;
+ FieldByName('Sicno').value:=Query1.FieldByName('Sicno').value;
+ if not GotoKey then
+ Begin
+  Insert;
+  FieldByName('Yil').asstring:=Query1.FieldByName('Yil').asstring;
+  FieldByName('Ay').asstring:=Query1.FieldByName('Ay').asstring;
+  FieldByName('Sicno').value:=Query1.FieldByName('Sicno').value;
+  Post;
+  end  else
+ GotoKey;
+ Except
+End;
+Edit;
+FieldByName('Ad').asstring:=Query1.FieldByName('Adi').asstring;
+FieldByName('Soy').asstring:=Query1.FieldByName('Soyadi').asstring;
+FieldByName('Dair').value:=Query1.FieldByName('Dair').value;
+FieldByName('SskNo').asstring:=Query1.FieldByName('EmNo').asstring;
+FieldByName('SskMat').Value:=FieldByName('SskMat').Value+
+Query1.FieldByName('SskMat').value;
+FieldByName('Kef').Value:=FieldByName('Kef').Value+
+Query1.FieldByName('Pkaz26').value;
+FieldByName('Gec').Value:=FieldByName('Gec').Value+
+Query1.FieldByName('Pkaz34').value;
+
+FieldByName('Art').Value:=FieldByName('Art').Value+
+Query1.FieldByName('Pkaz17').value;
+FieldByName('SskVer').Value:=FieldByName('SskVer').Value+
+Query1.FieldByName('SskIsv').value;
+FieldByName('SskV').Value:=FieldByName('SskV').Value+
+Query1.FieldByName('SskIs').value;
+FieldByName('GenSagKisi').Value:=FieldByName('GenSagKisi').Value+
+Query1.FieldByName('GenSagKisi').value;
+FieldByName('GenSagKurum').Value:=FieldByName('GenSagKurum').Value+
+Query1.FieldByName('GenSagKurum').value;
+
+Post;
+end;
+ProgressBar1.Position:=Query1.RecNo;
+End;
+
+procedure TFSsk.Sil;
+begin
+with DMEMUR.TSSK do
+begin
+ SetRangeStart;
+ FieldByName('Yil').asstring:=DMEMUR.TSISTEM.FieldByName('Yil').asstring;
+ FieldByName('Ay').asstring:=edit2.Text;
+ FieldByName('Sicno').Value:=StrToInt(edit5.Text);
+ SetRangeEnd;
+ FieldByName('Yil').asstring:=DMEMUR.TSISTEM.FieldByName('Yil').asstring;
+ FieldByName('Ay').asstring:=edit3.Text;
+ FieldByName('Sicno').Value:=StrToInt(edit4.Text);
+ ApplyRange;
+ first;
+ while not eof do
+  begin
+    Edit;
+    FieldByName('SskMat').Value:=0;
+    FieldByName('Art').Value:=0;
+    FieldByName('Kef').Value:=0;
+    FieldByName('SskVer').Value:=0;
+    FieldByName('SskV').Value:=0;
+    FieldByName('gec').Value:=0;
+    FieldByName('GenSagKisi').Value:=0;
+    FieldByName('GenSagKurum').Value:=0;
+
+    Post;
+    Next;
+   end;
+ end;
+
+end;
+
+
+
+
+
+
+
+
+
+procedure TFSsk.VazgecClick(Sender: TObject);
+begin
+if(DMEMUR.TSSK.State=DsEdit)or(DMEMUR.TSSK.State=Dsinsert) then
+begin
+   if MessageBox(handle,'Deðiþikleri Kaydedilsinmi','KAPANIÞ',
+    mb_YesNo + MB_ICONQUESTION) <> mrYes then
+     DMEMUR.TSSK.Cancel
+     else DMEMUR.TSSK.Post;
+end;
+
+
+end;
+
+end.

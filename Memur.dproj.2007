@@ -1,0 +1,260 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{08039725-D903-4C95-802E-6FBF5BB36808}</ProjectGuid>
+			<MainSource>Memur.dpr</MainSource>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_UsePackage>VCLX30;VCL30;VCLDB30;VCLDBX30;INETDB30;INET30;VCLSMP30;QRPT30;TEEUI30;TEEDB30;TEE30;DSS30;IBEVNT30;vcl;vclx;vcldb;qrpt;rtl;indy;dbrtl;dsnap;dsnapcon;inet;xmlrtl;soaprtl</DCC_UsePackage>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_UNSAFE_CODE>true</DCC_UNSAFE_CODE>
+			<DCC_UNSAFE_TYPE>true</DCC_UNSAFE_TYPE>
+			<DCC_Platform>x86</DCC_Platform>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_DependencyCheckOutputName>..\Exe2008\Memur.exe</DCC_DependencyCheckOutputName>
+			<DCC_ExeOutput>Y:\ParadoxProject\Sermemur\Exe2008</DCC_ExeOutput>
+			<DCC_K>false</DCC_K>
+			<DCC_F>false</DCC_F>
+			<DCC_S>false</DCC_S>
+			<DCC_N>true</DCC_N>
+			<DCC_WriteableConstants>true</DCC_WriteableConstants>
+			<DCC_UNSAFE_CAST>true</DCC_UNSAFE_CAST>
+			<DCC_E>false</DCC_E>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="Memur.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="UGelir.pas">
+				<Form>FGelir</Form>
+			</DCCReference>
+			<DCCReference Include="UMEMUR.PAS">
+				<Form>DMEMUR</Form>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="UANAMENU.PAS">
+				<Form>FANAMENU</Form>
+			</DCCReference>
+			<DCCReference Include="USicil.pas">
+				<Form>FSicil</Form>
+			</DCCReference>
+			<DCCReference Include="UDon.pas">
+				<Form>FDon</Form>
+			</DCCReference>
+			<DCCReference Include="UHESMENU.pas">
+				<Form>FHESMENU</Form>
+			</DCCReference>
+			<DCCReference Include="UPARMENU.PAS">
+				<Form>FPARMENU</Form>
+			</DCCReference>
+			<DCCReference Include="UAboneara.pas">
+				<Form>FAboneara</Form>
+			</DCCReference>
+			<DCCReference Include="URBordro.pas">
+				<Form>FRBordro</Form>
+			</DCCReference>
+			<DCCReference Include="USistem.pas">
+				<Form>FSistem</Form>
+			</DCCReference>
+			<DCCReference Include="Udonem.pas">
+				<Form>Fdonem</Form>
+			</DCCReference>
+			<DCCReference Include="Ukatsayilar.pas">
+				<Form>Fkatsayilar</Form>
+			</DCCReference>
+			<DCCReference Include="Ukazanclar.pas">
+				<Form>FKazanclar</Form>
+			</DCCReference>
+			<DCCReference Include="Udair.pas">
+				<Form>FDaire</Form>
+			</DCCReference>
+			<DCCReference Include="Ukesintiler.pas">
+				<Form>Fkesintiler</Form>
+			</DCCReference>
+			<DCCReference Include="UGostergeler.pas">
+				<Form>FGostergeler</Form>
+			</DCCReference>
+			<DCCReference Include="USsk.pas">
+				<Form>FSsk</Form>
+			</DCCReference>
+			<DCCReference Include="UDonNet.pas">
+				<Form>FDonNet</Form>
+			</DCCReference>
+			<DCCReference Include="UDonemtas.pas">
+				<Form>FDonemtas</Form>
+			</DCCReference>
+			<DCCReference Include="UAyEmek.pas">
+				<Form>FAyEmek</Form>
+			</DCCReference>
+			<DCCReference Include="URAPMENU.PAS">
+				<Form>FRAPMENU</Form>
+			</DCCReference>
+			<DCCReference Include="UKazanlar.pas">
+				<Form>FKazanlar</Form>
+			</DCCReference>
+			<DCCReference Include="UKesitlar.pas">
+				<Form>FKesitlar</Form>
+			</DCCReference>
+			<DCCReference Include="UNetler.pas">
+				<Form>FNetler</Form>
+			</DCCReference>
+			<DCCReference Include="UYilEm.pas">
+				<Form>FYilEm</Form>
+			</DCCReference>
+			<DCCReference Include="URYilEm.pas">
+				<Form>FRYilEm</Form>
+			</DCCReference>
+			<DCCReference Include="USicilLis.pas">
+				<Form>FSicilLis</Form>
+			</DCCReference>
+			<DCCReference Include="USendika.pas">
+				<Form>FRSendika</Form>
+			</DCCReference>
+			<DCCReference Include="USIFREAL.PAS">
+				<Form>FSIFREAL</Form>
+			</DCCReference>
+			<DCCReference Include="URSendika.pas">
+				<Form>FSendika</Form>
+			</DCCReference>
+			<DCCReference Include="UHesapi.pas">
+				<Form>FHesap</Form>
+			</DCCReference>
+			<DCCReference Include="URBorKuc.pas">
+				<Form>FRBorKuc</Form>
+			</DCCReference>
+			<DCCReference Include="Paracevir.pas"/>
+			<DCCReference Include="USicBuy.pas">
+				<Form>FSicBuy</Form>
+			</DCCReference>
+			<DCCReference Include="URIcra.pas">
+				<Form>FRIcra</Form>
+			</DCCReference>
+			<DCCReference Include="UKefuc.pas">
+				<Form>FKefuc</Form>
+			</DCCReference>
+			<DCCReference Include="UAyem2.pas">
+				<Form>FAyem2</Form>
+			</DCCReference>
+			<DCCReference Include="UHesNet.pas">
+				<Form>FHesNet</Form>
+			</DCCReference>
+			<DCCReference Include="UAsker.pas">
+				<Form>FAsker</Form>
+			</DCCReference>
+			<DCCReference Include="UIlac.pas">
+				<Form>FIlac</Form>
+			</DCCReference>
+			<DCCReference Include="UTopHesap.pas">
+				<Form>FTopHesap</Form>
+			</DCCReference>
+			<DCCReference Include="UHasta.pas">
+				<Form>FHasta</Form>
+			</DCCReference>
+			<DCCReference Include="UBordro.pas">
+				<Form>FBordro</Form>
+			</DCCReference>
+			<DCCReference Include="UGelirkod.pas">
+				<Form>FGelirkod</Form>
+			</DCCReference>
+			<DCCReference Include="UNakit.pas">
+				<Form>FNakit</Form>
+			</DCCReference>
+			<DCCReference Include="URHasta.pas">
+				<Form>FRHasta</Form>
+			</DCCReference>
+			<DCCReference Include="URBorKuc1.pas">
+				<Form>FRBorKuc1</Form>
+			</DCCReference>
+			<DCCReference Include="UEcra.pas">
+				<Form>FEcra</Form>
+			</DCCReference>
+			<DCCReference Include="USicil2.pas">
+				<Form>FSicil2</Form>
+			</DCCReference>
+			<DCCReference Include="UA4bordro.pas">
+				<Form>FA4bordro</Form>
+			</DCCReference>
+			<DCCReference Include="URKdv.pas">
+				<Form>FRKdv</Form>
+			</DCCReference>
+			<DCCReference Include="UHakkinda.pas">
+				<Form>FHakkinda</Form>
+			</DCCReference>
+			<DCCReference Include="UHesapLisan.pas">
+				<Form>FHesapLisan</Form>
+			</DCCReference>
+			<DCCReference Include="ULisan.pas">
+				<Form>FLisan</Form>
+			</DCCReference>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType>VCLApplication</Borland.ProjectType>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">Memur.dpr</Source>
+					</Source>
+					<Parameters>
+						<Parameters Name="UseLauncher">False</Parameters>
+						<Parameters Name="LoadAllSymbols">True</Parameters>
+						<Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+					</Parameters>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1055</VersionInfo>
+						<VersionInfo Name="CodePage">1254</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+					</VersionInfoKeys>
+				</Delphi.Personality>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

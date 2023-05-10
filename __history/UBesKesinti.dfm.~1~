@@ -1,0 +1,95 @@
+object FBesKesinti: TFBesKesinti
+  Left = 0
+  Top = 0
+  Caption = 'FBesKesinti'
+  ClientHeight = 277
+  ClientWidth = 446
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 446
+    Height = 41
+    Align = alTop
+    Caption = 'Panel1'
+    TabOrder = 0
+    ExplicitLeft = 136
+    ExplicitTop = 136
+    ExplicitWidth = 185
+  end
+  object QBesKesinti: TUniQuery
+    DataTypeMap = <>
+    Connection = FData.UniMemur
+    SQL.Strings = (
+      'SELECT  Yil ,'
+      '        Ay ,'
+      '        Donem ,'
+      '        Sicno ,'
+      '        Dair ,'
+      '        SskNo ,'
+      '        ISNULL(Adi, '#39#39') + '#39' '#39' + ISNULL(Soyadi, '#39#39') AdiSoyadi ,'
+      '        Pkaz40'
+      'FROM    dbo.Phesap'
+      'WHERE   Ay = :Ay'
+      '        AND Sicno BETWEEN 1 AND 9999'
+      '        AND Pkaz41 > 0'
+      'ORDER BY Adi, Soyadi')
+    Left = 216
+    Top = 144
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'Ay'
+        Value = '01'
+      end>
+    object QBesKesintiYil: TWideStringField
+      FieldName = 'Yil'
+      Required = True
+      Size = 4
+    end
+    object QBesKesintiAy: TWideStringField
+      FieldName = 'Ay'
+      Required = True
+      Size = 2
+    end
+    object QBesKesintiDonem: TWideStringField
+      FieldName = 'Donem'
+      Required = True
+      Size = 50
+    end
+    object QBesKesintiSicno: TIntegerField
+      FieldName = 'Sicno'
+      Required = True
+    end
+    object QBesKesintiDair: TWideStringField
+      FieldName = 'Dair'
+      Size = 50
+    end
+    object QBesKesintiSskNo: TWideStringField
+      FieldName = 'SskNo'
+      Size = 25
+    end
+    object QBesKesintiAdiSoyadi: TWideStringField
+      FieldName = 'AdiSoyadi'
+      ReadOnly = True
+      Required = True
+      Size = 101
+    end
+    object QBesKesintiPkaz40: TFloatField
+      FieldName = 'Pkaz40'
+    end
+  end
+  object DBesKesinti: TUniDataSource
+    DataSet = QBesKesinti
+    Left = 216
+    Top = 184
+  end
+end

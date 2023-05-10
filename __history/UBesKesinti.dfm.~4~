@@ -1,0 +1,242 @@
+object FBesKesinti: TFBesKesinti
+  Left = 0
+  Top = 0
+  Caption = 'B.E.S. Kesintileri'
+  ClientHeight = 294
+  ClientWidth = 488
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 488
+    Height = 30
+    Align = alTop
+    TabOrder = 0
+    ExplicitWidth = 446
+    object Label1: TLabel
+      Left = 23
+      Top = 7
+      Width = 13
+      Height = 13
+      Caption = 'AY'
+    end
+    object BtnDosyaAc: TSpeedButton
+      Left = 107
+      Top = 4
+      Width = 29
+      Height = 22
+      Glyph.Data = {
+        36050000424D3605000000000000360400002800000010000000100000000100
+        08000000000000010000420B0000420B0000000100000001000000730800087B
+        080008841000088C100008A51800108C2100109C210018AD290031C64A0042D6
+        6B0052D67B005AE78C0018A5C60018ADD60021ADD60029ADD60031B5DE0052BD
+        E7004AC6E7004AC6EF009CDEEF00ADDEEF006BDEF70073DEF700A5EFF700FF00
+        FF0084EFFF008CEFFF0094EFFF008CF7FF0094F7FF00A5F7FF0094FFFF009CFF
+        FF00ADFFFF00C6FFFF00D6FFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00191919191919
+        19191919191919191919190F100E191919191919191919191919190F141A120E
+        0C0C0C19191919191919190F11212017171717120E0C19191919190F11221D1B
+        1B1B171717130E191919190F0F151E1E1B1B1B1B171713191919190F170F211D
+        1D1D1B1B1B17170C1919190F1E0F1518181F1B1B1B17000C1919190F21170F0C
+        0C0C151D1A000B000C19190F211E171717160F15000A09080019190F211E1E1E
+        1E17170F0C0508060C19190F23202124241B1C17170207021919190E14232314
+        0D0C0C0C0C03041919191919100F0C0C19191919030402191919191919191919
+        1900010303011919191919191919191919191919191919191919}
+      OnClick = BtnDosyaAcClick
+    end
+    object EdtAy: TEdit
+      Left = 43
+      Top = 4
+      Width = 57
+      Height = 21
+      TabOrder = 0
+      OnChange = EdtAyChange
+    end
+  end
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 30
+    Width = 488
+    Height = 264
+    Align = alClient
+    TabOrder = 1
+    ExplicitLeft = 56
+    ExplicitTop = 104
+    ExplicitWidth = 250
+    ExplicitHeight = 200
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      DataController.DataSource = DBesKesinti
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <
+        item
+          Format = '#,##0.00'
+          Kind = skSum
+          Column = cxGrid1DBTableView1Pkaz40
+        end>
+      DataController.Summary.SummaryGroups = <>
+      OptionsView.ColumnAutoWidth = True
+      OptionsView.Footer = True
+      OptionsView.GroupByBox = False
+      object cxGrid1DBTableView1Donem: TcxGridDBColumn
+        Caption = 'D'#214'NEM'
+        DataBinding.FieldName = 'Donem'
+        HeaderAlignmentHorz = taCenter
+        Width = 88
+      end
+      object cxGrid1DBTableView1AdiSoyadi: TcxGridDBColumn
+        Caption = 'ADI SOYADI'
+        DataBinding.FieldName = 'AdiSoyadi'
+        HeaderAlignmentHorz = taCenter
+        Width = 115
+      end
+      object cxGrid1DBTableView1SskNo: TcxGridDBColumn
+        Caption = 'SGK NO'
+        DataBinding.FieldName = 'SskNo'
+        HeaderAlignmentHorz = taCenter
+        Width = 68
+      end
+      object cxGrid1DBTableView1Dair: TcxGridDBColumn
+        Caption = 'DA'#304'RE'
+        DataBinding.FieldName = 'Dair'
+        HeaderAlignmentHorz = taCenter
+        Width = 150
+      end
+      object cxGrid1DBTableView1Pkaz40: TcxGridDBColumn
+        Caption = 'B.E.S Kesinti'
+        DataBinding.FieldName = 'BesKesinti'
+        HeaderAlignmentHorz = taCenter
+        Width = 65
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxGrid1DBTableView1
+    end
+  end
+  object QBesKesinti: TUniQuery
+    DataTypeMap = <>
+    Connection = FData.UniMemur
+    SQL.Strings = (
+      'DECLARE @Ay CHAR(10) = :Ay'
+      ''
+      'SELECT  Yil ,'
+      '        Ay + '#39' - '#39' + Donem AS Donem ,'
+      '        Sicno ,'
+      '        Dair ,'
+      '        SskNo ,'
+      '        ISNULL(Adi, '#39#39') + '#39' '#39' + ISNULL(Soyadi, '#39#39') AdiSoyadi ,'
+      '        Pkaz41 AS BesKesinti'
+      'FROM    dbo.Phesap'
+      'WHERE   ( @Ay = '#39#39' OR Ay = @Ay )'
+      '        AND Pkaz41 > 0'
+      'ORDER BY Adi , Soyadi')
+    Active = True
+    Left = 216
+    Top = 144
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'Ay'
+        Value = '01'
+      end>
+    object QBesKesintiYil: TWideStringField
+      FieldName = 'Yil'
+      Required = True
+      Size = 4
+    end
+    object QBesKesintiDonem: TWideStringField
+      FieldName = 'Donem'
+      Required = True
+      Size = 50
+    end
+    object QBesKesintiSicno: TIntegerField
+      FieldName = 'Sicno'
+      Required = True
+    end
+    object QBesKesintiDair: TWideStringField
+      FieldName = 'Dair'
+      Size = 50
+    end
+    object QBesKesintiSskNo: TWideStringField
+      FieldName = 'SskNo'
+      Size = 25
+    end
+    object QBesKesintiAdiSoyadi: TWideStringField
+      FieldName = 'AdiSoyadi'
+      ReadOnly = True
+      Required = True
+      Size = 101
+    end
+    object QBesKesintiBesKesinti: TFloatField
+      FieldName = 'BesKesinti'
+      DisplayFormat = '#,##0.00'
+    end
+  end
+  object DBesKesinti: TUniDataSource
+    DataSet = QBesKesinti
+    Left = 216
+    Top = 184
+  end
+  object RBesKesinti: TfrxReport
+    Version = '4.12.10'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Varsay'#305'lan'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 43136.475176678240000000
+    ReportOptions.LastChange = 43136.475176678240000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 40
+    Top = 152
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+  object DBBesKesinti: TfrxDBDataset
+    UserName = 'DBBesKesinti'
+    CloseDataSource = False
+    DataSet = QBesKesinti
+    BCDToCurrency = False
+    Left = 96
+    Top = 152
+  end
+end

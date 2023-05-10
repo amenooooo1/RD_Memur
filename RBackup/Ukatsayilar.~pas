@@ -1,0 +1,173 @@
+unit Ukatsayilar;
+
+interface
+
+uses
+  SysUtils, Windows, Messages, Classes, Graphics, Controls,
+  StdCtrls, Forms, DBCtrls, DB, Mask, ExtCtrls, Buttons, DBTables, Uni, DBAccess, MemDS;
+
+type
+  TFkatsayilar = class(TForm)
+    Panel1: TPanel;
+    DBNavigator: TDBNavigator;
+    BitBtn2: TBitBtn;
+    SilBt: TBitBtn;
+    Vazgec: TBitBtn;
+    Panel2: TPanel;
+    Label1: TLabel;
+    DBText1: TDBText;
+    DBText2: TDBText;
+    Label12: TLabel;
+    Label13: TLabel;
+    DBText3: TDBText;
+    Label2: TLabel;
+    Label23: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
+    Label22: TLabel;
+    Label24: TLabel;
+    Label27: TLabel;
+    Label11: TLabel;
+    Label28: TLabel;
+    Label31: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    Label29: TLabel;
+    Label10: TLabel;
+    EditKatsayi: TDBEdit;
+    EditAile: TDBEdit;
+    EditCocuk: TDBEdit;
+    EditOzind: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    EditGelirMik: TDBEdit;
+    EditGeliror: TDBEdit;
+    EditGelirMik2: TDBEdit;
+    EditGeliror2: TDBEdit;
+    EditGelirMik3: TDBEdit;
+    EditGeliror3: TDBEdit;
+    EditGelirMik4: TDBEdit;
+    EditGeliror4: TDBEdit;
+    EditGelirMik5: TDBEdit;
+    EditGeliror5: TDBEdit;
+    EditEmis: TDBEdit;
+    EditEmisv: TDBEdit;
+    EditSskilk: TDBEdit;
+    EditSskem: TDBEdit;
+    EditDamor: TDBEdit;
+    EditTabKay: TDBEdit;
+    EditYanKat: TDBEdit;
+    EditGece: TDBEdit;
+    DBEdit3: TDBEdit;
+    EditMik: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    EditYuv: TDBEdit;
+    procedure EditYilKeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure SilBtClick(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure VazgecClick(Sender: TObject);
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  Fkatsayilar: TFkatsayilar;
+
+implementation
+
+uses UMEMUR;
+
+{$R *.DFM}
+
+
+
+procedure TFkatsayilar.EditYilKeyPress(Sender: TObject; var Key: Char);
+begin
+ if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+end;
+
+
+
+
+
+
+procedure TFkatsayilar.BitBtn1Click(Sender: TObject);
+begin
+Close;
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+procedure TFkatsayilar.SilBtClick(Sender: TObject);
+begin
+   if messagebox (handle,'Bu Kaydý Silmek Ýstiyor musunuz?', 'DÝKKAT',mb_YesNo +
+   mb_iconquestion) <> mrNo then
+        DMEMUR.TKATSAY.Delete;
+    end;
+
+
+
+procedure TFkatsayilar.BitBtn2Click(Sender: TObject);
+begin
+DMEMUR.TKATSAY.edit;
+DMEMUR.TKATSAY.Post;
+DMEMUR.TKatoran.edit;
+DMEMUR.TKatoran.Post;
+
+end;
+
+
+procedure TFkatsayilar.VazgecClick(Sender: TObject);
+begin
+if(DMEMUR.TKATSAY.State=DsEdit)or(DMEMUR.TKATSAY.State=Dsinsert) or
+ (DMEMUR.TKatoran.State=DsEdit)or(DMEMUR.TKatoran.State=Dsinsert)then
+begin
+   if MessageBox(handle,'Deðiþikleri Kaydedilsinmi','KAPANIÞ',
+    mb_YesNo + MB_ICONQUESTION) <> mrYes then
+    begin
+     DMEMUR.TKatoran.Cancel;
+     DMEMUR.TKATSAY.Cancel;
+    end else
+     begin
+       DMEMUR.TKatoran.Edit;
+       DMEMUR.TKATSAY.Edit;
+       DMEMUR.TKatoran.Post;
+       DMEMUR.TKATSAY.Post;
+     end;
+end;
+
+Close;
+end;
+
+
+end.

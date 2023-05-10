@@ -1,0 +1,374 @@
+unit UTopHesap;
+
+interface
+
+uses
+  SysUtils, Windows, Messages, Classes, Graphics, Controls,
+  StdCtrls, Forms, DBCtrls, DB, DBTables, Uni, DBAccess, MemDS, Mask, ExtCtrls, Buttons,
+  ComCtrls, Tabnotbk, Math, dialogs, Grids, DBGrids;
+
+type
+  TFTopHesap = class(TForm)
+    Panel1: TPanel;
+    Panel3: TPanel;
+    Label1: TLabel;
+    Label4: TLabel;
+    Vazgec: TBitBtn;
+    DBGrid1: TDBGrid;
+    Edit1: TEdit;
+    Label2: TLabel;
+    Edit2: TEdit;
+    RadioGroup1: TRadioGroup;
+    Animate1: TAnimate;
+    DBLookupComboBox2: TDBLookupComboBox;
+    Query1: TUniQuery;
+    DataSource1: TDataSource;
+    HazirBt: TBitBtn;
+    HesaptBt: TBitBtn;
+    procedure HesaptBtClick(Sender: TObject);
+    procedure VazgecClick(Sender: TObject);
+    procedure Gos;
+    procedure gost;
+    procedure Arama;
+    procedure Hesap;
+    procedure Kayit1;
+    procedure DBEdit1KeyPress(Sender: TObject; var Key: Char);
+    procedure RadioGroup1Click(Sender: TObject);
+    procedure HazirBtClick(Sender: TObject);
+    procedure Edit2KeyPress(Sender: TObject; var Key: Char);
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  FTopHesap: TFTopHesap;
+  Fark,yuv,sst,sss,kat,a,r:integer;
+  ode:Currency;
+
+implementation
+
+uses UMEMUR, UHesapi;
+
+{$R *.DFM}
+
+procedure TFTopHesap.Arama;
+begin
+with DMEMUR do
+begin
+try
+ THESAP.SetKey;
+ THESAP.FieldByName('Yil').asString:=
+ TDONEM.FieldByName('Yil').asString;
+ THESAP.FieldByName('Ay').asString:=
+ TDONEM.FieldByName('Ay').asString;
+ THESAP.FieldByName('Donem').asString:=
+ TDONEM.FieldByName('Donem').asString;
+ THESAP.FieldByName('Sicno').asString:=
+ TSICIL.FieldByName('SicNo').asString;
+ HesaptBt.Enabled:=True;
+ if not THESAP.GotoKey then
+  Begin
+   Kayit1;
+   HesaptBt.Enabled:=False;
+  end
+ else
+  THESAP.GotoKey
+ Except
+End;
+ THESAP1.SetKey;
+ THESAP1.FieldByName('No').AsString:=
+ THESAP.FieldByName('No').Asstring;
+ THESAP1.GotoKey
+end;
+If DMEMUR.TDONEM.FieldByName('Issizhes').asstring='H' Then
+begin
+  HesaptBt.Enabled:=False;
+end;
+End;
+
+function yuvar(x,y:Currency):Currency;far;external 'Yuvarlama.dll';
+
+procedure TFTopHesap.gost;
+begin
+DMEMUR.TGOS1.SetKey;
+DMEMUR.TGOS1.FieldByName('Der').asstring:=
+DMEMUR.THESAP1.FieldByName('Kaz1').asstring;
+DMEMUR.TGOS1.GotoKey;
+kat:=DMEMUR.THESAP1.FieldByName('Kaz2').value;
+Gos;
+kat:=DMEMUR.TKATSAY.fieldbyname('Katsayi').Value*kat;
+end;
+procedure TFTopHesap.HesaptBtClick(Sender: TObject);
+begin
+Animate1.Visible :=True;
+Animate1.Active :=Animate1.Visible;
+DMEMUR.TSICIL.MasterSource.Enabled:=False;
+DMEMUR.TSICIL.IndexFieldNames:='Yil;Ay;Donem;Sicno';
+while not Query1.eof do
+begin
+ DMEMUR.TSICIL.SetKey;
+ DMEMUR.TSICIL.fieldbyname('Yil').Value:=Query1.fieldbyname('Yil').Value;
+ DMEMUR.TSICIL.fieldbyname('ay').Value:=Query1.fieldbyname('ay').Value;
+ DMEMUR.TSICIL.fieldbyname('donem').Value:=Query1.fieldbyname('donem').Value;
+ DMEMUR.TSICIL.fieldbyname('Sicno').Value:=Query1.fieldbyname('Sicno').Value;
+ DMEMUR.TSICIL.GotoKey;
+ If (DMEMUR.TSICIL.FieldByName('Ciktar').value>DMEMUR.TDONEM.FieldByName('Ilktar').value)
+ Or (DMEMUR.TSICIL.FieldByName('Ciktar').asstring='') then
+ Begin
+  Arama;
+  Hesap;
+ end;
+ Query1.Next;
+end;
+DMEMUR.TSICIL.CancelRange;
+DMEMUR.TSICIL.MasterSource.Enabled:=True;
+
+Animate1.Visible :=False;
+Animate1.Active :=Animate1.Visible;
+end;
+
+procedure TFTopHesap.Hesap;
+Var ss,yy,de:string;
+J:integer;
+begin
+ode:=DMEMUR.TSICIL.fieldbyname('Dirp').Value;
+a:=0;
+with DMEMUR.THESAP do
+begin
+FHesap.SSkHES0;
+FHesap.GELHES0;
+FHesap.HES1;
+FHesap.HES0;
+edit;
+DMEMUR.THESAP1.Edit;
+FieldByName('SskMat').Value:=0;
+FieldByName('IszSigMat').Value:=0;
+FieldByName('GelirMat').Value:=0;
+FieldByName('DamMat').Value:=0;
+FieldByName('BrutGelir').Value:=0;
+FieldByName('OzelKes').Value:=0;
+For  j:=1 to 25 do
+Begin
+ yy:='Pkaz'+ IntToStr(j);
+ ss:='G'+ IntToStr(j);
+ de:=DMEMUR.TKAZANC.FieldByName(ss).asstring;
+ If DMEMUR.THESAP1.FieldByName(yy).AsString='' then
+  DMEMUR.THESAP1.FieldByName(yy).Value:=0;
+ DMEMUR.THESAP1.FieldByName(yy).Value:=
+ yuvar(DMEMUR.THESAP1.FieldByName(yy).Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+ FieldByName('BrutGelir').Value:=FieldByName('BrutGelir').Value+DMEMUR.THESAP1.FieldByName(yy).Value;
+ if de = 'E' then
+  FieldByName('GelirMat').Value:=FieldByName('GelirMat').Value+DMEMUR.THESAP1.FieldByName(yy).Value;
+ ss:='D'+ IntToStr(j);
+ de:=DMEMUR.TKAZANC.FieldByName(ss).asstring;
+ if de = 'E' then
+  FieldByName('DamMat').Value:=FieldByName('DamMat').Value+DMEMUR.THESAP1.FieldByName(yy).Value;
+  ss:='I'+ IntToStr(j);
+  de:=DMEMUR.TKAZANC.FieldByName(ss).asstring;
+ if de = 'E' then
+  FieldByName('IszSigMat').Value:=FieldByName('IszSigMat').Value+DMEMUR.THESAP1.FieldByName(yy).Value;
+  ss:='S'+IntToStr(j);
+  de:=DMEMUR.TKAZANC.FieldByName(ss).asstring;
+ if de = 'E' then
+  FieldByName('SskMat').Value:=FieldByName('SskMat').Value+DMEMUR.THESAP1.FieldByName(yy).Value;
+end;
+For  j:=26 to 40 do
+ Begin
+  a:=a+1;
+  yy:='Pkaz'+ IntToStr(j);
+  If FieldByName(yy).AsString='' then
+   FieldByName(yy).Value:=0;
+  FieldByName(yy).Value:=
+  yuvar(FieldByName(yy).Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+  FieldByName('OzelKes').Value:=FieldByName('OzelKes').Value+FieldByName(yy).Value;
+  ss:='G'+ IntToStr(a);
+  de:=DMEMUR.TKESINTI.FieldByName(ss).asstring;
+  if de = 'E' then
+   FieldByName('GelirMat').Value:=FieldByName('GelirMat').Value-FieldByName(yy).Value;
+  ss:='D'+ IntToStr(a);
+  de:=DMEMUR.TKESINTI.FieldByName(ss).asstring;
+  if de = 'E' then
+   FieldByName('DamMat').Value:=FieldByName('DamMat').Value-FieldByName(yy).Value;
+  ss:='I'+ IntToStr(a);
+  de:=DMEMUR.TKESINTI.FieldByName(ss).asstring;
+  if de = 'E' then
+   FieldByName('IszSigMat').Value:=FieldByName('IszSigMat').Value-FieldByName(yy).Value;
+  ss:='S'+IntToStr(a);
+  de:=DMEMUR.TKESINTI.FieldByName(ss).asstring;
+  if de = 'E' then
+   FieldByName('SskMat').Value:=FieldByName('SskMat').Value-FieldByName(yy).Value;
+ end;
+FieldByName('OzelKes').Value:=FieldByName('OzelKes').Value-FieldByName('Pkaz33').value;
+FieldByName('BrutGelir').Value:=FieldByName('BrutGelir').Value-
+DMEMUR.THESAP1.FieldByName('Pkaz23').value;
+If DMEMUR.TSICIL.FieldByName('Vekor').value=4 then
+ FieldByName('SskMat').Value:=FieldByName('SskMat').Value+(((((DMEMUR.TKATSAY.FieldByName('Katsayi').value*
+ DMEMUR.TKATSAY.FieldByName('Mik').value)*(DMEMUR.TSICIL.FieldByName('Kat').value/100)))/3)*2)
+else
+ FieldByName('SskMat').Value:=FieldByName('SskMat').Value+((DMEMUR.TKATSAY.FieldByName('Katsayi').value*
+ DMEMUR.TKATSAY.FieldByName('Mik').value)*(DMEMUR.TSICIL.FieldByName('Kat').value/100));
+FieldByName('SskMat').Value:=yuvar(FieldByName('SskMat').Value,
+DMEMUR.TKATSAY.FieldByName('Yuv').value);
+ If (StrToDate(mtar)>=DMEMUR.TDONEM.FieldByName('Ilktar').AsDateTime) and
+   (StrToDate(mtar)<=DMEMUR.TDONEM.FieldByName('Sontar').AsDateTime) Then
+ begin
+  FieldByName('SskMat').Value:=FieldByName('SskMat').Value-DMEMUR.THESAP1.FieldByName('Pkaz17').Value;
+ end;
+
+Case DMEMUR.TSICIL.FieldByName('Vekor').value of
+  3 :begin
+     DMEMUR.THESAP.FieldByName('SskMat').Value:=FieldByName('SskMat').Value-
+     DMEMUR.THESAP1.FieldByName('Pkaz7').value;
+     DMEMUR.THESAP.FieldByName('SskMat').Value:=FieldByName('SskMat').Value+
+     DMEMUR.TKATSAY.FieldByName('TabKay').value;
+
+   end;
+End;
+DMEMUR.TGOS1.SetKey;
+DMEMUR.TGOS1.FieldByName('Der').asstring:=
+DMEMUR.THESAP1.FieldByName('Kaz1').value;
+DMEMUR.TGOS1.GotoKey;
+kat:=DMEMUR.THESAP1.FieldByName('Kaz2').value;
+Gos;
+FieldByName('SskMat').Value:=FieldByName('SskMat').Value-DMEMUR.THESAP1.FieldByName('Pkaz1').Value;
+FieldByName('SskMat').Value:=FieldByName('SskMat').Value-
+DMEMUR.THESAP1.FieldByName('Pkaz2').value;
+FieldByName('SskMat').Value:=FieldByName('SskMat').Value+(((kat+DMEMUR.THESAP1.FieldByName('Kaz3').value)*
+DMEMUR.TKATSAY.fieldbyname('Katsayi').Value)*1);               FieldByName('Dair').asstring:=DMEMUR.TSICIL.FieldByName('Dair').asstring;
+post;
+DMEMUR.THESAP1.post;
+end;
+FHesap.DamIsz;
+FHesap.SSkHES;
+FHesap.GELHES;
+FHesap.YASKE;
+//If DMEMUR.TKDV.FieldByName('s9').Value<>0 then  FHesap.KDV;
+FHesap.Sendik;
+end;
+
+
+Function Gelir(t,m,m1,o1,o2:real):real;far;external 'Awdocgel.dll';
+
+procedure TFTopHesap.Kayit1;
+begin
+with DMEMUR do
+begin
+//If TSISTEM.FieldByName('No').value< StrToInt(Chr(50)+Chr(53)) then
+//begin
+ TSISTEM.Edit;
+ TSISTEM.FieldByName('No').value:=TSISTEM.FieldByName('No').value+ 1;
+ TSISTEM.post;
+ THESAP.Append;
+ THESAP.FieldByName('SicNo').AsString:=TSICIL.FieldByName('Sicno').AsString;
+ THESAP.FieldByName('No').AsString:=IntToStr(TSISTEM.FieldByName('No').value);
+ THESAP.FieldByName('Yil').AsString:=TDONEM.FieldByName('Yil').AsString;
+ THESAP.FieldByName('Ay').AsString:=TDONEM.FieldByName('Ay').AsString;
+ THESAP.FieldByName('Donem').AsString:=TDONEM.FieldByName('Donem').AsString;
+ THESAP.FieldByName('Dair').AsString:=TSICIL.FieldByName('Dair').AsString;
+ THESAP.post;
+ THESAP1.Append;
+ THESAP1.FieldByName('No').AsString:=THESAP.FieldByName('No').AsString;
+ THESAP1.FieldByName('Adi').AsString:=TSICIL.FieldByName('Adi').AsString;
+ THESAP1.FieldByName('Soyadi').AsString:=TSICIL.FieldByName('Soyadi').AsString;
+ THESAP1.post;
+end;
+End;
+
+procedure TFTopHesap.VazgecClick(Sender: TObject);
+begin
+Close;
+end;
+
+procedure TFTopHesap.Gos;
+begin
+  Case kat of
+   1 : kat:=DMEMUR.TGOS1.FieldByName('K1').value;
+   2 : kat:=DMEMUR.TGOS1.FieldByName('K2').value;
+   3 : kat:=DMEMUR.TGOS1.FieldByName('K3').value;
+   4 : kat:=DMEMUR.TGOS1.FieldByName('K4').value;
+   5 : kat:=DMEMUR.TGOS1.FieldByName('K5').value;
+   6 : kat:=DMEMUR.TGOS1.FieldByName('K6').value;
+   7 : kat:=DMEMUR.TGOS1.FieldByName('K7').value;
+   8 : kat:=DMEMUR.TGOS1.FieldByName('K8').value;
+   9 : kat:=DMEMUR.TGOS1.FieldByName('K9').value;
+ end;
+end;
+
+procedure TFTopHesap.DBEdit1KeyPress(Sender: TObject; var Key: Char);
+begin
+if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+end;
+
+procedure TFTopHesap.RadioGroup1Click(Sender: TObject);
+begin
+  if radiogroup1.ItemIndex=0 then
+  begin
+   DBLookupComboBox2.Visible:=False;
+   Edit1.Visible:=True;
+   Edit2.Visible:=True;
+   Edit1.SetFocus;
+   Label1.Visible:=True;
+   Label2.Visible:=True;
+   Label4.Visible:=False;
+  end;
+  if radiogroup1.ItemIndex=1 then
+  begin
+   DataSource1.DataSet:=Query1;
+   DBLookupComboBox2.Visible:=true;
+   Edit1.Visible:=False;
+   Edit2.Visible:=False;
+   Label4.Visible:=True;
+   Label1.Visible:=False;
+   Label2.Visible:=False;
+   DBLookupComboBox2.SetFocus;
+  end;
+
+end;
+
+procedure TFTopHesap.HazirBtClick(Sender: TObject);
+begin
+  if radiogroup1.ItemIndex=0 then
+  begin
+   Query1.Close;
+   Query1.SQL.Clear ;
+   Query1.SQL.Add('SELECT *');
+   Query1.SQL.Add('FROM "Sicil.DB" Sicil');
+   Query1.SQL.Add('WHERE (Sicil.Sicno >=:t1 And Sicil.Sicno<=:t2)');
+   Query1.SQL.Add(' and (Sicil.yil =:yi And Sicil.ay=:ay And Sicil.donem=:don)');
+
+   Query1.SQL.Add('ORDER BY  Sicil.Sicno');
+   Query1.ParamByName('t1').value :=StrToint(Edit1.Text);
+   Query1.ParamByName('t2').value :=StrToint(Edit2.Text);
+   Query1.ParamByName('yi').value :=DMEMUR.TDONEMYil.Value;
+   Query1.ParamByName('ay').value :=DMEMUR.TDONEMAy.Value;
+   Query1.ParamByName('don').value :=DMEMUR.TDONEMDonem.Value;
+
+   Query1.Open;
+  end;
+  if radiogroup1.ItemIndex=1 then
+  begin
+   Query1.Close;
+   Query1.SQL.Clear ;
+   Query1.SQL.Add('SELECT *');
+   Query1.SQL.Add('FROM "Sicil.DB" Sicil');
+   Query1.SQL.Add('WHERE Sicil.Dair=:t1 ');
+   Query1.SQL.Add(' and (Sicil.yil =:yi And Sicil.ay=:ay And Sicil.donem=:don)');
+   Query1.SQL.Add('ORDER BY  Sicil.Sicno');
+   Query1.ParamByName('t1').value :=StrToint(Edit1.Text);
+   Query1.ParamByName('t2').value :=StrToint(Edit2.Text);
+   Query1.ParamByName('yi').value :=DMEMUR.TDONEMYil.Value;
+   Query1.ParamByName('ay').value :=DMEMUR.TDONEMAy.Value;
+   Query1.ParamByName('don').value :=DMEMUR.TDONEMDonem.Value;
+   Query1.ParamByName('t1').AsString :=DBLookupComboBox2.Text;
+   Query1.Open;
+  end;
+end;
+
+procedure TFTopHesap.Edit2KeyPress(Sender: TObject; var Key: Char);
+begin
+if Key=Chr(VK_Return) Then HazirBt.SetFocus;
+end;
+
+end.

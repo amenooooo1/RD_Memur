@@ -1,0 +1,266 @@
+unit Ukesintiler;
+
+interface
+
+uses
+  SysUtils, Windows, Messages, Classes, Graphics, Controls,
+  StdCtrls, Forms, DBCtrls, DB, Mask, ExtCtrls, Buttons, Grids, DBGrids;
+
+type
+  TFkesintiler = class(TForm)
+    Panel1: TPanel;
+    DBNavigator: TDBNavigator;
+    Panel2: TPanel;
+    DBText1: TDBText;
+    DBText2: TDBText;
+    DBText3: TDBText;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label22: TLabel;
+    Label24: TLabel;
+    DBLookupComboBox16: TDBLookupComboBox;
+    DBLookupComboBox17: TDBLookupComboBox;
+    DBLookupComboBox18: TDBLookupComboBox;
+    DBLookupComboBox19: TDBLookupComboBox;
+    DBLookupComboBox20: TDBLookupComboBox;
+    DBLookupComboBox21: TDBLookupComboBox;
+    DBLookupComboBox22: TDBLookupComboBox;
+    DBLookupComboBox23: TDBLookupComboBox;
+    DBLookupComboBox24: TDBLookupComboBox;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label23: TLabel;
+    Label26: TLabel;
+    Label29: TLabel;
+    EditKesad: TDBEdit;
+    DBCheckBox1: TDBCheckBox;
+    DBCheckBox2: TDBCheckBox;
+    DBCheckBox3: TDBCheckBox;
+    DBCheckBox4: TDBCheckBox;
+    DBLookupComboBox1: TDBLookupComboBox;
+    EditKesad2: TDBEdit;
+    DBCheckBox8: TDBCheckBox;
+    DBCheckBox7: TDBCheckBox;
+    DBCheckBox6: TDBCheckBox;
+    DBCheckBox5: TDBCheckBox;
+    DBLookupComboBox2: TDBLookupComboBox;
+    EditKesad3: TDBEdit;
+    DBCheckBox9: TDBCheckBox;
+    DBCheckBox10: TDBCheckBox;
+    DBCheckBox11: TDBCheckBox;
+    DBCheckBox12: TDBCheckBox;
+    DBLookupComboBox3: TDBLookupComboBox;
+    EditKesad4: TDBEdit;
+    DBCheckBox16: TDBCheckBox;
+    DBCheckBox15: TDBCheckBox;
+    DBCheckBox14: TDBCheckBox;
+    DBCheckBox13: TDBCheckBox;
+    DBLookupComboBox4: TDBLookupComboBox;
+    EditKesad5: TDBEdit;
+    DBCheckBox17: TDBCheckBox;
+    DBCheckBox18: TDBCheckBox;
+    DBCheckBox19: TDBCheckBox;
+    DBCheckBox20: TDBCheckBox;
+    DBLookupComboBox5: TDBLookupComboBox;
+    EditKesad6: TDBEdit;
+    DBCheckBox24: TDBCheckBox;
+    DBCheckBox23: TDBCheckBox;
+    DBCheckBox22: TDBCheckBox;
+    DBCheckBox21: TDBCheckBox;
+    DBLookupComboBox6: TDBLookupComboBox;
+    EditKesad7: TDBEdit;
+    DBCheckBox25: TDBCheckBox;
+    DBCheckBox26: TDBCheckBox;
+    DBCheckBox27: TDBCheckBox;
+    DBCheckBox28: TDBCheckBox;
+    DBLookupComboBox7: TDBLookupComboBox;
+    EditKesad8: TDBEdit;
+    DBCheckBox32: TDBCheckBox;
+    DBCheckBox31: TDBCheckBox;
+    DBCheckBox30: TDBCheckBox;
+    DBCheckBox29: TDBCheckBox;
+    DBLookupComboBox8: TDBLookupComboBox;
+    DBLookupComboBox9: TDBLookupComboBox;
+    EditKesad9: TDBEdit;
+    DBCheckBox33: TDBCheckBox;
+    DBCheckBox34: TDBCheckBox;
+    DBCheckBox35: TDBCheckBox;
+    DBCheckBox36: TDBCheckBox;
+    DBLookupComboBox10: TDBLookupComboBox;
+    EditKesad10: TDBEdit;
+    DBCheckBox37: TDBCheckBox;
+    DBCheckBox38: TDBCheckBox;
+    DBCheckBox39: TDBCheckBox;
+    DBCheckBox40: TDBCheckBox;
+    DBLookupComboBox11: TDBLookupComboBox;
+    EditKesad11: TDBEdit;
+    DBCheckBox41: TDBCheckBox;
+    DBCheckBox42: TDBCheckBox;
+    DBCheckBox43: TDBCheckBox;
+    DBCheckBox44: TDBCheckBox;
+    DBLookupComboBox12: TDBLookupComboBox;
+    EditKesad12: TDBEdit;
+    DBCheckBox45: TDBCheckBox;
+    DBCheckBox46: TDBCheckBox;
+    DBCheckBox47: TDBCheckBox;
+    DBCheckBox48: TDBCheckBox;
+    DBLookupComboBox13: TDBLookupComboBox;
+    EditKesad13: TDBEdit;
+    DBCheckBox49: TDBCheckBox;
+    DBCheckBox50: TDBCheckBox;
+    DBCheckBox51: TDBCheckBox;
+    DBCheckBox52: TDBCheckBox;
+    EditKesad14: TDBEdit;
+    DBCheckBox53: TDBCheckBox;
+    DBCheckBox54: TDBCheckBox;
+    DBCheckBox55: TDBCheckBox;
+    DBCheckBox56: TDBCheckBox;
+    DBLookupComboBox14: TDBLookupComboBox;
+    EditKesad15: TDBEdit;
+    DBCheckBox60: TDBCheckBox;
+    DBCheckBox59: TDBCheckBox;
+    DBCheckBox58: TDBCheckBox;
+    DBCheckBox57: TDBCheckBox;
+    DBLookupComboBox15: TDBLookupComboBox;
+    Label21: TLabel;
+    Label25: TLabel;
+    Label27: TLabel;
+    Label28: TLabel;
+    Label30: TLabel;
+    DBLookupComboBox25: TDBLookupComboBox;
+    Label31: TLabel;
+    DBLookupComboBox26: TDBLookupComboBox;
+    BitBtn1: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    procedure EditYilKeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure SilBtClick(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  Fkesintiler: TFkesintiler;
+
+implementation
+
+uses UData, UGelirkod;
+
+{$R *.DFM}
+
+procedure TFkesintiler.EditYilKeyPress(Sender: TObject; var Key: Char);
+begin
+if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+end;
+
+
+procedure TFkesintiler.BitBtn4Click(Sender: TObject);
+begin
+Close;
+end;
+
+
+
+
+
+
+procedure TFkesintiler.BitBtn6Click(Sender: TObject);
+begin
+if(FData.TKESINTI.State=DsEdit)or(FData.TKESINTI.State=Dsinsert) or
+(FData.TKATSAY2.State=DsEdit)or(FData.TKATSAY2.State=Dsinsert) then
+begin
+   if MessageBox(handle,'Deðiþikleri Kaydedilsinmi','KAPANIÞ',
+    mb_YesNo + MB_ICONQUESTION) <> mrYes then
+    begin
+     FData.TKESINTI.Cancel;
+     FData.TKATSAY2.Cancel;
+     end else
+      begin
+     if(FData.TKESINTI.State=DsEdit)or(FData.TKESINTI.State=Dsinsert) then
+          FData.TKESINTI.Post;
+     if(FData.TKATSAY2.State=DsEdit)or(FData.TKATSAY2.State=Dsinsert) then
+      FData.TKATSAY2.Post;
+     end;
+end;
+
+Close;
+
+end;
+
+procedure TFkesintiler.SilBtClick(Sender: TObject);
+begin
+   if messagebox (handle,'Bu Kaydý Silmek Ýstiyor musunuz?', 'DÝKKAT',mb_YesNo +
+   mb_iconquestion) <> mrNo then
+   begin
+    FData.TKATSAY2.Delete;
+    FData.TKESINTI.Delete;
+   end;
+end;
+
+
+
+
+procedure TFkesintiler.BitBtn2Click(Sender: TObject);
+begin
+     if(FData.TKESINTI.State=DsEdit)or(FData.TKESINTI.State=Dsinsert) then
+          FData.TKESINTI.Post;
+     if(FData.TKATSAY2.State=DsEdit)or(FData.TKATSAY2.State=Dsinsert) then
+      FData.TKATSAY2.Post;
+end;
+
+
+procedure TFkesintiler.FormCreate(Sender: TObject);
+begin
+FData.TGelirKod.Open;
+FData.TKATSAY1.Open;
+FData.TKATSAY2.Open;
+
+end;
+
+procedure TFkesintiler.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+FData.TGelirKod.Close;
+FData.TKATSAY1.Close;
+FData.TKATSAY2.Close;
+end;
+
+procedure TFkesintiler.BitBtn3Click(Sender: TObject);
+begin
+	Screen.Cursor := crHourGlass;
+  with TFGelirkod.Create( Self ) do
+   	try
+	  Screen.Cursor := crDefault;
+          ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+end.

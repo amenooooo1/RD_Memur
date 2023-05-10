@@ -1,0 +1,91 @@
+unit USIFREAL;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Buttons, DBTables, Db, ComCtrls, ExtCtrls;
+
+type
+  TFSIFREAL = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    BitBtn1: TBitBtn;
+    Label3: TLabel;
+    Edit3: TEdit;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    Animate1: TAnimate;
+    Table2: TTable;
+    DataSource2: TDataSource;
+    Table3: TTable;
+    DataSource3: TDataSource;
+    Table1: TTable;
+    DataSource1: TDataSource;
+    procedure Edit3KeyPress(Sender: TObject; var Key: Char);
+    procedure SpeedButton5Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure Edit2Exit(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FSIFREAL: TFSIFREAL;
+
+implementation
+
+uses UANAMENU, Umemur;
+
+{$R *.DFM}
+
+
+procedure TFSIFREAL.Edit3KeyPress(Sender: TObject; var Key: Char);
+begin
+if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+end;
+
+procedure TFSIFREAL.SpeedButton5Click(Sender: TObject);
+begin
+Application.Terminate;
+end;
+
+procedure TFSIFREAL.BitBtn2Click(Sender: TObject);
+begin
+ Animate1.Visible :=True;
+ Animate1.Active :=True;
+ DMemur.Database1.Connected := False;
+ DMemur.Database1.AliasName:='Memur'+Edit3.Text;
+ // DISCIV.Acma;
+ DMemur.DISCIVCreate(Sender);
+ If DMemur.TSISTEM.FieldByName('Yil').asstring<>Edit3.Text Then
+ Application.Terminate;
+ Animate1.Visible :=False;
+ Animate1.Active :=False;
+ Screen.Cursor := crHourGlass;
+ //Sifre;
+ Close;
+end;
+
+procedure TFSIFREAL.Edit2Exit(Sender: TObject);
+begin
+Table1.SetKey;
+Table1.FieldByName('Kullanici').asString:= Edit1.Text;
+Table1.GotoKey;
+ If Table1.FieldByName('Sifre').asString=Edit2.Text then
+ BitBtn2.Enabled :=True else   BitBtn2.Enabled :=False;
+end;
+
+
+
+procedure TFSIFREAL.FormCreate(Sender: TObject);
+begin
+Table1.Open;
+end;
+
+end.

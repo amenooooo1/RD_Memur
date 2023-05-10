@@ -1,0 +1,66 @@
+unit UHakkinda;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, DBCtrls, jpeg;
+
+type
+  TFHakkinda = class(TForm)
+    Panel1: TPanel;
+    Image1: TImage;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Label1: TLabel;
+    Panel4: TPanel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    DBText1: TDBText;
+    DBText2: TDBText;
+    DBText3: TDBText;
+    DBText4: TDBText;
+    Label6: TLabel;
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FHakkinda: TFHakkinda;
+
+implementation
+
+uses  UMEMUR;
+
+{$R *.dfm}
+
+procedure TFHakkinda.FormCreate(Sender: TObject);
+begin
+DMEMUR.MSHesap.Connected:=True;
+DMEMUR.Lisans.Open;
+if DMEMUR.LisansDeger.AsBoolean=True then
+begin
+Label1.Caption:='SERAÞ Yazýlýmlarý Lisanslý Kullanýcýsýdýr';
+ClientHeight:=400;
+end
+else
+begin
+Label1.Caption:='Geçersiz/Aktive Edilmemiþ Lisans Numarasý';
+Panel4.Visible:=False;
+ClientHeight:=280;
+end;
+end;
+
+procedure TFHakkinda.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+DMEMUR.Lisans.Close;
+DMEMUR.MSHesap.Connected:=False;
+end;
+
+end.

@@ -1,0 +1,78 @@
+unit Udair;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  ExtCtrls, StdCtrls, Mask, DBCtrls, Buttons, Db, DBTables, DBAccess, MemDS;
+
+type
+  TFDaire = class(TForm)
+    Label2: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    DBNavigator1: TDBNavigator;
+    Vazgec: TBitBtn;
+    Label8: TLabel;
+    Label9: TLabel;
+    DaireAdi: TDBEdit;
+    IsBolNo: TDBEdit;
+    IsyeriSsk: TDBEdit;
+    IsTas: TDBEdit;
+    Iskaz: TDBEdit;
+    DBEdit1: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure DairNoKeyPress(Sender: TObject; var Key: Char);
+    procedure VazgecClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FDaire: TFDaire;
+
+implementation
+
+uses UMEMUR;
+
+{$R *.DFM}
+
+procedure TFDaire.BitBtn1Click(Sender: TObject);
+begin
+Close;
+end;
+
+procedure TFDaire.DairNoKeyPress(Sender: TObject; var Key: Char);
+begin
+if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+
+end;
+
+
+
+
+procedure TFDaire.VazgecClick(Sender: TObject);
+begin
+if(DMEMUR.TDAIR.State=DsEdit)or(DMEMUR.TDAIR.State=Dsinsert) then
+begin
+   if MessageBox(handle,'Deðiþikleri Kaydedilsinmi','KAPANIÞ',
+    mb_YesNo + MB_ICONQUESTION) <> mrYes then
+     DMEMUR.TDAIR.Cancel
+     else    DMEMUR.TDAIR.Post;
+end;
+
+
+end;
+
+end.

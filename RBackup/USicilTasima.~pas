@@ -1,0 +1,191 @@
+unit USicilTasima;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, DBTables, Uni, DBAccess, MemDS, ComCtrls, Grids, DBGrids, StdCtrls, Buttons;
+
+type
+  TFSicilTasima = class(TForm)
+    Label1: TLabel;
+    Label3: TLabel;
+    Label2: TLabel;
+    BitBtn1: TBitBtn;
+    DBGrid3: TDBGrid;
+    DBGrid1: TDBGrid;
+    BitBtn2: TBitBtn;
+    ProgressBar1: TProgressBar;
+    Query1: TUniQuery;
+    DataSource1: TDataSource;
+    Query2: TUniQuery;
+    Query3: TUniQuery;
+    Query4: TUniQuery;
+    Table1: TUniTable;
+    Table2: TUniTable;
+    Table3: TUniTable;
+    DataSource2: TDataSource;
+    DataSource3: TDataSource;
+    DataSource4: TDataSource;
+    procedure FormCreate(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure tasima;
+    procedure BitBtn2Click(Sender: TObject);
+    procedure terfi;
+    procedure terfi1;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FSicilTasima: TFSicilTasima;
+  i:Integer;
+
+implementation
+
+uses UMEMUR;
+
+{$R *.dfm}
+
+procedure TFSicilTasima.BitBtn1Click(Sender: TObject);
+begin
+if DMEMUR.TDONEMIssizhes.Value='H' then
+ ShowMessage('Bu Dönem Kapatýlmiþ Taþima Yapamazsýn')
+ else
+begin
+
+if Table1.Fields[0].AsString<>'' then
+begin
+  If MessageDlg('Siciller Dolu Taþýmak istediðinizden eminmi siniz ?',
+    mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+ begin
+    while not Table3.Eof do
+     Table3.Delete;
+    while not Table2.Eof do
+     Table2.Delete;
+    while not Table1.Eof do
+     Table1.Delete;
+     tasima;
+ end;
+end else
+   tasima;
+end;
+end;
+procedure TFSicilTasima.terfi1;
+begin
+  //
+If (Table2.FieldByName('Emkidtar').AsDateTime>=Query1.FieldByName('Ilktar').AsDateTime) and
+   (Table2.FieldByName('Emkidtar').AsDateTime<=Query1.FieldByName('Sontar').AsDateTime) Then
+ begin
+  i:=StrToInt( copy(Table2.FieldByName('Emkidtar').AsString,7,4));
+  Table1.IndexFieldNames:='Yil;Ay;Donem;Sicno';
+  Table1.Close;
+  Table1.Open;
+  Table1.SetKey;
+  Table1.Fields[0].Value:=Table2.Fields[0].Value;
+  Table1.Fields[1].Value:=Table2.Fields[1].Value;
+  Table1.Fields[2].Value:=Table2.Fields[2].Value;
+  Table1.Fields[3].Value:=Table2.Fields[3].Value;
+  Table1.GotoKey;
+  Table1.Edit;
+  Table1.FieldByName('kid').Value:=Table1.FieldByName('kid').Value+1;
+  Table1.Post;
+  Table2.FieldByName('Emkidtar').AsString:=copy(Table2.FieldByName('Emkidtar').AsString,1,6)+IntToStr(i+1);
+
+ end;
+end;
+procedure TFSicilTasima.terfi;
+begin
+//
+Table1.Edit;
+Table1.FieldByName('Temizy').Value:=0;
+Table1.FieldByName('Ozelsig').Value:=0;
+Table1.FieldByName('loj').Value:=0;
+Table1.FieldByName('kes1').Value:=0;
+Table1.FieldByName('kes2').Value:=0;
+Table1.FieldByName('zim').Value:=0;
+Table1.FieldByName('YemK').Value:=0;
+Table1.FieldByName('Avans').Value:=0;
+Table1.FieldByName('Nafaka').Value:=0;
+Table1.FieldByName('Ilac').Value:=0;
+If (Table1.FieldByName('Mttar').AsDateTime>=Query1.FieldByName('Ilktar').AsDateTime) and
+   (Table1.FieldByName('Mttar').AsDateTime<=Query1.FieldByName('Sontar').AsDateTime) Then
+ begin
+  i:=StrToInt( copy(Table1.FieldByName('Mttar').AsString,7,4));
+  Table1.FieldByName('der').Value:=Table1.FieldByName('Mtder').Value;
+  Table1.FieldByName('kad').Value:=Table1.FieldByName('Mtkad').Value;
+  Table1.FieldByName('EkGos').Value:=Table1.FieldByName('Mtgos').Value;
+  Table1.FieldByName('Mttar').AsString:=copy(Table1.FieldByName('Mttar').AsString,1,6)+IntToStr(i+1);
+
+ end;
+If (Table1.FieldByName('Ttar').AsDateTime>=Query1.FieldByName('Ilktar').AsDateTime) and
+   (Table1.FieldByName('Ttar').AsDateTime<=Query1.FieldByName('Sontar').AsDateTime) Then
+ begin
+  i:=StrToInt( copy(Table1.FieldByName('ttar').AsString,7,4));
+  Table1.FieldByName('Mder').Value:=Table1.FieldByName('Tder').Value;
+  Table1.FieldByName('Mkad').Value:=Table1.FieldByName('Tkad').Value;
+  Table1.FieldByName('MEkGos').Value:=Table1.FieldByName('TekGos').Value;
+  Table1.FieldByName('Ttar').AsString:=copy(Table1.FieldByName('ttar').AsString,1,6)+IntToStr(i+1);
+ end;
+Table1.Post;
+end;
+procedure TFSicilTasima.tasima;
+begin
+Query2.Open;
+while not Query2.Eof do
+begin
+ Table1.Insert;
+ for I := 3 to 88 do
+  Table1.Fields[i].AsString:=Query2.Fields[i].AsString;
+  Table1.Post;
+  terfi;
+  Query2.Next;
+end;
+Query2.Close;
+Query3.Open;
+while not Query3.Eof do
+begin
+ Table2.Insert;
+ for I := 3 to 7 do
+  Table2.Fields[i].AsString:=Query3.Fields[i].AsString;
+  terfi1;
+ Table2.Post;
+ Query3.Next;
+end;
+Query3.Close;
+Query4.Open;
+while not Query4.Eof do
+begin
+ Table3.Insert;
+ for I := 3 to 25 do
+  Table3.Fields[i].AsString:=Query4.Fields[i].AsString;
+ Table3.Post;
+ Query4.Next;
+end;
+Query4.Close;
+Label3.Caption :=DMEMUR.TDONEM.FieldByName('Ay').asstring+' '+
+DMEMUR.TDONEM.FieldByName('Donem').asstring+' Sicil Taþýndý';
+end;
+
+procedure TFSicilTasima.BitBtn2Click(Sender: TObject);
+begin
+Query1.Close;
+Table1.Close;
+Table2.Close;
+Table3.Close;
+DMEMUR.TSICIL.Refresh;
+Close;
+end;
+
+procedure TFSicilTasima.FormCreate(Sender: TObject);
+begin
+Query1.Open;
+Table1.Open;
+Table2.Open;
+Table3.Open;
+
+end;
+
+end.

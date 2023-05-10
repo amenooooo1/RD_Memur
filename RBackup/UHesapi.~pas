@@ -1,0 +1,2064 @@
+unit UHesapi;
+
+interface
+
+uses
+  SysUtils, Windows, Messages, Classes, Graphics, Controls,
+  StdCtrls, Forms, DBCtrls, DB, DBTables, Uni, DBAccess, MemDS, Mask, ExtCtrls, Buttons,
+  ComCtrls, Tabnotbk, Math, dialogs, ADODB, Grids, DBGrids;
+
+type
+  TFHesap = class(TForm)
+    Panel1: TPanel;
+    Panel3: TPanel;
+    Sicno: TDBText;
+    Adi: TDBText;
+    Soyadi: TDBText;
+    Dair: TDBText;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Donem: TDBText;
+    Ay: TDBText;
+    Yil: TDBText;
+    Label70: TLabel;
+    Label71: TLabel;
+    GeriBt: TBitBtn;
+    IlerBt: TBitBtn;
+    HesaptBt: TBitBtn;
+    Silme: TBitBtn;
+    BitBtn1: TBitBtn;
+    Toplu: TBitBtn;
+    Vazgec: TBitBtn;
+    Panel4: TPanel;
+    Label6: TLabel;
+    Kazadi4: TDBText;
+    Kazadi8: TDBText;
+    Kazadi9: TDBText;
+    DBText31: TDBText;
+    DBText32: TDBText;
+    DBText37: TDBText;
+    DBText38: TDBText;
+    DBText39: TDBText;
+    DBText40: TDBText;
+    DBText45: TDBText;
+    Kazadi10: TDBText;
+    Kazadi11: TDBText;
+    DBText50: TDBText;
+    DBText51: TDBText;
+    DBText53: TDBText;
+    DBText54: TDBText;
+    DBText55: TDBText;
+    DBText56: TDBText;
+    DBText57: TDBText;
+    DBText58: TDBText;
+    DBText59: TDBText;
+    DBText60: TDBText;
+    DBText61: TDBText;
+    DBText62: TDBText;
+    Label23: TLabel;
+    Kazadi13: TDBText;
+    Kazadi5: TDBText;
+    Kazadi6: TDBText;
+    Kazadi7: TDBText;
+    Label24: TLabel;
+    Label25: TLabel;
+    DBText1: TDBText;
+    DBText2: TDBText;
+    DBText3: TDBText;
+    DBText4: TDBText;
+    DBText5: TDBText;
+    DBText6: TDBText;
+    DBText7: TDBText;
+    DBText9: TDBText;
+    DBText10: TDBText;
+    DBText11: TDBText;
+    DBText12: TDBText;
+    DBText13: TDBText;
+    DBText14: TDBText;
+    DBText15: TDBText;
+    DBText16: TDBText;
+    DBText17: TDBText;
+    DBText18: TDBText;
+    DBText19: TDBText;
+    DBText20: TDBText;
+    DBText21: TDBText;
+    Label26: TLabel;
+    Label27: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Kesad1: TDBText;
+    Kesad2: TDBText;
+    Kesad3: TDBText;
+    Kesad4: TDBText;
+    Kesad8: TDBText;
+    Kesad9: TDBText;
+    SskMat: TDBText;
+    Label10: TLabel;
+    SskIs: TDBText;
+    SskIsv: TDBText;
+    Label11: TLabel;
+    GelirVer: TDBText;
+    Label13: TLabel;
+    Kesad10: TDBText;
+    Kesad11: TDBText;
+    Kesad12: TDBText;
+    Label14: TLabel;
+    BrutGelir: TDBText;
+    DamVer: TDBText;
+    Label15: TLabel;
+    Label16: TLabel;
+    YasalKes: TDBText;
+    OzelKes: TDBText;
+    Kesad13: TDBText;
+    Kesad14: TDBText;
+    Label17: TLabel;
+    NetKes: TDBText;
+    Net: TDBText;
+    Label18: TLabel;
+    DamMat: TDBText;
+    Kesad5: TDBText;
+    Kesad6: TDBText;
+    Kesad7: TDBText;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
+    DBText22: TDBText;
+    DBText23: TDBText;
+    DBText24: TDBText;
+    DBText25: TDBText;
+    DBText27: TDBText;
+    DBText28: TDBText;
+    DBText29: TDBText;
+    DBText30: TDBText;
+    DBText33: TDBText;
+    DBText34: TDBText;
+    DBText35: TDBText;
+    DBText36: TDBText;
+    DBText41: TDBText;
+    Kesad15: TDBText;
+    DBText42: TDBText;
+    DBText8: TDBText;
+    DBText26: TDBText;
+    Label28: TLabel;
+    DBText43: TDBText;
+    DBEdit1: TDBEdit;
+    DBEdit27: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit9: TDBEdit;
+    DBEdit10: TDBEdit;
+    Animate1: TAnimate;
+    Panel2: TPanel;
+    Label22: TLabel;
+    Kayit: TBitBtn;
+    DBEdit11: TDBEdit;
+    DBEdit12: TDBEdit;
+    DBText44: TDBText;
+    DBText46: TDBText;
+    Label7: TLabel;
+    DBEdit13: TDBEdit;
+    Label12: TLabel;
+    DBText47: TDBText;
+    Label29: TLabel;
+    DBText48: TDBText;
+    Label30: TLabel;
+    DBText49: TDBText;
+    procedure GeriBtClick(Sender: TObject);
+    procedure IlerBtClick(Sender: TObject);
+    procedure HesaptBtClick(Sender: TObject);
+    procedure KayitClick(Sender: TObject);
+    procedure VazgecClick(Sender: TObject);
+    procedure DamIsz;
+    procedure SSkHES;
+    procedure HES0;
+    procedure HES1;
+    procedure SSkHES0;
+    procedure Sendik;
+    procedure GELHES0;
+    procedure GELHES;
+    procedure GELHES1;
+    procedure YASKE;
+    procedure KDV;
+    procedure Gos;
+    procedure gost;
+    procedure Arama;
+    procedure kayit1;
+    procedure sil;
+    procedure sil1;
+    procedure SilmeClick(Sender: TObject);
+    procedure DBEdit1KeyPress(Sender: TObject; var Key: Char);
+    procedure DBEdit3Exit(Sender: TObject);
+    procedure PEdit25KeyPress(Sender: TObject; var Key: Char);
+    procedure DBEdit1Enter(Sender: TObject);
+    procedure DBEdit27Enter(Sender: TObject);
+    procedure DBEdit2Enter(Sender: TObject);
+    procedure DBEdit6Exit(Sender: TObject);
+    procedure DBEdit4Enter(Sender: TObject);
+    procedure DBEdit7Enter(Sender: TObject);
+    procedure DBEdit8Enter(Sender: TObject);
+    procedure DBEdit8Exit(Sender: TObject);
+    procedure Edit26Enter(Sender: TObject);
+    procedure DBEdit7Exit(Sender: TObject);
+    procedure DBEdit9Exit(Sender: TObject);
+    procedure DBEdit10Enter(Sender: TObject);
+    procedure DBEdit10Exit(Sender: TObject);
+    procedure FormPaint(Sender: TObject);
+    procedure TopluClick(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure DBEdit5Exit(Sender: TObject);
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  FHesap: TFHesap;
+  iz,Fark,yuv,sst,sss,kat,a,r,sg,sa,sy,kidd:integer;
+  etar,mtar,ktar:String;
+
+
+implementation
+
+uses UMEMUR, UTopHesap, UAboneara;
+
+{$R *.DFM}
+
+procedure TFHesap.sil;
+begin
+DBEdit1.ReadOnly:=True;
+DBEdit27.ReadOnly:=True;
+DBEdit2.ReadOnly:=True;
+DBEdit4.ReadOnly:=True;
+DBEdit7.ReadOnly:=True;
+DBEdit8.ReadOnly:=True;
+DBEdit3.ReadOnly:=True;
+DBEdit5.ReadOnly:=True;
+DBEdit6.ReadOnly:=True;
+DBEdit9.ReadOnly:=True;
+DBEdit10.ReadOnly:=True;
+end;
+
+procedure TFHesap.sil1;
+begin
+DBEdit1.ReadOnly:=False;
+DBEdit27.ReadOnly:=False;
+DBEdit2.ReadOnly:=False;
+DBEdit4.ReadOnly:=False;
+DBEdit7.ReadOnly:=False;
+DBEdit8.ReadOnly:=False;
+DBEdit3.ReadOnly:=False;
+DBEdit5.ReadOnly:=False;
+DBEdit6.ReadOnly:=False;
+DBEdit9.ReadOnly:=False;
+DBEdit10.ReadOnly:=False;
+end;
+
+
+procedure TFHesap.Arama;
+begin
+with DMEMUR do
+begin
+try
+ THESAP.SetKey;
+ THESAP.FieldByName('Yil').asString:=
+ TDONEM.FieldByName('Yil').asString;
+ THESAP.FieldByName('Ay').asString:=
+ TDONEM.FieldByName('Ay').asString;
+ THESAP.FieldByName('Donem').asString:=
+ TDONEM.FieldByName('Donem').asString;
+ THESAP.FieldByName('Sicno').asString:=
+ TSICIL.FieldByName('SicNo').asString;
+ HesaptBt.Enabled:=True;
+ sil1;
+ Silme.Enabled:=True;
+ if not THESAP.GotoKey then
+  Begin
+   Panel2.Visible:=True;
+   HesaptBt.Enabled:=False;
+   Silme.Enabled:=False;
+   Kayit.SetFocus;
+  end
+ else
+  THESAP.GotoKey
+ Except
+End;
+ THESAP1.SetKey;
+ THESAP1.FieldByName('No').AsString:=
+ THESAP.FieldByName('No').Asstring;
+ THESAP1.GotoKey;
+ THESAP2.SetKey;
+ THESAP2.FieldByName('No').AsString:=
+ THESAP.FieldByName('No').Asstring;
+ THESAP2.GotoKey;
+ TSSK.SetKey;
+ TSSKSicno.Value:=TSICILSicno.Value;
+ TSSKYil.Value:=TDONEMYil.Value;
+ TSSKAy.Value:=TDONEMAy.Value;
+ TSSK.GotoKey;
+end;
+If DMEMUR.TDONEM.FieldByName('Issizhes').asstring='H' Then
+begin
+  sil;
+  Silme.Enabled:=False;
+  HesaptBt.Enabled:=False;
+  Toplu.Enabled:=False;
+end;
+End;
+
+procedure TFHesap.GeriBtClick(Sender: TObject);
+begin
+ Panel2.Visible:=False;
+ DMEMUR.TSICIL.Prior;
+ Arama;
+end;
+
+procedure TFHesap.IlerBtClick(Sender: TObject);
+begin
+ Panel2.Visible:=False;
+ DMEMUR.TSICIL.Next;
+ Arama;
+end;
+
+function yuvar(x,y:Currency):Currency;far;external 'Yuvarlama.dll';
+//function yuvar2(x,y:Currency):Currency;far;external 'Awdocyuv2.dll';
+//function yuvar3(x,y:Currency):Currency;far;external 'Awdocyuv3.dll';
+
+procedure TFHesap.HES0;
+var mafar,mafar1:Currency;
+Begin
+with DMEMUR do
+begin
+THESAP1.Edit;
+THESAP.Edit;
+IF TSICIL.FieldByName('Ask').asstring = 'H' then THESAP1.FieldByName('Pkaz7').value:=0
+else
+THESAP1.FieldByName('Pkaz7').value:=TKATSAY.FieldByName('TabKay').value;
+Case TSICIL.FieldByName('Vekor').value of
+  1 : THESAP1.FieldByName('Pkaz7').value:=(THESAP1.FieldByName('Pkaz7').value/3)*1;
+  2 : THESAP1.FieldByName('Pkaz7').value:=(THESAP1.FieldByName('Pkaz7').value/3)*2;
+  3 : THESAP1.FieldByName('Pkaz7').value:=(THESAP1.FieldByName('Pkaz7').value/3)*2;
+  4 : THESAP1.FieldByName('Pkaz7').value:=(THESAP1.FieldByName('Pkaz7').value/3)*2;
+
+End;
+THESAP1.FieldByName('Pkaz8').value:=
+(TSICIL.FieldByName('Kid').value*20)*TKATSAY.FieldByName('Katsayi').value;
+Case TSICIL.FieldByName('Vekor').value of
+  1 : THESAP1.FieldByName('Pkaz8').value:=(THESAP1.FieldByName('Pkaz8').value/3)*1;
+  2 : THESAP1.FieldByName('Pkaz8').value:=(THESAP1.FieldByName('Pkaz8').value/3)*2;
+  4 : THESAP1.FieldByName('Pkaz8').value:=(THESAP1.FieldByName('Pkaz8').value/3)*2;
+
+ End;
+
+THESAP1.FieldByName('Pkaz9').value:=
+(TKATSAY.FieldByName('Katsayi').value*TKATSAY.FieldByName('Mik').value)*
+TSICIL.FieldByName('Ozhiz').value;
+Case TSICIL.FieldByName('Vekor').value of
+  1 : THESAP1.FieldByName('Pkaz9').value:=(THESAP1.FieldByName('Pkaz9').value/3)*1;
+  2 : THESAP1.FieldByName('Pkaz9').value:=(THESAP1.FieldByName('Pkaz9').value/3)*2;
+//  4 :DMEMUR.THESAP1.FieldByName('Pkaz9').value:=(THESAP1.FieldByName('Pkaz9').value/3)*2;
+
+End;
+///iz:=THESAP1.FieldByName('Kaz11').value+THESAP1.FieldByName('Kaz13').value;
+If (TSICIL.fieldbyname('Keft').Value>0) then
+DMEMUR.THESAP1.FieldByName('Pkaz4').value:=TSICIL.fieldbyname('Keft').Value;
+
+THESAP1.FieldByName('Pkaz10').value:=0;
+If TSICIL.FieldByName('Aile').asstring = 'E' then
+begin
+THESAP1.FieldByName('Pkaz10').value:=
+TKATSAY.fieldbyname('Katsayi').Value*TKATSAY.fieldbyname('Aile').Value;
+End;
+Case TSICIL.FieldByName('Vekor').value of
+  1 : THESAP1.FieldByName('Pkaz10').value:=(THESAP1.FieldByName('Pkaz10').value/3)*1;
+  2 : THESAP1.FieldByName('Pkaz10').value:=(THESAP1.FieldByName('Pkaz10').value/3)*2;
+End;
+THESAP1.FieldByName('Pkaz11').value:=TSICIL.fieldbyname('Cosay').value*
+(TKATSAY.fieldbyname('Katsayi').Value*TKATSAY.fieldbyname('Cocuk').Value)+
+(TSICIL.fieldbyname('Otm').value*2)*
+(TKATSAY.fieldbyname('Katsayi').Value*TKATSAY.fieldbyname('Cocuk').Value);
+Case TSICIL.FieldByName('Vekor').value of
+  1 : THESAP1.FieldByName('Pkaz11').value:=(THESAP1.FieldByName('Pkaz11').value/3)*1;
+  2 : THESAP1.FieldByName('Pkaz11').value:=(THESAP1.FieldByName('Pkaz11').value/3)*2;
+End;
+THESAP1.FieldByName('Pkaz12').value:=TSICIL.FieldByName('Mals').value*
+TKATSAY.FieldByName('YanKat').value;
+Case TSICIL.FieldByName('Vekor').value of
+  1 : THESAP1.FieldByName('Pkaz12').value:=(THESAP1.FieldByName('Pkaz12').value/3)*1;
+  2 : THESAP1.FieldByName('Pkaz12').value:=(THESAP1.FieldByName('Pkaz12').value/3)*2;
+End;
+
+THESAP1.FieldByName('Pkaz13').value:=
+TSICIL.FieldByName('YanPu').value*TKATSAY.FieldByName('YanKat').value;
+Case TSICIL.FieldByName('Vekor').value of
+  1 : THESAP1.FieldByName('Pkaz13').value:=(THESAP1.FieldByName('Pkaz13').value/3)*1;
+  2 : THESAP1.FieldByName('Pkaz13').value:=(THESAP1.FieldByName('Pkaz13').value/3)*2;
+End;
+
+THESAP1.FieldByName('Pkaz14').value:=
+TSICIL.FieldByName('Isri').value* TKATSAY.FieldByName('YanKat').value;
+Case TSICIL.FieldByName('Vekor').value of
+  1 : THESAP1.FieldByName('Pkaz14').value:=(THESAP1.FieldByName('Pkaz14').value/3)*1;
+  2 : THESAP1.FieldByName('Pkaz14').value:=(THESAP1.FieldByName('Pkaz14').value/3)*2;
+End;
+
+THESAP1.FieldByName('Pkaz15').value:=
+TSICIL.FieldByName('Temg').value*TKATSAY.FieldByName('YanKat').value;
+Case TSICIL.FieldByName('Vekor').value of
+  1 : THESAP1.FieldByName('Pkaz15').value:=(THESAP1.FieldByName('Pkaz15').value/3)*1;
+  2 : THESAP1.FieldByName('Pkaz15').value:=(THESAP1.FieldByName('Pkaz15').value/3)*2;
+End;
+THESAP1.FieldByName('Pkaz16').value:=(TKATSAY.FieldByName('Katsayi').value*9500)*
+(TSICILKiray.Value/100);
+THESAP1.FieldByName('Pkaz18').value:=TSICIL.fieldbyname('Yakacaky').Value;
+THESAP1.FieldByName('Pkaz19').value:=TSICIL.fieldbyname('Suty').Value;
+THESAP1.FieldByName('Pkaz20').value:=TSICIL.fieldbyname('Egity').Value;
+THESAP1.FieldByName('Pkaz21').value:=TSICIL.fieldbyname('Temizy').Value;
+THESAP1.FieldByName('Pkaz22').value:=DMEMUR.TSICIL.fieldbyname('Dirp').Value*
+DMEMUR.TKATSAYKatsayi.Value;
+If TSICIL.fieldbyname('Rap').Value-7 <6 then
+  R:=TSICIL.fieldbyname('Rap').Value-7
+ Else
+  R:=THESAP1.FieldByName('Kaz11').value;
+If (THESAP1.FieldByName('Kaz11').value <> 0) and
+  TSICIL.fieldbyname('Rap').Value>6 Then
+Begin
+  THESAP1.FieldByName('Pkaz9').value:=(THESAP1.FieldByName('Pkaz9').value-
+  (THESAP1.FieldByName('Pkaz9').value/120)*R);
+  THESAP1.FieldByName('Pkaz12').value:=(THESAP1.FieldByName('Pkaz12').value-
+  (THESAP1.FieldByName('Pkaz12').value/120)*R);
+  THESAP1.FieldByName('Pkaz13').value:=(THESAP1.FieldByName('Pkaz13').value-
+  (THESAP1.FieldByName('Pkaz13').value/120)*R);
+  THESAP1.FieldByName('Pkaz14').value:=(THESAP1.FieldByName('Pkaz14').value-
+  (THESAP1.FieldByName('Pkaz14').value/120)*R);
+  THESAP1.FieldByName('Pkaz15').value:=(THESAP1.FieldByName('Pkaz15').value-
+  (THESAP1.FieldByName('Pkaz15').value/120)*R);
+end;
+THESAP1.FieldByName('Pkaz23').value:=0;
+
+THESAP1.FieldByName('Pkaz17').value:=0;
+THESAP.FieldByName('Pkaz27').value:=0;
+If (StrToDate(ktar) >=DMEMUR.TDONEM.FieldByName('Ilktar').AsDateTime) and
+   (StrToDate(ktar) <=DMEMUR.TDONEM.FieldByName('Sontar').AsDateTime) Then
+Begin
+  THESAP1.Edit;
+  mafar:=20*TKATSAY.FieldByName('Katsayi').value;
+  THESAP1.FieldByName('Pkaz8').value:=((TSICIL.FieldByName('Kid').value+1)*20*
+  TKATSAY.FieldByName('Katsayi').value);
+  THESAP1.FieldByName('Pkaz17').Value:=mafar;
+
+  THESAP1.FieldByName('Pkaz17').Value:=
+  yuvar(THESAP1.FieldByName('Pkaz17').Value,TKATSAY.FieldByName('Yuv').value);
+  THESAP.Edit;
+
+  THESAP.FieldByName('Pkaz27').value:=THESAP1.FieldByName('Pkaz17').Value*2;
+ end;
+
+If (StrToDate(etar) >=TDONEM.FieldByName('Ilktar').AsDateTime) and
+   (StrToDate(etar) <=TDONEM.FieldByName('Sontar').AsDateTime) Then
+Begin
+
+ TGOS1.SetKey;
+ TGOS1.FieldByName('Der').asstring:=
+ TSICIL.FieldByName('mTder').value;
+ TGOS1.GotoKey;
+ kat:=TSICIL.FieldByName('mTkad').value;
+ Gos;
+ Fark:=kat;
+ mafar:=fark*TKATSAY.FieldByName('Katsayi').value;
+ mafar:=yuvar(mafar,TKATSAY.FieldByName('Yuv').value);
+ mafar:=mafar+yuvar((TSICIL.FieldByName('Mtgos').value*TKATSAY.FieldByName('Katsayi').value),
+ TKATSAY.FieldByName('Yuv').value);
+
+ If (StrToDate(ktar) >=TDONEM.FieldByName('Ilktar').AsDateTime) and
+   (StrToDate(ktar) <=TDONEM.FieldByName('Sontar').AsDateTime) Then
+Begin
+  THESAP1.Edit;
+  mafar:=mafar +((TSICIL.FieldByName('Kid').value+1)*20*TKATSAY.FieldByName('Katsayi').value);
+  THESAP1.FieldByName('Pkaz8').value:=((TSICIL.FieldByName('Kid').value+1)*20*TKATSAY.FieldByName('Katsayi').value);
+  THESAP1.Post;
+ end else
+ begin
+  THESAP1.Edit;
+  mafar:=mafar +(TSICIL.FieldByName('Kid').value*20*TKATSAY.FieldByName('Katsayi').value);
+  THESAP1.FieldByName('Pkaz8').value:=(TSICIL.FieldByName('Kid').value*20*TKATSAY.FieldByName('Katsayi').value);
+  THESAP1.Post;
+ end;
+ mafar:=yuvar(mafar,TKATSAY.FieldByName('Yuv').value);
+ mafar:=mafar+DMEMUR.TKATSAY.FieldByName('TabKay').value;
+
+// Edit1.Text:=CurrToStr(mafar);
+
+ TGOS1.SetKey;
+ TGOS1.FieldByName('Der').asstring:=
+ TSICIL.FieldByName('der').value;
+ TGOS1.GotoKey;
+ kat:=TSICIL.FieldByName('kad').value;
+ Gos;
+ Fark:=kat;
+ mafar1:=fark*TKATSAY.FieldByName('Katsayi').value;
+// Fark:=kat+TSICIL.FieldByName('ekGos').value;
+ mafar1:=yuvar(mafar1,TKATSAY.FieldByName('Yuv').value);
+ mafar1:=mafar1+yuvar((TSICIL.FieldByName('ekGos').value*TKATSAY.FieldByName('Katsayi').value),
+ TKATSAY.FieldByName('Yuv').value);
+
+ mafar1:=mafar1 +(TSICIL.FieldByName('Kid').value*20*TKATSAY.FieldByName('Katsayi').value);
+ mafar1:=yuvar(mafar1,TKATSAY.FieldByName('Yuv').value);
+ mafar1:=mafar1+DMEMUR.TKATSAY.FieldByName('TabKay').value;
+  THESAP1.Edit;
+  THESAP1.FieldByName('Pkaz17').value:=mafar-mafar1;
+  THESAP1.FieldByName('Pkaz17').Value:=
+  yuvar(THESAP1.FieldByName('Pkaz17').Value,TKATSAY.FieldByName('Yuv').value);
+  THESAP.Edit;
+
+  THESAP.FieldByName('Pkaz27').value:=THESAP1.FieldByName('Pkaz17').Value*2;
+End;
+TSICIL.Edit;
+THESAP.Edit;
+THESAP.FieldByName('Pkaz26').value:=0;
+THESAP.FieldByName('Pkaz35').value:=0;
+THESAP.FieldByName('Pkaz36').value:=0;
+If TSICIL.FieldByName('Kef').asstring = 'E' then
+ THESAP.FieldByName('Pkaz26').value:=100*TKATSAY.fieldbyname('Katsayi').Value;
+If TSICIL.FieldByName('Kef').asstring = 'G' then
+ THESAP.FieldByName('Pkaz26').value:=375*TKATSAY.fieldbyname('Katsayi').Value;
+THESAP.FieldByName('Pkaz28').value:=TSICIL.fieldbyname('Avans').Value;
+THESAP.FieldByName('Pkaz29').value:= TSICIL.fieldbyname('Icra').Value;
+TSICIL.fieldbyname('Icrakal').Value:=TSICIL.fieldbyname('Icrakal').Value-
+THESAP.FieldByName('Pkaz29').value;
+
+DMEMUR.THESAP.FieldByName('Pkaz30').value:=TSICIL.fieldbyname('YemK').Value*
+DMEMUR.THESAP1.FieldByName('kaz6').value;
+THESAP.FieldByName('Pkaz31').value:=TSICIL.fieldbyname('Nafaka').Value;
+THESAP.FieldByName('Pkaz32').value:=TSICIL.fieldbyname('Loj').Value;
+THESAP.FieldByName('Pkaz33').value:=TSICIL.fieldbyname('Ozelsig').Value;
+THESAP.FieldByName('Pkaz34').value:= TSICIL.fieldbyname('Aske').Value;
+TSICIL.fieldbyname('Astop').Value:=TSICIL.fieldbyname('Astop').Value-
+THESAP.FieldByName('Pkaz34').value;
+THESAP.FieldByName('Pkaz35').value:= TSICIL.fieldbyname('Ceza').Value;
+TSICIL.fieldbyname('Cezakal').Value:=TSICIL.fieldbyname('Cezakal').Value-
+THESAP.FieldByName('Pkaz35').value;
+If TSICIL.fieldbyname('Eucret').asstring = 'B' Then
+THESAP.FieldByName('Pkaz36').value:= TKATSAY.fieldbyname('Geme').Value;
+If TSICIL.fieldbyname('Eucret').asstring = 'T' Then
+THESAP.FieldByName('Pkaz36').value:= TKATSAY.fieldbyname('Geme').Value;
+If TSICIL.fieldbyname('Eucret').asstring = 'Y' Then
+THESAP.FieldByName('Pkaz36').value:= TKATSAY.fieldbyname('Geme').Value;
+THESAP.FieldByName('Pkaz37').value:=TSICIL.fieldbyname('Zim').Value;
+THESAP.FieldByName('Pkaz38').value:=TSICIL.fieldbyname('Kes1').Value;
+THESAP.FieldByName('Pkaz39').value:=TSICIL.fieldbyname('Kes2').Value;
+THESAP.FieldByName('Pkaz40').value:=TSICIL.fieldbyname('Ilac').Value;
+THESAP1.FieldByName('Adi').asstring:=DMEMUR.TSICIL.fieldbyname('Adi').asstring;
+THESAP1.FieldByName('Soyadi').asstring:=DMEMUR.TSICIL.fieldbyname('Soyadi').asstring;
+THESAP1.FieldByName('Unvan').asstring:=DMEMUR.TSICIL.fieldbyname('Unvan').asstring;
+THESAP.FieldByName('Dair').asstring:=DMEMUR.TSICIL.fieldbyname('Dair').asstring;
+THESAP.FieldByName('SskNo').asstring:=DMEMUR.TSICIL.fieldbyname('EmNo').asstring;
+If (TDONEM.Fields[0].Value>StrToCurr(Chr(51)+Chr(48)+Chr(48)+Chr(54)))  and
+(TDONEM.Fields[1].Value>StrToCurr(Chr(48)+Chr(54)))  then
+ THESAP.FieldByName('Pkaz36').AsString:='';
+TSICIL.Post;
+THESAP.Post;
+THESAP1.Post;
+THESAP2.SetKey;
+THESAP2No.Value:=THESAP1No.Value;
+If Not THESAP2.GotoKey then
+begin
+ THESAP2.Insert;
+ THESAP2No.Value:=THESAP1No.Value;
+ THESAP2.Post;
+end else
+ THESAP2.GotoKey;
+THESAP2.Edit;
+THESAP2No.Value:=THESAP1No.Value;
+THESAP2Pkaz1.Value:=TSicil1K1.Value;
+THESAP2Pkaz2.Value:=TSicil1K2.Value;
+THESAP2Pkaz3.Value:=TSicil1K3.Value;
+THESAP2Pkaz4.Value:=TSicil1K4.Value;
+THESAP2Pkaz5.Value:=TSicil1K5.Value;
+THESAP2Pkaz6.Value:=TSicil1K6.Value;
+THESAP2Pkaz7.Value:=TSicil1K7.Value;
+THESAP2Pkaz8.Value:=TSicil1K8.Value;
+THESAP2Pkaz9.Value:=TSicil1K9.Value;
+THESAP2Pkaz10.Value:=TSicil1K10.Value;
+IF TSICILKid.Value>9 THEN
+ THESAP2Pkaz11.Value:=TSICILKid.AsString
+ELSE
+ THESAP2Pkaz11.AsString:='0'+TSICILKid.AsString;
+THESAP2Pkaz12.Value:=TSICILOzhiz.Value*100;
+THESAP2Pkaz13.Value:=TSICILMals.Value;
+THESAP2Pkaz14.Value:=TSICILYanPu.Value;
+THESAP2Pkaz15.Value:=TSICILIsri.Value;
+THESAP2Pkaz16.Value:=TSICILTemg.Value;
+DMEMUR.THESAP2A1.Value:=FormatDateTime('mm',TSICILTtar.Value)+FormatDateTime('dd',TSICILTtar.Value);
+DMEMUR.THESAP2A2.Value:=DateToStr((TSicil1Emkidtar.Value+1)-(TDONEMSontar.value));
+  sa:=StrToInt(FormatDateTime('mm',(DMEMUR.THESAP2A2.AsDateTime)));
+if sa=12 then
+begin
+ kidd:=TSICILKid.AsInteger+1;
+ IF kidd>9 THEN
+  THESAP2Pkaz11.AsInteger:=kidd
+ ELSE
+  THESAP2Pkaz11.AsString:='0'+IntToStr(kidd);
+DMEMUR.THESAP2A2.Value:=THESAP2Pkaz11.AsString+'00'+FormatDateTime('dd',DMEMUR.THESAP2A2.AsDateTime);
+end else
+begin
+ DMEMUR.THESAP2A2.Value:=DateToStr((TSicil1Emkidtar.Value-60)-(TDONEMSontar.value));
+ DMEMUR.THESAP2A2.Value:=THESAP2Pkaz11.AsString+FormatDateTime('mm',DMEMUR.THESAP2A2.AsDateTime)+FormatDateTime('dd',DMEMUR.THESAP2A2.AsDateTime);
+end;
+DMEMUR.THESAP2A3.Value:=TSICILIlkssk.Value;
+THESAP2.Post;
+end;
+End;
+
+procedure TFHesap.gost;
+begin
+DMEMUR.TGOS1.SetKey;
+DMEMUR.TGOS1.FieldByName('Der').asstring:=
+DMEMUR.THESAP1.FieldByName('Kaz1').asstring;
+DMEMUR.TGOS1.GotoKey;
+kat:=DMEMUR.THESAP1.FieldByName('Kaz2').value;
+Gos;
+kat:=DMEMUR.TKATSAY.fieldbyname('Katsayi').Value*kat;
+end;
+
+procedure TFHesap.HES1;
+begin
+with DMEMUR do
+begin
+  IF TSicil1.FieldByName('Emkidtar').AsString='' then
+   ktar:='01.01.2900' else begin
+
+  sg:=StrToInt(FormatDateTime('dd',(TSicil1.FieldByName('Emkidtar').Value)));
+  sa:=StrToInt(FormatDateTime('mm',(TSicil1.FieldByName('Emkidtar').Value)));
+  sy:=StrToInt(FormatDateTime('yyyy',(TSicil1.FieldByName('Emkidtar').Value)));
+
+ ktar:=IntToStr(sg)+'.'+IntToStr(sa)+'.'+IntToStr(sy);
+end;
+
+  IF TSICIL.FieldByName('mTtar').AsString='' then
+   etar:='01.01.2900' else begin
+
+  sg:=StrToInt(FormatDateTime('dd',(TSICIL.FieldByName('mTtar').Value)));
+  sa:=StrToInt(FormatDateTime('mm',(TSICIL.FieldByName('mTtar').Value)));
+  sy:=StrToInt(FormatDateTime('yyyy',(TSICIL.FieldByName('mTtar').Value)));
+
+ etar:=IntToStr(sg)+'.'+IntToStr(sa)+'.'+IntToStr(sy);
+end;
+ IF TSICIL.FieldByName('Ttar').AsString='' then
+   mtar:='01.01.9900' else begin
+  sg:=StrToInt(FormatDateTime('dd',(TSICIL.FieldByName('Ttar').Value)));
+  sa:=StrToInt(FormatDateTime('mm',(TSICIL.FieldByName('Ttar').Value)));
+  sy:=StrToInt(FormatDateTime('yyyy',(TSICIL.FieldByName('Ttar').Value)));
+
+ mtar:=IntToStr(sg)+'.'+IntToStr(sa)+'.'+IntToStr(sy);
+end;
+ THESAP1.edit;
+ If ((StrToDate(etar)>=TDONEM.FieldByName('Ilktar').AsDateTime) and
+   (StrToDate(etar)<=TDONEM.FieldByName('Sontar').AsDateTime)) Then
+ begin
+  THESAP1.FieldByName('Kaz1').value:=TSICIL.FieldByName('mtDer').value;
+  THESAP1.FieldByName('Kaz2').value:=TSICIL.FieldByName('mtKad').value;
+  THESAP1.FieldByName('Kaz3').value:=TSICIL.FieldByName('mtGos').value;
+  ///
+ TGOS1.SetKey;
+ TGOS1.FieldByName('Der').asstring:=
+ TSICIL.FieldByName('mder').value;
+ TGOS1.GotoKey;
+ kat:=TSICIL.FieldByName('mkad').value;
+ Gos;
+
+end else begin
+ THESAP1.FieldByName('Kaz1').value:=TSICIL.FieldByName('Der').value;
+ THESAP1.FieldByName('Kaz2').value:=TSICIL.FieldByName('Kad').value;
+ THESAP1.FieldByName('Kaz3').value:=TSICIL.FieldByName('EkGos').value;
+end;
+
+ If (StrToDate(mtar)>=TDONEM.FieldByName('Ilktar').AsDateTime) and
+   (StrToDate(mtar)<=TDONEM.FieldByName('Sontar').AsDateTime) Then
+ begin
+     THESAP1.FieldByName('Kaz7').value:=TSICIL.FieldByName('Tder').value;
+     THESAP1.FieldByName('Kaz8').value:=TSICIL.FieldByName('Tkad').value;
+     THESAP1.FieldByName('Kaz9').value:=TSICIL.FieldByName('Tekgos').value;
+     //
+ TGOS1.SetKey;
+ TGOS1.FieldByName('Der').asstring:=
+ TSICIL.FieldByName('der').value;
+ TGOS1.GotoKey;
+ kat:=TSICIL.FieldByName('kad').value;
+ Gos;
+
+
+  end Else begin
+    THESAP1.FieldByName('Kaz7').value:=TSICIL.FieldByName('Mder').value;
+    THESAP1.FieldByName('Kaz8').value:=TSICIL.FieldByName('Mkad').value;
+    THESAP1.FieldByName('Kaz9').value:=TSICIL.FieldByName('Mekgos').value;
+
+  end;
+
+TGOS1.SetKey;
+TGOS1.FieldByName('Der').asstring:=
+THESAP1.FieldByName('Kaz7').value;
+TGOS1.GotoKey;
+kat:=THESAP1.FieldByName('Kaz8').value;
+Gos;
+
+
+THESAP1.Edit;
+THESAP1.FieldByName('Pkaz1').value:=TKATSAY.fieldbyname('Katsayi').Value*kat;
+fark:=kat;
+THESAP1.Post;
+
+THESAP1.edit;
+ If (StrToDate(mtar)>=TDONEM.FieldByName('Ilktar').AsDateTime) and
+   (StrToDate(mtar)<=TDONEM.FieldByName('Sontar').AsDateTime) Then
+   THESAP1.FieldByName('Kaz9').value:=TSICIL.FieldByName('TekGos').value
+  Else
+    THESAP1.FieldByName('Kaz9').value:=TSICIL.FieldByName('MekGos').value;
+THESAP1.FieldByName('Pkaz2').value:=THESAP1.FieldByName('Kaz9').value*
+TKATSAY.FieldByName('Katsayi').value;
+THESAP1.FieldByName('Pkaz5').value:=0;
+IF THESAP1.FieldByName('Kaz6').value > 0 THEN
+BEGIN
+ THESAP1.FieldByName('Pkaz5').Value:=
+ THESAP1.FieldByName('Kaz6').value* TSICIL.fieldbyname('Yemeky').Value;
+end;
+
+THESAP1.Edit;
+
+THESAP1.FieldByName('Pkaz6').value:=0;
+THESAP1.FieldByName('Pkaz6').Value:=(TKatoranA19.Value/30)*THESAP1.FieldByName('kaz10').Value*
+TKATSAYKatsayi.Value;
+
+
+  Case TSICIL.FieldByName('Vekor').value of
+   1 : THESAP1.FieldByName('Pkaz1').value:=(THESAP1.FieldByName('Pkaz1').value/3)*1;
+   2 : THESAP1.FieldByName('Pkaz1').value:=(THESAP1.FieldByName('Pkaz1').value/3)*2;
+   3 : THESAP1.FieldByName('Pkaz1').value:=(THESAP1.FieldByName('Pkaz1').value/3)*2;
+   4 :begin
+    THESAP1.FieldByName('Pkaz1').value:=(THESAP1.FieldByName('Pkaz1').value/3)*2;
+    THESAP1.FieldByName('Pkaz2').value:=(THESAP1.FieldByName('Pkaz2').value/3)*2;
+
+    end;
+  End;
+
+THESAP1.Post;
+end;
+end;
+
+procedure TFHesap.HesaptBtClick(Sender: TObject);
+Var ss,yy,de:string;
+J:integer;
+begin
+Animate1.Visible :=True;
+Animate1.Active :=Animate1.Visible;
+//ode:=DMEMUR.TSICIL.fieldbyname('Dirp').Value;
+a:=0;
+with DMEMUR.THESAP do
+begin
+SSkHES0;
+GELHES0;
+HES1;
+HES0;
+edit;
+DMEMUR.THESAP1.Edit;
+FieldByName('SskMat').Value:=0;
+FieldByName('IszSigMat').Value:=0;
+FieldByName('GelirMat').Value:=0;
+FieldByName('DamMat').Value:=0;
+FieldByName('BrutGelir').Value:=0;
+FieldByName('OzelKes').Value:=0;
+For  j:=1 to 25 do
+Begin
+ yy:='Pkaz'+ IntToStr(j);
+ ss:='G'+ IntToStr(j);
+ de:=DMEMUR.TKAZANC.FieldByName(ss).asstring;
+ DMEMUR.THESAP1.FieldByName(yy).Value:=
+ yuvar(DMEMUR.THESAP1.FieldByName(yy).Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+ If  DMEMUR.TSICILDirp.Value<>0 then
+  FieldByName('BrutGelir').Value:=DMEMUR.THESAP1Pkaz3.Value+DMEMUR.THESAP1Pkaz22.Value+
+   DMEMUR.THESAP1Pkaz10.Value+DMEMUR.THESAP1Pkaz11.Value++DMEMUR.THESAP1Pkaz16.Value+DMEMUR.THESAP1Pkaz17.Value+
+   DMEMUR.THESAP1Pkaz18.Value+DMEMUR.THESAP1Pkaz19.Value+DMEMUR.THESAP1Pkaz20.Value+DMEMUR.THESAP1Pkaz21.Value+
+   DMEMUR.THESAP1Pkaz24.Value
+
+  else
+ FieldByName('BrutGelir').Value:=FieldByName('BrutGelir').Value+DMEMUR.THESAP1.FieldByName(yy).Value;
+ If  DMEMUR.TSICILDirp.Value<>0 then
+  FieldByName('GelirMat').Value:=DMEMUR.THESAP1Pkaz3.Value++DMEMUR.THESAP1Pkaz22.Value+DMEMUR.THESAP1Pkaz24.Value
+   else
+begin
+ if de = 'E' then
+  FieldByName('GelirMat').Value:=FieldByName('GelirMat').Value+DMEMUR.THESAP1.FieldByName(yy).Value;
+end;
+ ss:='D'+ IntToStr(j);
+ de:=DMEMUR.TKAZANC.FieldByName(ss).asstring;
+ If  DMEMUR.TSICILDirp.Value<>0 then
+  FieldByName('DamMat').Value:=DMEMUR.THESAP1Pkaz3.Value+DMEMUR.THESAP1Pkaz22.Value+DMEMUR.THESAP1Pkaz24.Value
+
+  else
+begin
+ if de = 'E' then
+  FieldByName('DamMat').Value:=FieldByName('DamMat').Value+DMEMUR.THESAP1.FieldByName(yy).Value;
+end;
+  ss:='I'+ IntToStr(j);
+  de:=DMEMUR.TKAZANC.FieldByName(ss).asstring;
+ if de = 'E' then
+  FieldByName('IszSigMat').Value:=FieldByName('IszSigMat').Value+DMEMUR.THESAP1.FieldByName(yy).Value;
+  ss:='S'+IntToStr(j);
+  de:=DMEMUR.TKAZANC.FieldByName(ss).asstring;
+ if de = 'E' then
+  DMEMUR.THESAP.FieldByName('SskMat').Value:=FieldByName('SskMat').Value+DMEMUR.THESAP1.FieldByName(yy).Value;
+end;
+For  j:=26 to 40 do
+ Begin
+  a:=a+1;
+  yy:='Pkaz'+ IntToStr(j);
+  FieldByName(yy).Value:=yuvar(FieldByName(yy).Value,
+  DMEMUR.TKATSAY.FieldByName('Yuv').value);
+  FieldByName('OzelKes').Value:=FieldByName('OzelKes').Value+FieldByName(yy).Value;
+  ss:='G'+ IntToStr(a);
+  de:=DMEMUR.TKESINTI.FieldByName(ss).asstring;
+  if de = 'E' then
+  DMEMUR.THESAP.FieldByName('GelirMat').Value:=DMEMUR.THESAP.FieldByName('GelirMat').Value-
+  DMEMUR.THESAP.FieldByName(yy).Value;
+  ss:='D'+ IntToStr(a);
+  de:=DMEMUR.TKESINTI.FieldByName(ss).asstring;
+  if de = 'E' then
+   FieldByName('DamMat').Value:=FieldByName('DamMat').Value-FieldByName(yy).Value;
+  ss:='I'+ IntToStr(a);
+  de:=DMEMUR.TKESINTI.FieldByName(ss).asstring;
+  if de = 'E' then
+   FieldByName('IszSigMat').Value:=FieldByName('IszSigMat').Value-FieldByName(yy).Value;
+  ss:='S'+IntToStr(a);
+  de:=DMEMUR.TKESINTI.FieldByName(ss).asstring;
+  if de = 'E' then
+   DMEMUR.THESAP.FieldByName('SskMat').Value:=FieldByName('SskMat').Value-FieldByName(yy).Value;
+ end;
+FieldByName('OzelKes').Value:=FieldByName('OzelKes').Value-FieldByName('Pkaz33').value;
+FieldByName('BrutGelir').Value:=FieldByName('BrutGelir').Value-
+DMEMUR.THESAP1.FieldByName('Pkaz23').value;
+ If (DMEMUR.TSicil1Emkidtar.AsDateTime>=DMEMUR.TDONEM.FieldByName('Ilktar').AsDateTime) and
+   (DMEMUR.TSicil1Emkidtar.AsDateTime<=DMEMUR.TDONEM.FieldByName('Sontar').AsDateTime) Then
+  begin
+ If (DMEMUR.TSicilMttar.AsDateTime>=DMEMUR.TDONEM.FieldByName('Ilktar').AsDateTime) and
+   (DMEMUR.TSicilMttar.AsDateTime<=DMEMUR.TDONEM.FieldByName('Sontar').AsDateTime) Then
+  begin
+  //**
+  end else
+  begin
+   DMEMUR.THESAP.FieldByName('SskMat').Value:=FieldByName('SskMat').Value-
+   DMEMUR.THESAP1.FieldByName('Pkaz8').Value;
+   FieldByName('SskMat').Value:=FieldByName('SskMat').Value+(DMEMUR.TSICIL.FieldByName('Kid').value*
+   20*DMEMUR.TKATSAY.FieldByName('Katsayi').value);
+ end;
+  end;
+//if DMEMUR.TSICILOnce5510.AsBoolean<>True then
+//begin
+ If DMEMUR.TSICIL.FieldByName('Vekor').value=4 then
+  FieldByName('SskMat').Value:=FieldByName('SskMat').Value+(((((DMEMUR.TKATSAY.FieldByName('Katsayi').value*
+  DMEMUR.TKATSAY.FieldByName('Mik').value)*(DMEMUR.TSICIL.FieldByName('Kat').value/100)))/3)*2)
+ else
+  FieldByName('SskMat').Value:=FieldByName('SskMat').Value+((DMEMUR.TKATSAY.FieldByName('Katsayi').value*
+  DMEMUR.TKATSAY.FieldByName('Mik').value)*(DMEMUR.TSICIL.FieldByName('Kat').value/100));
+  FieldByName('SskMat').Value:=yuvar(FieldByName('SskMat').Value,
+   DMEMUR.TKATSAY.FieldByName('Yuv').value);
+//end;
+ If (StrToDate(mtar)>=DMEMUR.TDONEM.FieldByName('Ilktar').AsDateTime) and
+   (StrToDate(mtar)<=DMEMUR.TDONEM.FieldByName('Sontar').AsDateTime) Then
+ begin
+  FieldByName('SskMat').Value:=FieldByName('SskMat').Value-DMEMUR.THESAP1.FieldByName('Pkaz17').Value;
+ end;
+Case DMEMUR.TSICIL.FieldByName('Vekor').value of
+  3 :begin
+     DMEMUR.THESAP.FieldByName('SskMat').Value:=FieldByName('SskMat').Value-
+     DMEMUR.THESAP1.FieldByName('Pkaz7').value;
+     DMEMUR.THESAP.FieldByName('SskMat').Value:=FieldByName('SskMat').Value+
+     DMEMUR.TKATSAY.FieldByName('TabKay').value;
+
+   end;
+{  4 :begin
+     DMEMUR.THESAP.FieldByName('SskMat').Value:=FieldByName('SskMat').Value-
+     DMEMUR.THESAP1.FieldByName('Pkaz7').value;
+     DMEMUR.THESAP.FieldByName('SskMat').Value:=FieldByName('SskMat').Value+
+     DMEMUR.TKATSAY.FieldByName('TabKay').value;
+
+   end;
+ }
+End;
+If DMEMUR.TSICIL.FieldByName('Vekor').value<>4 then
+begin
+ DMEMUR.TGOS1.SetKey;
+ DMEMUR.TGOS1.FieldByName('Der').asstring:=
+ DMEMUR.THESAP1.FieldByName('Kaz1').value;
+ DMEMUR.TGOS1.GotoKey;
+ kat:=DMEMUR.THESAP1.FieldByName('Kaz2').value;
+ Gos;
+ DMEMUR.THESAP.FieldByName('SskMat').Value:=FieldByName('SskMat').Value-DMEMUR.THESAP1.FieldByName('Pkaz1').Value;
+ DMEMUR.THESAP.FieldByName('SskMat').Value:=FieldByName('SskMat').Value-
+ DMEMUR.THESAP1.FieldByName('Pkaz2').value;
+FieldByName('SskMat').Value:=FieldByName('SskMat').Value+(((kat+DMEMUR.THESAP1.FieldByName('Kaz3').value)*
+DMEMUR.TKATSAY.fieldbyname('Katsayi').Value)*1);
+end;
+FieldByName('Dair').asstring:=DMEMUR.TSICIL.FieldByName('Dair').asstring;
+For  j:=1 to 25 do
+Begin
+ yy:='Pkaz'+ IntToStr(j);
+ If  DMEMUR.TSICILDirp.Value<>0 then
+  if (yy='Pkaz3') or (yy='Pkaz22') or (yy='Pkaz23') OR (yy='Pkaz10') or (yy='Pkaz11') or (yy='Pkaz18') OR
+  (yy='Pkaz16') or(yy='Pkaz17') or(yy='Pkaz19') or (yy='Pkaz20') or (yy='Pkaz21') or (yy='Pkaz24') then
+   else DMEMUR.THESAP1.FieldByName(yy).Value:=0;
+end;
+Case DMEMUR.TSICIL.FieldByName('Vekor').value of
+  5 :begin
+     DMEMUR.THESAP.FieldByName('SskMat').Value:=FieldByName('SskMat').Value/2;
+
+   end;
+  6 :begin
+     DMEMUR.THESAP.FieldByName('SskMat').Value:=FieldByName('SskMat').Value/2;
+    For  j:=1 to 25 do
+    Begin
+     yy:='Pkaz'+ IntToStr(j);
+     DMEMUR.THESAP1.FieldByName(yy).Value:=0;
+     end;
+     DMEMUR.THESAPGelirMat.Value:=0;
+     DMEMUR.THESAPDamMat.Value:=0;
+     DMEMUR.THESAPBrutGelir.Value:=0;
+
+    end;
+
+ end;
+
+post;
+DMEMUR.THESAP1.post;
+end;
+DamIsz;
+SSkHES;
+GELHES;
+//YASKE;
+//If DMEMUR.TKDV.FieldByName('s9').Value<>0 then  KDV;
+Sendik;
+YASKE;
+Animate1.Visible :=False;
+Animate1.Active :=Animate1.Visible;
+end;
+
+procedure TFHesap.KDV;
+Var i:Currency;
+Begin
+{with DMEMUR do
+begin
+tkdv.Edit;
+THESAP1.Edit;
+i:=TKDV.FieldByName('A2').Value+TKDV.FieldByName('A3').Value+TKDV.FieldByName('A4').Value+
+TKDV.FieldByName('A5').Value+TKDV.FieldByName('A6').Value+TKDV.FieldByName('A7').Value+
+TKDV.FieldByName('A8').Value+TKDV.FieldByName('A9').Value+TKDV.FieldByName('A10').Value+
+TKDV.FieldByName('A11').Value+TKDV.FieldByName('A12').Value;
+If TKDV.FieldByName('s9').Value>=i then
+Begin
+  Case  TDONEM.FieldByName('Ay').value of
+   2: begin
+     If (TKDV.FieldByName('s9').Value-i)>THESAP.FieldByName('GelirVer').Value then
+     Begin
+      THESAP1.FieldByName('Pkaz23').Value:=THESAP.FieldByName('GelirVer').Value
+    End
+    Else
+    THESAP1.FieldByName('Pkaz23').Value:=TKDV.FieldByName('s9').Value-i;
+    TKDV.FieldByName('A2').Value:=TKDV.FieldByName('A2').Value+
+    THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   3 :  begin
+     If (TKDV.FieldByName('s9').Value-i)>THESAP.FieldByName('GelirVer').Value then
+     Begin
+      THESAP1.FieldByName('Pkaz23').Value:=THESAP.FieldByName('GelirVer').Value
+    End
+    Else
+    THESAP1.FieldByName('Pkaz23').Value:=TKDV.FieldByName('s9').Value-i;
+    TKDV.FieldByName('A3').Value:=TKDV.FieldByName('A3').Value+
+    THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   4 :  begin
+     If (TKDV.FieldByName('s9').Value-i)>THESAP.FieldByName('GelirVer').Value then
+     Begin
+      THESAP1.FieldByName('Pkaz23').Value:=THESAP.FieldByName('GelirVer').Value
+    End
+    Else
+    THESAP1.FieldByName('Pkaz23').Value:=TKDV.FieldByName('s9').Value-i;
+    TKDV.FieldByName('A4').Value:=TKDV.FieldByName('A4').Value+
+    THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   5: begin
+     If (TKDV.FieldByName('s9').Value-i)>THESAP.FieldByName('GelirVer').Value then
+     Begin
+      THESAP1.FieldByName('Pkaz23').Value:=THESAP.FieldByName('GelirVer').Value
+    End
+    Else
+      THESAP1.FieldByName('Pkaz23').Value:=TKDV.FieldByName('s9').Value-i;
+    TKDV.FieldByName('A5').Value:=TKDV.FieldByName('A5').Value+
+    THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   6 :  begin
+     If (TKDV.FieldByName('s9').Value-i)>THESAP.FieldByName('GelirVer').Value then
+     Begin
+      THESAP1.FieldByName('Pkaz23').Value:=THESAP.FieldByName('GelirVer').Value
+    End
+    Else
+      THESAP1.FieldByName('Pkaz23').Value:=TKDV.FieldByName('s9').Value-i;
+    TKDV.FieldByName('A6').Value:=TKDV.FieldByName('A6').Value+
+    THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   7 :  begin
+     If (TKDV.FieldByName('s9').Value-i)>THESAP.FieldByName('GelirVer').Value then
+     Begin
+      THESAP1.FieldByName('Pkaz23').Value:=THESAP.FieldByName('GelirVer').Value
+    End
+    Else
+      THESAP1.FieldByName('Pkaz23').Value:=TKDV.FieldByName('s9').Value-i;
+    TKDV.FieldByName('A7').Value:=TKDV.FieldByName('A7').Value+
+    THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   8: begin
+     If (TKDV.FieldByName('s9').Value-i)>THESAP.FieldByName('GelirVer').Value then
+     Begin
+      THESAP1.FieldByName('Pkaz23').Value:=THESAP.FieldByName('GelirVer').Value
+    End
+    Else
+      THESAP1.FieldByName('Pkaz23').Value:=TKDV.FieldByName('s9').Value-i;
+    TKDV.FieldByName('A8').Value:=TKDV.FieldByName('A8').Value+
+    THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   9 :  begin
+     If (TKDV.FieldByName('s9').Value-i)>THESAP.FieldByName('GelirVer').Value then
+     Begin
+      THESAP1.FieldByName('Pkaz23').Value:=THESAP.FieldByName('GelirVer').Value
+    End
+    Else
+      THESAP1.FieldByName('Pkaz23').Value:=TKDV.FieldByName('s9').Value-i;
+    TKDV.FieldByName('A9').Value:=TKDV.FieldByName('A9').Value+
+    THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   10 :  begin
+     If (TKDV.FieldByName('s9').Value-i)>THESAP.FieldByName('GelirVer').Value then
+     Begin
+      THESAP1.FieldByName('Pkaz23').Value:=THESAP.FieldByName('GelirVer').Value
+    End
+    Else
+      THESAP1.FieldByName('Pkaz23').Value:=TKDV.FieldByName('s9').Value-i;
+    TKDV.FieldByName('A10').Value:=TKDV.FieldByName('A10').Value+
+    THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   11 :  begin
+     If (TKDV.FieldByName('s9').Value-i)>THESAP.FieldByName('GelirVer').Value then
+     Begin
+      THESAP1.FieldByName('Pkaz23').Value:=THESAP.FieldByName('GelirVer').Value
+    End
+    Else
+      THESAP1.FieldByName('Pkaz23').Value:=TKDV.FieldByName('s9').Value-i;
+    TKDV.FieldByName('A11').Value:=TKDV.FieldByName('A11').Value+
+    THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   12 :  begin
+     If (TKDV.FieldByName('s9').Value-i)>THESAP.FieldByName('GelirVer').Value then
+     Begin
+      THESAP1.FieldByName('Pkaz23').Value:=THESAP.FieldByName('GelirVer').Value
+    End
+    Else
+      THESAP1.FieldByName('Pkaz23').Value:=TKDV.FieldByName('s9').Value-i;
+    TKDV.FieldByName('A12').Value:=TKDV.FieldByName('A12').Value+
+    THESAP1.FieldByName('Pkaz23').Value;
+   End;
+End;
+TKDV.Post;
+THESAP1.Post;
+THESAP.Edit;
+THESAPBrutGelir.Value:=THESAPBrutGelir.Value+
+THESAP1.FieldByName('Pkaz23').Value;
+THESAP.FieldByName('YasalKes').value:=THESAP.FieldByName('YasalKes').value-
+THESAP.FieldByName('DamVer').value;
+THESAP.FieldByName('DamVer').value:=THESAP.FieldByName('DamMat').value*
+DMEMUR.TKATSAY.FieldByName('Damor').value;
+THESAP.FieldByName('DamVer').Value:=
+yuvar(THESAP.FieldByName('DamVer').Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+THESAP.FieldByName('YasalKes').value:=THESAP.FieldByName('YasalKes').value+
+THESAP.FieldByName('DamVer').value;
+DMEMUR.THESAP.FieldByName('NetKes').value:=THESAP.FieldByName('YasalKes').value+
+THESAP.FieldByName('OzelKes').value;
+DMEMUR.THESAP.FieldByName('Net').value:= THESAP.FieldByName('BrutGelir').value-
+THESAP.FieldByName('NetKes').value;
+THESAP.Post;
+End;
+End; }
+End;
+
+procedure TFHesap.Sendik;
+Begin
+with DMEMUR do
+begin
+If DMEMUR.TSICILEmNo.AsString<>'' then
+begin
+DMEMUR.THESAP2.Edit;
+ DMEMUR.THESAP2Pkaz17.Value:=DMEMUR.TKatoranA20.Value;
+ If TSICILAsgaaile.Value='E' then
+  DMEMUR.THESAP2Pkaz17.Value:=DMEMUR.THESAP2Pkaz17.Value+DMEMUR.TKatoranA21.Value;
+ If TSICILAsgacok.Value>0 then
+ begin
+   If DMEMUR.TSICILAsgacok.Value<3 then
+      DMEMUR.THESAP2Pkaz17.Value:=DMEMUR.THESAP2Pkaz17.Value+(DMEMUR.TKatoranA22.Value)*
+      DMEMUR.TSICILAsgacok.Value
+  else
+  begin
+    DMEMUR.THESAP2Pkaz17.Value:=DMEMUR.THESAP2Pkaz17.Value+(DMEMUR.TKatoranA22.Value*2);
+    DMEMUR.THESAP2Pkaz17.Value:=DMEMUR.THESAP2Pkaz17.Value+(DMEMUR.TKatoranA23.Value)*(TSICILAsgacok.Value-2);
+
+  end;
+ end;
+ DMEMUR.THESAP2Pkaz18.Value:=DMEMUR.THESAP2Pkaz17.Value*DMEMUR.TKATSAYOzind.Value;
+ DMEMUR.THESAP2Pkaz19.Value:=DMEMUR.TKATSAYOzind.Value*12;
+DMEMUR.THESAP2.Post;
+THESAP1.Edit;
+DMEMUR.THESAP1.FieldByName('Pkaz23').value:=DMEMUR.THESAP2Pkaz18.Value*DMEMUR.TKATSAYGeliror1.Value;
+DMEMUR.THESAP1.FieldByName('Pkaz23').value:=yuvar(DMEMUR.THESAP1.FieldByName('Pkaz23').value,0.01);
+If DMEMUR.THESAP1Pkaz23.Value>THESAPGelirVer.Value then
+begin
+DMEMUR.THESAP1.Edit;
+DMEMUR.THESAP1Pkaz23.Value:=DMEMUR.THESAPGelirVer.Value;
+DMEMUR.THESAP1.Post;
+end;
+THESAP.Edit;
+
+DMEMUR.THESAP.FieldByName('BrutGelir').value:=DMEMUR.THESAP.FieldByName('BrutGelir').value+
+DMEMUR.THESAP1.FieldByName('Pkaz23').value;
+DMEMUR.THESAP.FieldByName('Net').value:=DMEMUR.THESAP.FieldByName('BrutGelir').value-
+DMEMUR.THESAP.FieldByName('NetKes').value;
+THESAP.Post;
+
+end;
+if(THESAP.State=DsEdit)or(THESAP.State=Dsinsert) then
+ THESAP.Post;
+if(THESAP1.State=DsEdit)or(THESAP1.State=Dsinsert) then
+ THESAP1.Post;
+if(THESAP2.State=DsEdit)or(THESAP2.State=Dsinsert) then
+ THESAP2.Post;
+
+{If (TSICIL.fieldbyname('Eucret').asstring = 'Y')Then
+begin
+THESAP.Edit;
+THESAP.FieldByName('Pkaz36').value:=
+(THESAP1.FieldByName('Pkaz1').value+THESAP1.FieldByName('Pkaz2').value+
+THESAP1.FieldByName('Pkaz7').value+THESAP1.FieldByName('Pkaz8').value+
+THESAP1.FieldByName('Pkaz9').value+THESAP1.FieldByName('Pkaz12').value+
+THESAP1.FieldByName('Pkaz13').value+THESAP1.FieldByName('Pkaz14').value+
+THESAP1.FieldByName('Pkaz15').value+THESAP.FieldByName('SskIsv').value)*0.005;
+THESAP.FieldByName('Pkaz36').Value:=
+yuvar(THESAP.FieldByName('Pkaz36').Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+THESAP.FieldByName('OzelKes').value:=THESAP.FieldByName('OzelKes').value+
+THESAP.FieldByName('Pkaz36').value;
+DMEMUR.THESAP.FieldByName('NetKes').value:=THESAP.FieldByName('YasalKes').value+
+THESAP.FieldByName('OzelKes').value;
+DMEMUR.THESAP.FieldByName('Net').value:= THESAP.FieldByName('BrutGelir').value-
+THESAP.FieldByName('NetKes').value;
+THESAP.Post;
+end;
+
+ }
+{If (TSICIL.fieldbyname('Eucret').asstring = 'T')Then
+begin
+THESAP.Edit;
+THESAP.FieldByName('Pkaz36').value:=
+(THESAP1.FieldByName('Pkaz1').value+THESAP1.FieldByName('Pkaz2').value+
+THESAP1.FieldByName('Pkaz7').value+THESAP1.FieldByName('Pkaz8').value+
+THESAP1.FieldByName('Pkaz9').value+THESAP1.FieldByName('Pkaz12').value+
+THESAP1.FieldByName('Pkaz13').value+THESAP1.FieldByName('Pkaz14').value+
+THESAP1.FieldByName('Pkaz15').value)*0.005;
+THESAP.FieldByName('Pkaz36').Value:=
+yuvar(THESAP.FieldByName('Pkaz36').Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+if DMEMUR.TKESINTI.FieldByName('G11').asstring='E' then
+begin
+ GELHES0;
+ DMEMUR.THESAP.FieldByName('GelirMat').Value:=DMEMUR.THESAP.FieldByName('GelirMat').Value-
+ DMEMUR.THESAP.FieldByName('PKaz36').Value;
+ GELHES1;
+end;
+THESAP.FieldByName('YasalKes').value:=THESAP.FieldByName('GelirVer').value+
+THESAP.FieldByName('DamVer').value+THESAP.FieldByName('SskIs').value+
+THESAP.FieldByName('SskIsv').value;
+
+THESAP.FieldByName('OzelKes').value:=THESAP.FieldByName('OzelKes').value+
+THESAP.FieldByName('Pkaz36').value;
+DMEMUR.THESAP.FieldByName('NetKes').value:=THESAP.FieldByName('YasalKes').value+
+THESAP.FieldByName('OzelKes').value;
+DMEMUR.THESAP.FieldByName('Net').value:= THESAP.FieldByName('BrutGelir').value-
+THESAP.FieldByName('NetKes').value;
+THESAP.Post;
+end;}
+end;
+
+
+
+end;
+
+procedure TFHesap.SSkHES0;
+Begin
+with DMEMUR.TSSK do
+begin
+DMEMUR.THESAP.Edit;
+ try
+  SetKey;
+  FieldByName('Sicno').asString:=
+  DMEMUR.TSICIL.FieldByName('Sicno').asString;
+  FieldByName('Yil').asString:=
+  DMEMUR.TDONEM.FieldByName('Yil').asString;
+  FieldByName('Ay').asString:=
+  DMEMUR.TDONEM.FieldByName('Ay').asString;
+  if not GotoKey then
+   Begin
+    Insert;
+    Edit;
+    FieldByName('Sicno').asString:=
+    DMEMUR.TSICIL.FieldByName('Sicno').asString;
+    FieldByName('Yil').asString:=
+    DMEMUR.TDONEM.FieldByName('Yil').asString;
+    FieldByName('Ay').asString:=
+    DMEMUR.TDONEM.FieldByName('Ay').asString;
+    FieldByName('Dair').asString:=
+    DMEMUR.TSICIL.FieldByName('Dair').asString;
+    FieldByName('SskNo').asString:=
+    DMEMUR.TSICIL.FieldByName('EmNo').asString;
+    FieldByName('Sskg').Value := 0;
+    FieldByName('SskMat').Value := 0;
+    FieldByName('SskVer').Value := 0;
+    post;
+   end
+  else
+ GotoKey;
+ Except
+End;
+Edit;
+DMEMUR.TSSKTc.asString:=DMEMUR.TSICILKimno.asString;
+FieldByName('Ad').asstring:=DMEMUR.TSICIL.fieldbyname('Adi').asstring;
+FieldByName('Soy').asstring:=DMEMUR.TSICIL.fieldbyname('Soyadi').asstring;
+FieldByName('Dair').asstring:=DMEMUR.TSICIL.fieldbyname('Dair').asstring;
+FieldByName('SskNo').asstring:=DMEMUR.TSICIL.fieldbyname('EmNo').asstring;
+ FieldByName('SskMat').Value :=
+ FieldByName('SskMat').Value-DMEMUR.THESAP.FieldByName('SskMat').value;
+ FieldByName('SskVer').Value:=FieldByName('SskVer').Value-
+ DMEMUR.THESAP.FieldByName('Sskisv').value;
+ FieldByName('SskV').Value:=FieldByName('SskV').Value-
+ DMEMUR.THESAP.FieldByName('Sskis').value;
+If FieldByName('SskMat').Value = 0 Then
+ FieldByName('Sskg').Value := 0;
+If (DMEMUR.TSICIL.FieldByName('Isgirtar').AsDateTime >=DMEMUR.TDONEM.FieldByName('Ilktar').AsDateTime) and
+   (DMEMUR.TSICIL.FieldByName('Isgirtar').AsDateTime <=DMEMUR.TDONEM.FieldByName('Sontar').AsDateTime) Then
+   FieldByName('GirTar').AsDateTime:=DMEMUR.TSICIL.FieldByName('Isgirtar').AsDateTime;
+If (DMEMUR.TSICIL.FieldByName('Ciktar').AsDateTime >=DMEMUR.TDONEM.FieldByName('Ilktar').AsDateTime) and
+   (DMEMUR.TSICIL.FieldByName('Ciktar').AsDateTime <=DMEMUR.TDONEM.FieldByName('Sontar').AsDateTime) Then
+   FieldByName('CikTar').AsDateTime:=DMEMUR.TSICIL.FieldByName('Ciktar').AsDateTime;
+FieldByName('Kef').value:=FieldByName('Kef').value-DMEMUR.THESAP.FieldByName('Pkaz26').value;
+FieldByName('Gec').value:=FieldByName('Gec').value-DMEMUR.THESAP.FieldByName('Pkaz34').value;
+FieldByName('Art').value:=FieldByName('Art').value-DMEMUR.THESAP1.FieldByName('Pkaz17').value;
+ Post;
+ End;
+DMEMUR.TSICIL.Edit;
+DMEMUR.TSICIL.fieldbyname('Icrakal').Value:=DMEMUR.TSICIL.fieldbyname('Icrakal').Value+
+DMEMUR.THESAP.FieldByName('Pkaz29').value;
+DMEMUR.TSICIL.fieldbyname('Astop').Value:=DMEMUR.TSICIL.fieldbyname('Astop').Value+
+DMEMUR.THESAP.FieldByName('Pkaz34').value;
+DMEMUR.TSICIL.fieldbyname('Cezakal').Value:=
+DMEMUR.TSICIL.fieldbyname('Cezakal').Value+DMEMUR.THESAP.FieldByName('Pkaz35').value;
+DMEMUR.TSICIL.Post;
+{try
+DMEMUR.TKDV.SetKey;
+DMEMUR.TKDV.FieldByName('Sicno').asString:=
+DMEMUR.TSICIL.FieldByName('Sicno').asString;
+  if not DMEMUR.TKDV.GotoKey then
+   Begin
+    DMEMUR.TKDV.Insert;
+    DMEMUR.TKDV.Edit;
+    DMEMUR.TKDV.FieldByName('Sicno').asString:=
+    DMEMUR.TSICIL.FieldByName('Sicno').asString;
+    DMEMUR.TKDV.Post;
+   end
+  else
+ DMEMUR.TKDV.GotoKey;
+ Except
+End;
+DMEMUR.TKDV.Edit;
+  Case  DMEMUR.TDONEM.FieldByName('Ay').value of
+   2: begin
+    DMEMUR.TKDV.FieldByName('A2').Value:=DMEMUR.TKDV.FieldByName('A2').Value-
+    DMEMUR.THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   3 :  begin
+    DMEMUR.TKDV.FieldByName('A3').Value:=DMEMUR.TKDV.FieldByName('A3').Value-
+    DMEMUR.THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   4 :  begin
+     DMEMUR.TKDV.FieldByName('A4').Value:=DMEMUR.TKDV.FieldByName('A4').Value-
+     DMEMUR.THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   5 :  begin
+     DMEMUR.TKDV.FieldByName('A5').Value:=DMEMUR.TKDV.FieldByName('A5').Value-
+     DMEMUR.THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   6: begin
+    DMEMUR.TKDV.FieldByName('A6').Value:=DMEMUR.TKDV.FieldByName('A6').Value-
+    DMEMUR.THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   7 :  begin
+    DMEMUR.TKDV.FieldByName('A7').Value:=DMEMUR.TKDV.FieldByName('A7').Value-
+    DMEMUR.THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   8 :  begin
+     DMEMUR.TKDV.FieldByName('A8').Value:=DMEMUR.TKDV.FieldByName('A8').Value-
+     DMEMUR.THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   9 :  begin
+     DMEMUR.TKDV.FieldByName('A9').Value:=DMEMUR.TKDV.FieldByName('A9').Value-
+     DMEMUR.THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   10 :  begin
+     DMEMUR.TKDV.FieldByName('A10').Value:=DMEMUR.TKDV.FieldByName('A10').Value-
+     DMEMUR.THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   11 :  begin
+     DMEMUR.TKDV.FieldByName('A11').Value:=DMEMUR.TKDV.FieldByName('A11').Value-
+     DMEMUR.THESAP1.FieldByName('Pkaz23').Value;
+   End;
+   12 :  begin
+     DMEMUR.TKDV.FieldByName('A12').Value:=DMEMUR.TKDV.FieldByName('A12').Value-
+     DMEMUR.THESAP1.FieldByName('Pkaz23').Value;
+   End;
+
+ End;
+DMEMUR.TKDV.Post;}
+End;
+
+procedure TFHesap.GELHES0;
+Begin
+with DMEMUR.TGELIR do
+begin
+ try
+  SetKey;
+  FieldByName('Sicno').asString:=
+  DMEMUR.TSICIL.FieldByName('Sicno').asString;
+  FieldByName('Yil').asString:=
+  DMEMUR.TDONEM.FieldByName('Yil').asString;
+  if not GotoKey then
+   Begin
+    Append;
+    FieldByName('Sicno').asString:=
+    DMEMUR.TSICIL.FieldByName('Sicno').asString;
+    FieldByName('Yil').asString:=
+    DMEMUR.TDONEM.FieldByName('Yil').asString;
+    FieldByName('Gelirtop').Value := 0;
+    FieldByName('Kumver').Value := 0;
+    post;
+   end    else
+   GotoKey
+ Except
+End;
+ Edit;
+ FieldByName('Ad').asstring:=DMEMUR.TSICIL.fieldbyname('Adi').asstring;
+ FieldByName('Soy').asstring:=DMEMUR.TSICIL.fieldbyname('Soyadi').asstring;
+ FieldByName('Gelirtop').Value :=FieldByName('Gelirtop').Value -
+  DMEMUR.THESAP.FieldByName('GelirMat').value;
+ FieldByName('Kumver').Value :=FieldByName('Kumver').Value -
+ DMEMUR.THESAP.FieldByName('GelirVer').value;
+post;
+End;
+end;
+
+
+procedure TFHesap.SSkHES;
+Begin
+ DMEMUR.THESAP.Edit;
+ DMEMUR.THESAP.FieldByName('SskMat').Value:=
+ yuvar(DMEMUR.THESAP.FieldByName('SskMat').Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+ DMEMUR.THESAP.FieldByName('Sskis').value:=0;
+ DMEMUR.THESAP.FieldByName('SSkisv').value:=0;
+If (DMEMUR.TDONEM.FieldByName('SskHes').asstring='H') or
+(DMEMUR.TSICIL.FieldByName('Sskk').asstring = 'H') Then
+ Begin
+  DMEMUR.THESAP.FieldByName('Sskis').value:=0;
+  DMEMUR.THESAP.FieldByName('SSkisv').value:=0;
+  DMEMUR.THESAP.FieldByName('SskMat').value:=0;
+ End;
+  DMEMUR.THESAPGenSagKisi.Value:=0;
+  DMEMUR.THESAPGenSagKurum.Value:=0;
+
+ if DMEMUR.TSICILSaglik.AsBoolean=true then
+ begin
+   DMEMUR.THESAPGenSagKisi.Value:=DMEMUR.THESAPSskMat.Value*0.00;
+   DMEMUR.THESAPGenSagKisi.Value:=yuvar(DMEMUR.THESAPGenSagKisi.Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+   DMEMUR.THESAPGenSagKurum.Value:=DMEMUR.THESAPSskMat.Value*0.12;
+   DMEMUR.THESAPGenSagKurum.Value:=yuvar(DMEMUR.THESAPGenSagKurum.Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+ end;
+ if DMEMUR.TSICILOnce5510.AsBoolean=true then
+ begin
+   DMEMUR.THESAPSskMat.Value:=(DMEMUR.THESAPSskMat.Value/30)*DMEMUR.THESAPGun.Value;
+   DMEMUR.THESAPSskMat.Value:=yuvar(DMEMUR.THESAPSskMat.Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+   DMEMUR.THESAPIsMYS.Value:=DMEMUR.THESAPSskMat.Value*0.09;
+   DMEMUR.THESAPIsMYS.Value:=yuvar(DMEMUR.THESAPIsMYS.Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+   DMEMUR.THESAPISGSS.Value:=DMEMUR.THESAPSskMat.Value*0.05;
+   DMEMUR.THESAPISGSS.Value:=yuvar(DMEMUR.THESAPISGSS.Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+   DMEMUR.THESAPISVMYS.Value:=DMEMUR.THESAPSskMat.Value*0.11;
+   DMEMUR.THESAPISVMYS.Value:=yuvar(DMEMUR.THESAPISVMYS.Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+   DMEMUR.THESAPISVGSS.Value:=DMEMUR.THESAPSskMat.Value*0.075;
+   DMEMUR.THESAPISVGSS.Value:=
+   yuvar(DMEMUR.THESAPISVGSS.Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+   DMEMUR.THESAPSskIs.Value:=DMEMUR.THESAPIsMYS.Value+DMEMUR.THESAPISGSS.Value;
+   DMEMUR.THESAPSskIsv.Value:=DMEMUR.THESAPIsvMYS.Value+DMEMUR.THESAPISVGSS.Value;
+ end else
+ begin
+  If DMEMUR.TSICIL.FieldByName('Ilkssk').asstring = 'E' then
+  begin
+   DMEMUR.THESAP.FieldByName('Sskis').value:=DMEMUR.THESAP.FieldByName('SskMat').value*
+   DMEMUR.TKATSAY.FieldByName('Sskilk').value;
+   DMEMUR.THESAP.FieldByName('Sskisv').value:= DMEMUR.THESAP.FieldByName('SskMat').value*
+   DMEMUR.TKATSAY.FieldByName('SskEm').value;
+  End  Else
+  begin
+   DMEMUR.THESAP.FieldByName('Sskis').value:=DMEMUR.THESAP.FieldByName('SskMat').value*
+   DMEMUR.TKATSAY.FieldByName('EmIs').value;
+   DMEMUR.THESAP.FieldByName('Sskisv').value:=DMEMUR.THESAP.FieldByName('SskMat').value*
+   DMEMUR.TKATSAY.FieldByName('EmIsv').value;
+  End;
+ end;
+ DMEMUR.THESAP.FieldByName('Sskis').Value:=
+ yuvar(DMEMUR.THESAP.FieldByName('Sskis').Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+ DMEMUR.THESAP.FieldByName('Sskisv').Value:=
+ yuvar(DMEMUR.THESAP.FieldByName('Sskisv').Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+If (DMEMUR.TDONEM.FieldByName('SskHes').asstring='H') or
+(DMEMUR.TSICIL.FieldByName('Sskk').asstring = 'H') Then
+ Begin
+  DMEMUR.THESAP.FieldByName('Sskis').value:=0;
+  DMEMUR.THESAP.FieldByName('SSkisv').value:=0;
+  DMEMUR.THESAP.FieldByName('SskMat').value:=0;
+ End;
+ DMEMUR.THESAP.post;
+  DMEMUR.TSSK.Edit;
+  DMEMUR.TSSK.FieldByName('Sski').asstring:=
+  DMEMUR.TSICIL.FieldByName('Ilkssk').asstring;
+  DMEMUR.TSSK.FieldByName('SskMat').Value :=
+  DMEMUR.TSSK.FieldByName('SskMat').Value+DMEMUR.THESAP.FieldByName('SskMat').value;
+  DMEMUR.TSSK.FieldByName('SskVer').Value:=DMEMUR.TSSK.FieldByName('SskVer').Value+
+  DMEMUR.THESAP.FieldByName('Sskisv').value;
+  DMEMUR.TSSK.FieldByName('SskV').Value:=DMEMUR.TSSK.FieldByName('SskV').Value+
+  DMEMUR.THESAP.FieldByName('Sskis').value;
+DMEMUR.TSSK.FieldByName('Gec').value:=DMEMUR.TSSK.FieldByName('Gec').value+
+DMEMUR.THESAP.FieldByName('Pkaz34').value;
+DMEMUR.TSSK.FieldByName('Kef').value:=DMEMUR.TSSK.FieldByName('Kef').value+
+DMEMUR.THESAP.FieldByName('Pkaz26').value;
+DMEMUR.TSSK.FieldByName('Art').value:=DMEMUR.TSSK.FieldByName('Art').value+
+DMEMUR.THESAP1.FieldByName('Pkaz17').value;
+if DMEMUR.TSICILOnce5510.AsBoolean=True then
+begin
+DMEMUR.TSSKTerfi1.asstring:=DMEMUR.THESAP2A1.asstring;
+DMEMUR.TSSKDer1.asstring:=DMEMUR.THESAP1Kaz1.asstring;
+DMEMUR.TSSKKad1.asstring:=DMEMUR.THESAP1Kaz2.asstring;
+DMEMUR.TSSKEkgos1.asstring:=DMEMUR.THESAP1Kaz3.asstring;
+DMEMUR.TSSKTerfi2.asstring:=DMEMUR.THESAPGun.asstring;
+DMEMUR.TSSKDer2.asstring:=DMEMUR.THESAPIsMYS.asstring;
+DMEMUR.TSSKKad2.asstring:=DMEMUR.THESAPISGSS.asstring;
+DMEMUR.TSSKEkgos2.asstring:=((DMEMUR.TKATSAY.FieldByName('Katsayi').value*
+DMEMUR.TKATSAY.FieldByName('Mik').value)*(DMEMUR.TSICIL.FieldByName('Kat').value/100));;
+DMEMUR.TSSKEkgos2.Value:=yuvar(DMEMUR.TSSKEkgos1.Value,  DMEMUR.TKATSAY.FieldByName('Yuv').value);
+
+DMEMUR.TSSKDer3.asstring:=DMEMUR.THESAPISVMYS.asstring;
+DMEMUR.TSSKKad3.asstring:=DMEMUR.THESAPISVGSS.asstring;
+DMEMUR.TSSKEkgos3.asstring:=DMEMUR.THESAP1Kaz3.asstring;
+DMEMUR.TSSKKidem.asstring:=DMEMUR.THESAP2A2.asstring;
+DMEMUR.TSSKGenSagKisi.asstring:=DMEMUR.THESAPGenSagKisi.asstring;
+DMEMUR.TSSKGenSagKurum.asstring:=DMEMUR.THESAPGenSagKurum.asstring;
+
+
+
+end else
+begin
+DMEMUR.TSSKTerfi1.asstring:=DMEMUR.THESAP2A1.asstring;
+DMEMUR.TSSKDer1.asstring:=DMEMUR.THESAP1Kaz1.asstring;
+DMEMUR.TSSKKad1.asstring:=DMEMUR.THESAP1Kaz2.asstring;
+DMEMUR.TSSKEkgos1.asstring:=DMEMUR.THESAP1Kaz3.asstring;
+DMEMUR.TSSKTerfi2.asstring:=DMEMUR.THESAP2A1.asstring;
+DMEMUR.TSSKDer2.asstring:=DMEMUR.THESAP1Kaz1.asstring;
+DMEMUR.TSSKKad2.asstring:=DMEMUR.THESAP1Kaz2.asstring;
+DMEMUR.TSSKEkgos2.asstring:=DMEMUR.THESAP1Kaz3.asstring;
+//DMEMUR.TSSKTerfi3.asstring:=DMEMUR.THESAP2A1.asstring;
+//DMEMUR.TSSKDer3.asstring:=DMEMUR.THESAP1Kaz1.asstring;
+//DMEMUR.TSSKKad3.asstring:=DMEMUR.THESAP1Kaz2.asstring;
+//DMEMUR.TSSKEkgos3.asstring:=DMEMUR.THESAP1Kaz3.asstring;
+DMEMUR.TSSKKidem.asstring:=DMEMUR.THESAP2A2.asstring;
+DMEMUR.TSSKGenSagKisi.asstring:=DMEMUR.THESAPGenSagKisi.asstring;
+DMEMUR.TSSKGenSagKurum.asstring:=DMEMUR.THESAPGenSagKurum.asstring;
+
+end;
+DMEMUR.TSSK.post;
+End;
+
+Function Gelir(t,m,m1,o1,o2:real):real;far;external 'Awdocgel.dll';
+
+procedure TFHesap.GELHES;
+var sak:Currency;
+Begin
+with DMEMUR do
+begin
+ Case TSICIL.FieldByName('Sak').value of
+   1: SAK:=TKatoran.Fields[0].Value;
+   2: SAK:=TKatoran.Fields[1].Value;
+   3: SAK:=TKatoran.Fields[2].Value;
+  END;
+ TGELIR.edit;
+ THESAP.edit;
+ THESAP.FieldByName('GelirMat').value:=THESAP.FieldByName('GelirMat').value -
+ (THESAP.FieldByName('Sskis').value+THESAP.FieldByName('IszSigIs').value);
+ IF THESAP1.FieldByName('Kaz4').value=0 tHEN
+ THESAP.FieldByName('GelirMat').value:=THESAP.FieldByName('GelirMat').value - Sak
+   ELSE
+  Begin
+   THESAP.FieldByName('GelirMat').value:=THESAP.FieldByName('GelirMat').value -
+ ( (((TKATSAY.FieldByName('Ozind').value*TSICIL.FieldByName('Sak').value)/30)*
+  THESAP1.FieldByName('Kaz4').value));
+  End;
+   IF THESAP.FieldByName('GelirMat').value<0 THEN
+   THESAP.FieldByName('GelirMat').value:=0;
+ THESAP.FieldByName('GelirMat').Value:=
+ yuvar(THESAP.FieldByName('GelirMat').Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+If THESAP.FieldByName('YilGelirMat').Value < TKATSAY.FieldByName('GelirMik1').value then
+ THESAP.FieldByName('GelirVer').Value:=Gelir(THESAP.FieldByName('YilGelirMat').Value,
+ THESAP.FieldByName('GelirMat').Value,TKATSAY.FieldByName('GelirMik1').value,
+ TKATSAY.FieldByName('Geliror1').value, TKATSAY.FieldByName('Geliror2').value);
+If ((THESAP.FieldByName('YilGelirMat').Value < TKATSAY.FieldByName('GelirMik2').value) and
+ (THESAP.FieldByName('YilGelirMat').Value > TKATSAY.FieldByName('GelirMik1').value)) then
+   THESAP.FieldByName('GelirVer').Value:=Gelir(THESAP.FieldByName('YilGelirMat').Value,
+   THESAP.FieldByName('GelirMat').Value,TKATSAY.FieldByName('GelirMik2').value,
+   TKATSAY.FieldByName('Geliror2').value, TKATSAY.FieldByName('Geliror3').value);
+If ((THESAP.FieldByName('YilGelirMat').Value < TKATSAY.FieldByName('GelirMik3').value) and
+  (THESAP.FieldByName('YilGelirMat').Value > TKATSAY.FieldByName('GelirMik2').value)) then
+ THESAP.FieldByName('GelirVer').Value:=Gelir(THESAP.FieldByName('YilGelirMat').Value,
+ THESAP.FieldByName('GelirMat').Value,TKATSAY.FieldByName('GelirMik3').value,
+ TKATSAY.FieldByName('Geliror3').value, TKATSAY.FieldByName('Geliror4').value);
+If ((THESAP.FieldByName('YilGelirMat').Value < TKATSAY.FieldByName('GelirMik4').value) and
+  (THESAP.FieldByName('YilGelirMat').Value > TKATSAY.FieldByName('GelirMik3').value)) then
+ THESAP.FieldByName('GelirVer').Value:=Gelir(THESAP.FieldByName('YilGelirMat').Value,
+ THESAP.FieldByName('GelirMat').Value,TKATSAY.FieldByName('GelirMik4').value,
+ TKATSAY.FieldByName('Geliror4').value, TKATSAY.FieldByName('Geliror5').value);
+If ((THESAP.FieldByName('YilGelirMat').Value < TKATSAY.FieldByName('GelirMik5').value) and
+  (THESAP.FieldByName('YilGelirMat').Value > TKATSAY.FieldByName('GelirMik4').value)) then
+ THESAP.FieldByName('GelirVer').Value:=Gelir(THESAP.FieldByName('YilGelirMat').Value,
+ THESAP.FieldByName('GelirMat').Value,TKATSAY.FieldByName('GelirMik5').value,
+ TKATSAY.FieldByName('Geliror5').value, TKATSAY.FieldByName('Geliror5').value);
+ THESAP.FieldByName('GelirVer').Value:=
+ yuvar(THESAP.FieldByName('GelirVer').Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+If (TDONEM.FieldByName('GelirHes').asstring='H') or
+(TSICIL.FieldByName('Gelirk').asstring = 'H') Then
+ Begin
+  THESAP.FieldByName('GelirMat').value:=0;
+  THESAP.FieldByName('GelirVer').value:=0;
+ End;
+TGELIR.FieldByName('Gelirtop').Value :=
+TGELIR.FieldByName('Gelirtop').Value + THESAP.FieldByName('GelirMat').value;
+TGELIR.FieldByName('Kumver').Value :=
+TGELIR.FieldByName('Kumver').Value + THESAP.FieldByName('GelirVer').value;
+THESAP.Post;
+TGELIR.post;
+end;
+end;
+
+procedure TFHesap.GELHES1;
+var sak:Currency;
+Begin
+with DMEMUR do
+begin
+ Case TSICIL.FieldByName('Sak').value of
+   0: sak:=TKATSAY.FieldByName('Ozind').value;
+   1: SAK:=TKatoran.Fields[0].Value;
+   2: SAK:=TKatoran.Fields[1].Value;
+   3: SAK:=TKatoran.Fields[2].Value;
+  END;
+  TGELIR.edit;
+ THESAP.edit;
+ IF THESAP1.FieldByName('Kaz4').value=0 tHEN
+ THESAP.FieldByName('GelirMat').value:=THESAP.FieldByName('GelirMat').value - Sak
+   ELSE
+  Begin
+   THESAP.FieldByName('GelirMat').value:=THESAP.FieldByName('GelirMat').value -
+ ( (((TKATSAY.FieldByName('Ozind').value*TSICIL.FieldByName('Sak').value)/30)*
+  THESAP1.FieldByName('Kaz4').value));
+  End;
+   IF THESAP.FieldByName('GelirMat').value<0 THEN
+   THESAP.FieldByName('GelirMat').value:=0;
+ THESAP.FieldByName('GelirMat').Value:=
+ yuvar(THESAP.FieldByName('GelirMat').Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+If TGELIR.FieldByName('Gelirtop').Value < TKATSAY.FieldByName('GelirMik1').value then
+ THESAP.FieldByName('GelirVer').Value:=Gelir(TGELIR.FieldByName('Gelirtop').Value,
+ THESAP.FieldByName('GelirMat').Value,TKATSAY.FieldByName('GelirMik1').value,
+ TKATSAY.FieldByName('Geliror1').value, TKATSAY.FieldByName('Geliror2').value);
+If ((TGELIR.FieldByName('Gelirtop').Value < TKATSAY.FieldByName('GelirMik2').value) and
+ (TGELIR.FieldByName('Gelirtop').Value > TKATSAY.FieldByName('GelirMik1').value)) then
+   THESAP.FieldByName('GelirVer').Value:=Gelir(TGELIR.FieldByName('Gelirtop').Value,
+   THESAP.FieldByName('GelirMat').Value,TKATSAY.FieldByName('GelirMik2').value,
+   TKATSAY.FieldByName('Geliror2').value, TKATSAY.FieldByName('Geliror3').value);
+If ((TGELIR.FieldByName('Gelirtop').Value < TKATSAY.FieldByName('GelirMik3').value) and
+  (TGELIR.FieldByName('Gelirtop').Value > TKATSAY.FieldByName('GelirMik2').value)) then
+ THESAP.FieldByName('GelirVer').Value:=Gelir(TGELIR.FieldByName('Gelirtop').Value,
+ THESAP.FieldByName('GelirMat').Value,TKATSAY.FieldByName('GelirMik3').value,
+ TKATSAY.FieldByName('Geliror3').value, TKATSAY.FieldByName('Geliror4').value);
+If ((TGELIR.FieldByName('Gelirtop').Value < TKATSAY.FieldByName('GelirMik4').value) and
+  (TGELIR.FieldByName('Gelirtop').Value > TKATSAY.FieldByName('GelirMik3').value)) then
+ THESAP.FieldByName('GelirVer').Value:=Gelir(TGELIR.FieldByName('Gelirtop').Value,
+ THESAP.FieldByName('GelirMat').Value,TKATSAY.FieldByName('GelirMik4').value,
+ TKATSAY.FieldByName('Geliror4').value, TKATSAY.FieldByName('Geliror5').value);
+If ((TGELIR.FieldByName('Gelirtop').Value < TKATSAY.FieldByName('GelirMik5').value) and
+  (TGELIR.FieldByName('Gelirtop').Value > TKATSAY.FieldByName('GelirMik4').value)) then
+ THESAP.FieldByName('GelirVer').Value:=Gelir(TGELIR.FieldByName('Gelirtop').Value,
+ THESAP.FieldByName('GelirMat').Value,TKATSAY.FieldByName('GelirMik5').value,
+ TKATSAY.FieldByName('Geliror5').value, TKATSAY.FieldByName('Geliror5').value);
+ THESAP.FieldByName('GelirVer').Value:=
+ yuvar(THESAP.FieldByName('GelirVer').Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+If (TDONEM.FieldByName('GelirHes').asstring='H') or
+(TSICIL.FieldByName('Gelirk').asstring = 'H') Then
+ Begin
+  THESAP.FieldByName('GelirMat').value:=0;
+  THESAP.FieldByName('GelirVer').value:=0;
+ End;
+TGELIR.FieldByName('Gelirtop').Value :=
+TGELIR.FieldByName('Gelirtop').Value + THESAP.FieldByName('GelirMat').value;
+TGELIR.FieldByName('Kumver').Value :=
+TGELIR.FieldByName('Kumver').Value + THESAP.FieldByName('GelirVer').value;
+THESAP.Post;
+TGELIR.post;
+end;
+end;
+
+
+procedure TFHesap.YASKE;
+begin
+with DMEMUR.THESAP do
+begin
+  Edit;
+  DMEMUR.THESAP.FieldByName('BrutGelir').value := DMEMUR.THESAP.FieldByName('BrutGelir').value +
+  FieldByName('Sskisv').value+ FieldByName('IszSigIsv').value+
+    DMEMUR.THESAPGenSagKisi.Value+  DMEMUR.THESAPGenSagKurum.Value;
+
+  FieldByName('YasalKes').value:=0;
+  FieldByName('YasalKes').value:=
+  FieldByName('GelirVer').value+ FieldByName('DamVer').value+
+  FieldByName('Sskis').value+ FieldByName('Sskisv').value+
+  DMEMUR.THESAPGenSagKisi.Value+  DMEMUR.THESAPGenSagKurum.Value+
+  FieldByName('IszSigIsv').value+ FieldByName('IszSigIs').value;
+  FieldByName('NetKes').value:=FieldByName('YasalKes').value+ FieldByName('OzelKes').value;
+  FieldByName('Net').value:=
+  FieldByName('BrutGelir').value-FieldByName('NetKes').value;
+  post;
+ end;
+end;
+
+procedure TFHesap.DamIsz;
+Begin
+with DMEMUR.THESAP do
+begin
+ edit;
+ FieldByName('DamMat').Value:=
+ yuvar(FieldByName('DamMat').Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+ FieldByName('DamVer').value:=0;
+ FieldByName('DamVer').value:=
+ FieldByName('DamMat').value*DMEMUR.TKATSAY.FieldByName('Damor').value;
+ FieldByName('DamVer').Value:=
+ yuvar(FieldByName('DamVer').Value,DMEMUR.TKATSAY.FieldByName('Yuv').value);
+If (DMEMUR.TDONEM.FieldByName('DamHes').asstring='H') or
+(DMEMUR.TSICIL.FieldByName('Damk').asstring = 'H') Then
+ Begin
+  FieldByName('DamVer').value:=0;
+  FieldByName('DamMat').value:=0;
+ End;
+end;
+End;
+
+
+procedure TFHesap.KayitClick(Sender: TObject);
+begin
+with DMEMUR do
+begin
+ If (TSICIL.FieldByName('Ciktar').value>=TDONEM.FieldByName('Ilktar').value) Or
+ (TSICIL.FieldByName('Ciktar').asstring='') then Begin
+  If (TSICIL.FieldByName('Isgirtar').value<=TDONEM.FieldByName('Sontar').value) Or
+    (TSICIL.FieldByName('Isgirtar').asstring='') then Begin
+           kayit1;
+       end  else
+      ShowMessage( 'Bu Kiþinin Giriþi Yapýlmamýþ' );
+
+     end  else begin
+      ShowMessage( 'Bu Kiþinin Çýkýþý Verilmiþtir.' );
+      Arama;
+  end;
+end;
+end;
+
+procedure TFHesap.Kayit1;
+begin
+with DMEMUR do
+begin
+ TSISTEM.Edit;
+ TSISTEM.FieldByName('No').value:=TSISTEM.FieldByName('No').value+ 1;
+ TSISTEM.post;
+ THESAP.Append;
+ THESAP.FieldByName('SicNo').AsString:=TSICIL.FieldByName('Sicno').AsString;
+ THESAP.FieldByName('No').AsString:=IntToStr(TSISTEM.FieldByName('No').value);
+ THESAP.FieldByName('Yil').AsString:=TDONEM.FieldByName('Yil').AsString;
+ THESAP.FieldByName('Ay').AsString:=TDONEM.FieldByName('Ay').AsString;
+ THESAP.FieldByName('Donem').AsString:=TDONEM.FieldByName('Donem').AsString;
+ THESAP.FieldByName('Dair').AsString:=TSICIL.FieldByName('Dair').AsString;
+
+ THESAP.FieldByName('YilGelirMat').Value:=TGELIRGelirtop.Value;
+
+ THESAP.post;
+ THESAP1.Append;
+ THESAP1.FieldByName('No').AsString:=THESAP.FieldByName('No').AsString;
+ THESAP1.FieldByName('Adi').AsString:=TSICIL.FieldByName('Adi').AsString;
+ THESAP1.FieldByName('Soyadi').AsString:=TSICIL.FieldByName('Soyadi').AsString;
+ THESAP1.post;
+ THESAP2.Append;
+ THESAP2.FieldByName('No').AsString:=THESAP.FieldByName('No').AsString;
+ THESAP2.post;
+ Panel2.Visible:=False;
+ HesaptBt.Enabled:=True;
+ Toplu.Enabled:=True;
+ Silme.Enabled:=True;
+// DBEdit1.SetFocus;
+ HesaptBt.SetFocus;
+end;
+End;
+
+procedure TFHesap.VazgecClick(Sender: TObject);
+begin
+Close;
+end;
+
+procedure TFHesap.Gos;
+begin
+  Case kat of
+   1 : kat:=DMEMUR.TGOS1.FieldByName('K1').value;
+   2 : kat:=DMEMUR.TGOS1.FieldByName('K2').value;
+   3 : kat:=DMEMUR.TGOS1.FieldByName('K3').value;
+   4 : kat:=DMEMUR.TGOS1.FieldByName('K4').value;
+   5 : kat:=DMEMUR.TGOS1.FieldByName('K5').value;
+   6 : kat:=DMEMUR.TGOS1.FieldByName('K6').value;
+   7 : kat:=DMEMUR.TGOS1.FieldByName('K7').value;
+   8 : kat:=DMEMUR.TGOS1.FieldByName('K8').value;
+   9 : kat:=DMEMUR.TGOS1.FieldByName('K9').value;
+ end;
+end;
+
+procedure TFHesap.SilmeClick(Sender: TObject);
+begin
+if messagebox (handle,'Bu Kaydý Silmek Ýstiyor musunuz?', 'DÝKKAT',mb_YesNo +
+mb_iconquestion) <> mrNo then
+Begin
+SSkHES0;
+GELHES0;
+DMEMUR.THESAP2.Delete;
+DMEMUR.THESAP1.Delete;
+DMEMUR.THESAP.Delete;
+Panel2.Visible:=False;
+DMEMUR.TSICIL.Prior;
+Arama
+end;
+End;
+
+procedure TFHesap.DBEdit1KeyPress(Sender: TObject; var Key: Char);
+begin
+if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+end;
+
+procedure TFHesap.DBEdit3Exit(Sender: TObject);
+begin
+If HesaptBt.Enabled=True then
+begin
+If (DMEMUR.THESAP1.FieldByName('Kaz4').value<>0) and (DMEMUR.TKATSAYOz1.Value<>0) then
+begin
+ if DMEMUR.TKATSAY.FieldByName('Fazme').value=0 then
+ begin
+  DMEMUR.THESAP1.Edit;
+  DMEMUR.THESAP1.FieldByName('Pkaz3').value:=(DMEMUR.TKATSAYKatsayi.Value*
+  ((DMEMUR.THESAP1.FieldByName('Kaz4').value/DMEMUR.TKATSAYOz1.Value)*(DMEMUR.TKatoranA19.value/90)));
+  DMEMUR.THESAP1.Post;
+ end else
+ begin
+  DMEMUR.THESAP1.Edit;
+  DMEMUR.THESAP1.FieldByName('Pkaz3').value:=DMEMUR.TKATSAYFazme.Value*
+  (DMEMUR.THESAP1.FieldByName('Kaz4').value/DMEMUR.TKATSAYOz1.Value);
+  DMEMUR.THESAP1.Post;
+ end;
+end;
+end;
+end;
+
+procedure TFHesap.PEdit25KeyPress(Sender: TObject; var Key: Char);
+begin
+if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+end;
+
+procedure TFHesap.DBEdit1Enter(Sender: TObject);
+begin
+If HesaptBt.Enabled=True then
+begin
+ DMEMUR.THESAP1.edit;
+ DBEdit1.Field.value:=DMEMUR.TSICIL.FieldByName('Der').value;
+ DMEMUR.THESAP1.Post;
+end;
+end;
+
+procedure TFHesap.DBEdit27Enter(Sender: TObject);
+begin
+If HesaptBt.Enabled=True then
+begin
+DMEMUR.THESAP1.edit;
+DBEdit27.Field.value:=DMEMUR.TSICIL.FieldByName('Kad').value;
+DMEMUR.THESAP1.Post;
+end;
+end;
+
+procedure TFHesap.DBEdit2Enter(Sender: TObject);
+begin
+If HesaptBt.Enabled=True then
+begin
+DMEMUR.THESAP1.edit;
+DBEdit2.Field.value:=
+DMEMUR.TSICIL.FieldByName('EkGos').value;
+DMEMUR.THESAP1.Post;
+end;
+end;
+
+procedure TFHesap.DBEdit6Exit(Sender: TObject);
+begin
+If HesaptBt.Enabled=True then
+begin
+DMEMUR.THESAP1.Edit;
+DMEMUR.THESAP1.FieldByName('Pkaz5').value:=0;
+IF DMEMUR.THESAP1.FieldByName('Kaz6').value > 0 THEN
+BEGIN
+DMEMUR.THESAP1.FieldByName('Pkaz5').Value:=
+DMEMUR.THESAP1.FieldByName('Kaz6').value*
+DMEMUR.TSICIL.fieldbyname('Yemeky').Value;
+end;
+DMEMUR.THESAP1.Post;
+end;
+END;
+
+procedure TFHesap.DBEdit4Enter(Sender: TObject);
+begin
+If HesaptBt.Enabled=True then
+begin
+with DMEMUR do
+begin
+THESAP1.edit;
+If (TSICIL.FieldByName('Ttar').AsDateTime>=TDONEM.FieldByName('Ilktar').AsDateTime) and
+   (TSICIL.FieldByName('Ttar').AsDateTime<=TDONEM.FieldByName('Sontar').AsDateTime) Then
+    THESAP1.FieldByName('Kaz7').value:=TSICIL.FieldByName('Tder').value
+ Else
+THESAP1.FieldByName('Kaz7').value:=TSICIL.FieldByName('Mder').value;
+THESAP1.Post;
+end;
+end;
+End;
+
+procedure TFHesap.DBEdit7Enter(Sender: TObject);
+begin
+If HesaptBt.Enabled=True then
+begin
+with DMEMUR do
+begin
+THESAP1.edit;
+If (TSICIL.FieldByName('Ttar').AsDateTime >=TDONEM.FieldByName('Ilktar').AsDateTime) and
+   (TSICIL.FieldByName('Ttar').AsDateTime <=TDONEM.FieldByName('Sontar').AsDateTime) Then
+    THESAP1.FieldByName('Kaz8').value:=TSICIL.FieldByName('Tkad').value
+ Else
+   THESAP1.FieldByName('Kaz8').value:=TSICIL.FieldByName('Mkad').value;
+THESAP1.Post;
+end;
+end;
+End;
+
+procedure TFHesap.DBEdit8Enter(Sender: TObject);
+begin
+If HesaptBt.Enabled=True then
+begin
+with DMEMUR do
+begin
+THESAP1.edit;
+If (TSICIL.FieldByName('Ttar').AsDateTime >=TDONEM.FieldByName('Ilktar').AsDateTime) and
+   (TSICIL.FieldByName('Ttar').AsDateTime <=TDONEM.FieldByName('Sontar').AsDateTime) Then
+   THESAP1.FieldByName('Kaz9').value:=TSICIL.FieldByName('TekGos').value
+  Else
+    THESAP1.FieldByName('Kaz9').value:=TSICIL.FieldByName('MekGos').value;
+THESAP1.Post;
+end;
+end;
+End;
+
+procedure TFHesap.DBEdit8Exit(Sender: TObject);
+begin
+with DMEMUR do
+begin
+THESAP1.Edit;
+THESAP1.FieldByName('Pkaz2').value:=THESAP1.FieldByName('Kaz9').value*
+TKATSAY.FieldByName('Katsayi').value;
+end;
+end;
+
+procedure TFHesap.Edit26Enter(Sender: TObject);
+begin
+with DMEMUR do
+begin
+THESAP.Edit;
+TSICIL.Edit;
+TSICIL.FieldByName('Keft').value:=TSICIL.FieldByName('Keft').value-
+THESAP.FieldByName('Pkaz26').value;
+If TSICIL.FieldByName('Kef').asstring = 'E' then
+begin
+ THESAP.FieldByName('Pkaz26').value:=TKATSAY.Fieldbyname('Kef2').Value*
+ THESAP1.FieldByName('PKaz1').value;
+End;
+ THESAP.FieldByName('Pkaz26').Value:=
+ yuvar(THESAP.FieldByName('Pkaz26').Value,TKATSAY.FieldByName('Yuv').value);
+TSICIL.Post;
+THESAP.Post;
+end;
+End;
+
+procedure TFHesap.DBEdit7Exit(Sender: TObject);
+begin
+If HesaptBt.Enabled=True then
+begin
+with DMEMUR do
+begin
+TGOS1.SetKey;
+TGOS1.FieldByName('Der').asstring:=
+THESAP1.FieldByName('Kaz7').value;
+TGOS1.GotoKey;
+kat:=THESAP1.FieldByName('Kaz8').value;
+Gos;
+THESAP1.Edit;
+THESAP1.FieldByName('Pkaz1').value:=TKATSAY.fieldbyname('Katsayi').Value*kat;
+  Case TSICIL.FieldByName('Vekor').value of
+   1 : THESAP1.FieldByName('Pkaz1').value:=(THESAP1.FieldByName('Pkaz1').value/3)*1;
+   2 : THESAP1.FieldByName('Pkaz1').value:=(THESAP1.FieldByName('Pkaz1').value/3)*2;
+   3 : THESAP1.FieldByName('Pkaz1').value:=(THESAP1.FieldByName('Pkaz1').value/3)*2;
+  End;
+fark:=kat;
+THESAP1.Post;
+End;
+end;
+end;
+
+procedure TFHesap.DBEdit9Exit(Sender: TObject);
+begin
+If HesaptBt.Enabled=True then
+begin
+with DMEMUR do
+begin
+THESAP1.Edit;
+THESAP1.FieldByName('Pkaz6').value:=0;
+
+THESAP1.FieldByName('Pkaz6').Value:=(TKatoranA19.Value/30)*THESAP1.FieldByName('kaz10').Value*
+TKATSAYKatsayi.Value;
+
+THESAP1.post;
+end;
+end;
+end;
+
+procedure TFHesap.DBEdit10Enter(Sender: TObject);
+begin
+If HesaptBt.Enabled=True then
+begin
+DMEMUR.THESAP1.edit;
+DMEMUR.TSICIL.edit;
+DMEMUR.TSICIL.FieldByName('Rap').value:=
+DMEMUR.TSICIL.FieldByName('Rap').value-DMEMUR.THESAP1.FieldByName('Kaz11').value;
+DMEMUR.TSICIL.post;
+DMEMUR.THESAP1.Post;
+end;          
+end;
+
+procedure TFHesap.DBEdit10Exit(Sender: TObject);
+begin
+If HesaptBt.Enabled=True then
+begin
+with DMEMUR do
+begin
+THESAP1.edit;
+TSICIL.edit;
+TSICIL.FieldByName('Rap').value:=
+TSICIL.FieldByName('Rap').value+THESAP1.FieldByName('Kaz11').value;
+TSICIL.post;
+THESAP1.Post;
+end;
+end;
+End;
+
+procedure TFHesap.FormPaint(Sender: TObject);
+begin
+ Arama;
+end;
+
+
+procedure TFHesap.TopluClick(Sender: TObject);
+begin
+Screen.Cursor := crHourGlass;
+with TFTopHesap.Create( Self ) do
+   	try
+	  Screen.Cursor := crDefault;
+          ShowModal;
+        finally
+        free;   end;
+
+end;
+
+procedure TFHesap.BitBtn1Click(Sender: TObject);
+begin
+	Screen.Cursor := crHourGlass;
+  with TFAboneara.Create( Self ) do
+   	try
+	  Screen.Cursor := crDefault;
+          ShowModal;
+        finally
+        free;
+   end;
+ Arama;
+
+end;
+
+procedure TFHesap.DBEdit5Exit(Sender: TObject);
+begin
+If (DMEMUR.THESAP1.FieldByName('Kaz5').value<>0) and (DMEMUR.TKATSAYOz2.Value<>0) then
+begin
+
+DMEMUR.THESAP1.Edit;
+If (DMEMUR.TSICILDirp.Value=0)  Then
+begin
+  If (DMEMUR.TSICILSskk.Value<>'H')  Then
+  DMEMUR.THESAP1.FieldByName('Pkaz24').value:=(DMEMUR.TKATSAYKatsayi.Value*
+ (DMEMUR.THESAP1.FieldByName('Kaz5').value*DMEMUR.TKatoranA18.value)/DMEMUR.TKATSAYOz2.Value/2)
+ else
+  DMEMUR.THESAP1.FieldByName('Pkaz24').value:=(DMEMUR.TKATSAYKatsayi.Value*
+ (DMEMUR.THESAP1.FieldByName('Kaz5').value*DMEMUR.TKatoranA18.value)/DMEMUR.TKATSAYOz2.Value);
+ end
+ else
+  DMEMUR.THESAP1.FieldByName('Pkaz24').value:=(DMEMUR.TKATSAYKatsayi.Value*
+ (DMEMUR.THESAP1.FieldByName('Kaz5').value*DMEMUR.TKatoranA18.value)/DMEMUR.TKATSAYOz2.Value);
+
+ DMEMUR.THESAP1.Post;
+
+
+
+end;
+end;
+
+end.

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.432,Z:\MemurSQL\KaynakSQL\UIcraGirisi.dfm=Z:\MemurSQL\KaynakSQL\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.dfm,D:\belediye\ILICA\Sermemur\Kaynak 2008\Unit1.dfm=D:\belediye\ILICA\Sermemur\Kaynak 2008\USicilTasima.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,Y:\SQLProject\MemurSQL\Kaynak 2008\UHakkinda.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.dfm,Y:\SQLProject\MemurSQL\Kaynak 2008\UHakkinda.dfm=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.dfm,Y:\SQLProject\MemurSQL\Kaynak 2008\USIFREAL.dfm=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.432,Z:\MemurSQL\KaynakSQL\UIcraGirisi.pas=Z:\MemurSQL\KaynakSQL\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.dfm,Y:\SQLProject\MemurSQL\Kaynak 2008\UHesapLisan.dfm=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.118,=C:\SKYBSWin\Project\SQLProject\MemurSQL\Common\UProvider.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.PAS,Y:\SQLProject\MemurSQL\Kaynak 2008\USIFREAL.PAS=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,Y:\SQLProject\MemurSQL\Kaynak 2008\UHesapLisan.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.dfm,Y:\SQLProject\MemurSQL\Kaynak 2008\ULisan.dfm=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.611,=Z:\Common\UProvider.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.dfm,Y:\SQLProject\MemurSQL\Kaynak 2008\UMEMUR.dfm=Y:\SQLProject\MemurSQL\Kaynak 2008\UData.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.160,=C:\SKYBSWin\Project\SQLProject\MemurSQL\KaynakSQL\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.783,=C:\SKYBSWin\Project\SQLProject\MemurSQL\KaynakSQL\UVergiIstisnaKontrol.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.PAS,Y:\SQLProject\MemurSQL\Kaynak 2008\UMEMUR.PAS=Y:\SQLProject\MemurSQL\Kaynak 2008\UData.PAS</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.128,C:\SKYBSWin\Project\SQLProject\MemurSQL\KaynakSQL\UBesKesinti.pas=C:\SKYBSWin\Project\SQLProject\MemurSQL\KaynakSQL\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,D:\belediye\ILICA\Sermemur\Kaynak 2008\Unit1.pas=D:\belediye\ILICA\Sermemur\Kaynak 2008\USicilTasima.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.128,C:\SKYBSWin\Project\SQLProject\MemurSQL\KaynakSQL\UBesKesinti.dfm=C:\SKYBSWin\Project\SQLProject\MemurSQL\KaynakSQL\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.511,=Z:\MemurSQL\KaynakSQL\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.538,Z:\MemurSQL\KaynakSQL\USicilAra.pas=Z:\MemurSQL\KaynakSQL\UAboneara.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.538,Z:\MemurSQL\KaynakSQL\USicilAra.dfm=Z:\MemurSQL\KaynakSQL\UAboneara.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.428,=C:\SKYBSWin\Project\SQLProject\MemurSQL\KaynakSQL\SerasCrmWs1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,Y:\SQLProject\MemurSQL\Kaynak 2008\ULisan.pas=</Transaction>
+  </Transactions>
+</BorlandProject>

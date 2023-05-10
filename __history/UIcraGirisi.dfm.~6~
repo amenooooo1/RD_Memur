@@ -1,0 +1,145 @@
+object FIcraGirisi: TFIcraGirisi
+  Left = 0
+  Top = 0
+  Caption = 'FIcraGirisi'
+  ClientHeight = 360
+  ClientWidth = 776
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 776
+    Height = 41
+    Align = alTop
+    TabOrder = 0
+    ExplicitWidth = 372
+    object Vazgec: TBitBtn
+      Left = 704
+      Top = 1
+      Width = 73
+      Height = 40
+      Cancel = True
+      Caption = '&Vazgec'
+      DoubleBuffered = True
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3333333333FFFFF3333333333999993333333333F77777FFF333333999999999
+        33333337777FF377FF3333993370739993333377FF373F377FF3399993000339
+        993337777F777F3377F3393999707333993337F77737333337FF993399933333
+        399377F3777FF333377F993339903333399377F33737FF33377F993333707333
+        399377F333377FF3377F993333101933399377F333777FFF377F993333000993
+        399377FF3377737FF7733993330009993933373FF3777377F7F3399933000399
+        99333773FF777F777733339993707339933333773FF7FFF77333333999999999
+        3333333777333777333333333999993333333333377777333333}
+      ModalResult = 2
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = VazgecClick
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 41
+    Width = 776
+    Height = 319
+    Align = alClient
+    DataSource = UniDataSource1
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'IcraNo'
+        Width = 199
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'IcraninGeldiYer'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'IcraToplam'
+        Width = 84
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'IcraKalan'
+        Width = 81
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Kesilen'
+        Width = 59
+        Visible = True
+      end>
+  end
+  object UniQIcra: TUniQuery
+    Connection = FData.UniMemur
+    SQL.Strings = (
+      'Select * From IcraListesi')
+    MasterSource = FData.DSICIL
+    MasterFields = 'Sicno'
+    DetailFields = 'Sicno'
+    Left = 80
+    Top = 128
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'Sicno'
+      end>
+    object UniQIcraId: TIntegerField
+      FieldName = 'Id'
+      ReadOnly = True
+      Required = True
+    end
+    object UniQIcraSicno: TIntegerField
+      FieldName = 'Sicno'
+      Required = True
+    end
+    object UniQIcraIcraNo: TWideStringField
+      FieldName = 'IcraNo'
+      Size = 50
+    end
+    object UniQIcraIcraninGeldiYer: TWideStringField
+      FieldName = 'IcraninGeldiYer'
+      Size = 50
+    end
+    object UniQIcraIcraToplam: TFloatField
+      FieldName = 'IcraToplam'
+    end
+    object UniQIcraIcraKalan: TFloatField
+      FieldName = 'IcraKalan'
+    end
+    object UniQIcraKesilen: TBooleanField
+      FieldName = 'Kesilen'
+    end
+  end
+  object UniDataSource1: TUniDataSource
+    DataSet = UniQIcra
+    Left = 88
+    Top = 152
+  end
+end

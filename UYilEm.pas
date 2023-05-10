@@ -1,0 +1,764 @@
+unit UYilEm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Grids, DBGrids, Db, DBTables, Uni, DBAccess,  MemDS, StdCtrls, Buttons, quickrpt, Qrctrls,
+  ExtCtrls, Mask, DBCtrls;
+
+type
+  TFYilEm = class(TForm)
+    Table1: TUniTable;
+    DataSource1: TDataSource;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    ScrollBox: TScrollBox;
+    YaziBt: TBitBtn;
+    Vazgec: TBitBtn;
+    MemoG: TDBMemo;
+    MemoG2: TDBMemo;
+    MemoG3: TDBMemo;
+    MemoG4: TDBMemo;
+    MemoG5: TDBMemo;
+    MemoG6: TDBMemo;
+    MemoG7: TDBMemo;
+    MemoG8: TDBMemo;
+    MemoG9: TDBMemo;
+    MemoG10: TDBMemo;
+    MemoG11: TDBMemo;
+    MemoG12: TDBMemo;
+    DBMemo1: TDBMemo;
+    DBMemo2: TDBMemo;
+    DBMemo3: TDBMemo;
+    DBMemo4: TDBMemo;
+    DBMemo5: TDBMemo;
+    DBMemo6: TDBMemo;
+    DBMemo7: TDBMemo;
+    DBMemo8: TDBMemo;
+    DBMemo9: TDBMemo;
+    DBMemo10: TDBMemo;
+    DBMemo11: TDBMemo;
+    DBMemo12: TDBMemo;
+    DBMemo13: TDBMemo;
+    DBMemo14: TDBMemo;
+    DBMemo15: TDBMemo;
+    DBMemo16: TDBMemo;
+    DBMemo17: TDBMemo;
+    DBMemo18: TDBMemo;
+    DBMemo19: TDBMemo;
+    DBMemo20: TDBMemo;
+    DBMemo21: TDBMemo;
+    DBMemo22: TDBMemo;
+    DBMemo23: TDBMemo;
+    DBMemo24: TDBMemo;
+    DBMemo25: TDBMemo;
+    DBMemo26: TDBMemo;
+    DBMemo27: TDBMemo;
+    DBMemo28: TDBMemo;
+    DBMemo29: TDBMemo;
+    DBMemo30: TDBMemo;
+    DBMemo31: TDBMemo;
+    DBMemo32: TDBMemo;
+    DBMemo33: TDBMemo;
+    DBMemo34: TDBMemo;
+    DBMemo35: TDBMemo;
+    DBMemo36: TDBMemo;
+    QuickRep1: TQuickRep;
+    QRBand1: TQRBand;
+    QRExpr29: TQRExpr;
+    QRExpr28: TQRExpr;
+    QRExpr27: TQRExpr;
+    QRExpr26: TQRExpr;
+    QRExpr25: TQRExpr;
+    QRExpr24: TQRExpr;
+    QRExpr23: TQRExpr;
+    QRExpr22: TQRExpr;
+    QRExpr21: TQRExpr;
+    QRExpr3: TQRExpr;
+    QRExpr19: TQRExpr;
+    QRExpr20: TQRExpr;
+    QRExpr9: TQRExpr;
+    QRDBText1: TQRDBText;
+    QRDBText2: TQRDBText;
+    QRDBText3: TQRDBText;
+    QRDBText4: TQRDBText;
+    QRLabel20: TQRLabel;
+    QRDBText49: TQRDBText;
+    QRLabel23: TQRLabel;
+    QRLabel24: TQRLabel;
+    QRLabel31: TQRLabel;
+    QRLabel32: TQRLabel;
+    QRLabel35: TQRLabel;
+    QRLabel36: TQRLabel;
+    QRLabel37: TQRLabel;
+    QRLabel38: TQRLabel;
+    QRLabel39: TQRLabel;
+    QRLabel40: TQRLabel;
+    QRLabel41: TQRLabel;
+    QRLabel42: TQRLabel;
+    QRLabel43: TQRLabel;
+    QRLabel44: TQRLabel;
+    QRLabel45: TQRLabel;
+    QRLabel46: TQRLabel;
+    QRLabel47: TQRLabel;
+    QRLabel33: TQRLabel;
+    QRLabel34: TQRLabel;
+    QRLabel48: TQRLabel;
+    QRLabel49: TQRLabel;
+    QRLabel50: TQRLabel;
+    QRLabel51: TQRLabel;
+    QRLabel52: TQRLabel;
+    QRLabel53: TQRLabel;
+    QRLabel54: TQRLabel;
+    QRLabel55: TQRLabel;
+    QRLabel60: TQRLabel;
+    QRLabel69: TQRLabel;
+    QRLabel70: TQRLabel;
+    QRLabel71: TQRLabel;
+    QRLabel72: TQRLabel;
+    QRLabel73: TQRLabel;
+    QRLabel74: TQRLabel;
+    QRLabel75: TQRLabel;
+    QRLabel76: TQRLabel;
+    QRLabel77: TQRLabel;
+    QRLabel78: TQRLabel;
+    QRLabel79: TQRLabel;
+    QRLabel80: TQRLabel;
+    QRLabel81: TQRLabel;
+    QRLabel82: TQRLabel;
+    QRLabel83: TQRLabel;
+    QRLabel84: TQRLabel;
+    QRLabel85: TQRLabel;
+    QRLabel87: TQRLabel;
+    QRLabel88: TQRLabel;
+    QRLabel90: TQRLabel;
+    QRLabel91: TQRLabel;
+    QRLabel92: TQRLabel;
+    QRLabel93: TQRLabel;
+    QRLabel94: TQRLabel;
+    QRLabel95: TQRLabel;
+    QRLabel96: TQRLabel;
+    QRLabel97: TQRLabel;
+    QRLabel98: TQRLabel;
+    QRLabel99: TQRLabel;
+    QRLabel100: TQRLabel;
+    QRLabel101: TQRLabel;
+    QRLabel102: TQRLabel;
+    QRLabel103: TQRLabel;
+    QRLabel104: TQRLabel;
+    QRLabel105: TQRLabel;
+    QRLabel106: TQRLabel;
+    QRLabel107: TQRLabel;
+    QRLabel108: TQRLabel;
+    QRLabel109: TQRLabel;
+    QRLabel110: TQRLabel;
+    QRLabel111: TQRLabel;
+    QRLabel112: TQRLabel;
+    QRLabel113: TQRLabel;
+    QRLabel114: TQRLabel;
+    QRLabel115: TQRLabel;
+    QRLabel116: TQRLabel;
+    QRLabel117: TQRLabel;
+    QRLabel118: TQRLabel;
+    QRLabel119: TQRLabel;
+    QRLabel120: TQRLabel;
+    QRLabel121: TQRLabel;
+    QRLabel122: TQRLabel;
+    QRLabel123: TQRLabel;
+    QRLabel124: TQRLabel;
+    QRLabel125: TQRLabel;
+    QRLabel126: TQRLabel;
+    QRLabel127: TQRLabel;
+    QRLabel128: TQRLabel;
+    QRLabel129: TQRLabel;
+    QRLabel130: TQRLabel;
+    QRLabel131: TQRLabel;
+    QRLabel132: TQRLabel;
+    QRLabel133: TQRLabel;
+    QRLabel134: TQRLabel;
+    QRLabel135: TQRLabel;
+    QRLabel136: TQRLabel;
+    QRLabel137: TQRLabel;
+    QRLabel138: TQRLabel;
+    QRLabel139: TQRLabel;
+    QRLabel140: TQRLabel;
+    QRLabel141: TQRLabel;
+    QRLabel142: TQRLabel;
+    QRLabel143: TQRLabel;
+    QRLabel144: TQRLabel;
+    QRLabel145: TQRLabel;
+    QRLabel146: TQRLabel;
+    QRLabel147: TQRLabel;
+    QRLabel148: TQRLabel;
+    QRLabel149: TQRLabel;
+    QRLabel150: TQRLabel;
+    QRLabel151: TQRLabel;
+    QRLabel152: TQRLabel;
+    QRLabel153: TQRLabel;
+    QRLabel154: TQRLabel;
+    QRLabel155: TQRLabel;
+    QRLabel156: TQRLabel;
+    QRLabel157: TQRLabel;
+    QRLabel158: TQRLabel;
+    QRLabel159: TQRLabel;
+    QRLabel160: TQRLabel;
+    QRLabel161: TQRLabel;
+    QRLabel162: TQRLabel;
+    QRLabel163: TQRLabel;
+    QRLabel164: TQRLabel;
+    QRLabel165: TQRLabel;
+    QRLabel166: TQRLabel;
+    QRLabel167: TQRLabel;
+    QRLabel168: TQRLabel;
+    QRLabel169: TQRLabel;
+    QRLabel170: TQRLabel;
+    QRLabel171: TQRLabel;
+    QRLabel172: TQRLabel;
+    QRLabel173: TQRLabel;
+    QRLabel174: TQRLabel;
+    QRLabel175: TQRLabel;
+    QRLabel176: TQRLabel;
+    QRLabel177: TQRLabel;
+    QRLabel178: TQRLabel;
+    QRLabel179: TQRLabel;
+    QRLabel180: TQRLabel;
+    QRLabel181: TQRLabel;
+    QRLabel182: TQRLabel;
+    QRLabel183: TQRLabel;
+    QRLabel184: TQRLabel;
+    QRLabel185: TQRLabel;
+    QRLabel186: TQRLabel;
+    QRLabel187: TQRLabel;
+    QRLabel188: TQRLabel;
+    QRLabel189: TQRLabel;
+    QRLabel190: TQRLabel;
+    QRLabel191: TQRLabel;
+    QRLabel192: TQRLabel;
+    QRLabel193: TQRLabel;
+    QRLabel194: TQRLabel;
+    QRLabel197: TQRLabel;
+    QRLabel198: TQRLabel;
+    QRLabel199: TQRLabel;
+    QRLabel200: TQRLabel;
+    QRLabel201: TQRLabel;
+    QRLabel202: TQRLabel;
+    QRLabel203: TQRLabel;
+    QRLabel204: TQRLabel;
+    QRLabel205: TQRLabel;
+    QRLabel206: TQRLabel;
+    QRLabel207: TQRLabel;
+    QRLabel208: TQRLabel;
+    QRLabel209: TQRLabel;
+    QRLabel210: TQRLabel;
+    QRLabel211: TQRLabel;
+    QRLabel212: TQRLabel;
+    QRLabel217: TQRLabel;
+    QRLabel218: TQRLabel;
+    QRLabel219: TQRLabel;
+    QRLabel220: TQRLabel;
+    QRLabel221: TQRLabel;
+    QRLabel222: TQRLabel;
+    QRLabel223: TQRLabel;
+    QRLabel224: TQRLabel;
+    QRLabel225: TQRLabel;
+    QRLabel226: TQRLabel;
+    QRLabel227: TQRLabel;
+    QRLabel228: TQRLabel;
+    QRLabel229: TQRLabel;
+    QRLabel230: TQRLabel;
+    QRLabel231: TQRLabel;
+    QRLabel232: TQRLabel;
+    QRLabel233: TQRLabel;
+    QRLabel234: TQRLabel;
+    QRLabel235: TQRLabel;
+    QRLabel236: TQRLabel;
+    QRLabel237: TQRLabel;
+    QRLabel238: TQRLabel;
+    QRLabel239: TQRLabel;
+    QRLabel240: TQRLabel;
+    QRLabel241: TQRLabel;
+    QRLabel242: TQRLabel;
+    QRLabel243: TQRLabel;
+    QRLabel244: TQRLabel;
+    QRLabel245: TQRLabel;
+    QRLabel246: TQRLabel;
+    QRLabel249: TQRLabel;
+    QRLabel250: TQRLabel;
+    QRLabel251: TQRLabel;
+    QRLabel252: TQRLabel;
+    QRLabel253: TQRLabel;
+    QRLabel254: TQRLabel;
+    QRLabel255: TQRLabel;
+    QRLabel256: TQRLabel;
+    QRLabel257: TQRLabel;
+    QRLabel258: TQRLabel;
+    QRLabel259: TQRLabel;
+    QRLabel260: TQRLabel;
+    QRLabel261: TQRLabel;
+    QRLabel262: TQRLabel;
+    QRLabel265: TQRLabel;
+    QRLabel266: TQRLabel;
+    QRLabel267: TQRLabel;
+    QRLabel268: TQRLabel;
+    QRLabel269: TQRLabel;
+    QRLabel270: TQRLabel;
+    QRLabel271: TQRLabel;
+    QRLabel272: TQRLabel;
+    QRLabel273: TQRLabel;
+    QRLabel274: TQRLabel;
+    QRLabel275: TQRLabel;
+    QRLabel276: TQRLabel;
+    QRLabel277: TQRLabel;
+    QRLabel278: TQRLabel;
+    QRLabel279: TQRLabel;
+    QRLabel280: TQRLabel;
+    QRLabel285: TQRLabel;
+    QRLabel286: TQRLabel;
+    QRLabel287: TQRLabel;
+    QRLabel288: TQRLabel;
+    QRLabel289: TQRLabel;
+    QRLabel290: TQRLabel;
+    QRLabel291: TQRLabel;
+    QRLabel292: TQRLabel;
+    QRLabel293: TQRLabel;
+    QRLabel294: TQRLabel;
+    QRLabel295: TQRLabel;
+    QRLabel296: TQRLabel;
+    QRLabel297: TQRLabel;
+    QRLabel298: TQRLabel;
+    QRLabel299: TQRLabel;
+    QRLabel300: TQRLabel;
+    QRLabel301: TQRLabel;
+    QRLabel302: TQRLabel;
+    QRLabel303: TQRLabel;
+    QRLabel304: TQRLabel;
+    QRLabel305: TQRLabel;
+    QRLabel306: TQRLabel;
+    QRLabel307: TQRLabel;
+    QRLabel308: TQRLabel;
+    QRLabel309: TQRLabel;
+    QRLabel310: TQRLabel;
+    QRLabel311: TQRLabel;
+    QRLabel312: TQRLabel;
+    QRLabel313: TQRLabel;
+    QRLabel314: TQRLabel;
+    QRLabel317: TQRLabel;
+    QRLabel318: TQRLabel;
+    QRLabel319: TQRLabel;
+    QRLabel320: TQRLabel;
+    QRLabel321: TQRLabel;
+    QRLabel322: TQRLabel;
+    QRLabel323: TQRLabel;
+    QRLabel324: TQRLabel;
+    QRLabel325: TQRLabel;
+    QRLabel326: TQRLabel;
+    QRLabel327: TQRLabel;
+    QRLabel328: TQRLabel;
+    QRLabel329: TQRLabel;
+    QRLabel330: TQRLabel;
+    QRLabel333: TQRLabel;
+    QRLabel334: TQRLabel;
+    QRLabel335: TQRLabel;
+    QRLabel336: TQRLabel;
+    QRLabel337: TQRLabel;
+    QRLabel338: TQRLabel;
+    QRLabel339: TQRLabel;
+    QRLabel340: TQRLabel;
+    QRLabel341: TQRLabel;
+    QRLabel342: TQRLabel;
+    QRLabel343: TQRLabel;
+    QRLabel344: TQRLabel;
+    QRLabel345: TQRLabel;
+    QRLabel346: TQRLabel;
+    QRLabel347: TQRLabel;
+    QRLabel348: TQRLabel;
+    QRLabel353: TQRLabel;
+    QRLabel354: TQRLabel;
+    QRLabel355: TQRLabel;
+    QRLabel356: TQRLabel;
+    QRLabel357: TQRLabel;
+    QRLabel358: TQRLabel;
+    QRLabel359: TQRLabel;
+    QRLabel360: TQRLabel;
+    QRLabel361: TQRLabel;
+    QRLabel362: TQRLabel;
+    QRLabel363: TQRLabel;
+    QRLabel364: TQRLabel;
+    QRLabel365: TQRLabel;
+    QRLabel366: TQRLabel;
+    QRLabel367: TQRLabel;
+    QRLabel368: TQRLabel;
+    QRLabel369: TQRLabel;
+    QRLabel370: TQRLabel;
+    QRLabel371: TQRLabel;
+    QRLabel372: TQRLabel;
+    QRLabel373: TQRLabel;
+    QRLabel374: TQRLabel;
+    QRLabel375: TQRLabel;
+    QRLabel376: TQRLabel;
+    QRLabel377: TQRLabel;
+    QRLabel378: TQRLabel;
+    QRLabel379: TQRLabel;
+    QRLabel380: TQRLabel;
+    QRLabel381: TQRLabel;
+    QRLabel382: TQRLabel;
+    QRLabel385: TQRLabel;
+    QRLabel386: TQRLabel;
+    QRLabel387: TQRLabel;
+    QRLabel388: TQRLabel;
+    QRLabel389: TQRLabel;
+    QRLabel390: TQRLabel;
+    QRLabel391: TQRLabel;
+    QRLabel392: TQRLabel;
+    QRLabel393: TQRLabel;
+    QRLabel394: TQRLabel;
+    QRLabel395: TQRLabel;
+    QRLabel396: TQRLabel;
+    QRLabel397: TQRLabel;
+    QRLabel398: TQRLabel;
+    QRLabel401: TQRLabel;
+    QRLabel402: TQRLabel;
+    QRLabel403: TQRLabel;
+    QRLabel404: TQRLabel;
+    QRLabel405: TQRLabel;
+    QRLabel406: TQRLabel;
+    QRLabel407: TQRLabel;
+    QRLabel408: TQRLabel;
+    QRLabel409: TQRLabel;
+    QRLabel410: TQRLabel;
+    QRLabel411: TQRLabel;
+    QRLabel412: TQRLabel;
+    QRLabel413: TQRLabel;
+    QRLabel414: TQRLabel;
+    QRLabel415: TQRLabel;
+    QRLabel416: TQRLabel;
+    QRLabel421: TQRLabel;
+    QRLabel422: TQRLabel;
+    QRLabel423: TQRLabel;
+    QRLabel424: TQRLabel;
+    QRLabel425: TQRLabel;
+    QRLabel426: TQRLabel;
+    QRLabel427: TQRLabel;
+    QRLabel428: TQRLabel;
+    QRLabel429: TQRLabel;
+    QRLabel430: TQRLabel;
+    QRLabel431: TQRLabel;
+    QRLabel432: TQRLabel;
+    QRLabel433: TQRLabel;
+    QRLabel434: TQRLabel;
+    QRLabel435: TQRLabel;
+    QRLabel436: TQRLabel;
+    QRLabel437: TQRLabel;
+    QRLabel438: TQRLabel;
+    QRLabel439: TQRLabel;
+    QRLabel440: TQRLabel;
+    QRLabel441: TQRLabel;
+    QRLabel442: TQRLabel;
+    QRLabel443: TQRLabel;
+    QRLabel444: TQRLabel;
+    QRLabel445: TQRLabel;
+    QRLabel446: TQRLabel;
+    QRLabel447: TQRLabel;
+    QRLabel448: TQRLabel;
+    QRLabel449: TQRLabel;
+    QRLabel450: TQRLabel;
+    QRExpr1: TQRExpr;
+    QRExpr4: TQRExpr;
+    QRExpr5: TQRExpr;
+    QRExpr6: TQRExpr;
+    QRExpr7: TQRExpr;
+    QRExpr8: TQRExpr;
+    QRExpr10: TQRExpr;
+    QRExpr11: TQRExpr;
+    QRExpr12: TQRExpr;
+    QRExpr13: TQRExpr;
+    QRExpr14: TQRExpr;
+    QRExpr15: TQRExpr;
+    QRLabel454: TQRLabel;
+    QRLabel455: TQRLabel;
+    QRLabel195: TQRLabel;
+    QRLabel196: TQRLabel;
+    QRLabel213: TQRLabel;
+    QRLabel214: TQRLabel;
+    QRLabel216: TQRLabel;
+    QRLabel215: TQRLabel;
+    QRLabel247: TQRLabel;
+    QRLabel248: TQRLabel;
+    QRLabel263: TQRLabel;
+    QRLabel264: TQRLabel;
+    QRLabel281: TQRLabel;
+    QRLabel282: TQRLabel;
+    QRLabel284: TQRLabel;
+    QRLabel283: TQRLabel;
+    QRLabel315: TQRLabel;
+    QRLabel316: TQRLabel;
+    QRLabel331: TQRLabel;
+    QRLabel332: TQRLabel;
+    QRLabel349: TQRLabel;
+    QRLabel350: TQRLabel;
+    QRLabel352: TQRLabel;
+    QRLabel351: TQRLabel;
+    QRLabel383: TQRLabel;
+    QRLabel384: TQRLabel;
+    QRLabel399: TQRLabel;
+    QRLabel400: TQRLabel;
+    QRLabel417: TQRLabel;
+    QRLabel418: TQRLabel;
+    QRLabel420: TQRLabel;
+    QRLabel419: TQRLabel;
+    QRLabel451: TQRLabel;
+    QRLabel452: TQRLabel;
+    QRLabel456: TQRLabel;
+    QRLabel453: TQRLabel;
+    QRLabel457: TQRLabel;
+    QRLabel458: TQRLabel;
+    QRLabel459: TQRLabel;
+    QRDBText7: TQRDBText;
+    QRDBText8: TQRDBText;
+    QRDBText9: TQRDBText;
+    QRDBText10: TQRDBText;
+    QRDBText11: TQRDBText;
+    QRDBText12: TQRDBText;
+    QRDBText13: TQRDBText;
+    QRDBText14: TQRDBText;
+    QRDBText15: TQRDBText;
+    QRDBText16: TQRDBText;
+    QRDBText17: TQRDBText;
+    QRDBText18: TQRDBText;
+    QRBand2: TQRBand;
+    QRLabel68: TQRLabel;
+    QRLabel67: TQRLabel;
+    QRLabel66: TQRLabel;
+    QRLabel65: TQRLabel;
+    QRLabel64: TQRLabel;
+    QRLabel63: TQRLabel;
+    QRLabel62: TQRLabel;
+    QRLabel61: TQRLabel;
+    QRLabel56: TQRLabel;
+    QRLabel57: TQRLabel;
+    QRLabel58: TQRLabel;
+    QRLabel59: TQRLabel;
+    QRLabel1: TQRLabel;
+    QRLabel2: TQRLabel;
+    QRLabel3: TQRLabel;
+    QRLabel4: TQRLabel;
+    QRLabel5: TQRLabel;
+    QRLabel6: TQRLabel;
+    QRLabel7: TQRLabel;
+    QRLabel8: TQRLabel;
+    QRLabel9: TQRLabel;
+    QRLabel10: TQRLabel;
+    QRLabel11: TQRLabel;
+    QRLabel12: TQRLabel;
+    QRLabel13: TQRLabel;
+    QRLabel14: TQRLabel;
+    QRLabel15: TQRLabel;
+    QRLabel16: TQRLabel;
+    QRLabel17: TQRLabel;
+    QRLabel18: TQRLabel;
+    QRLabel86: TQRLabel;
+    QRLabel89: TQRLabel;
+    QRLabel21: TQRLabel;
+    QRLabel22: TQRLabel;
+    QRLabel25: TQRLabel;
+    QRLabel26: TQRLabel;
+    QRLabel27: TQRLabel;
+    QRLabel28: TQRLabel;
+    QRLabel29: TQRLabel;
+    QRLabel30: TQRLabel;
+    QRDBText5: TQRDBText;
+    QRDBText6: TQRDBText;
+    QRDBText19: TQRDBText;
+    QRDBText20: TQRDBText;
+    QRDBText21: TQRDBText;
+    QRDBText22: TQRDBText;
+    QRDBText23: TQRDBText;
+    QRDBText24: TQRDBText;
+    QRDBText25: TQRDBText;
+    QRDBText26: TQRDBText;
+    QRDBText27: TQRDBText;
+    QRDBText28: TQRDBText;
+    QRDBText29: TQRDBText;
+    QRDBText30: TQRDBText;
+    QRDBText31: TQRDBText;
+    QRDBText32: TQRDBText;
+    QRDBText33: TQRDBText;
+    QRDBText34: TQRDBText;
+    QRDBText35: TQRDBText;
+    QRDBText36: TQRDBText;
+    QRDBText37: TQRDBText;
+    QRDBText38: TQRDBText;
+    QRDBText39: TQRDBText;
+    QRDBText40: TQRDBText;
+    QRDBText41: TQRDBText;
+    QRDBText42: TQRDBText;
+    QRDBText43: TQRDBText;
+    QRDBText44: TQRDBText;
+    QRDBText45: TQRDBText;
+    QRDBText46: TQRDBText;
+    QRDBText47: TQRDBText;
+    QRDBText48: TQRDBText;
+    QRDBText50: TQRDBText;
+    QRDBText51: TQRDBText;
+    QRLabel460: TQRLabel;
+    QRLabel461: TQRLabel;
+    QRLabel462: TQRLabel;
+    QRLabel463: TQRLabel;
+    QRLabel464: TQRLabel;
+    QRLabel465: TQRLabel;
+    QRLabel466: TQRLabel;
+    QRLabel467: TQRLabel;
+    QRLabel468: TQRLabel;
+    QRLabel469: TQRLabel;
+    QRLabel470: TQRLabel;
+    QRLabel471: TQRLabel;
+    QRLabel472: TQRLabel;
+    QRLabel473: TQRLabel;
+    QRLabel474: TQRLabel;
+    QRLabel475: TQRLabel;
+    QRLabel476: TQRLabel;
+    QRLabel477: TQRLabel;
+    QRLabel478: TQRLabel;
+    QRLabel479: TQRLabel;
+    QRLabel480: TQRLabel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    QRBand3: TQRBand;
+    QRBand4: TQRBand;
+    QRExpr2: TQRExpr;
+    procedure YaziBtClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure DBEdit1KeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FYilEm: TFYilEm;
+
+implementation
+
+uses UData;
+
+{$R *.DFM}
+
+
+procedure TFYilEm.YaziBtClick(Sender: TObject);
+begin
+If Table1.State in[DsEdit,dsInsert] then Table1.Post;
+QrLabel27.Caption :=(FData.UniSistem.FieldByName('Ilce').Value)+' / '+
+(FData.UniSistem.FieldByName('Il').Value);
+QuickRep1.Preview;
+end;
+
+procedure TFYilEm.FormCreate(Sender: TObject);
+begin
+Table1.Open;
+end;
+
+procedure TFYilEm.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+If Table1.State in[DsEdit,dsInsert] then Table1.Post;
+Table1.Close;
+end;
+
+procedure TFYilEm.DBEdit1KeyPress(Sender: TObject; var Key: Char);
+begin
+if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end.

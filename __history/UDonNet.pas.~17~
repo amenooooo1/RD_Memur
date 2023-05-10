@@ -1,0 +1,256 @@
+unit UDonNet;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Db, Qrctrls, quickrpt, ExtCtrls, DBTables, Uni, DBAccess, MemDS,
+  StdCtrls, Buttons, Math,  Grids, DBGrids, DBCtrls, frxClass, frxDBSet;
+
+type
+  TFDonNet = class(TForm)
+    HazirBt: TBitBtn;
+    YaziBt: TBitBtn;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBGrid1: TDBGrid;
+    Query1: TUniQuery;
+    DataSource1: TDataSource;
+    Query2: TUniQuery;
+    RadioGroup1: TRadioGroup;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Label4: TLabel;
+    Label3: TLabel;
+    Label2: TLabel;
+    Vazgec: TBitBtn;
+    Table1: TUniTable;
+    DataSource2: TDataSource;
+    QuickRep1: TQuickRep;
+    PageFooterBand1: TQRBand;
+    QRExpr19: TQRExpr;
+    QRLabel7: TQRLabel;
+    QRDBText1: TQRDBText;
+    QRDBText3: TQRDBText;
+    QRDBText5: TQRDBText;
+    QRDBText6: TQRDBText;
+    ColumnHeaderBand1: TQRBand;
+    QRLabel1: TQRLabel;
+    QRLabel3: TQRLabel;
+    QRLabel4: TQRLabel;
+    QRLabel5: TQRLabel;
+    QRLabel6: TQRLabel;
+    QRLabel8: TQRLabel;
+    QRDBText35: TQRDBText;
+    QRLabel32: TQRLabel;
+    QRDBText37: TQRDBText;
+    QRLabel34: TQRLabel;
+    QRDBText34: TQRDBText;
+    QRLabel33: TQRLabel;
+    QRLabel20: TQRLabel;
+    DetailBand1: TQRBand;
+    QRExpr1: TQRExpr;
+    QRExpr2: TQRExpr;
+    QRExpr3: TQRExpr;
+    QRExpr4: TQRExpr;
+    QRExpr5: TQRExpr;
+    frxReport1: TfrxReport;
+    frxDBDataset2: TfrxDBDataset;
+    frxDBDataset1: TfrxDBDataset;
+    Table1Sira: TIntegerField;
+    Table1Sicno: TIntegerField;
+    Table1Adsoy: TWideStringField;
+    Table1Banhes: TWideStringField;
+    Table1Net: TFloatField;
+    Banka: TBitBtn;
+    procedure HazirBtClick(Sender: TObject);
+    procedure DBLookupComboBox1KeyPress(Sender: TObject; var Key: Char);
+    procedure YaziBtClick(Sender: TObject);
+    procedure RadioGroup1Click(Sender: TObject);
+    procedure VazgecClick(Sender: TObject);
+    procedure BankaClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FDonNet: TFDonNet;
+  i:Integer;
+  gtop:Currency;
+  ss,abo,para:String;
+  kay:TextFile;
+
+implementation
+
+uses UData;
+
+{$R *.DFM}
+
+function yuvar(x,y:Currency):Currency;far;external 'Awdocyuv1.dll';
+function yuvar2(x,y:Currency):Currency;far;external 'Awdocyuv2.dll';
+function yuvar3(x,y:Currency):Currency;far;external 'Awdocyuv3.dll';
+
+procedure TFDonNet.HazirBtClick(Sender: TObject);
+begin
+Query1.Close;
+Query2.Close;
+Table1.Close;
+Table1.Open;
+while not Table1.eof do
+ Table1.Delete;
+i:=0;
+If RadioGroup1.ItemIndex=0 then
+begin
+ Query2.Params[0].AsString:=FData.TDONEM.Fields[0].Value;
+ Query2.Params[1].AsString:=FData.TDONEM.Fields[1].Value;
+ Query2.Params[2].AsString:=FData.TDONEM.Fields[2].Value;
+ Query2.ParamByName('T1').AsInteger:=StrToInt(Edit1.Text);
+ Query2.ParamByName('T2').AsInteger:=StrToInt(Edit2.Text);
+ Query2.Open;
+ Query2.First;
+while not Query2.eof do
+ begin
+ i:=i+1;
+ Table1.Insert;
+ Table1.FieldByName('sira').value:=i;
+ Table1.FieldByName('Sicno').value:=
+ Query2.FieldByName('Sicno').value;
+ Table1.FieldByName('adsoy').asstring:=
+ Query2.FieldByName('Adi').asstring+' ' +
+ Query2.FieldByName('Soyadi').asstring;
+ Table1.FieldByName('Banhes').value:=
+ Query2.FieldByName('Banhes').value;
+ Table1.FieldByName('Net').value:=
+ Query2.FieldByName('Net').value;
+ Table1.Post;
+ Query2.Next;
+End;
+Table1.IndexFieldNames:='Sira';
+End;
+If RadioGroup1.ItemIndex=1 then
+begin
+ Query1.Params[0].AsString:=FData.TDONEM.Fields[0].AsString;
+ Query1.Params[1].AsString:=FData.TDONEM.Fields[1].AsString;
+ Query1.Params[2].AsString:=FData.TDONEM.Fields[2].AsString;
+ Query1.ParamByName('T2').AsString:=DBLookUpComboBox2.Text;
+ Query1.Open;
+ Query1.Open;
+ Query1.First;
+while not Query1.eof do
+ begin
+ i:=i+1;
+ Table1.Insert;
+ Table1.FieldByName('sira').value:=i;
+ Table1.FieldByName('Sicno').value:=
+ Query1.FieldByName('Sicno').value;
+ Table1.FieldByName('adsoy').asstring:=
+ Query1.FieldByName('Adi').asstring+' ' +
+ Query1.FieldByName('Soyadi').asstring;
+ Table1.FieldByName('Banhes').value:=
+ Query1.FieldByName('Banhes').value;
+ Table1.FieldByName('Net').value:=
+ Query1.FieldByName('Net').value;
+ Table1.Post;
+ Query1.Next;
+End;
+Table1.IndexFieldNames:='Sira';
+end;
+end;
+
+procedure TFDonNet.BankaClick(Sender: TObject);
+begin
+i:=0;
+Table1.Filtered:=True;
+//Table2.Open;
+gtop:=0;
+
+abo:='c:\Sermemur\'+FData.TDONEMYil.Value+' '+FData.TDONEMAy.Value+' '+FData.TDONEMDonem.Value+' Memur.txt';
+AssignFile(kay,abo);
+DeleteFile(abo);
+IF FileExists(abo) then
+ Append(kay)
+ else
+  Rewrite(kay);
+Writeln(kay, 'XX80108010KAHTA BELEDIYESI');
+Table1.First;
+while not Table1.Eof do
+begin
+ i:=i+1;
+ para:=copy(Table1Adsoy.AsString,1,25);
+ ss:=(para+stringofchar(' ',(25-Length(para))));
+ ss:=ss+'8010';
+ ss:=ss+Table1Banhes.AsString;
+ para:=FormatFloat('0000000000.00',Table1Net.Value);
+ para[pos(',',para)]:='.';
+ gtop:=gtop+Table1Net.Value;
+ ss:=ss+para;
+ ss:=ss+'8010'+' ';
+ para:=FData.TDONEMDonem.AsString+' '+FData.TDONEMIlktar.AsString+'-'+FData.TDONEMSontar.AsString ;
+// ss:=ss+Table1Adsoy.AsString;
+ para:=copy(para,1,27);
+ ss:=concat(ss,(para+stringofchar(' ',(27-Length(para)))));
+ Writeln(kay, ss );
+ Table1.Next;
+end;
+ para:=FormatFloat('WW00000000',i);
+ ss:=FormatFloat('000000000000000.00',gtop);
+ ss[pos(',',ss)]:='.';
+ ss:=para+ss;
+ Writeln(kay, ss );
+ CloseFile(Kay);
+
+Table1.Filtered:=False;
+
+end;
+
+procedure TFDonNet.DBLookupComboBox1KeyPress(Sender: TObject;
+  var Key: Char);
+begin
+if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+end;
+
+procedure TFDonNet.YaziBtClick(Sender: TObject);
+begin
+//  QuickRep1.Preview;
+frxReport1.ShowReport;
+end;
+
+procedure TFDonNet.RadioGroup1Click(Sender: TObject);
+begin
+  if radiogroup1.ItemIndex=0 then
+  begin
+   DataSource1.DataSet:=Query2;
+   DBLookupComboBox2.Visible:=False;
+   Edit1.Visible:=True;
+   Edit2.Visible:=True;
+   Edit1.SetFocus;
+   Label3.Visible:=True;
+   Label4.Visible:=True;
+   Label2.Visible:=False;
+  end;
+  if radiogroup1.ItemIndex=1 then
+  begin
+   DataSource1.DataSet:=Query1;
+   DBLookupComboBox2.Visible:=true;
+   Edit1.Visible:=False;
+   Edit2.Visible:=False;
+   Label2.Visible:=True;
+   Label3.Visible:=False;
+   Label4.Visible:=False;
+  end;
+
+end;
+
+
+procedure TFDonNet.VazgecClick(Sender: TObject);
+begin
+
+Table1.Close;
+Close;
+end;
+
+
+
+
+end.

@@ -1,0 +1,6411 @@
+object FNakit: TFNakit
+  Left = 214
+  Top = 128
+  Caption = #214'deme Emri'
+  ClientHeight = 403
+  ClientWidth = 559
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  Scaled = False
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 559
+    Height = 41
+    Align = alTop
+    TabOrder = 0
+    object BitBtn2: TBitBtn
+      Left = 0
+      Top = 2
+      Width = 83
+      Height = 41
+      Caption = '&Kay'#305't A'#231
+      DoubleBuffered = True
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00337000000000
+        73333337777777773F333308888888880333337F3F3F3FFF7F33330808089998
+        0333337F737377737F333308888888880333337F3F3F3F3F7F33330808080808
+        0333337F737373737F333308888888880333337F3F3F3F3F7F33330808080808
+        0333337F737373737F333308888888880333337F3F3F3F3F7F33330808080808
+        0333337F737373737F333308888888880333337F3FFFFFFF7F33330800000008
+        0333337F7777777F7F333308000E0E080333337F7FFFFF7F7F33330800000008
+        0333337F777777737F333308888888880333337F333333337F33330888888888
+        03333373FFFFFFFF733333700000000073333337777777773333}
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn2Click
+    end
+    object Vazgec: TBitBtn
+      Left = 476
+      Top = 0
+      Width = 83
+      Height = 41
+      Cancel = True
+      Caption = '&Vazge'#231
+      DoubleBuffered = True
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3333333333FFFFF3333333333999993333333333F77777FFF333333999999999
+        33333337777FF377FF3333993370739993333377FF373F377FF3399993000339
+        993337777F777F3377F3393999707333993337F77737333337FF993399933333
+        399377F3777FF333377F993339903333399377F33737FF33377F993333707333
+        399377F333377FF3377F993333101933399377F333777FFF377F993333000993
+        399377FF3377737FF7733993330009993933373FF3777377F7F3399933000399
+        99333773FF777F777733339993707339933333773FF7FFF77333333999999999
+        3333333777333777333333333999993333333333377777333333}
+      ModalResult = 2
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 1
+      OnClick = VazgecClick
+    end
+    object YaziBt: TBitBtn
+      Left = 82
+      Top = 0
+      Width = 96
+      Height = 41
+      Caption = '&D'#246'kum'
+      DoubleBuffered = True
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        0003377777777777777308888888888888807F33333333333337088888888888
+        88807FFFFFFFFFFFFFF7000000000000000077777777777777770F8F8F8F8F8F
+        8F807F333333333333F708F8F8F8F8F8F9F07F333333333337370F8F8F8F8F8F
+        8F807FFFFFFFFFFFFFF7000000000000000077777777777777773330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3F37F3733333330F08F0F0333333337F7337F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 2
+      Visible = False
+      OnClick = YaziBtClick
+    end
+    object Entekre: TBitBtn
+      Left = 177
+      Top = 0
+      Width = 96
+      Height = 41
+      Caption = '&Entegrasyon'
+      DoubleBuffered = True
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333000000000
+        00333FF777777777773F0000FFFFFFFFFF0377773F3F3F3F3F7308880F0F0F0F
+        0FF07F33737373737337088880FFFFFFFFF07F3337FFFFFFFFF7088880000000
+        00037F3337777777777308888033330F03337F3337F3FF7F7FFF088880300000
+        00007F3337F7777777770FFFF030FFFFFFF07F3FF7F7F3FFFFF708008030F000
+        00F07F7737F7F77777F70FFFF030F0AAE0F07F3FF7F7F7F337F708008030F0DA
+        D0F07F7737F7F7FFF7F70FFFF030F00000F07F33F7F7F77777370FF9F030FFFF
+        FFF07F3737F7FFFFFFF70FFFF030000000007FFFF7F777777777000000333333
+        3333777777333333333333333333333333333333333333333333}
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 3
+      Visible = False
+      OnClick = EntekreClick
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 41
+    Width = 559
+    Height = 362
+    Align = alClient
+    TabOrder = 1
+  end
+  object ScrollBox: TScrollBox
+    Left = 0
+    Top = 41
+    Width = 559
+    Height = 362
+    HorzScrollBar.Margin = 6
+    HorzScrollBar.Range = 428
+    VertScrollBar.Margin = 6
+    VertScrollBar.Range = 122
+    Align = alClient
+    AutoScroll = False
+    Color = 13617312
+    ParentColor = False
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 19
+      Top = 6
+      Width = 57
+      Height = 13
+      Caption = 'Yevmiye No'
+      FocusControl = EditYevmiye_No
+    end
+    object Label2: TLabel
+      Left = 292
+      Top = 6
+      Width = 69
+      Height = 13
+      Caption = 'Yevmiye Tarihi'
+      FocusControl = EditYevmiye_Tarih
+    end
+    object Label4: TLabel
+      Left = 114
+      Top = 45
+      Width = 43
+      Height = 13
+      Caption = 'Verile No'
+      FocusControl = EditVerile_No
+    end
+    object Label5: TLabel
+      Left = 205
+      Top = 45
+      Width = 53
+      Height = 13
+      Caption = 'Verile Tarih'
+      FocusControl = EditVerile_Tarih
+    end
+    object Label11: TLabel
+      Left = 19
+      Top = 124
+      Width = 93
+      Height = 13
+      Caption = 'Kisi / Kurum / Firma'
+    end
+    object Label12: TLabel
+      Left = 19
+      Top = 163
+      Width = 23
+      Height = 13
+      Caption = 'Vekil'
+      FocusControl = EditVekil
+    end
+    object Label14: TLabel
+      Left = 19
+      Top = 234
+      Width = 54
+      Height = 13
+      Caption = 'A'#231#305'klamalar'
+      FocusControl = EditAciklama
+    end
+    object Label15: TLabel
+      Left = 191
+      Top = 163
+      Width = 120
+      Height = 13
+      Caption = 'Belge D'#252'zenleme Nedeni'
+    end
+    object Label9: TLabel
+      Left = 297
+      Top = 47
+      Width = 36
+      Height = 13
+      Caption = #199'ek No'
+    end
+    object Bevel1: TBevel
+      Left = 386
+      Top = 10
+      Width = 172
+      Height = 294
+      Shape = bsFrame
+      Style = bsRaised
+    end
+    object Label17: TLabel
+      Left = 404
+      Top = 7
+      Width = 140
+      Height = 13
+      Caption = #214'demeye Esas Belgenini'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label18: TLabel
+      Left = 389
+      Top = 32
+      Width = 45
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Nevi'
+    end
+    object Label19: TLabel
+      Left = 389
+      Top = 56
+      Width = 45
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Numaras'#305
+    end
+    object Label20: TLabel
+      Left = 389
+      Top = 83
+      Width = 45
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Tarihi'
+    end
+    object Label21: TLabel
+      Left = 389
+      Top = 108
+      Width = 45
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Tutar'#305
+    end
+    object Label22: TLabel
+      Left = 395
+      Top = 134
+      Width = 153
+      Height = 13
+      Caption = '                     Ekler                      '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsUnderline]
+      ParentFont = False
+    end
+    object Label23: TLabel
+      Left = 19
+      Top = 85
+      Width = 38
+      Height = 13
+      Caption = 'KasaNo'
+      FocusControl = EditKasa
+    end
+    object Label24: TLabel
+      Left = 114
+      Top = 85
+      Width = 65
+      Height = 13
+      Caption = 'Vezne Al'#305'nd'#305's'#305
+      FocusControl = EdirVezne
+    end
+    object Label25: TLabel
+      Left = 207
+      Top = 85
+      Width = 50
+      Height = 13
+      Caption = 'Men K'#305'y Al'
+      FocusControl = EditMekul
+    end
+    object Label26: TLabel
+      Left = 297
+      Top = 85
+      Width = 63
+      Height = 13
+      Caption = 'G'#246'n. Emri No'
+      FocusControl = EditGon_Emri
+    end
+    object Label27: TLabel
+      Left = 19
+      Top = 45
+      Width = 35
+      Height = 13
+      Caption = 'S.i.f No'
+      FocusControl = EditSif
+    end
+    object Bevel2: TBevel
+      Left = 5
+      Top = 306
+      Width = 557
+      Height = 48
+      Shape = bsFrame
+      Style = bsRaised
+    end
+    object Label7: TLabel
+      Left = 163
+      Top = 312
+      Width = 51
+      Height = 13
+      Caption = #304#350'LEM NO'
+    end
+    object Label8: TLabel
+      Left = 279
+      Top = 312
+      Width = 71
+      Height = 13
+      Caption = #304#350'LEM TAR'#304'H'#304
+    end
+    object Label28: TLabel
+      Left = 458
+      Top = 312
+      Width = 90
+      Height = 13
+      Caption = 'YEVM'#304'YE TUTARI'
+    end
+    object Bevel3: TBevel
+      Left = 381
+      Top = 3
+      Width = 182
+      Height = 305
+      Shape = bsFrame
+      Style = bsRaised
+    end
+    object Label3: TLabel
+      Left = 20
+      Top = 200
+      Width = 80
+      Height = 13
+      Caption = 'Daire / M'#252'd'#252'rl'#252'k'
+    end
+    object Label6: TLabel
+      Left = 163
+      Top = 24
+      Width = 86
+      Height = 16
+      Alignment = taCenter
+      Caption = #214'deme Emri'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label16: TLabel
+      Left = 178
+      Top = 6
+      Width = 38
+      Height = 13
+      Caption = 'Fi'#351' T'#252'r'#252
+    end
+    object EditYevmiye_No: TDBEdit
+      Left = 14
+      Top = 21
+      Width = 101
+      Height = 21
+      TabStop = False
+      DataField = 'Yevmiye_No'
+      DataSource = DMEMUR.DM1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMaroon
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+    end
+    object EditYevmiye_Tarih: TDBEdit
+      Left = 291
+      Top = 21
+      Width = 80
+      Height = 21
+      DataField = 'Yevmiye_Tarih'
+      DataSource = DMEMUR.DM1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+    end
+    object EditVerile_No: TDBEdit
+      Left = 108
+      Top = 60
+      Width = 80
+      Height = 21
+      DataField = 'Verile_No'
+      DataSource = DMEMUR.DM1
+      TabOrder = 3
+    end
+    object EditVerile_Tarih: TDBEdit
+      Left = 197
+      Top = 60
+      Width = 80
+      Height = 21
+      DataField = 'Verile_Tarih'
+      DataSource = DMEMUR.DM1
+      TabOrder = 4
+    end
+    object EditVekil: TDBEdit
+      Left = 15
+      Top = 178
+      Width = 140
+      Height = 21
+      DataField = 'Vekil'
+      DataSource = DMEMUR.DM1
+      TabOrder = 11
+    end
+    object EditAciklama: TDBEdit
+      Left = 160
+      Top = 178
+      Width = 211
+      Height = 21
+      DataField = 'Aciklama'
+      DataSource = DMEMUR.DM1
+      TabOrder = 12
+    end
+    object DBKisi_Kurum: TDBLookupComboBox
+      Left = 16
+      Top = 138
+      Width = 356
+      Height = 21
+      DataField = 'Kisi'
+      KeyField = 'Mukellef'
+      ListField = 'Adi'
+      TabOrder = 10
+    end
+    object DBDuzenleme: TDBMemo
+      Left = 15
+      Top = 248
+      Width = 356
+      Height = 51
+      DataField = 'Icerik'
+      DataSource = DMEMUR.DM1
+      TabOrder = 13
+    end
+    object EditCek: TDBEdit
+      Left = 291
+      Top = 62
+      Width = 80
+      Height = 21
+      DataField = 'Cek'
+      DataSource = DMEMUR.DM1
+      TabOrder = 5
+    end
+    object EditNevi: TDBEdit
+      Left = 439
+      Top = 28
+      Width = 110
+      Height = 21
+      DataField = 'Belge_Nevi'
+      DataSource = DMEMUR.DM1
+      TabOrder = 14
+    end
+    object EDitNumara: TDBEdit
+      Left = 439
+      Top = 53
+      Width = 110
+      Height = 21
+      DataField = 'Belge_No'
+      DataSource = DMEMUR.DM1
+      TabOrder = 15
+    end
+    object EditTarih: TDBEdit
+      Left = 439
+      Top = 80
+      Width = 110
+      Height = 21
+      DataField = 'Belge_Tarih'
+      DataSource = DMEMUR.DM1
+      TabOrder = 16
+    end
+    object EditTutar: TDBEdit
+      Left = 439
+      Top = 106
+      Width = 110
+      Height = 21
+      DataField = 'Belge_Tutar'
+      DataSource = DMEMUR.DM1
+      TabOrder = 17
+    end
+    object DBEkler: TDBMemo
+      Left = 391
+      Top = 157
+      Width = 159
+      Height = 141
+      DataField = 'Ekler'
+      DataSource = DMEMUR.DM1
+      TabOrder = 18
+    end
+    object EditKasa: TDBEdit
+      Left = 15
+      Top = 100
+      Width = 80
+      Height = 21
+      DataField = 'KasaNo'
+      DataSource = DMEMUR.DM1
+      TabOrder = 6
+    end
+    object EdirVezne: TDBEdit
+      Left = 108
+      Top = 108
+      Width = 80
+      Height = 21
+      DataField = 'Vezna_Alindi'
+      DataSource = DMEMUR.DM1
+      TabOrder = 7
+    end
+    object EditMekul: TDBEdit
+      Left = 197
+      Top = 100
+      Width = 80
+      Height = 21
+      DataField = 'Men_Kiy_Al'
+      DataSource = DMEMUR.DM1
+      TabOrder = 8
+    end
+    object EditGon_Emri: TDBEdit
+      Left = 291
+      Top = 100
+      Width = 80
+      Height = 21
+      DataField = 'Gon_Emri'
+      DataSource = DMEMUR.DM1
+      TabOrder = 9
+    end
+    object EditSif: TDBEdit
+      Left = 15
+      Top = 60
+      Width = 80
+      Height = 21
+      DataField = 'Sif_No'
+      DataSource = DMEMUR.DM1
+      TabOrder = 2
+    end
+    object EditIslemNo: TDBEdit
+      Left = 143
+      Top = 327
+      Width = 101
+      Height = 21
+      TabStop = False
+      DataField = 'IslemNo'
+      DataSource = DMEMUR.DM1
+      TabOrder = 19
+    end
+    object EditIslemtarih: TDBEdit
+      Left = 265
+      Top = 331
+      Width = 101
+      Height = 21
+      TabStop = False
+      DataField = 'Islem_Tarih'
+      DataSource = DMEMUR.DM1
+      TabOrder = 20
+    end
+    object DBEdit1: TDBEdit
+      Left = 450
+      Top = 327
+      Width = 99
+      Height = 21
+      Cursor = crNo
+      TabStop = False
+      DataField = 'Borc'
+      DataSource = DMEMUR.DM1
+      ReadOnly = True
+      TabOrder = 21
+    end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 16
+      Top = 212
+      Width = 356
+      Height = 21
+      KeyField = 'DaireAdi'
+      ListField = 'DaireAdi'
+      ListSource = DMEMUR.DDAIR
+      TabOrder = 22
+    end
+    object Panel3: TPanel
+      Left = 560
+      Top = 64
+      Width = 573
+      Height = 309
+      Caption = 'Panel3'
+      TabOrder = 23
+      Visible = False
+      object DBGrid1: TDBGrid
+        Left = 0
+        Top = 0
+        Width = 570
+        Height = 289
+        DataSource = DMEMUR.DM2
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = []
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'Sira'
+            Width = 24
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Islem'
+            Width = 30
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Hes_Kod'
+            Width = 31
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'K1'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'K2'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'K3'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'K4'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Birim'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'F1'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'F2'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'F3'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'F4'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Finans'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'E1'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'E2'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'E3'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'E4'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Borc'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Alacak'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Tanim'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Sayman'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Kisi'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Ilgi'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Y_Tarih'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'H_Tarih'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Z_Tarih'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'A_Sira'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'B_Sira'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Odendi'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Yansitma'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'AySonu'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Islem_Turu'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Onay'
+            Visible = True
+          end>
+      end
+    end
+    object QuickRep1: TQuickRep
+      Left = -18
+      Top = 560
+      Width = 794
+      Height = 1123
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      DataSet = DMEMUR.TM2
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial Tur'
+      Font.Style = []
+      Functions.Strings = (
+        'PAGENUMBER'
+        'COLUMNNUMBER'
+        'REPORTTITLE')
+      Functions.DATA = (
+        '0'
+        '0'
+        #39#39)
+      Options = [FirstPageHeader, LastPageFooter]
+      Page.Columns = 1
+      Page.Orientation = poPortrait
+      Page.PaperSize = A4
+      Page.Values = (
+        100.000000000000000000
+        2970.000000000000000000
+        100.000000000000000000
+        2100.000000000000000000
+        100.000000000000000000
+        100.000000000000000000
+        0.000000000000000000)
+      PrinterSettings.Copies = 1
+      PrinterSettings.OutputBin = Auto
+      PrinterSettings.Duplex = False
+      PrinterSettings.FirstPage = 0
+      PrinterSettings.LastPage = 0
+      PrinterSettings.UseStandardprinter = False
+      PrinterSettings.UseCustomBinCode = False
+      PrinterSettings.CustomBinCode = 0
+      PrinterSettings.ExtendedDuplex = 0
+      PrinterSettings.UseCustomPaperCode = False
+      PrinterSettings.CustomPaperCode = 0
+      PrinterSettings.PrintMetaFile = False
+      PrinterSettings.PrintQuality = 0
+      PrinterSettings.Collate = 0
+      PrinterSettings.ColorOption = 0
+      PrintIfEmpty = True
+      ReportTitle = #214'DEME  EMR'#304
+      SnapToGrid = True
+      Units = MM
+      Zoom = 100
+      PrevFormStyle = fsNormal
+      PreviewInitialState = wsMaximized
+      PrevInitialZoom = qrZoomToWidth
+      PreviewDefaultSaveType = stQRP
+      object PageFooterBand1: TQRBand
+        Left = 38
+        Top = 603
+        Width = 718
+        Height = 16
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        AlignToBottom = False
+        Color = clWhite
+        TransparentBand = False
+        ForceNewColumn = False
+        ForceNewPage = False
+        Size.Values = (
+          42.333333333333330000
+          1899.708333333333000000)
+        PreCaluculateBandHeight = False
+        KeepOnOnePage = False
+        BandType = rbPageFooter
+      end
+      object ColumnHeaderBand1: TQRBand
+        Left = 38
+        Top = 159
+        Width = 718
+        Height = 39
+        Frame.Color = clBlack
+        Frame.DrawTop = True
+        Frame.DrawBottom = True
+        Frame.DrawLeft = True
+        Frame.DrawRight = True
+        AlignToBottom = False
+        Color = 15395562
+        TransparentBand = False
+        ForceNewColumn = False
+        ForceNewPage = False
+        Size.Values = (
+          103.187500000000000000
+          1899.708333333333000000)
+        PreCaluculateBandHeight = False
+        KeepOnOnePage = False
+        BandType = rbColumnHeader
+        object QRLabel1: TQRLabel
+          Left = 1
+          Top = 3
+          Width = 32
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            2.645833333333333000
+            7.937500000000000000
+            84.666666666666680000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Hesap'
+          Color = 15395562
+          Transparent = True
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel2: TQRLabel
+          Left = 53
+          Top = 3
+          Width = 32
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            140.229166666666700000
+            7.937500000000000000
+            84.666666666666680000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Kurum'
+          Color = 15395562
+          Transparent = True
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel3: TQRLabel
+          Left = 54
+          Top = 20
+          Width = 26
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            142.875000000000000000
+            52.916666666666670000
+            68.791666666666680000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Kodu'
+          Color = 15395562
+          Transparent = True
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel4: TQRLabel
+          Left = 9
+          Top = 20
+          Width = 14
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            23.812500000000000000
+            52.916666666666670000
+            37.041666666666670000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'No'
+          Color = 15395562
+          Transparent = True
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel5: TQRLabel
+          Left = 545
+          Top = 20
+          Width = 91
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1441.979166666667000000
+            52.916666666666670000
+            240.770833333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'veya '#304#351'lemin '#231'e'#351'idi'
+          Color = 15395562
+          Transparent = True
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel7: TQRLabel
+          Left = 115
+          Top = 3
+          Width = 58
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            304.270833333333400000
+            7.937500000000000000
+            153.458333333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Fonksiyonel'
+          Color = 15395562
+          Transparent = True
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel8: TQRLabel
+          Left = 131
+          Top = 20
+          Width = 20
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            346.604166666666700000
+            52.916666666666670000
+            52.916666666666670000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Kod'
+          Color = 15395562
+          Transparent = True
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel11: TQRLabel
+          Left = 179
+          Top = 3
+          Width = 15
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            473.604166666666700000
+            7.937500000000000000
+            39.687500000000000000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Fin'
+          Color = 15395562
+          Transparent = True
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel12: TQRLabel
+          Left = 208
+          Top = 3
+          Width = 45
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            550.333333333333400000
+            7.937500000000000000
+            119.062500000000000000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Ekonomik'
+          Color = 15395562
+          Transparent = True
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel13: TQRLabel
+          Left = 217
+          Top = 20
+          Width = 20
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            574.145833333333400000
+            52.916666666666670000
+            52.916666666666670000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Kod'
+          Color = 15395562
+          Transparent = True
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel14: TQRLabel
+          Left = 177
+          Top = 20
+          Width = 20
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            468.312500000000000000
+            52.916666666666670000
+            52.916666666666670000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Kod'
+          Color = 15395562
+          Transparent = True
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel15: TQRLabel
+          Left = 271
+          Top = 3
+          Width = 212
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            717.020833333333200000
+            7.937500000000000000
+            560.916666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'TUTARLAR'
+          Color = 15395562
+          Transparent = True
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel16: TQRLabel
+          Left = 272
+          Top = 20
+          Width = 100
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            719.666666666666800000
+            52.916666666666670000
+            264.583333333333400000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'BOR'#199
+          Color = 15395562
+          Transparent = True
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel17: TQRLabel
+          Left = 377
+          Top = 20
+          Width = 100
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            997.479166666666900000
+            52.916666666666670000
+            264.583333333333400000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'ALACAK'
+          Color = 15395562
+          Transparent = True
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel18: TQRLabel
+          Left = 545
+          Top = 3
+          Width = 96
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1441.979166666667000000
+            7.937500000000000000
+            254.000000000000000000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Gelir, kesinti, Ayr'#305'nt'#305
+          Color = 15395562
+          Transparent = True
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRShape2: TQRShape
+          Left = 33
+          Top = 0
+          Width = 3
+          Height = 38
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            100.541666666666700000
+            87.312500000000000000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRShape9: TQRShape
+          Left = 110
+          Top = 0
+          Width = 3
+          Height = 38
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            100.541666666666700000
+            291.041666666666700000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRShape10: TQRShape
+          Left = 175
+          Top = 0
+          Width = 3
+          Height = 38
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            100.541666666666700000
+            463.020833333333300000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRShape11: TQRShape
+          Left = 270
+          Top = 0
+          Width = 3
+          Height = 38
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            100.541666666666700000
+            714.375000000000000000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRShape12: TQRShape
+          Left = 374
+          Top = 17
+          Width = 3
+          Height = 21
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            55.562500000000000000
+            989.541666666666800000
+            44.979166666666670000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRShape13: TQRShape
+          Left = 481
+          Top = 0
+          Width = 3
+          Height = 38
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            100.541666666666700000
+            1272.645833333333000000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRShape14: TQRShape
+          Left = 196
+          Top = 0
+          Width = 3
+          Height = 38
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            100.541666666666700000
+            518.583333333333300000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+      end
+      object DetailBand1: TQRBand
+        Left = 38
+        Top = 198
+        Width = 718
+        Height = 20
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = True
+        Frame.DrawRight = True
+        AlignToBottom = False
+        Color = clWhite
+        TransparentBand = False
+        ForceNewColumn = False
+        ForceNewPage = False
+        Size.Values = (
+          52.916666666666670000
+          1899.708333333333000000)
+        PreCaluculateBandHeight = False
+        KeepOnOnePage = False
+        BandType = rbDetail
+        object QRShape1: TQRShape
+          Left = 33
+          Top = 0
+          Width = 3
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666670000
+            87.312500000000000000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRShape3: TQRShape
+          Left = 175
+          Top = 0
+          Width = 3
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666670000
+            463.020833333333300000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRShape4: TQRShape
+          Left = 196
+          Top = 0
+          Width = 3
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666670000
+            518.583333333333300000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRShape5: TQRShape
+          Left = 270
+          Top = 0
+          Width = 3
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666670000
+            714.375000000000000000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRShape6: TQRShape
+          Left = 110
+          Top = 0
+          Width = 3
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666670000
+            291.041666666666700000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRShape7: TQRShape
+          Left = 481
+          Top = 0
+          Width = 3
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666670000
+            1272.645833333333000000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRShape8: TQRShape
+          Left = 374
+          Top = 0
+          Width = 3
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666670000
+            989.541666666666800000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRDBText21: TQRDBText
+          Left = 272
+          Top = 1
+          Width = 100
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            719.666666666666800000
+            2.645833333333333000
+            264.583333333333400000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'Borc'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText26: TQRDBText
+          Left = 379
+          Top = 1
+          Width = 100
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1002.770833333333000000
+            2.645833333333333000
+            264.583333333333400000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'Alacak'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText30: TQRDBText
+          Left = 3
+          Top = 1
+          Width = 29
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            7.937500000000000000
+            2.645833333333333000
+            76.729166666666680000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'Hes_Kod'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText31: TQRDBText
+          Left = 37
+          Top = 1
+          Width = 18
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            97.895833333333340000
+            2.645833333333333000
+            47.625000000000000000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'K1'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText32: TQRDBText
+          Left = 55
+          Top = 1
+          Width = 18
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            145.520833333333300000
+            2.645833333333333000
+            47.625000000000000000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'K2'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText33: TQRDBText
+          Left = 73
+          Top = 1
+          Width = 18
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            193.145833333333300000
+            2.645833333333333000
+            47.625000000000000000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'K3'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText34: TQRDBText
+          Left = 91
+          Top = 1
+          Width = 18
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            240.770833333333300000
+            2.645833333333333000
+            47.625000000000000000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'K4'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText35: TQRDBText
+          Left = 114
+          Top = 1
+          Width = 15
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            301.625000000000000000
+            2.645833333333333000
+            39.687500000000000000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'F1'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText36: TQRDBText
+          Left = 129
+          Top = 1
+          Width = 15
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            341.312500000000000000
+            2.645833333333333000
+            39.687500000000000000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'F2'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText37: TQRDBText
+          Left = 144
+          Top = 1
+          Width = 15
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            381.000000000000000000
+            2.645833333333333000
+            39.687500000000000000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'F3'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText38: TQRDBText
+          Left = 159
+          Top = 1
+          Width = 15
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            420.687500000000000000
+            2.645833333333333000
+            39.687500000000000000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'F4'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText39: TQRDBText
+          Left = 200
+          Top = 1
+          Width = 17
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            529.166666666666800000
+            2.645833333333333000
+            44.979166666666670000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'E1'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText40: TQRDBText
+          Left = 217
+          Top = 1
+          Width = 17
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            574.145833333333400000
+            2.645833333333333000
+            44.979166666666670000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'E2'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText41: TQRDBText
+          Left = 234
+          Top = 1
+          Width = 17
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            619.125000000000000000
+            2.645833333333333000
+            44.979166666666670000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'E3'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText42: TQRDBText
+          Left = 251
+          Top = 1
+          Width = 17
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            664.104166666666800000
+            2.645833333333333000
+            44.979166666666670000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'E4'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText43: TQRDBText
+          Left = 182
+          Top = 1
+          Width = 8
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            481.541666666666700000
+            2.645833333333333000
+            21.166666666666670000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'Finans'
+          Mask = '#,##0.00 '
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText44: TQRDBText
+          Left = 486
+          Top = 1
+          Width = 227
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1285.875000000000000000
+            2.645833333333333000
+            600.604166666666800000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'Tanim'
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+      end
+      object QRBand1: TQRBand
+        Left = 38
+        Top = 218
+        Width = 718
+        Height = 30
+        Frame.Color = clBlack
+        Frame.DrawTop = True
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        AlignToBottom = False
+        BeforePrint = QRBand1BeforePrint
+        Color = clWhite
+        TransparentBand = False
+        ForceNewColumn = False
+        ForceNewPage = False
+        Size.Values = (
+          79.375000000000000000
+          1899.708333333333000000)
+        PreCaluculateBandHeight = False
+        KeepOnOnePage = False
+        BandType = rbSummary
+        object QRLabel6: TQRLabel
+          Left = 219
+          Top = 6
+          Width = 51
+          Height = 18
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            47.625000000000000000
+            579.437500000000000000
+            15.875000000000000000
+            134.937500000000000000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Toplam  :'
+          Color = 15395562
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel23: TQRLabel
+          Left = 271
+          Top = 6
+          Width = 105
+          Height = 18
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            47.625000000000000000
+            717.020833333333400000
+            15.875000000000000000
+            277.812500000000000000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Toplam  :'
+          Color = 15395562
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel29: TQRLabel
+          Left = 376
+          Top = 6
+          Width = 106
+          Height = 18
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            47.625000000000000000
+            994.833333333333400000
+            15.875000000000000000
+            280.458333333333400000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Toplam  :'
+          Color = 15395562
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+      end
+      object QRBand2: TQRBand
+        Left = 38
+        Top = 38
+        Width = 718
+        Height = 121
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        AlignToBottom = False
+        Color = clWhite
+        TransparentBand = False
+        ForceNewColumn = False
+        ForceNewPage = False
+        Size.Values = (
+          320.145833333333300000
+          1899.708333333333000000)
+        PreCaluculateBandHeight = False
+        KeepOnOnePage = False
+        BandType = rbPageHeader
+        object QRSysData1: TQRSysData
+          Left = 313
+          Top = 0
+          Width = 91
+          Height = 23
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            60.854166666666670000
+            828.145833333333300000
+            0.000000000000000000
+            240.770833333333300000)
+          Alignment = taCenter
+          AlignToBand = True
+          AutoSize = True
+          Color = clWhite
+          Data = qrsReportTitle
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -15
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+          Transparent = False
+          ExportAs = exptText
+          FontSize = 11
+        end
+        object QRSysData2: TQRSysData
+          Left = 315
+          Top = 0
+          Width = 87
+          Height = 23
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            60.854166666666670000
+            833.437500000000000000
+            0.000000000000000000
+            230.187500000000000000)
+          Alignment = taCenter
+          AlignToBand = True
+          AutoSize = True
+          Color = clWhite
+          Data = qrsReportTitle
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -15
+          Font.Name = 'Times New Roman'
+          Font.Style = [fsBold]
+          ParentFont = False
+          Transparent = False
+          ExportAs = exptText
+          FontSize = 11
+        end
+        object QRLabel9: TQRLabel
+          Left = 460
+          Top = 43
+          Width = 98
+          Height = 16
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            42.333333333333340000
+            1217.083333333333000000
+            113.770833333333300000
+            259.291666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Ad'#305' Soyad'#305' Unvan'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel19: TQRLabel
+          Left = 0
+          Top = 28
+          Width = 130
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            0.000000000000000000
+            74.083333333333340000
+            343.958333333333400000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = ' Muhasebe Biriminin Kodu'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel20: TQRLabel
+          Left = 0
+          Top = 59
+          Width = 130
+          Height = 30
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            79.375000000000000000
+            0.000000000000000000
+            156.104166666666700000
+            343.958333333333400000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = ' Kurum - Birim Kodu'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel21: TQRLabel
+          Left = 225
+          Top = 59
+          Width = 76
+          Height = 30
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            79.375000000000000000
+            595.312500000000000000
+            156.104166666666700000
+            201.083333333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Yevmiyenin'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel22: TQRLabel
+          Left = 301
+          Top = 43
+          Width = 59
+          Height = 16
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            42.333333333333340000
+            796.395833333333400000
+            113.770833333333300000
+            156.104166666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'B'#252't'#231'e Y'#305'l'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText3: TQRDBText
+          Left = 130
+          Top = 28
+          Width = 172
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            343.958333333333400000
+            74.083333333333340000
+            455.083333333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataField = 'Say_Kod'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRKurum: TQRLabel
+          Left = 180
+          Top = 74
+          Width = 45
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            476.250000000000000000
+            195.791666666666700000
+            119.062500000000000000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = ' '
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText4: TQRDBText
+          Left = 360
+          Top = 43
+          Width = 100
+          Height = 16
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            42.333333333333340000
+            952.500000000000000000
+            113.770833333333300000
+            264.583333333333400000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataField = 'Yil'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel24: TQRLabel
+          Left = 301
+          Top = 59
+          Width = 59
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            796.395833333333400000
+            156.104166666666700000
+            156.104166666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Tarihi'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel25: TQRLabel
+          Left = 301
+          Top = 74
+          Width = 59
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            796.395833333333400000
+            195.791666666666700000
+            156.104166666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'No'#39'su'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText5: TQRDBText
+          Left = 360
+          Top = 59
+          Width = 100
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            952.500000000000000000
+            156.104166666666700000
+            264.583333333333400000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataField = 'Yevmiye_Tarih'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText6: TQRDBText
+          Left = 360
+          Top = 74
+          Width = 100
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            952.500000000000000000
+            195.791666666666700000
+            264.583333333333400000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataField = 'Yevmiye_No'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText8: TQRDBText
+          Left = 558
+          Top = 43
+          Width = 160
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            1476.375000000000000000
+            113.770833333333300000
+            423.333333333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TSISTEM
+          DataField = 'Say'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel44: TQRLabel
+          Left = 0
+          Top = 44
+          Width = 130
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            0.000000000000000000
+            116.416666666666700000
+            343.958333333333400000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = ' Muhasebe Biriminin Ad'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel10: TQRLabel
+          Left = 130
+          Top = 59
+          Width = 26
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            343.958333333333400000
+            156.104166666666700000
+            68.791666666666680000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = '   1   '
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel45: TQRLabel
+          Left = 155
+          Top = 59
+          Width = 26
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            410.104166666666700000
+            156.104166666666700000
+            68.791666666666680000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = '   2   '
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel46: TQRLabel
+          Left = 180
+          Top = 59
+          Width = 45
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            476.250000000000000000
+            156.104166666666700000
+            119.062500000000000000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Birim'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText1: TQRDBText
+          Left = 130
+          Top = 74
+          Width = 25
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            343.958333333333400000
+            195.791666666666700000
+            66.145833333333340000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = True
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'K1'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText2: TQRDBText
+          Left = 155
+          Top = 74
+          Width = 25
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            410.104166666666800000
+            195.791666666666700000
+            66.145833333333340000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = True
+          Color = clWhite
+          DataSet = DMEMUR.TM2
+          DataField = 'K2'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel47: TQRLabel
+          Left = 0
+          Top = 89
+          Width = 130
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            0.000000000000000000
+            235.479166666666700000
+            343.958333333333400000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = ' Kurum Ad'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel48: TQRLabel
+          Left = 0
+          Top = 104
+          Width = 130
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            0.000000000000000000
+            275.166666666666700000
+            343.958333333333400000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = ' Birim Ad'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText7: TQRDBText
+          Left = 130
+          Top = 45
+          Width = 171
+          Height = 14
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            37.041666666666670000
+            343.958333333333400000
+            119.062500000000000000
+            452.437500000000000000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TSISTEM
+          DataField = 'Beladi'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText20: TQRDBText
+          Left = 130
+          Top = 89
+          Width = 330
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            343.958333333333400000
+            235.479166666666700000
+            873.124999999999900000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TSISTEM
+          DataField = 'Beladi'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText45: TQRDBText
+          Left = 130
+          Top = 104
+          Width = 330
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            343.958333333333400000
+            275.166666666666700000
+            873.124999999999900000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TDAIR
+          DataField = 'DaireAdi'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel49: TQRLabel
+          Left = 460
+          Top = 59
+          Width = 98
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1217.083333333333000000
+            156.104166666666700000
+            259.291666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'T.C/Vergi Kimlik No'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel50: TQRLabel
+          Left = 460
+          Top = 74
+          Width = 98
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1217.083333333333000000
+            195.791666666666700000
+            259.291666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Banka '#350'ube Ad'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel88: TQRLabel
+          Left = 460
+          Top = 89
+          Width = 98
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1217.083333333333000000
+            235.479166666666700000
+            259.291666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Banka Hesap Numara'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel89: TQRLabel
+          Left = 460
+          Top = 104
+          Width = 98
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1217.083333333333000000
+            275.166666666666700000
+            259.291666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Vergi Dairesi'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText46: TQRDBText
+          Left = 558
+          Top = 59
+          Width = 80
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1476.375000000000000000
+            156.104166666666700000
+            211.666666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = Table2
+          DataField = 'Tc_Kimlik'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText47: TQRDBText
+          Left = 558
+          Top = 74
+          Width = 160
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            1476.375000000000000000
+            195.791666666666700000
+            423.333333333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = Table2
+          DataField = 'Banka'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText48: TQRDBText
+          Left = 558
+          Top = 89
+          Width = 160
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            1476.375000000000000000
+            235.479166666666700000
+            423.333333333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = Table2
+          DataField = 'Hesap_No'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText49: TQRDBText
+          Left = 558
+          Top = 104
+          Width = 160
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            1476.375000000000000000
+            275.166666666666700000
+            423.333333333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = Table2
+          DataField = 'VergiDaire'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText50: TQRDBText
+          Left = 638
+          Top = 59
+          Width = 80
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            1688.041666666667000000
+            156.104166666666700000
+            211.666666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = Table2
+          DataField = 'VergiNo'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Microsoft Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+      end
+      object ChildBand1: TQRChildBand
+        Left = 38
+        Top = 248
+        Width = 718
+        Height = 355
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = True
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        AlignToBottom = False
+        BeforePrint = ChildBand1BeforePrint
+        Color = clWhite
+        TransparentBand = False
+        ForceNewColumn = False
+        ForceNewPage = False
+        Size.Values = (
+          939.270833333333300000
+          1899.708333333333000000)
+        PreCaluculateBandHeight = False
+        KeepOnOnePage = False
+        ParentBand = QRBand1
+        PrintOrder = cboAfterParent
+        object QRLabel28: TQRLabel
+          Left = 2
+          Top = 36
+          Width = 37
+          Height = 16
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            42.333333333333340000
+            5.291666666666667000
+            95.250000000000000000
+            97.895833333333340000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Yaln'#305'z :'
+          Color = clWhite
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRTahpara: TQRLabel
+          Left = 43
+          Top = 36
+          Width = 37
+          Height = 16
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            42.333333333333340000
+            113.770833333333300000
+            95.250000000000000000
+            97.895833333333340000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = '.  .  .  .  '
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QR5: TQRLabel
+          Left = -1
+          Top = 57
+          Width = 106
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = False
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            -2.645833333333333000
+            150.812500000000000000
+            280.458333333333400000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'QR5'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel32: TQRLabel
+          Left = 105
+          Top = 57
+          Width = 111
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = False
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            277.812500000000000000
+            150.812500000000000000
+            293.687500000000000000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'B'#252't'#231'e Giderleri Tahakkuk'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel34: TQRLabel
+          Left = 216
+          Top = 57
+          Width = 86
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = False
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            571.500000000000000000
+            150.812500000000000000
+            227.541666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = #214'zel Gider '#304'ndirimi'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel36: TQRLabel
+          Left = 388
+          Top = 57
+          Width = 85
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = False
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            1026.583333333333000000
+            150.812500000000000000
+            224.895833333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = #214'denmesi Gereken'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel38: TQRLabel
+          Left = 473
+          Top = 57
+          Width = 94
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = False
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            34.395833333333340000
+            1251.479166666667000000
+            150.812500000000000000
+            248.708333333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = #199'ek / G'#246'nderme'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel58: TQRLabel
+          Left = -1
+          Top = 127
+          Width = 386
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = False
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            -2.645833333333333000
+            336.020833333333400000
+            1021.291666666667000000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'TETK'#304'K EDEN'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel59: TQRLabel
+          Left = -1
+          Top = 142
+          Width = 119
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = False
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            -2.645833333333333000
+            375.708333333333400000
+            314.854166666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Memur'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel60: TQRLabel
+          Left = 117
+          Top = 142
+          Width = 128
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = False
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            309.562500000000000000
+            375.708333333333400000
+            338.666666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = #350'ef'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel61: TQRLabel
+          Left = 245
+          Top = 142
+          Width = 140
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = False
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            648.229166666666800000
+            375.708333333333400000
+            370.416666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'M'#252'd'#252'r Yard'#305'mc'#305's'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText9: TQRDBText
+          Left = -1
+          Top = 157
+          Width = 119
+          Height = 22
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            58.208333333333340000
+            -2.645833333333333000
+            415.395833333333400000
+            314.854166666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataField = 'Memur'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText10: TQRDBText
+          Left = 118
+          Top = 157
+          Width = 128
+          Height = 22
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            58.208333333333340000
+            312.208333333333400000
+            415.395833333333400000
+            338.666666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataField = 'Daire_Sef'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText12: TQRDBText
+          Left = 473
+          Top = 96
+          Width = 94
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            1251.479166666667000000
+            254.000000000000000000
+            248.708333333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM1
+          DataField = 'Cek'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel67: TQRLabel
+          Left = -1
+          Top = 195
+          Width = 73
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            -2.645833333333333000
+            515.937500000000000000
+            193.145833333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Nevi'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText16: TQRDBText
+          Left = -1
+          Top = 223
+          Width = 73
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            -2.645833333333333000
+            590.020833333333400000
+            193.145833333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM1
+          DataField = 'Belge_Nevi'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel69: TQRLabel
+          Left = 72
+          Top = 195
+          Width = 86
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            190.500000000000000000
+            515.937500000000000000
+            227.541666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Tarihi'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel70: TQRLabel
+          Left = 158
+          Top = 195
+          Width = 106
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            418.041666666666700000
+            515.937500000000000000
+            280.458333333333400000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Numaras'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel71: TQRLabel
+          Left = 264
+          Top = 195
+          Width = 121
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            698.500000000000000000
+            515.937500000000000000
+            320.145833333333400000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Tutar'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText17: TQRDBText
+          Left = 72
+          Top = 223
+          Width = 86
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            190.500000000000000000
+            590.020833333333400000
+            227.541666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM1
+          DataField = 'Belge_Tarih'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText18: TQRDBText
+          Left = 158
+          Top = 223
+          Width = 106
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            418.041666666666700000
+            590.020833333333400000
+            280.458333333333400000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM1
+          DataField = 'Belge_No'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          Mask = '###'
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText19: TQRDBText
+          Left = 264
+          Top = 223
+          Width = 121
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            698.500000000000000000
+            590.020833333333400000
+            320.145833333333400000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM1
+          DataField = 'Belge_Tutar'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel72: TQRLabel
+          Left = -1
+          Top = 179
+          Width = 386
+          Height = 16
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            42.333333333333340000
+            -2.645833333333333000
+            473.604166666666700000
+            1021.291666666667000000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = #214'demeye Esas Belgenin'
+          Color = clWhite
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRShape15: TQRShape
+          Left = -1
+          Top = 238
+          Width = 241
+          Height = 94
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            248.708333333333300000
+            -2.645833333333333000
+            629.708333333333400000
+            637.645833333333400000)
+          Shape = qrsRectangle
+          VertAdjust = 0
+        end
+        object QRShape16: TQRShape
+          Left = 239
+          Top = 238
+          Width = 239
+          Height = 94
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            248.708333333333300000
+            632.354166666666800000
+            629.708333333333400000
+            632.354166666666800000)
+          Shape = qrsRectangle
+          VertAdjust = 0
+        end
+        object QRShape17: TQRShape
+          Left = 478
+          Top = 238
+          Width = 241
+          Height = 94
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            248.708333333333300000
+            1264.708333333333000000
+            629.708333333333400000
+            637.645833333333400000)
+          Shape = qrsRectangle
+          VertAdjust = 0
+        end
+        object QRLabel74: TQRLabel
+          Left = 29
+          Top = 252
+          Width = 173
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            76.729166666666680000
+            666.750000000000000000
+            457.729166666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = '. . . . / . . . . /   20. . . . .'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel77: TQRLabel
+          Left = 263
+          Top = 242
+          Width = 170
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            695.854166666666800000
+            640.291666666666800000
+            449.791666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Uygundur'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel78: TQRLabel
+          Left = 263
+          Top = 267
+          Width = 170
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            695.854166666666800000
+            706.437500000000000000
+            449.791666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Harcama Yetkilisi'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel79: TQRLabel
+          Left = 515
+          Top = 242
+          Width = 172
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1362.604166666667000000
+            640.291666666666800000
+            455.083333333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = #214'deyiniz / Mahsup Ediniz'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel80: TQRLabel
+          Left = 515
+          Top = 267
+          Width = 172
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1362.604166666667000000
+            706.437500000000000000
+            455.083333333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Muhasebe Yetkilisi'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel82: TQRLabel
+          Left = 515
+          Top = 280
+          Width = 172
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1362.604166666667000000
+            740.833333333333400000
+            455.083333333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Ad'#305', Soyad'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel83: TQRLabel
+          Left = 570
+          Top = 58
+          Width = 146
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            1508.125000000000000000
+            153.458333333333300000
+            386.291666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Yetkili Amir / Memur'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel84: TQRLabel
+          Left = 570
+          Top = 71
+          Width = 146
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            1508.125000000000000000
+            187.854166666666700000
+            386.291666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'G'#246'rev '#220'nvan'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel85: TQRLabel
+          Left = 8
+          Top = 335
+          Width = 37
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            21.166666666666670000
+            886.354166666666900000
+            97.895833333333340000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Yaln'#305'z :'
+          Color = clWhite
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QROdepara: TQRLabel
+          Left = 46
+          Top = 335
+          Width = 31
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            121.708333333333400000
+            886.354166666666900000
+            82.020833333333340000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = '. . . . . '
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel87: TQRLabel
+          Left = 573
+          Top = 335
+          Width = 23
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1516.062500000000000000
+            886.354166666666900000
+            60.854166666666680000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = #304'mza'
+          Color = clWhite
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel31: TQRLabel
+          Left = 263
+          Top = 280
+          Width = 170
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            695.854166666666800000
+            740.833333333333400000
+            449.791666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Ad'#305', Soyad'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel33: TQRLabel
+          Left = 570
+          Top = 84
+          Width = 146
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            1508.125000000000000000
+            222.250000000000000000
+            386.291666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Ad'#305', Soyad'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel35: TQRLabel
+          Left = 570
+          Top = 34
+          Width = 146
+          Height = 14
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            37.041666666666670000
+            1508.125000000000000000
+            89.958333333333340000
+            386.291666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = '. . . . / . . . . / . . . . . . .'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRDBText13: TQRDBText
+          Left = -1
+          Top = 96
+          Width = 106
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            -2.645833333333333000
+            254.000000000000000000
+            280.458333333333400000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataSet = DMEMUR.TM1
+          DataField = 'Verile_No'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRKes: TQRLabel
+          Left = 302
+          Top = 96
+          Width = 86
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            799.041666666666800000
+            254.000000000000000000
+            227.541666666666700000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'QRKes'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText22: TQRDBText
+          Left = 245
+          Top = 157
+          Width = 140
+          Height = 22
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            58.208333333333340000
+            648.229166666666800000
+            415.395833333333400000
+            370.416666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataField = 'Mudur_Yard'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel39: TQRLabel
+          Left = 385
+          Top = 127
+          Width = 333
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = False
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            1018.645833333333000000
+            336.020833333333400000
+            881.062500000000000000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'A'#199'IKLAMA VE EKLER'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRMemo1: TQRMemo
+          Left = 385
+          Top = 142
+          Width = 333
+          Height = 96
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            254.000000000000000000
+            1018.645833333333000000
+            375.708333333333400000
+            881.062500000000000000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          FontSize = 7
+        end
+        object QRDBText23: TQRDBText
+          Left = 263
+          Top = 295
+          Width = 170
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            695.854166666666800000
+            780.520833333333400000
+            449.791666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataField = 'Daire_Mudur'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText24: TQRDBText
+          Left = 515
+          Top = 295
+          Width = 172
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1362.604166666667000000
+            780.520833333333400000
+            455.083333333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataField = 'Sayman'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRDBText25: TQRDBText
+          Left = 570
+          Top = 97
+          Width = 146
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1508.125000000000000000
+            256.645833333333400000
+            386.291666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Color = clWhite
+          DataField = 'Daire_Baskan'
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel40: TQRLabel
+          Left = 263
+          Top = 255
+          Width = 170
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            695.854166666666800000
+            674.687500000000000000
+            449.791666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = '. . . . / . . . . / . . . . . . .'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel41: TQRLabel
+          Left = 515
+          Top = 255
+          Width = 172
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1362.604166666667000000
+            674.687500000000000000
+            455.083333333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = '. . . . / . . . . / . . . . . . .'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRShape19: TQRShape
+          Left = -1
+          Top = 332
+          Width = 1
+          Height = 25
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            66.145833333333340000
+            -2.645833333333333000
+            878.416666666666800000
+            2.645833333333333000)
+          Shape = qrsRectangle
+          VertAdjust = 0
+        end
+        object QRShape20: TQRShape
+          Left = 718
+          Top = 332
+          Width = 1
+          Height = 25
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            66.145833333333340000
+            1899.708333333333000000
+            878.416666666666800000
+            2.645833333333333000)
+          Shape = qrsRectangle
+          VertAdjust = 0
+        end
+        object QRtah: TQRLabel
+          Left = 105
+          Top = 96
+          Width = 111
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            277.812500000000000000
+            254.000000000000000000
+            293.687500000000000000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'QRtah'
+          Color = clWhite
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QROde: TQRLabel
+          Left = 388
+          Top = 96
+          Width = 85
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            1026.583333333333000000
+            254.000000000000000000
+            224.895833333333300000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'QROde'
+          Color = clWhite
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel26: TQRLabel
+          Left = -1
+          Top = 70
+          Width = 106
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            -2.645833333333333000
+            185.208333333333300000
+            280.458333333333400000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = #214'deme Emri Belge No'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel27: TQRLabel
+          Left = 105
+          Top = 70
+          Width = 111
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            277.812500000000000000
+            185.208333333333300000
+            293.687500000000000000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Toplam'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QR1: TQRLabel
+          Left = 216
+          Top = 70
+          Width = 86
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            571.500000000000000000
+            185.208333333333300000
+            227.541666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Toplam'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QR3: TQRLabel
+          Left = 388
+          Top = 70
+          Width = 85
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            1026.583333333333000000
+            185.208333333333300000
+            224.895833333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'QR3'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QR4: TQRLabel
+          Left = 473
+          Top = 70
+          Width = 94
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            34.395833333333340000
+            1251.479166666667000000
+            185.208333333333300000
+            248.708333333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Emri No'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QR6: TQRLabel
+          Left = -1
+          Top = 83
+          Width = 106
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            -2.645833333333333000
+            219.604166666666700000
+            280.458333333333400000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'QR6'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel51: TQRLabel
+          Left = 105
+          Top = 83
+          Width = 111
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            277.812500000000000000
+            219.604166666666700000
+            293.687500000000000000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'YTL             YKr  '
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel52: TQRLabel
+          Left = 216
+          Top = 83
+          Width = 86
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            571.500000000000000000
+            219.604166666666700000
+            227.541666666666700000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'YTL             YKr  '
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel53: TQRLabel
+          Left = 388
+          Top = 83
+          Width = 85
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            1026.583333333333000000
+            219.604166666666700000
+            224.895833333333300000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'YTL             YKr  '
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QR7: TQRLabel
+          Left = 473
+          Top = 83
+          Width = 94
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            34.395833333333340000
+            1251.479166666667000000
+            219.604166666666700000
+            248.708333333333300000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = ' '
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRShape18: TQRShape
+          Left = 194
+          Top = 83
+          Width = 1
+          Height = 28
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            74.083333333333340000
+            513.291666666666700000
+            219.604166666666700000
+            2.645833333333333000)
+          Shape = qrsRectangle
+          VertAdjust = 0
+        end
+        object QRShape22: TQRShape
+          Left = 450
+          Top = 84
+          Width = 1
+          Height = 27
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            71.437500000000000000
+            1190.625000000000000000
+            222.250000000000000000
+            2.645833333333333000)
+          Shape = qrsRectangle
+          VertAdjust = 0
+        end
+        object QRLabel55: TQRLabel
+          Left = 302
+          Top = 57
+          Width = 86
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = False
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            799.041666666666800000
+            150.812500000000000000
+            227.541666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Kesintiler Toplam'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QROzel: TQRLabel
+          Left = 216
+          Top = 96
+          Width = 86
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            571.500000000000000000
+            254.000000000000000000
+            227.541666666666700000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'QROde'
+          Color = clWhite
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QR2: TQRLabel
+          Left = 302
+          Top = 70
+          Width = 86
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            799.041666666666800000
+            185.208333333333300000
+            227.541666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'QR2'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRLabel62: TQRLabel
+          Left = 302
+          Top = 83
+          Width = 86
+          Height = 13
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            34.395833333333340000
+            799.041666666666800000
+            219.604166666666700000
+            227.541666666666700000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'YTL             YKr  '
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 7
+        end
+        object QRShape23: TQRShape
+          Left = 366
+          Top = 83
+          Width = 1
+          Height = 28
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            74.083333333333340000
+            968.375000000000000000
+            219.604166666666700000
+            2.645833333333333000)
+          Shape = qrsRectangle
+          VertAdjust = 0
+        end
+        object QRShape21: TQRShape
+          Left = 279
+          Top = 83
+          Width = 1
+          Height = 27
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            71.437500000000000000
+            738.187500000000000000
+            219.604166666666700000
+            2.645833333333333000)
+          Shape = qrsRectangle
+          VertAdjust = 0
+        end
+        object QR8: TQRLabel
+          Left = -1
+          Top = 210
+          Width = 73
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            -2.645833333333333000
+            555.625000000000000000
+            193.145833333333300000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Nevi'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QR9: TQRLabel
+          Left = 72
+          Top = 210
+          Width = 86
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            190.500000000000000000
+            555.625000000000000000
+            227.541666666666700000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Tarihi'
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QR10: TQRLabel
+          Left = 158
+          Top = 210
+          Width = 106
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            418.041666666666700000
+            555.625000000000000000
+            280.458333333333400000)
+          Alignment = taCenter
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'Numaras'#305
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRLabel42: TQRLabel
+          Left = 264
+          Top = 210
+          Width = 121
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = True
+          Frame.DrawBottom = True
+          Frame.DrawLeft = True
+          Frame.DrawRight = True
+          Size.Values = (
+            39.687500000000000000
+            698.500000000000000000
+            555.625000000000000000
+            320.145833333333400000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'YTL     YKr   '
+          Color = clWhite
+          Font.Charset = TURKISH_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRShape27: TQRShape
+          Left = 0
+          Top = -1
+          Width = 718
+          Height = 21
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            55.562500000000000000
+            0.000000000000000000
+            -2.645833333333333000
+            1899.708333333333000000)
+          Shape = qrsRectangle
+          VertAdjust = 0
+        end
+        object QRShape28: TQRShape
+          Left = 269
+          Top = 0
+          Width = 3
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666670000
+            711.729166666666800000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRShape29: TQRShape
+          Left = 374
+          Top = 0
+          Width = 3
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666670000
+            989.541666666666800000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRShape30: TQRShape
+          Left = 481
+          Top = 0
+          Width = 3
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666670000
+            1272.645833333333000000
+            0.000000000000000000
+            7.937500000000000000)
+          Shape = qrsVertLine
+          VertAdjust = 0
+        end
+        object QRLabel30: TQRLabel
+          Left = 101
+          Top = 2
+          Width = 165
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            267.229166666666700000
+            5.291666666666667000
+            436.562499999999900000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'B'#252't'#231'e Giderleri Tahakkuk Toplam'#305' :'
+          Color = clWhite
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+        object QRTahtpl: TQRLabel
+          Left = 273
+          Top = 2
+          Width = 100
+          Height = 15
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            39.687500000000000000
+            722.312500000000000000
+            5.291666666666667000
+            264.583333333333400000)
+          Alignment = taRightJustify
+          AlignToBand = False
+          AutoSize = False
+          AutoStretch = False
+          Caption = 'QRTahtpl'
+          Color = clWhite
+          Transparent = False
+          WordWrap = True
+          ExportAs = exptText
+          WrapStyle = BreakOnSpaces
+          FontSize = 8
+        end
+      end
+    end
+  end
+  object Table1: TTable
+    DatabaseName = 'DBMemur'
+    IndexFieldNames = 'Hes_Kod;E1;E2;E3;E4'
+    TableName = 'Muhfis1'
+    TableType = ttParadox
+    Left = 400
+    Top = 89
+    object Table1Sira: TFloatField
+      FieldName = 'Sira'
+    end
+    object Table1Islem: TFloatField
+      FieldName = 'Islem'
+    end
+    object Table1Hes_Kod: TStringField
+      FieldName = 'Hes_Kod'
+      Required = True
+      Size = 3
+    end
+    object Table1E1: TStringField
+      FieldName = 'E1'
+      Required = True
+      Size = 2
+    end
+    object Table1E2: TStringField
+      FieldName = 'E2'
+      Required = True
+      Size = 2
+    end
+    object Table1E3: TStringField
+      FieldName = 'E3'
+      Required = True
+      Size = 2
+    end
+    object Table1E4: TStringField
+      FieldName = 'E4'
+      Required = True
+      Size = 2
+    end
+    object Table1Borc: TCurrencyField
+      FieldName = 'Borc'
+    end
+    object Table1Alacak: TCurrencyField
+      FieldName = 'Alacak'
+    end
+    object Table1Tanim: TStringField
+      FieldName = 'Tanim'
+      Size = 50
+    end
+    object Table1Sayman: TFloatField
+      FieldName = 'Sayman'
+    end
+    object Table1Kisi: TFloatField
+      FieldName = 'Kisi'
+    end
+    object Table1Ilgi: TFloatField
+      FieldName = 'Ilgi'
+    end
+    object Table1Y_Tarih: TDateField
+      FieldName = 'Y_Tarih'
+    end
+    object Table1H_Tarih: TDateField
+      FieldName = 'H_Tarih'
+    end
+    object Table1Z_Tarih: TDateField
+      FieldName = 'Z_Tarih'
+    end
+    object Table1A_Sira: TFloatField
+      FieldName = 'A_Sira'
+    end
+    object Table1B_Sira: TFloatField
+      FieldName = 'B_Sira'
+    end
+    object Table1Odendi: TSmallintField
+      FieldName = 'Odendi'
+    end
+    object Table1Yansitma: TStringField
+      FieldName = 'Yansitma'
+      Size = 3
+    end
+    object Table1AySonu: TFloatField
+      FieldName = 'AySonu'
+    end
+    object Table1Islem_Turu: TFloatField
+      FieldName = 'Islem_Turu'
+    end
+    object Table1Onay: TStringField
+      FieldName = 'Onay'
+      Size = 1
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = Table1
+    Left = 392
+    Top = 137
+  end
+  object Query1: TQuery
+    DatabaseName = 'DBMemur'
+    DataSource = DMEMUR.DDONEM
+    SQL.Strings = (
+      
+        'SELECT DISTINCT D.Yil, D.Ay, D.Donem, D.Sicno, D."No", D.Dair, D' +
+        '.SskNo,D1.Pkaz1, D1.Pkaz2, D1.Pkaz3, D1.Pkaz4, D1.Pkaz5, D1.Pkaz' +
+        '6, D1.Pkaz7, D1.Pkaz8, D1.Pkaz9, D1.Pkaz10, D1.Pkaz11, D1.Pkaz12' +
+        ', D1.Pkaz13, D1.Pkaz14, D1.Pkaz15, D1.Pkaz16, D1.Pkaz17, D1.Pkaz' +
+        '18, D1.Pkaz19, D1.Pkaz20, D1.Pkaz21, D1.Pkaz22, D1.Pkaz23, D1.Pk' +
+        'az24, D1.Pkaz25, D.SskIsv, D.GenSagKisi, D.GenSagKurum,D1.Adi,D1' +
+        '.soyadi'
+      'FROM "Phesap.DB" D, "Phesap1.DB" D1, "Sicil.DB" D2'
+      'WHERE (D2.Sicno = D.Sicno) and '
+      ' (D1."No" = D."No") and (D.Yil = :Yil )'
+      ' AND ( D.Ay =:Ay )  AND ( D.Donem =:Donem )'
+      ' AND (D.Dair =:t1)'
+      'ORDER BY  D.Dair, D.Sicno, D.Yil, D.Ay')
+    Left = 370
+    Top = 231
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'Yil'
+        ParamType = ptUnknown
+        Size = 5
+      end
+      item
+        DataType = ftString
+        Name = 'Ay'
+        ParamType = ptUnknown
+        Size = 3
+      end
+      item
+        DataType = ftString
+        Name = 'Donem'
+        ParamType = ptUnknown
+        Size = 21
+      end
+      item
+        DataType = ftString
+        Name = 't1'
+        ParamType = ptUnknown
+      end>
+  end
+  object Query2: TQuery
+    DatabaseName = 'DBMemur'
+    DataSource = DMEMUR.DDONEM
+    SQL.Strings = (
+      
+        'SELECT DISTINCT D.Yil, D.Ay, D.Donem, D.Sicno, D."No", D.Dair, D' +
+        '.SskNo, D.Pkaz26, D.Pkaz27, D.Pkaz28, D.Pkaz29, D.Pkaz30, D.Pkaz' +
+        '31, D.Pkaz32, D.Pkaz33, D.Pkaz34, D.Pkaz35, D.Pkaz36, D.Pkaz37, ' +
+        'D.Pkaz38, D.Pkaz39, D.Pkaz40,  D.SskIs, D.SskIsv, D.GelirVer,  D' +
+        '.DamVer, D.Net,D.GenSagKisi,D.GenSagKurum,D.ISMYS,D.ISVMYS,D.ISG' +
+        'SS,D.ISVGSS,D2.A3,D3.Eucret,D3.Once5510,D3.Kisi'
+      
+        'FROM "Phesap.DB" D, "Phesap1.DB" D1, "Phesap2.DB" D2, "Sicil.DB"' +
+        ' D3'
+      
+        'WHERE (D1."No" = D2."No") and  (D3.yil= D.Yil) and (D3.ay= D.ay)' +
+        ' and'
+      ' (D3.Donem= D.donem) and (D3.Sicno= D.Sicno) and'
+      ' (D1."No" = D."No") and (D.Yil = :Yil )'
+      ' AND ( D.Ay =:Ay )  AND ( D.Donem =:Donem )'
+      'AND (D.Dair =:t1) '
+      'ORDER BY  D.Dair, D.Sicno, D.Yil, D.Ay')
+    Left = 434
+    Top = 231
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'Yil'
+        ParamType = ptUnknown
+        Size = 5
+      end
+      item
+        DataType = ftString
+        Name = 'Ay'
+        ParamType = ptUnknown
+        Size = 3
+      end
+      item
+        DataType = ftString
+        Name = 'Donem'
+        ParamType = ptUnknown
+        Size = 21
+      end
+      item
+        DataType = ftString
+        Name = 't1'
+        ParamType = ptUnknown
+      end>
+  end
+  object DataSource3: TDataSource
+    DataSet = Query1
+    Left = 368
+    Top = 264
+  end
+  object DataSource4: TDataSource
+    DataSet = Query2
+    Left = 432
+    Top = 264
+  end
+  object Table2: TTable
+    DatabaseName = 'DBMemur'
+    IndexFieldNames = 'Hes_Kod;E1;E2;E3;E4'
+    TableName = 'Muhfis2'
+    TableType = ttParadox
+    Left = 456
+    Top = 89
+    object Table2Sira: TFloatField
+      FieldName = 'Sira'
+    end
+    object Table2Islem: TFloatField
+      FieldName = 'Islem'
+    end
+    object Table2Hes_Kod: TStringField
+      FieldName = 'Hes_Kod'
+      Required = True
+      Size = 3
+    end
+    object Table2E1: TStringField
+      FieldName = 'E1'
+      Required = True
+      Size = 2
+    end
+    object Table2E2: TStringField
+      FieldName = 'E2'
+      Required = True
+      Size = 2
+    end
+    object Table2E3: TStringField
+      FieldName = 'E3'
+      Required = True
+      Size = 2
+    end
+    object Table2E4: TStringField
+      FieldName = 'E4'
+      Required = True
+      Size = 2
+    end
+    object Table2Borc: TCurrencyField
+      FieldName = 'Borc'
+    end
+    object Table2Alacak: TCurrencyField
+      FieldName = 'Alacak'
+    end
+    object Table2Tanim: TStringField
+      FieldName = 'Tanim'
+      Size = 50
+    end
+    object Table2Sayman: TFloatField
+      FieldName = 'Sayman'
+    end
+    object Table2Kisi: TFloatField
+      FieldName = 'Kisi'
+    end
+    object Table2Ilgi: TFloatField
+      FieldName = 'Ilgi'
+    end
+    object Table2Y_Tarih: TDateField
+      FieldName = 'Y_Tarih'
+    end
+    object Table2H_Tarih: TDateField
+      FieldName = 'H_Tarih'
+    end
+    object Table2Z_Tarih: TDateField
+      FieldName = 'Z_Tarih'
+    end
+    object Table2A_Sira: TFloatField
+      FieldName = 'A_Sira'
+    end
+    object Table2B_Sira: TFloatField
+      FieldName = 'B_Sira'
+    end
+    object Table2Odendi: TSmallintField
+      FieldName = 'Odendi'
+    end
+    object Table2Yansitma: TStringField
+      FieldName = 'Yansitma'
+      Size = 3
+    end
+    object Table2AySonu: TFloatField
+      FieldName = 'AySonu'
+    end
+    object Table2Islem_Turu: TFloatField
+      FieldName = 'Islem_Turu'
+    end
+    object Table2Onay: TStringField
+      FieldName = 'Onay'
+      Size = 1
+    end
+  end
+  object DataSource2: TDataSource
+    DataSet = Table2
+    Left = 448
+    Top = 129
+  end
+  object Table3: TTable
+    DatabaseName = 'ATemp'
+    IndexFieldNames = 'Donem;Daire'
+    MasterFields = 'Donem;Daire'
+    MasterSource = DataSource6
+    TableName = 'EntegreM2'
+    TableType = ttParadox
+    Left = 304
+    Top = 97
+    object Table3Donem: TStringField
+      FieldName = 'Donem'
+      Size = 30
+    end
+    object Table3Daire: TStringField
+      FieldName = 'Daire'
+      Size = 30
+    end
+    object Table3Sira: TFloatField
+      FieldName = 'Sira'
+    end
+    object Table3Hes_Kod: TStringField
+      FieldName = 'Hes_Kod'
+      Required = True
+      Size = 3
+    end
+    object Table3K4: TStringField
+      FieldName = 'K4'
+      Size = 2
+    end
+    object Table3F1: TStringField
+      FieldName = 'F1'
+      Size = 2
+    end
+    object Table3F2: TStringField
+      FieldName = 'F2'
+      Size = 2
+    end
+    object Table3F3: TStringField
+      FieldName = 'F3'
+      Size = 2
+    end
+    object Table3F4: TStringField
+      FieldName = 'F4'
+      Size = 3
+    end
+    object Table3E1: TStringField
+      FieldName = 'E1'
+      Required = True
+      Size = 2
+    end
+    object Table3E2: TStringField
+      FieldName = 'E2'
+      Required = True
+      Size = 2
+    end
+    object Table3E3: TStringField
+      FieldName = 'E3'
+      Required = True
+      Size = 2
+    end
+    object Table3E4: TStringField
+      FieldName = 'E4'
+      Required = True
+      Size = 2
+    end
+    object Table3Borc: TCurrencyField
+      FieldName = 'Borc'
+    end
+    object Table3Alacak: TCurrencyField
+      FieldName = 'Alacak'
+    end
+    object Table3Tanim: TStringField
+      FieldName = 'Tanim'
+      Size = 50
+    end
+    object Table3Onay: TStringField
+      FieldName = 'Onay'
+      Size = 1
+    end
+    object Table3Kisi: TFloatField
+      FieldName = 'Kisi'
+    end
+    object Table3Islem_Turu: TFloatField
+      FieldName = 'Islem_Turu'
+    end
+  end
+  object DataSource5: TDataSource
+    DataSet = Table3
+    Left = 296
+    Top = 121
+  end
+  object Table4: TTable
+    DatabaseName = 'ATemp'
+    IndexFieldNames = 'Donem;Daire;Tur'
+    TableName = 'EntegreM1'
+    TableType = ttParadox
+    Left = 344
+    Top = 97
+    object Table4Donem: TStringField
+      FieldName = 'Donem'
+      Size = 30
+    end
+    object Table4Daire: TStringField
+      FieldName = 'Daire'
+      Size = 30
+    end
+    object Table4K4: TStringField
+      FieldName = 'K4'
+      Size = 2
+    end
+    object Table4Onay: TStringField
+      FieldName = 'Onay'
+      Size = 1
+    end
+    object Table4Tur: TStringField
+      FieldName = 'Tur'
+      Size = 1
+    end
+  end
+  object DataSource6: TDataSource
+    DataSet = Table4
+    Left = 336
+    Top = 121
+  end
+  object DataSource7: TDataSource
+    DataSet = Query2
+    Left = 264
+    Top = 217
+  end
+  object Query3: TQuery
+    DatabaseName = 'DBMemur'
+    SQL.Strings = (
+      
+        'SELECT Sira, Islem, Hes_Kod, E1, E2, E3, E4, Borc, Alacak, Tanim' +
+        ', Sayman, Kisi, Ilgi, Y_Tarih, H_Tarih, Z_Tarih, A_Sira, B_Sira,' +
+        ' Odendi, Yansitma, AySonu, Islem_Turu, Onay'
+      'FROM "Muhfis1.DB" Muhfis1'
+      'where Hes_Kod='#39'333'#39)
+    Left = 200
+    Top = 233
+    object Query3Sira: TFloatField
+      FieldName = 'Sira'
+      Origin = 'DBMEMUR."Muhfis1.DB".Sira'
+    end
+    object Query3Islem: TFloatField
+      FieldName = 'Islem'
+      Origin = 'DBMEMUR."Muhfis1.DB".Islem'
+    end
+    object Query3Hes_Kod: TStringField
+      FieldName = 'Hes_Kod'
+      Origin = 'DBMEMUR."Muhfis1.DB".Hes_Kod'
+      Size = 3
+    end
+    object Query3E1: TStringField
+      FieldName = 'E1'
+      Origin = 'DBMEMUR."Muhfis1.DB".E1'
+      Size = 2
+    end
+    object Query3E2: TStringField
+      FieldName = 'E2'
+      Origin = 'DBMEMUR."Muhfis1.DB".E2'
+      Size = 2
+    end
+    object Query3E3: TStringField
+      FieldName = 'E3'
+      Origin = 'DBMEMUR."Muhfis1.DB".E3'
+      Size = 2
+    end
+    object Query3E4: TStringField
+      FieldName = 'E4'
+      Origin = 'DBMEMUR."Muhfis1.DB".E4'
+      Size = 2
+    end
+    object Query3Borc: TCurrencyField
+      FieldName = 'Borc'
+      Origin = 'DBMEMUR."Muhfis1.DB".Borc'
+    end
+    object Query3Alacak: TCurrencyField
+      FieldName = 'Alacak'
+      Origin = 'DBMEMUR."Muhfis1.DB".Alacak'
+    end
+    object Query3Tanim: TStringField
+      FieldName = 'Tanim'
+      Origin = 'DBMEMUR."Muhfis1.DB".Tanim'
+      Size = 50
+    end
+    object Query3Sayman: TFloatField
+      FieldName = 'Sayman'
+      Origin = 'DBMEMUR."Muhfis1.DB".Sayman'
+    end
+    object Query3Kisi: TFloatField
+      FieldName = 'Kisi'
+      Origin = 'DBMEMUR."Muhfis1.DB".Kisi'
+    end
+    object Query3Ilgi: TFloatField
+      FieldName = 'Ilgi'
+      Origin = 'DBMEMUR."Muhfis1.DB".Ilgi'
+    end
+    object Query3Y_Tarih: TDateField
+      FieldName = 'Y_Tarih'
+      Origin = 'DBMEMUR."Muhfis1.DB".Y_Tarih'
+    end
+    object Query3H_Tarih: TDateField
+      FieldName = 'H_Tarih'
+      Origin = 'DBMEMUR."Muhfis1.DB".H_Tarih'
+    end
+    object Query3Z_Tarih: TDateField
+      FieldName = 'Z_Tarih'
+      Origin = 'DBMEMUR."Muhfis1.DB".Z_Tarih'
+    end
+    object Query3A_Sira: TFloatField
+      FieldName = 'A_Sira'
+      Origin = 'DBMEMUR."Muhfis1.DB".A_Sira'
+    end
+    object Query3B_Sira: TFloatField
+      FieldName = 'B_Sira'
+      Origin = 'DBMEMUR."Muhfis1.DB".B_Sira'
+    end
+    object Query3Odendi: TSmallintField
+      FieldName = 'Odendi'
+      Origin = 'DBMEMUR."Muhfis1.DB".Odendi'
+    end
+    object Query3Yansitma: TStringField
+      FieldName = 'Yansitma'
+      Origin = 'DBMEMUR."Muhfis1.DB".Yansitma'
+      Size = 3
+    end
+    object Query3AySonu: TFloatField
+      FieldName = 'AySonu'
+      Origin = 'DBMEMUR."Muhfis1.DB".AySonu'
+    end
+    object Query3Islem_Turu: TFloatField
+      FieldName = 'Islem_Turu'
+      Origin = 'DBMEMUR."Muhfis1.DB".Islem_Turu'
+    end
+    object Query3Onay: TStringField
+      FieldName = 'Onay'
+      Origin = 'DBMEMUR."Muhfis1.DB".Onay'
+      Size = 1
+    end
+  end
+end

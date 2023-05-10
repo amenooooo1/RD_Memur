@@ -1,0 +1,569 @@
+unit URYilEm;
+
+interface
+
+uses
+  SysUtils, Windows, Messages, Classes, Graphics, Controls,
+  StdCtrls, ExtCtrls, Forms, Quickrpt, QRCtrls, Db, DBTables, Uni, DBAccess, MemDS, Buttons,
+  Grids, DBGrids;
+
+type
+  TFRYilEm = class(TForm)
+    Query1: TUniQuery;
+    Table1: TUniTable;
+    DataSource1: TDataSource;
+    DataSource2: TDataSource;
+    Panel1: TPanel;
+    YaziBt: TBitBtn;
+    YaziMBt: TBitBtn;
+    BitBtn1: TBitBtn;
+    Vazgec: TBitBtn;
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+    QuickRep1: TQuickRep;
+    TitleBand1: TQRBand;
+    QRLabel1: TQRLabel;
+    QRLabel9: TQRLabel;
+    QRLabel14: TQRLabel;
+    QRSysData1: TQRSysData;
+    QRLabel23: TQRLabel;
+    QRLabel24: TQRLabel;
+    QRLabel25: TQRLabel;
+    QRLabel26: TQRLabel;
+    QRLabel27: TQRLabel;
+    QRLabel28: TQRLabel;
+    PageFooterBand1: TQRBand;
+    QRExpr3: TQRExpr;
+    QRExpr9: TQRExpr;
+    QRExpr19: TQRExpr;
+    QRExpr20: TQRExpr;
+    QRExpr21: TQRExpr;
+    QRExpr22: TQRExpr;
+    QRExpr23: TQRExpr;
+    QRExpr24: TQRExpr;
+    QRExpr25: TQRExpr;
+    QRExpr26: TQRExpr;
+    QRExpr27: TQRExpr;
+    QRExpr28: TQRExpr;
+    QRExpr29: TQRExpr;
+    QRLabel29: TQRLabel;
+    QRLabel30: TQRLabel;
+    QRLabel31: TQRLabel;
+    QRLabel32: TQRLabel;
+    QRLabel33: TQRLabel;
+    QRExpr10: TQRExpr;
+    QRExpr11: TQRExpr;
+    QRExpr12: TQRExpr;
+    QRExpr13: TQRExpr;
+    QRExpr14: TQRExpr;
+    QRExpr15: TQRExpr;
+    QRExpr16: TQRExpr;
+    QRExpr17: TQRExpr;
+    QRExpr18: TQRExpr;
+    QRExpr33: TQRExpr;
+    QRExpr34: TQRExpr;
+    QRExpr35: TQRExpr;
+    QRExpr36: TQRExpr;
+    QRLabel52: TQRLabel;
+    QRSysData2: TQRSysData;
+    QRLabel74: TQRLabel;
+    QRExpr37: TQRExpr;
+    DetailBand1: TQRBand;
+    QRLabel2: TQRLabel;
+    QRLabel3: TQRLabel;
+    QRLabel5: TQRLabel;
+    QRLabel4: TQRLabel;
+    QRLabel16: TQRLabel;
+    QRDBText1: TQRDBText;
+    QRDBText2: TQRDBText;
+    QRDBText3: TQRDBText;
+    QRLabel6: TQRLabel;
+    QRLabel17: TQRLabel;
+    QRDBText6: TQRDBText;
+    QRDBText7: TQRDBText;
+    QRDBText8: TQRDBText;
+    QRLabel7: TQRLabel;
+    QRLabel20: TQRLabel;
+    QRDBText9: TQRDBText;
+    QRDBText10: TQRDBText;
+    QRDBText11: TQRDBText;
+    QRLabel21: TQRLabel;
+    QRLabel22: TQRLabel;
+    QRDBText12: TQRDBText;
+    QRDBText13: TQRDBText;
+    QRDBText14: TQRDBText;
+    QRLabel34: TQRLabel;
+    QRLabel35: TQRLabel;
+    QRDBText15: TQRDBText;
+    QRDBText16: TQRDBText;
+    QRDBText17: TQRDBText;
+    QRDBText18: TQRDBText;
+    QRDBText19: TQRDBText;
+    QRLabel36: TQRLabel;
+    QRLabel37: TQRLabel;
+    QRLabel38: TQRLabel;
+    QRLabel39: TQRLabel;
+    QRDBText20: TQRDBText;
+    QRDBText21: TQRDBText;
+    QRDBText22: TQRDBText;
+    QRDBText23: TQRDBText;
+    QRDBText24: TQRDBText;
+    QRDBText25: TQRDBText;
+    QRDBText26: TQRDBText;
+    QRDBText27: TQRDBText;
+    QRDBText28: TQRDBText;
+    QRDBText29: TQRDBText;
+    QRLabel40: TQRLabel;
+    QRLabel41: TQRLabel;
+    QRLabel42: TQRLabel;
+    QRLabel43: TQRLabel;
+    QRLabel44: TQRLabel;
+    QRLabel45: TQRLabel;
+    QRDBText30: TQRDBText;
+    QRDBText31: TQRDBText;
+    QRDBText32: TQRDBText;
+    QRDBText33: TQRDBText;
+    QRDBText34: TQRDBText;
+    QRDBText35: TQRDBText;
+    QRDBText36: TQRDBText;
+    QRDBText37: TQRDBText;
+    QRDBText38: TQRDBText;
+    QRLabel46: TQRLabel;
+    QRLabel47: TQRLabel;
+    QRLabel48: TQRLabel;
+    QRLabel49: TQRLabel;
+    QRLabel50: TQRLabel;
+    QRLabel51: TQRLabel;
+    QRLabel53: TQRLabel;
+    QRLabel54: TQRLabel;
+    QRDBText39: TQRDBText;
+    QRDBText40: TQRDBText;
+    QRDBText41: TQRDBText;
+    QRLabel55: TQRLabel;
+    QRLabel56: TQRLabel;
+    QRLabel57: TQRLabel;
+    QRLabel58: TQRLabel;
+    QRLabel59: TQRLabel;
+    QRLabel60: TQRLabel;
+    QRLabel61: TQRLabel;
+    QRLabel62: TQRLabel;
+    QRLabel63: TQRLabel;
+    QRLabel64: TQRLabel;
+    QRLabel65: TQRLabel;
+    QRLabel66: TQRLabel;
+    QRLabel67: TQRLabel;
+    QRLabel68: TQRLabel;
+    QRExpr30: TQRExpr;
+    QRLabel69: TQRLabel;
+    QRLabel70: TQRLabel;
+    QRLabel71: TQRLabel;
+    QRDBText42: TQRDBText;
+    QRLabel72: TQRLabel;
+    QRLabel73: TQRLabel;
+    QRLabel75: TQRLabel;
+    QRExpr31: TQRExpr;
+    QRLabel76: TQRLabel;
+    QRExpr32: TQRExpr;
+    QRExpr1: TQRExpr;
+    QRExpr2: TQRExpr;
+    QRExpr4: TQRExpr;
+    QRLabel8: TQRLabel;
+    QRLabel10: TQRLabel;
+    QRLabel11: TQRLabel;
+    QRLabel12: TQRLabel;
+    QRLabel13: TQRLabel;
+    QRLabel15: TQRLabel;
+    QRExpr6: TQRExpr;
+    QRLabel18: TQRLabel;
+    QRExpr7: TQRExpr;
+    QRLabel19: TQRLabel;
+    QRExpr8: TQRExpr;
+    QRDBText4: TQRDBText;
+    QRExpr5: TQRExpr;
+    QuickRep2: TQuickRep;
+    QRBand1: TQRBand;
+    QRLabel86: TQRLabel;
+    QRLabel88: TQRLabel;
+    QRLabel89: TQRLabel;
+    QRLabel90: TQRLabel;
+    QRLabel91: TQRLabel;
+    QRDBText49: TQRDBText;
+    QRLabel87: TQRLabel;
+    QRDBText51: TQRDBText;
+    QRLabel92: TQRLabel;
+    QRLabel93: TQRLabel;
+    QRDBText52: TQRDBText;
+    QRLabel94: TQRLabel;
+    QRLabel95: TQRLabel;
+    QRLabel96: TQRLabel;
+    QRLabel97: TQRLabel;
+    QRLabel98: TQRLabel;
+    QRLabel99: TQRLabel;
+    QRLabel100: TQRLabel;
+    QRLabel101: TQRLabel;
+    QRLabel102: TQRLabel;
+    QRLabel103: TQRLabel;
+    QRLabel104: TQRLabel;
+    QRLabel105: TQRLabel;
+    QRLabel106: TQRLabel;
+    QRLabel107: TQRLabel;
+    QRLabel108: TQRLabel;
+    QRLabel109: TQRLabel;
+    QRLabel110: TQRLabel;
+    QRLabel111: TQRLabel;
+    QRLabel112: TQRLabel;
+    QRLabel113: TQRLabel;
+    QRLabel114: TQRLabel;
+    QRLabel115: TQRLabel;
+    QRLabel116: TQRLabel;
+    QRBand2: TQRBand;
+    QRExpr38: TQRExpr;
+    QRExpr39: TQRExpr;
+    QRExpr40: TQRExpr;
+    QRExpr41: TQRExpr;
+    QRExpr42: TQRExpr;
+    QRExpr43: TQRExpr;
+    QRLabel81: TQRLabel;
+    QRLabel82: TQRLabel;
+    QRLabel83: TQRLabel;
+    QRLabel84: TQRLabel;
+    QRLabel85: TQRLabel;
+    QRLabel117: TQRLabel;
+    QRLabel118: TQRLabel;
+    QRLabel119: TQRLabel;
+    QRLabel120: TQRLabel;
+    QRLabel121: TQRLabel;
+    QRLabel122: TQRLabel;
+    QRLabel123: TQRLabel;
+    QRLabel124: TQRLabel;
+    QRLabel125: TQRLabel;
+    QRLabel126: TQRLabel;
+    QRLabel127: TQRLabel;
+    QRLabel128: TQRLabel;
+    QRBand3: TQRBand;
+    QRDBText5: TQRDBText;
+    QRDBText43: TQRDBText;
+    QRDBText44: TQRDBText;
+    QRDBText45: TQRDBText;
+    QRDBText46: TQRDBText;
+    QRDBText47: TQRDBText;
+    QRDBText48: TQRDBText;
+    QRLabel77: TQRLabel;
+    QRLabel78: TQRLabel;
+    QRLabel79: TQRLabel;
+    QRLabel80: TQRLabel;
+    procedure HAZ;
+    procedure SIL;
+    procedure Kayit;
+    procedure Kayit1;
+    procedure Kayit11;
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure TitleBand1BeforePrint(Sender: TQRCustomBand;
+      var PrintBand: Boolean);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure YaziBtClick(Sender: TObject);
+    procedure YaziMBtClick(Sender: TObject);
+
+  private
+  end;
+
+var
+  FRYilEm: TFRYilEm;
+  I,s:INTEGER;
+  ge:Currency;
+implementation
+
+uses UData, UYilEm;
+
+{$R *.DFM}
+
+procedure TFRYilEm.HAZ;
+begin
+begin
+SIL;
+i:=0;
+s:=0;
+Query1.first;
+while not Query1.eof do
+ begin
+   Kayit;
+   Query1.next;
+ end;
+end;
+s:= ((i div 4))*4;
+If i<>s then
+s:= ((i div 4)+1)*4;
+While  i <> s do
+Begin
+  i:=i +1;
+  FData.TSSKDORT.Insert;
+  FData.TSSKDORT.FieldByName('Sira').value:=i;
+ end;
+FData.TSSKDORT.IndexFieldNames:='Sira';
+end;
+
+procedure TFRYilEm.sil;
+begin
+FData.TSSKDORT.Close;
+//FData.TSSKDORT.Exclusive:=True;
+FData.TSSKDORT.Open;
+//FData.TSSKDORT.EmptyTable;
+FData.TSSKDORT.Close;
+//FData.TSSKDORT.Exclusive:=False;
+FData.TSSKDORT.Open;
+End;
+
+procedure TFRYilEm.Kayit;
+Begin
+
+{with FData.TSSKDORT do
+begin
+try
+ SetKey;
+// FieldByName('Emno').VALUE:=
+// Query1.FieldByName('Emno').VALUE;
+ FieldByName('Sicno').VALUE:=
+ Query1.FieldByName('Sicno').VALUE;
+
+ if not GotoKey then
+ Begin
+  i:=i+1;
+  Insert;
+  FieldByName('Sira').value:=i;
+  FieldByName('Sicno').VALUE:=
+  Query1.FieldByName('Sicno').VALUE;
+  FieldByName('Emno').asString:=
+  Query1.FieldByName('Emno').asString;
+  FieldByName('Ad').asString:=Query1.FieldByName('Adi').asString;
+  FieldByName('Soy').asString:=Query1.FieldByName('Soyadi').asString;
+  FieldByName('Unvan').asString:=Query1.FieldByName('Unvan').asString;
+  FieldByName('Servis').asString:=Query1.FieldByName('Servis').asString;
+  FieldByName('Kid').Value:=Query1.FieldByName('Kid').value;
+  FieldByName('Terfi').Value:=Query1.FieldByName('Ttar').value;
+  FieldByName('der').asString:=Query1.FieldByName('der').value;
+  FieldByName('kad').Value:=Query1.FieldByName('kad').value;
+  FieldByName('Gos').Value:=Query1.FieldByName('ekgos').value;
+  Post;
+  end
+ else
+ GotoKey
+ Except
+End;
+Kayit1;
+End;}
+end;
+
+procedure TFRYilEm.Kayit1;
+begin
+{with FData.TSSKDORT do
+begin
+IndexFieldNames:='sicno';
+SetKey;
+FieldByName('sicno').asstring:=Query1.FieldByName('sicno').asstring;
+GotoKey;
+Edit;
+  Case StrToInt(Query1.FieldByName('Ay').asString)  of
+   1: begin
+     FieldByName('M1').Value:=Query1.FieldByName('SSkVer').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('K1').Value:=Query1.FieldByName('SSkV').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('A1').Value:=Query1.FieldByName('Gec').Value;
+     End;
+   2: begin
+     FieldByName('M2').Value:=Query1.FieldByName('SSkVer').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('K2').Value:=Query1.FieldByName('SSkV').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('A2').Value:=Query1.FieldByName('Gec').Value;
+     End;
+   3: begin
+     FieldByName('M3').Value:=Query1.FieldByName('SSkVer').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('K3').Value:=Query1.FieldByName('SSkV').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('A3').Value:=Query1.FieldByName('Gec').Value;
+     End;
+   4: begin
+     FieldByName('M4').Value:=Query1.FieldByName('SSkVer').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('K4').Value:=Query1.FieldByName('SSkV').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('A4').Value:=Query1.FieldByName('Gec').Value;
+     End;
+   5: begin
+     FieldByName('M5').Value:=Query1.FieldByName('SSkVer').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('K5').Value:=Query1.FieldByName('SSkV').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('A5').Value:=Query1.FieldByName('Gec').Value;
+     End;
+   6: begin
+     FieldByName('M6').Value:=Query1.FieldByName('SSkVer').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('K6').Value:=Query1.FieldByName('SSkV').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('A6').Value:=Query1.FieldByName('Gec').Value;
+     End;
+   7: begin
+     FieldByName('M7').Value:=Query1.FieldByName('SSkVer').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('K7').Value:=Query1.FieldByName('SSkV').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('A7').Value:=Query1.FieldByName('Gec').Value;
+     End;
+   8: begin
+     FieldByName('M8').Value:=Query1.FieldByName('SSkVer').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('K8').Value:=Query1.FieldByName('SSkV').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('A8').Value:=Query1.FieldByName('Gec').Value;
+     End;
+   9: begin
+     FieldByName('M9').Value:=Query1.FieldByName('SSkVer').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('K9').Value:=Query1.FieldByName('SSkV').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('A9').Value:=Query1.FieldByName('Gec').Value;
+     End;
+  10:begin
+     FieldByName('M10').Value:=Query1.FieldByName('SSkVer').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('K10').Value:=Query1.FieldByName('SSkV').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('A10').Value:=Query1.FieldByName('Gec').Value;
+     End;
+   11: begin
+     FieldByName('M11').Value:=Query1.FieldByName('SSkVer').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('K11').Value:=Query1.FieldByName('SSkV').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('A11').Value:=Query1.FieldByName('Gec').Value;
+     End;
+   12: begin
+     FieldByName('M12').Value:=Query1.FieldByName('SSkVer').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('K12').Value:=Query1.FieldByName('SSkV').Value+
+     Query1.FieldByName('Art').Value;
+     FieldByName('A12').Value:=Query1.FieldByName('Gec').Value;
+     FieldByName('Mat').Value:=Query1.FieldByName('SskMat').Value;
+     End;
+  End;
+     FieldByName('M').Value:=FieldByName('M').Value+
+     Query1.FieldByName('SSkVer').Value+ Query1.FieldByName('Art').Value;
+     FieldByName('K').Value:=FieldByName('K').Value+
+     Query1.FieldByName('SSkV').Value+Query1.FieldByName('Art').Value;
+     FieldByName('A').Value:=FieldByName('A').Value+Query1.FieldByName('Gec').Value;
+post;
+End;}
+end;
+
+
+
+procedure TFRYilEm.FormCreate(Sender: TObject);
+begin
+//FData.TSSKDORT.IndexFieldNames:='sicno';
+FData.TSSKDORT.Open;
+Table1.Open;
+Query1.Open;
+HAZ;
+end;
+
+procedure TFRYilEm.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+FData.TSSKDORT.CLOSE;
+Query1.Close;
+Table1.Close;
+end;
+
+
+procedure TFRYilEm.TitleBand1BeforePrint(Sender: TQRCustomBand;
+  var PrintBand: Boolean);
+begin
+QrLabel1.Caption :=(FData.TSISTEM.FieldByName('Yil').Value)+
+' YILINA AÝT ÞAHIS EMEKLÝLÝK KESENEKLERÝ ÝCMAL BORDROSU';
+QrLabel24.Caption :=(FData.TSISTEM.FieldByName('Beladi').Value)+
+' BAÞKANLIÐI';
+QrLabel26.Caption :=(FData.TSISTEM.FieldByName('Ilce').Value)+' / '+
+(FData.TSISTEM.FieldByName('Il').Value);
+QrLabel28.Caption :=FData.TSISTEM.FieldByName('Beladi').Value;
+end;
+
+
+procedure TFRYilEm.BitBtn1Click(Sender: TObject);
+begin
+	Screen.Cursor := crHourGlass;
+  with TFYilEm.Create( Self ) do
+   	try
+	  Screen.Cursor := crDefault;
+          ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+
+
+procedure TFRYilEm.YaziBtClick(Sender: TObject);
+begin
+QuickRep1.Preview;
+end;
+
+procedure TFRYilEm.YaziMBtClick(Sender: TObject);
+begin
+Table1.First;
+while not Table1.eof do
+begin
+ Table1.Edit;
+ Table1.Fields[2].value:=0;
+ Table1.Fields[3].value:=0;
+ Table1.Fields[4].value:=0;
+ Table1.Fields[5].value:=0;
+ Table1.Fields[6].value:=0;
+ Table1.Fields[7].value:=0;
+ Table1.Post;
+ Table1.next;
+end;
+Query1.First;
+while not Query1.eof do
+ begin
+ Kayit11;
+ Query1.Next;
+end;
+QrLabel95.Caption :=(FData.TSISTEM.FieldByName('Ilce').Value)+' / '+
+(FData.TSISTEM.FieldByName('Il').Value);
+QrLabel96.Caption :=(FData.TSISTEM.FieldByName('Ilce').Value)+' / '+
+(FData.TSISTEM.FieldByName('Il').Value);
+QuickRep2.Preview;
+end;
+
+
+procedure TFRYilEm.Kayit11;
+begin
+{Table1.SetKey;
+Table1.Fields[0].value:=Query1.FieldByName('Ay').asString;
+Table1.GotoKey;
+Table1.Edit;
+IF Query1.FieldByName('Sski').asstring = 'E'  then
+ Table1.Fields[3].value:=Table1.Fields[3].value
+  +Query1.FieldByName('SskV').value
+ Else
+  Table1.Fields[2].value:=Table1.Fields[2].value
+   +Query1.FieldByName('SskV').value;
+Table1.Fields[4].value:=Table1.Fields[4].value+
+Query1.FieldByName('Art').Value;
+Table1.Fields[5].value:=Table1.Fields[5].value+
+Query1.FieldByName('SSkVer').Value+ Query1.FieldByName('Art').Value;
+If Query1.FieldByName('Gec').asstring<>'' then
+ ge:=Query1.FieldByName('Gec').Value else ge:=0;
+Table1.Fields[6].value:=Table1.Fields[6].value+
+Query1.FieldByName('Gec').Value;
+Table1.Fields[7].value:=Table1.Fields[7].value+
+ge+Query1.FieldByName('Art').Value*2+
+Query1.FieldByName('SskV').value+Query1.FieldByName('SSkVer').Value;
+Table1.Post;}
+end;
+
+end.

@@ -1,0 +1,28 @@
+unit UIcraGirisi;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, StdCtrls, Buttons, ExtCtrls;
+
+type
+  TFIcraGirisi = class(TForm)
+    Panel1: TPanel;
+    Vazgec: TBitBtn;
+    Button1: TButton;
+    DBGrid1: TDBGrid;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FIcraGirisi: TFIcraGirisi;
+
+implementation
+
+{$R *.dfm}
+
+end.

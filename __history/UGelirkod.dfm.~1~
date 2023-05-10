@@ -1,0 +1,140 @@
+object FGelirkod: TFGelirkod
+  Left = 298
+  Top = 181
+  Width = 508
+  Height = 432
+  Caption = 'Hesap kodlar'#305
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 500
+    Height = 41
+    Align = alTop
+    TabOrder = 0
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 41
+    Width = 500
+    Height = 357
+    Align = alClient
+    TabOrder = 1
+    object DBGrid1: TDBGrid
+      Left = 0
+      Top = 0
+      Width = 509
+      Height = 363
+      DataSource = DMEMUR.DGelirKod
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = []
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'Kod'
+          Width = 72
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Hes'
+          Width = 25
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'E1'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'E2'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'E3'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'E4'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Aciklama'
+          Visible = True
+        end>
+    end
+  end
+  object BitBtn1: TBitBtn
+    Left = 428
+    Top = 0
+    Width = 72
+    Height = 41
+    Cancel = True
+    Caption = '&Vazge'#231
+    TabOrder = 2
+    OnClick = BitBtn1Click
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+      3333333333FFFFF3333333333999993333333333F77777FFF333333999999999
+      33333337777FF377FF3333993370739993333377FF373F377FF3399993000339
+      993337777F777F3377F3393999707333993337F77737333337FF993399933333
+      399377F3777FF333377F993339903333399377F33737FF33377F993333707333
+      399377F333377FF3377F993333101933399377F333777FFF377F993333000993
+      399377FF3377737FF7733993330009993933373FF3777377F7F3399933000399
+      99333773FF777F777733339993707339933333773FF7FFF77333333999999999
+      3333333777333777333333333999993333333333377777333333}
+    NumGlyphs = 2
+  end
+  object BitBtn2: TBitBtn
+    Left = 0
+    Top = 0
+    Width = 72
+    Height = 41
+    Caption = '&Kay'#305't'
+    TabOrder = 3
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000120B0000120B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00555555555555
+      555555555555555555555555555555555555555555FF55555555555559055555
+      55555555577FF5555555555599905555555555557777F5555555555599905555
+      555555557777FF5555555559999905555555555777777F555555559999990555
+      5555557777777FF5555557990599905555555777757777F55555790555599055
+      55557775555777FF5555555555599905555555555557777F5555555555559905
+      555555555555777FF5555555555559905555555555555777FF55555555555579
+      05555555555555777FF5555555555557905555555555555777FF555555555555
+      5990555555555555577755555555555555555555555555555555}
+    NumGlyphs = 2
+  end
+    object Table1: TUniTable
+    TableName = 'HesapPlan'#305'1.dbf'
+    Left = 80
+    Top = 169
+  end
+object DataSource1: TDataSource
+    DataSet = Table1
+    Left = 80
+    Top = 209
+  end
+end

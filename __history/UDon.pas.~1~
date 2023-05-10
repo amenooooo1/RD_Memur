@@ -1,0 +1,47 @@
+unit UDon;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Grids, DBGrids, ExtCtrls, StdCtrls, Buttons;
+
+type
+  TFDon = class(TForm)
+    DBGrid1: TDBGrid;
+    BitBtn3: TBitBtn;
+    Vazgec: TBitBtn;
+    procedure BitBtn3Click(Sender: TObject);
+    procedure VazgecClick(Sender: TObject);
+    procedure DBGrid1KeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FDon: TFDon;
+
+implementation
+
+uses UMEMUR, UHESMENU;
+
+{$R *.DFM}
+
+procedure TFDon.BitBtn3Click(Sender: TObject);
+begin
+Close;
+end;
+
+procedure TFDon.VazgecClick(Sender: TObject);
+begin
+Close;
+end;
+
+procedure TFDon.DBGrid1KeyPress(Sender: TObject; var Key: Char);
+begin
+BitBtn3Click(Sender);
+end;
+
+end.

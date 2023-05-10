@@ -1,0 +1,476 @@
+unit UKazanlar;
+
+interface
+
+uses
+  SysUtils, Windows, Messages, Classes, Graphics, Controls,
+  StdCtrls, ExtCtrls, Forms, Quickrpt, QRCtrls, Db, DBTables, Buttons,
+  Grids, DBGrids, frxExportRTF, frxExportPDF, frxClass, frxExportXLS, frxDBSet,
+  Uni, MemDS, DBAccess;
+
+type
+  TFKazanlar = class(TForm)
+    Query2: TUniQuery;
+    DataSource1: TDataSource;
+    Table1: TUniTable;
+    DataSource2: TDataSource;
+    Panel1: TPanel;
+    HazirBt: TBitBtn;
+    YaziBt: TBitBtn;
+    Vazgec: TBitBtn;
+    Panel2: TPanel;
+    Label3: TLabel;
+    Edit3: TEdit;
+    Label4: TLabel;
+    Edit4: TEdit;
+    DBGrid1: TDBGrid;
+    QuickRep1: TQuickRep;
+    TitleBand1: TQRBand;
+    QRLabel3: TQRLabel;
+    QRLabel8: TQRLabel;
+    QRDBText1: TQRDBText;
+    QRLabel1: TQRLabel;
+    ColumnHeaderBand1: TQRBand;
+    QRLabel2: TQRLabel;
+    QRLabel4: TQRLabel;
+    QRLabel5: TQRLabel;
+    QRLabel6: TQRLabel;
+    DetailBand1: TQRBand;
+    QRShape1: TQRShape;
+    QRShape2: TQRShape;
+    QRShape3: TQRShape;
+    QRDBText2: TQRDBText;
+    QRDBText3: TQRDBText;
+    QRDBText4: TQRDBText;
+    QRDBText5: TQRDBText;
+    QRBand1: TQRBand;
+    QRLabel13: TQRLabel;
+    QRExpr2: TQRExpr;
+    RadioGroup1: TRadioGroup;
+    Label1: TLabel;
+    Edit1: TEdit;
+    QRBand2: TQRBand;
+    QRLabel9: TQRLabel;
+    QRExpr1: TQRExpr;
+    QRLabel10: TQRLabel;
+    QRLabel11: TQRLabel;
+    QRLabel12: TQRLabel;
+    QRLabel17: TQRLabel;
+    frxReport1: TfrxReport;
+    frxDBDataset1: TfrxDBDataset;
+    frxDBDataset2: TfrxDBDataset;
+    frxXLSExport1: TfrxXLSExport;
+    frxPDFExport1: TfrxPDFExport;
+    frxRTFExport1: TfrxRTFExport;
+    UniQuery1: TUniQuery;
+    Table1Sira: TIntegerField;
+    Table1Sicno: TIntegerField;
+    Table1Adsoy: TWideStringField;
+    Table1Banhes: TWideStringField;
+    Table1Net: TFloatField;
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure VazgecClick(Sender: TObject);
+    procedure YaziBtClick(Sender: TObject);
+    procedure HazirBtClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Edit4Exit(Sender: TObject);
+    procedure RadioGroup1Click(Sender: TObject);
+    procedure QRBand2AfterPrint(Sender: TQRCustomBand;
+      BandPrinted: Boolean);
+    procedure QuickRep1BeforePrint(Sender: TCustomQuickRep;
+      var PrintReport: Boolean);
+  private
+  end;
+
+var
+  FKazanlar: TFKazanlar;
+  i:integer;
+  s:String;
+
+implementation
+
+uses UData;
+
+{$R *.DFM}
+
+
+
+procedure TFKazanlar.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+if key=chr(Vk_Return)Then Perform (WM_NEXTDLGCTL,0,0);
+end;
+
+procedure TFKazanlar.VazgecClick(Sender: TObject);
+begin
+Close;
+end;
+
+
+procedure TFKazanlar.YaziBtClick(Sender: TObject);
+var ayy:string;
+begin
+
+ Case  StrToInt(FData.TDONEM.FieldByName('Ay').AsString) of
+    1: ayy:=FData.UniAcilisCalYilname.value+' OCAK';
+    2: ayy:=FData.UniAcilisCalYilname.value+' SUBAT';
+    3: ayy:=FData.UniAcilisCalYilname.value+' MART';
+    4: ayy:=FData.UniAcilisCalYilname.value+' NÝSAN';
+    5: ayy:=FData.UniAcilisCalYilname.value+' MAYIS';
+    6: ayy:=FData.UniAcilisCalYilname.value+' HAZÝRAN';
+    7: ayy:=FData.UniAcilisCalYilname.value+' TEMMUZ';
+    8: ayy:=FData.UniAcilisCalYilname.value+' AÐUSTOS';
+    9: ayy:=FData.UniAcilisCalYilname.value+' EYLÜL';
+    10: ayy:=FData.UniAcilisCalYilname.value+' EKÝM';
+    11: ayy:=FData.UniAcilisCalYilname.value+' KASIM';
+    12: ayy:=FData.UniAcilisCalYilname.value+' ARALIK';
+   end;
+   (frxReport1.FindObject('memo17') as TfrxMemoView).Text:=ayy ;
+   (frxReport1.FindObject('memo16') as TfrxMemoView).Text:=s;
+
+//QuickRep1.Preview ;
+  frxReport1.ShowReport;
+end;
+
+
+procedure TFKazanlar.HazirBtClick(Sender: TObject);
+begin
+i:=0;
+Query2.Close;
+Query2.ParamByName('Yil').Value:=FData.TDONEMYil.Value;
+Query2.ParamByName('A').Value:=Edit1.Text;
+Query2.ParamByName('t1').Value:=StrToInt(Edit3.Text);
+Query2.ParamByName('t2').Value:=StrToInt(Edit4.Text);
+Query2.Open;
+Table1.Close;
+UniQuery1.Close;
+UniQuery1.Execute;
+Table1.Open;
+Query2.First;
+while not Query2.eof do
+ begin
+if not Table1.Locate('Sicno',Query2.FieldByName('Sicno').value,[loPartialKey]) then
+ Begin
+  Table1.Insert;
+  i:=i+1;
+  Table1.Insert;
+  Table1.FieldByName('sira').value:=i;
+  Table1.FieldByName('Sicno').value:=
+  Query2.FieldByName('Sicno').value;
+  Table1.FieldByName('adsoy').asstring:=
+  Query2.FieldByName('Adi').asstring+' ' +
+  Query2.FieldByName('Soyadi').asstring;
+  Table1.FieldByName('Banhes').value:=
+  Query2.FieldByName('SskNo').value;
+  Table1.FieldByName('Net').value:=Query2.fields[8].AsCurrency;
+
+  Table1.Post;
+  end  else
+ begin
+ Table1.Edit;
+ Table1.FieldByName('Net').value:=Table1.FieldByName('Net').value+
+ Query2.fields[8].AsCurrency;
+ Table1.Post;
+ end;
+ Query2.Next;
+END;
+Table1.Refresh;
+end;
+
+
+
+
+
+
+
+procedure TFKazanlar.FormCreate(Sender: TObject);
+begin
+Edit1.Text:=FData.TDONEMAy.Value;
+
+i:=3;
+RadioGroup1.Items.Clear;
+while i <> 28 do
+begin
+ s:= FData.TKAZANC.Fields[i].AsString;
+ RadioGroup1.Items.Add(s);
+ i:=i+1;
+end;
+ RadioGroup1.ItemIndex:=0;
+ RadioGroup1Click(Sender);
+
+end;
+
+procedure TFKazanlar.Edit4Exit(Sender: TObject);
+begin
+HazirBt.SetFocus;
+end;
+
+procedure TFKazanlar.RadioGroup1Click(Sender: TObject);
+begin
+Case  RadioGroup1.ItemIndex  of
+0:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz1');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz1>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[3].AsString +' Listesi';
+ end;
+1:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz2');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz2>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[4].AsString +' Listesi';
+ end;
+2:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz3');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz3>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[5].AsString +' Listesi';
+ end;
+3:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz4');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz4>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[6].AsString +' Listesi';
+ end;
+4:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz5');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz5>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[7].AsString +' Listesi';
+ end;
+5:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz6');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz6>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[8].AsString +' Listesi';
+ end;
+6:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz7');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz7>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[9].AsString +' Listesi';
+ end;
+7:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz8');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz8>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[10].AsString +' Listesi';
+ end;
+8:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz9');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz9>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[11].AsString +' Listesi';
+ end;
+9:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz10');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz10>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[12].AsString +' Listesi';
+ end;
+10:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz11');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz11>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[13].AsString +' Listesi';
+ end;
+11:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz12');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz12>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[14].AsString +' Listesi';
+ end;
+12:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz13');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz13>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[15].AsString +' Listesi';
+ end;
+13:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz14');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz14>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[16].AsString +' Listesi';
+ end;
+14:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz15');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz15>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[17].AsString +' Listesi';
+ end;
+15:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz16');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz16>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[18].AsString +' Listesi';
+ end;
+16:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz17');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz17>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[19].AsString +' Listesi';
+ end;
+17:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz18');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz18>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[20].AsString +' Listesi';
+ end;
+18:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz19');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz19>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[21].AsString +' Listesi';
+ end;
+19:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz20');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz20>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[22].AsString +' Listesi';
+ end;
+20:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz21');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz21>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[23].AsString +' Listesi';
+ end;
+21:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz22');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz22>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[24].AsString +' Listesi';
+ end;
+22:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz23');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz23>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[25].AsString +' Listesi';
+ end;
+23:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz24');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz24>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[26].AsString +' Listesi';
+ end;
+24:begin
+ Query2.SQL.Clear;
+ Query2.SQL.Add('SELECT D1.Yil,D1.Ay,D1.Donem,D1.Sicno,D1.Dair,D1.SskNo,D1.Adi,D1.Soyadi,D1.Pkaz25');
+ Query2.SQL.Add('FROM  "Phesap" D1');
+ Query2.SQL.Add('WHERE (D1.Yil =:Yil)');
+ Query2.SQL.Add('AND (D1.Ay =:A)');
+ Query2.SQL.Add('AND (D1.Sicno >=:t1 And D1.Sicno<=:t2) And (D1.Pkaz25>0)');
+ Query2.SQL.Add('ORDER BY  D1.Sicno');
+ s:=FData.TKAZANC.Fields[27].AsString +' Listesi';
+ end;
+
+end;
+end;
+
+procedure TFKazanlar.QRBand2AfterPrint(Sender: TQRCustomBand;
+  BandPrinted: Boolean);
+begin
+ QRBand1.Enabled:=False;
+end;
+
+procedure TFKazanlar.QuickRep1BeforePrint(Sender: TCustomQuickRep;
+  var PrintReport: Boolean);
+begin
+QRBand1.Enabled:=True;
+end;
+
+end.

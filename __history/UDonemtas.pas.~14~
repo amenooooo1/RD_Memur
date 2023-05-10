@@ -1,0 +1,202 @@
+unit UDonemtas;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Db, DBTables, Uni, DBAccess, MemDS, Grids, DBGrids, ComCtrls, StdCtrls,
+  Buttons;
+
+type
+  TFDonemtas = class(TForm)
+    DataSource1: TDataSource;
+    BitBtn1: TBitBtn;
+    DBGrid3: TDBGrid;
+    DBGrid1: TDBGrid;
+    BitBtn2: TBitBtn;
+    Query1: TUniQuery;
+    Label3: TLabel;
+    ProgressBar1: TProgressBar;
+    Query2: TUniQuery;
+    Query3: TUniQuery;
+    Query4: TUniQuery;
+    Table4: TUniTable;
+    Query5: TUniQuery;
+    Query6: TUniQuery;
+    Label1: TLabel;
+    Label2: TLabel;
+    Button1: TButton;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure DBGrid1Exit(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FDonemtas: TFDonemtas;
+  j,t:Integer;
+
+implementation
+
+uses UData;
+
+{$R *.DFM}
+
+procedure TFDonemtas.BitBtn1Click(Sender: TObject);
+begin
+FData.TKATSAY.Close;
+
+ProgressBar1.Max :=23;
+J:=1;
+ Table4.Open;
+ Table4.Edit;
+ Query2.Open;
+ t:=3;
+ while t <> 40 do
+ begin
+  Table4.Fields[t].Value:=
+  Query2.Fields[t].Value;
+  If  (t mod 10)=0 then
+  begin
+   ProgressBar1.Position :=J;
+   J:=J+1;
+  end;
+  t:=t+1;
+ end;
+ Table4.Post;
+ Table4.Close;
+ Query2.Close;
+ Query3.Open;
+FData.TKATSAY.Open;
+FData.TKAZANC.Edit;
+t:=3;
+while t<>128 do
+begin
+ FData.TKAZANC.Fields[t].Value:=
+ Query3.Fields[t].Value;
+  If  (t mod 10)=0 then
+  begin
+   ProgressBar1.Position :=J;
+   J:=J+1;
+  end;
+ t:=t+1;
+end;
+FData.TKAZANC.Post;
+Query3.Close;
+Query4.Open;
+FData.TKESINTI.Edit;
+t:=3;
+while t<>77 do
+begin
+ FData.TKESINTI.Fields[t].Value:=
+ Query4.Fields[t].Value;
+  If  (t mod 10)=0 then
+  begin
+   ProgressBar1.Position :=J;
+   J:=J+1;
+  end;
+ t:=t+1;
+end;
+   ProgressBar1.Position :=J;
+FData.TKESINTI.post;
+Query5.Open;
+FData.TKATSAY1.Open;
+FData.TKATSAY1.Edit;
+FData.TKATSAY1.Fields[0].Value:=FData.TDONEM.Fields[0].Value;
+FData.TKATSAY1.Fields[1].Value:=FData.TDONEM.Fields[1].Value;
+FData.TKATSAY1.Fields[2].Value:=FData.TDONEM.Fields[2].Value;
+
+t:=3;
+while t<>33 do
+begin
+ FData.TKATSAY1.Fields[t].Value:=
+ Query5.Fields[t].Value;
+  If  (t mod 10)=0 then
+  begin
+   ProgressBar1.Position :=J;
+   J:=J+1;
+  end;
+ t:=t+1;
+end;
+FData.TKATSAY1.post;
+FData.TKATSAY1.close;
+Query5.Close;
+Query6.Open;
+FData.TKATSAY2.Open;
+FData.TKATSAY2.Edit;
+FData.TKATSAY2.Fields[0].Value:=FData.TDONEM.Fields[0].Value;
+FData.TKATSAY2.Fields[1].Value:=FData.TDONEM.Fields[1].Value;
+FData.TKATSAY2.Fields[2].Value:=FData.TDONEM.Fields[2].Value;
+
+t:=3;
+while t<>33 do
+begin
+ FData.TKATSAY2.Fields[t].Value:=
+ Query6.Fields[t].Value;
+  If  (t mod 10)=0 then
+  begin
+   ProgressBar1.Position :=J;
+   J:=J+1;
+  end;
+ t:=t+1;
+end;
+FData.TKATSAY2.post;
+FData.TKATSAY2.close;
+
+
+Label3.Caption :=FData.TDONEM.FieldByName('Ay').asstring+' '+
+FData.TDONEM.FieldByName('Donem').asstring+' '+
+'Dönemine Taþýndý';
+Query4.Close;
+
+End;
+
+
+procedure TFDonemtas.FormCreate(Sender: TObject);
+begin
+Label3.Caption :='';
+Query1.Open;
+end;
+
+
+
+procedure TFDonemtas.BitBtn2Click(Sender: TObject);
+begin
+Close;
+end;
+
+
+
+
+procedure TFDonemtas.Button1Click(Sender: TObject);
+begin
+ FData.UniMemur1.Connected:=False;
+ FData.UniMemur1.Database:='Memur'+(IntToStr(strtoint (copy(FData.UniMemur.Database,6,4))-1)) ;
+ FData.UniMemur1.Connected:=True;
+ Query1.Open;
+ Query1.Last;
+
+end;
+
+procedure TFDonemtas.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Query1.Close;
+end;
+
+
+
+
+
+procedure TFDonemtas.DBGrid1Exit(Sender: TObject);
+begin
+ProgressBar1.Position :=0;
+Label3.Caption :='';
+end;
+
+end.

@@ -1,0 +1,325 @@
+unit Ukatsayilar;
+
+interface
+
+uses
+  SysUtils, Windows, Messages, Classes, Graphics, Controls,
+  StdCtrls, Forms, DBCtrls, DB, Mask, ExtCtrls, Buttons, DBTables, Uni,
+  DBAccess, MemDS, Dialogs, Grids, DBGrids, DAScript, UniScript;
+
+type
+  TFkatsayilar = class(TForm)
+    Panel1: TPanel;
+    DBNavigator: TDBNavigator;
+    BitBtn2: TBitBtn;
+    SilBt: TBitBtn;
+    Vazgec: TBitBtn;
+    Panel2: TPanel;
+    Label1: TLabel;
+    DBText1: TDBText;
+    DBText2: TDBText;
+    Label12: TLabel;
+    Label13: TLabel;
+    DBText3: TDBText;
+    Label2: TLabel;
+    Label23: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
+    Label22: TLabel;
+    Label24: TLabel;
+    Label27: TLabel;
+    Label11: TLabel;
+    Label28: TLabel;
+    Label31: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    Label29: TLabel;
+    Label10: TLabel;
+    EditKatsayi: TDBEdit;
+    EditAile: TDBEdit;
+    EditCocuk: TDBEdit;
+    EditOzind: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    EditGelirMik: TDBEdit;
+    EditGeliror: TDBEdit;
+    EditGelirMik2: TDBEdit;
+    EditGeliror2: TDBEdit;
+    EditGelirMik3: TDBEdit;
+    EditGeliror3: TDBEdit;
+    EditGelirMik4: TDBEdit;
+    EditGeliror4: TDBEdit;
+    EditGelirMik5: TDBEdit;
+    EditGeliror5: TDBEdit;
+    EditEmis: TDBEdit;
+    EditEmisv: TDBEdit;
+    EditSskilk: TDBEdit;
+    EditSskem: TDBEdit;
+    EditDamor: TDBEdit;
+    EditTabKay: TDBEdit;
+    EditYanKat: TDBEdit;
+    EditGece: TDBEdit;
+    DBEdit3: TDBEdit;
+    EditMik: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    EditYuv: TDBEdit;
+    BitBtn3: TBitBtn;
+    UniConGuncelleme: TUniConnection;
+    TDONEM: TUniTable;
+    TDONEMYil: TWideStringField;
+    TDONEMAy: TWideStringField;
+    TDONEMDonem: TWideStringField;
+    TDONEMSskhes: TWideStringField;
+    TDONEMIssizhes: TWideStringField;
+    TDONEMGelirhes: TWideStringField;
+    TDONEMDamhes: TWideStringField;
+    TDONEMIlktar: TDateTimeField;
+    TDONEMSontar: TDateTimeField;
+    DDONEM: TDataSource;
+    TKATSAY: TUniTable;
+    TKATSAYYil: TWideStringField;
+    TKATSAYAy: TWideStringField;
+    TKATSAYDonem: TWideStringField;
+    TKATSAYKatsayi: TFloatField;
+    TKATSAYAile: TFloatField;
+    TKATSAYCocuk: TFloatField;
+    TKATSAYTabKay: TFloatField;
+    TKATSAYYanKat: TFloatField;
+    TKATSAYMik: TFloatField;
+    TKATSAYOz1: TFloatField;
+    TKATSAYOz2: TFloatField;
+    TKATSAYOz3: TFloatField;
+    TKATSAYOzo1: TFloatField;
+    TKATSAYOzo2: TFloatField;
+    TKATSAYOzo3: TFloatField;
+    TKATSAYOzind: TFloatField;
+    TKATSAYGelirMik1: TFloatField;
+    TKATSAYGelirMik2: TFloatField;
+    TKATSAYGelirMik3: TFloatField;
+    TKATSAYGelirMik4: TFloatField;
+    TKATSAYGelirMik5: TFloatField;
+    TKATSAYGeliror1: TFloatField;
+    TKATSAYGeliror2: TFloatField;
+    TKATSAYGeliror3: TFloatField;
+    TKATSAYGeliror4: TFloatField;
+    TKATSAYGeliror5: TFloatField;
+    TKATSAYEmis: TFloatField;
+    TKATSAYEmisv: TFloatField;
+    TKATSAYSskilk: TFloatField;
+    TKATSAYSskem: TFloatField;
+    TKATSAYIssizis: TFloatField;
+    TKATSAYIssizisv: TFloatField;
+    TKATSAYDamor: TFloatField;
+    TKATSAYAsgari: TFloatField;
+    TKATSAYGeme: TFloatField;
+    TKATSAYFazme: TFloatField;
+    TKATSAYYuv: TFloatField;
+    TKATSAYHafme: TFloatField;
+    TKATSAYKef2: TFloatField;
+    TKATSAYKef5: TFloatField;
+    DKATSAY: TDataSource;
+    TKatoran: TUniTable;
+    TKatoranA1: TFloatField;
+    TKatoranA2: TFloatField;
+    TKatoranA3: TFloatField;
+    TKatoranA4: TFloatField;
+    TKatoranA5: TFloatField;
+    TKatoranA6: TFloatField;
+    TKatoranA7: TFloatField;
+    TKatoranA8: TFloatField;
+    TKatoranA9: TFloatField;
+    TKatoranA10: TFloatField;
+    TKatoranA11: TFloatField;
+    TKatoranA12: TFloatField;
+    TKatoranA13: TFloatField;
+    TKatoranA14: TFloatField;
+    TKatoranA15: TFloatField;
+    TKatoranA16: TFloatField;
+    TKatoranA17: TFloatField;
+    TKatoranA18: TFloatField;
+    TKatoranA19: TFloatField;
+    TKatoranA20: TFloatField;
+    TKatoranA21: TFloatField;
+    TKatoranA22: TFloatField;
+    TKatoranA23: TFloatField;
+    TKatoranA24: TFloatField;
+    TKatoranA25: TFloatField;
+    TKatoranA26: TFloatField;
+    TKatoranA27: TFloatField;
+    TKatoranA28: TFloatField;
+    TKatoranA29: TFloatField;
+    TKatoranA30: TFloatField;
+    DBEdit8: TDBEdit;
+    Label30: TLabel;
+    DBEdit9: TDBEdit;
+    TKATSAYGecOdemeFarki: TFloatField;
+    Label32: TLabel;
+    DBEdit10: TDBEdit;
+    Panel5: TPanel;
+    BitBtn13: TBitBtn;
+    KayitBtn: TBitBtn;
+    DBGrid1: TDBGrid;
+    BtnDigerGuncelleme: TSpeedButton;
+    ScrGuncelleme: TUniScript;
+    DBEdit11: TDBEdit;
+    Label33: TLabel;
+    TKATSAYVergiMuaf: TFloatField;
+    DBEdit12: TDBEdit;
+    Label34: TLabel;
+    procedure EditYilKeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure SilBtClick(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure VazgecClick(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure KayitBtnClick(Sender: TObject);
+    procedure BitBtn13Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BtnDigerGuncellemeClick(Sender: TObject);
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  Fkatsayilar: TFkatsayilar;
+
+implementation
+
+uses UData;
+
+{$R *.DFM}
+
+procedure TFkatsayilar.EditYilKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = Chr(VK_Return) Then
+    Perform(Wm_NextDlgCtl, 0, 0);
+end;
+
+procedure TFkatsayilar.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if FData.QBesOran.State in [dsEdit, dsInsert] then
+    FData.QBesOran.Post;
+end;
+
+procedure TFkatsayilar.FormCreate(Sender: TObject);
+begin
+  Panel5.Top := 10;
+  Panel5.Left := 155;
+end;
+
+procedure TFkatsayilar.KayitBtnClick(Sender: TObject);
+var
+  i: Integer;
+begin
+  FData.TKATSAY.Edit;
+  for I := 3 to 41 do
+    FData.TKATSAY.Fields[i].AsString := TKATSAY.Fields[i].AsString;
+  FData.TKATSAY.Post;
+  FData.TKATSAY.Refresh;
+  FData.TKatoran.Edit;
+  for I := 0 to 29 do
+    FData.TKatoran.Fields[i].AsString := TKatoran.Fields[i].AsString;
+  FData.TKatoran.Post;
+  FData.TKatoran.Refresh;
+  TKatoran.Close;
+  TDONEM.Close;
+  TKATSAY.Close;
+  Panel5.Visible := False;
+end;
+
+procedure TFkatsayilar.BitBtn13Click(Sender: TObject);
+begin
+  TKatoran.Close;
+  TDONEM.Close;
+  TKATSAY.Close;
+  Panel5.Visible := False;
+end;
+
+procedure TFkatsayilar.BitBtn1Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFkatsayilar.SilBtClick(Sender: TObject);
+begin
+  if messagebox(handle, 'Bu Kaydý Silmek Ýstiyor musunuz?', 'DÝKKAT',
+    mb_YesNo + mb_iconquestion) <> mrNo then
+    FData.TKATSAY.Delete;
+end;
+
+procedure TFkatsayilar.BitBtn2Click(Sender: TObject);
+begin
+  FData.TKATSAY.Edit;
+  FData.TKATSAY.Post;
+//  FData.TKatoran.Edit;
+//  FData.TKatoran.Post;
+end;
+
+procedure TFkatsayilar.BitBtn3Click(Sender: TObject);
+begin
+  Panel5.Visible := True;
+  try
+    TDONEM.Open;
+  except
+//    UniConGuncelleme.Server := '213.14.165.53,3575';
+    UniConGuncelleme.Connected := False;
+    UniConGuncelleme.Server := 'skybs.net,9999';
+    UniConGuncelleme.Username := 'GenelTahakkukUDATE';
+    UniConGuncelleme.Password :='{8F3250E4-F380-41AE-946B-2F24E474CD0F}';
+    UniConGuncelleme.Database := 'GenelTahakkukUPDATE';
+    TDONEM.Open;
+  end;
+  TKATSAY.Open;
+  TKatoran.Open;
+end;
+
+procedure TFkatsayilar.BtnDigerGuncellemeClick(Sender: TObject);
+begin
+  if messagebox(handle, 'Veritabaný iþlemleri güncellenecek', 'GÜNCELLEME',
+   mb_YesNo + MB_ICONQUESTION) = mrYes then
+  begin
+    ScrGuncelleme.Execute;
+    ShowMessage('Güncelemeler tamamlandý. Lütfen programý yeniden baþlatýn');
+  end;
+end;
+
+procedure TFkatsayilar.VazgecClick(Sender: TObject);
+begin
+  if (FData.TKATSAY.State = DsEdit) or (FData.TKATSAY.State = Dsinsert) or
+    (FData.TKatoran.State = DsEdit) or (FData.TKatoran.State = Dsinsert) then
+  begin
+    if messagebox(handle, 'Deðiþikler Kaydedilsin mi?', 'KAPANIÞ',
+      mb_YesNo + MB_ICONQUESTION) <> mrYes then
+    begin
+      FData.TKATSAY.Cancel;
+      FData.TKATSAY.Cancel;
+    end
+    else
+    begin
+      FData.TKATSAY.Edit;
+      FData.TKATSAY.Post;
+    end;
+    Close;
+  end;
+end;
+
+end.

@@ -1,0 +1,180 @@
+unit UGelir;
+
+interface
+
+uses
+  SysUtils, Windows, Messages, Classes, Graphics, Controls,
+  StdCtrls, Forms, DBCtrls, DB, DBTables, Uni, DBAccess, MemDS, Uni, DBAccess, MemDS, Mask, ExtCtrls, Buttons, Grids,
+  DBGrids, ComCtrls, Qrctrls, quickrpt;
+
+type
+  TFGelir = class(TForm)
+    EditSicno: TDBEdit;
+    EditYil: TDBEdit;
+    EditAd: TDBEdit;
+    EditGelirtop: TDBEdit;
+    EditKumver: TDBEdit;
+    Label4: TLabel;
+    Label3: TLabel;
+    Label5: TLabel;
+    Label2: TLabel;
+    Label1: TLabel;
+    DBNavigator: TDBNavigator;
+    Query1: TUniQuery;
+    DataSource1: TDataSource;
+    TasBt: TBitBtn;
+    Label6: TLabel;
+    EditSoy: TDBEdit;
+    BitBtn1: TBitBtn;
+    Panel1: TPanel;
+    Label7: TLabel;
+    Label9: TLabel;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    HazirBt: TBitBtn;
+    DBGrid1: TDBGrid;
+    ProgressBar1: TProgressBar;
+    Vazgec: TBitBtn;
+    QuickRep1: TQuickRep;
+    QRBand1: TQRBand;
+    QRLabel1: TQRLabel;
+    QRLabel2: TQRLabel;
+    QRLabel3: TQRLabel;
+    QRLabel4: TQRLabel;
+    QRDBText4: TQRDBText;
+    QRBand2: TQRBand;
+    QRDBText1: TQRDBText;
+    QRExpr1: TQRExpr;
+    QRDBText2: TQRDBText;
+    QRDBText3: TQRDBText;
+    procedure Sil;
+    procedure Kayit;
+    procedure EditSicnoKeyPress(Sender: TObject; var Key: Char);
+    procedure HazirBtClick(Sender: TObject);
+    procedure TasBtClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure VazgecClick(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  FGelir: TFGelir;
+
+implementation
+
+uses UMEMUR;
+
+{$R *.DFM}
+
+procedure TFGelir.EditSicnoKeyPress(Sender: TObject; var Key: Char);
+begin
+if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+end;
+
+procedure TFGelir.HazirBtClick(Sender: TObject);
+begin
+Sil;
+ProgressBar1.Visible:=True;
+Query1.Close;
+Query1.ParamByName('S1').Value:=StrToInt(Edit2.Text);
+Query1.ParamByName('S2').Value:=StrToInt(Edit3.Text);
+Query1.Open;
+ProgressBar1.Max:=Query1.RecordCount;
+with Query1 do
+begin
+ first;
+ while not eof do
+  begin
+    Kayit;
+    next;
+   end;
+  end;
+ProgressBar1.Visible:=False;
+end;
+
+procedure TFGelir.Kayit;
+begin
+with DMEMUR.TGELIR do
+begin
+SetKey;
+FieldByName('Yil').Value:=Query1.FieldByName('Yil').asstring;
+FieldByName('Sicno').value:=Query1.FieldByName('Sicno').value;
+GotoKey;
+Edit;
+FieldByName('Gelirtop').Value:=FieldByName('Gelirtop').Value+
+Query1.FieldByName('GelirMat').value;
+FieldByName('Kumver').Value:=FieldByName('Kumver').Value+
+Query1.FieldByName('GelirVer').value;
+Post;
+end;
+ProgressBar1.Position:=Query1.RecNo;
+End;
+
+procedure TFGelir.Sil;
+begin
+with DMEMUR.TGELIR do
+begin
+ SetRangeStart;
+ FieldByName('Yil').asstring:=DMEMUR.TSISTEM.FieldByName('Yil').asstring;
+ FieldByName('Sicno').Value:=StrToInt(edit2.Text);
+ SetRangeEnd;
+ FieldByName('Yil').asstring:=DMEMUR.TSISTEM.FieldByName('Yil').asstring;
+ FieldByName('Sicno').Value:=StrToInt(edit3.Text);
+ ApplyRange;
+ first;
+ while not eof do
+  begin
+    Edit;
+    FieldByName('Gelirtop').Value:=0;
+    FieldByName('Kumver').Value:=0;
+    Post;
+    Next;
+   end;
+ end;
+End;
+
+
+procedure TFGelir.TasBtClick(Sender: TObject);
+begin
+Panel1.Visible:=True;
+Edit2.SetFocus;
+end;
+
+
+procedure TFGelir.DBGrid1DblClick(Sender: TObject);
+begin
+Panel1.Visible:=False;
+end;
+
+
+
+procedure TFGelir.VazgecClick(Sender: TObject);
+begin
+if(DMEMUR.TGELIR.State=DsEdit)or(DMEMUR.TGELIR.State=Dsinsert) then
+begin
+   if MessageBox(handle,'Deðiþikleri Kaydedilsinmi','KAPANIÞ',
+    mb_YesNo + MB_ICONQUESTION) <> mrYes then
+     DMEMUR.TGELIR.Cancel
+     else  DMEMUR.TGELIR.Post;
+end;
+
+
+Close;
+end;
+
+
+
+
+
+
+procedure TFGelir.BitBtn1Click(Sender: TObject);
+begin
+  QuickRep1.Preview;
+end;
+
+
+end.

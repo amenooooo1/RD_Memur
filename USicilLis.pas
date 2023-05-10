@@ -1,0 +1,111 @@
+unit USicilLis;
+
+interface
+
+uses
+  SysUtils, Windows, Messages, Classes, Graphics, Controls,
+  StdCtrls, ExtCtrls, Forms, Quickrpt, QRCtrls, Db, DBTables, DBAccess, MemDS, Buttons,
+  DBCtrls, Grids, DBGrids, Uni;
+
+type
+  TFSicilLis = class(TForm)
+    QuickRep1 : TQuickRep;
+    TitleBand1 : TQRBand;
+    QRLabel1 : TQRLabel;
+    PageFooterBand1 : TQRBand;
+    QRSysData1 : TQRSysData;
+    ColumnHeaderBand1 : TQRBand;
+    DetailBand1 : TQRBand;
+    QRLabel2 : TQRLabel;
+    QRLabel3 : TQRLabel;
+    QRExpr2 : TQRExpr;
+    QRLabel5 : TQRLabel;
+    QRLabel6 : TQRLabel;
+    QRDBText1: TQRDBText;
+    HazirBt: TBitBtn;
+    YaziBt: TBitBtn;
+    DBGrid1: TDBGrid;
+    QRLabel4: TQRLabel;
+    QRDBText2: TQRDBText;
+    QRDBText3: TQRDBText;
+    QRDBText4: TQRDBText;
+    QRDBText5: TQRDBText;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    QRLabel7: TQRLabel;
+    QRLabel8: TQRLabel;
+    Query1: TUniQuery;
+    procedure YaziBtClick(Sender: TObject);
+    procedure VazgBtClick(Sender: TObject);
+    procedure Edit3KeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure PageFooterBand1BeforePrint(Sender: TQRCustomBand;
+      var PrintBand: Boolean);
+    procedure DetailBand1BeforePrint(Sender: TQRCustomBand;
+      var PrintBand: Boolean);
+  private
+  end;
+
+var
+  FSicilLis: TFSicilLis;
+  sayi:integer;
+
+implementation
+
+uses UData, USicBuy;
+
+{$R *.DFM}
+
+
+
+procedure TFSicilLis.YaziBtClick(Sender: TObject);
+begin
+QuickRep1.Preview;
+end;
+
+procedure TFSicilLis.VazgBtClick(Sender: TObject);
+begin
+Close;
+end;
+
+procedure TFSicilLis.Edit3KeyPress(Sender: TObject; var Key: Char);
+begin
+if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+end;
+
+
+procedure TFSicilLis.BitBtn1Click(Sender: TObject);
+begin
+Close;
+end;
+
+
+procedure TFSicilLis.BitBtn2Click(Sender: TObject);
+begin
+With TFSicBuy.Create(Self)do
+ try
+    QuickRep1.Preview;
+  Finally Free;
+ end;
+
+end;
+
+
+
+procedure TFSicilLis.PageFooterBand1BeforePrint(Sender: TQRCustomBand;
+  var PrintBand: Boolean);
+begin
+sayi:=0;
+
+end;
+
+procedure TFSicilLis.DetailBand1BeforePrint(Sender: TQRCustomBand;
+  var PrintBand: Boolean);
+begin
+  Sayi:=sayi+1;
+  QRLabel8.Caption :=IntToStr(Sayi);
+
+end;
+
+end.

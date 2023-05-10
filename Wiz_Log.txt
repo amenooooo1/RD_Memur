@@ -1,0 +1,26 @@
+UniDAC Migration Wizard log
+
+Created at: 18.03.2010 13:28:52
+
+Initializing unit list
+
+Creating backup folder
+
+Allocating temporary folder
+
+Processing file: Y:\SQLProject\MemurSQL\Kaynak 2008\URKdv.pas
+
+3 change(s)
+
+Processing file: Y:\SQLProject\MemurSQL\Kaynak 2008\URKdv.DFM
+
+2 change(s)
+
+Replacing original files with changed versions
+
+Backup file: Y:\SQLProject\MemurSQL\Kaynak 2008\RBackup\RExpert.reu
+
+Removing temporary folder
+
+Replace procedure was performed sucessfully.
+

@@ -1,0 +1,851 @@
+unit UANAMENU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  ExtCtrls, StdCtrls, DBCtrls, Buttons, Mask, DB, DBTables, Uni, DBAccess, MemDS, Menus, ComCtrls,
+  AppEvnts, jpeg, IdBaseComponent, IdComponent, IdTCPConnection,
+  IdTCPClient,ShellApi, IdHTTP;
+
+type
+  TFANAMENU = class(TForm)
+    Image1: TImage;
+    Edit1: TEdit;
+    DBEdit1: TDBEdit;
+    Panel3: TPanel;
+    Label2: TLabel;
+    EditCalYil: TEdit;
+    Button1: TButton;
+    Button2: TButton;
+    Table2: TUniTable;
+    DataSource2: TDataSource;
+    Table3: TUniTable;
+    DataSource3: TDataSource;
+    MainMenu1: TMainMenu;
+    Parametereler1: TMenuItem;
+    SicilGirii1: TMenuItem;
+    AylkHesaplamalar1: TMenuItem;
+    Raporlar1: TMenuItem;
+    k1: TMenuItem;
+    DnemOluturma1: TMenuItem;
+    KatsayOranlar1: TMenuItem;
+    KazanAdlar1: TMenuItem;
+    KesintiAdlar1: TMenuItem;
+    Gstergeler1: TMenuItem;
+    DnemTama1: TMenuItem;
+    Veriler1: TMenuItem;
+    GelirBilgileri1: TMenuItem;
+    EmekliBilgileri1: TMenuItem;
+    DaireAdlar1: TMenuItem;
+    SistemParametreleri1: TMenuItem;
+    demeEmri1: TMenuItem;
+    BordroDkmu1: TMenuItem;
+    NetdemeListesi1: TMenuItem;
+    DigerRaporlar1: TMenuItem;
+    AylkEmekliListesi1: TMenuItem;
+    KefaletAylkListesi1: TMenuItem;
+    HastaMuayenestei1: TMenuItem;
+    SicilListesi1: TMenuItem;
+    YllkEmekllikListesi1: TMenuItem;
+    AsgariGeimndBordrosu1: TMenuItem;
+    Kaza1: TMenuItem;
+    KesintilerDkm1: TMenuItem;
+    NetlerDkm1: TMenuItem;
+    craListesi1: TMenuItem;
+    AskerlikKesintiListesi1: TMenuItem;
+    SendikaKesintiListesi1: TMenuItem;
+    laKesintiListesi1: TMenuItem;
+    E1: TMenuItem;
+    Panel2: TPanel;
+    StatusBar1: TStatusBar;
+    ApplicationEvents1: TApplicationEvents;
+    DBText1: TDBText;
+    IPBulBtn: TBitBtn;
+    Edit2: TEdit;
+    Timer1: TTimer;
+    Hesap1: TMenuItem;
+    Hakknca1: TMenuItem;
+    Ayarlar1: TMenuItem;
+    VeriGncelleme1: TMenuItem;
+    IdHTTP1: TIdHTTP;
+    AylkEmekliListesi5510Sonra1: TMenuItem;
+    SicilTaima1: TMenuItem;
+    procedure BitBtn5Click(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure FormCreate(Sender: TObject);
+    procedure Edit1DblClick(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure EditCalYilKeyPress(Sender: TObject; var Key: Char);
+    procedure k1Click(Sender: TObject);
+    procedure SicilGirii1Click(Sender: TObject);
+    procedure DnemOluturma1Click(Sender: TObject);
+    procedure KatsayOranlar1Click(Sender: TObject);
+    procedure KazanAdlar1Click(Sender: TObject);
+    procedure KesintiAdlar1Click(Sender: TObject);
+    procedure Gstergeler1Click(Sender: TObject);
+    procedure DnemTama1Click(Sender: TObject);
+    procedure AylkHesaplamalar1Click(Sender: TObject);
+    procedure demeEmri1Click(Sender: TObject);
+    procedure BordroDkmu1Click(Sender: TObject);
+    procedure NetdemeListesi1Click(Sender: TObject);
+    procedure AylkEmekliListesi1Click(Sender: TObject);
+    procedure KefaletAylkListesi1Click(Sender: TObject);
+    procedure HastaMuayenestei1Click(Sender: TObject);
+    procedure SicilListesi1Click(Sender: TObject);
+    procedure YllkEmekllikListesi1Click(Sender: TObject);
+    procedure GelirBilgileri1Click(Sender: TObject);
+    procedure EmekliBilgileri1Click(Sender: TObject);
+    procedure SistemParametreleri1Click(Sender: TObject);
+    procedure DaireAdlar1Click(Sender: TObject);
+    procedure AsgariGeimndBordrosu1Click(Sender: TObject);
+    procedure Kaza1Click(Sender: TObject);
+    procedure KesintilerDkm1Click(Sender: TObject);
+    procedure NetlerDkm1Click(Sender: TObject);
+    procedure craListesi1Click(Sender: TObject);
+    procedure AskerlikKesintiListesi1Click(Sender: TObject);
+    procedure SendikaKesintiListesi1Click(Sender: TObject);
+    procedure laKesintiListesi1Click(Sender: TObject);
+    procedure E1Click(Sender: TObject);
+    procedure HDDNoBul;
+    procedure sifre;
+    procedure ApplicationEvents1Message(var Msg: tagMSG;
+      var Handled: Boolean);
+    procedure IPBulBtnClick(Sender: TObject);
+    procedure Hesap1Click(Sender: TObject);
+    procedure Hakknca1Click(Sender: TObject);
+    procedure VeriGncelleme1Click(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure AylkEmekliListesi5510Sonra1Click(Sender: TObject);
+    procedure SicilTaima1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FANAMENU: TFANAMENU;
+  SerialNumber : string;
+  a:TextFile;
+ _EX:boolean;
+
+implementation
+
+uses USicil, UDon, UAboneara, USIFREAL, UMEMUR, Udonem,
+  Ukatsayilar, Ukazanclar, Ukesintiler, UGostergeler, UDonemtas, UHesapi,
+  UNakit, UBordro, UDonNet, UAyEmek, UKefuc, UHasta, USicilLis, URYilEm,
+  UGelir, USsk, USistem, Udair, URKdv, UKazanlar, UKesitlar, UNetler,
+  URIcra, UAsker, URSendika, UIlac, UAyem2, UHesapLisan, UHakkinda, ULisan,
+  UAyEmek5510sonra, USicilTasima;
+
+{$R *.DFM}
+Function GetUserFromWindows: string;
+Var
+   UserName : string;
+   UserNameLen : Dword;
+Begin
+   UserNameLen := 255;
+   SetLength(userName, UserNameLen) ;
+   If GetUserName(PChar(UserName), UserNameLen) Then
+     Result := Copy(UserName,1,UserNameLen - 1)
+   Else
+     Result := 'Unknown';
+End;
+
+
+function GetComputerNetName: string;
+var
+  buffer: array[0..255] of char;
+  size: dword;
+begin
+size := 256;
+  if GetComputerName(buffer, size) then
+    Result := buffer
+  else
+    Result := ''
+end;
+
+
+function MacAddress : string;
+type
+  TGUID = record
+    A, B: word;
+    D, M, S: word;
+    MAC: array[1..6] of byte;
+  end;
+var
+  UuidCreateFunc: function(var guid: TGUID): HResult; stdcall;
+  handle: THandle;
+  g: TGUID;
+  WinVer: _OSVersionInfo;
+  i: integer;
+begin
+  WinVer.dwOSVersionInfoSize := sizeof(WinVer);
+  getversionex(WinVer);
+
+  handle := LoadLibrary('RPCRT4.DLL');
+  if WinVer.dwMajorVersion >= 5 then {Windows 2000 }
+    @UuidCreateFunc := GetProcAddress(Handle, 'UuidCreateSequential')
+  else
+    @UuidCreateFunc := GetProcAddress(Handle, 'UuidCreate');
+  if UuidCreateFunc(g) = 0 then
+  begin
+    Result := '';
+    for i := 1 to 6 do
+    begin
+      if Result <> '' then Result := Result + '-';
+      result := result + IntToHex(g.MAC[i], 2);
+    end;
+  end else result := '00-00-00-00-00-00';
+end;
+
+procedure TFANAMENU.HDDNoBul;
+var
+VolumeSerialNumber : DWORD;
+MaximumComponentLength : DWORD;
+FileSystemFlags : DWORD;
+begin
+GetVolumeInformation('C:\',
+nil,
+0,
+@VolumeSerialNumber,
+MaximumComponentLength,
+FileSystemFlags,
+nil,0);
+SerialNumber := IntToHex(HiWord(VolumeSerialNumber), 4) + '-' +
+IntToHex(LoWord(VolumeSerialNumber), 4);
+end;
+
+
+procedure TFANAMENU.BitBtn5Click(Sender: TObject);
+begin
+Close;
+end;
+
+procedure TFANAMENU.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+ if MessageBox( handle, 'Programdan çýkmak istediðinize emin misiniz?', 'UYARI' , MB_YESNO +
+ MB_ICONWARNING )<>mrYes then canclose:=false;
+end;
+
+procedure TFANAMENU.FormCreate(Sender: TObject);
+begin
+{  MainMenu1.Items[0].Enabled:=False;
+  MainMenu1.Items[1].Enabled:=False;
+  MainMenu1.Items[2].Enabled:=False;
+  MainMenu1.Items[3].Enabled:=False;
+  MainMenu1.Items[4].Enabled:=False;
+  MainMenu1.Items[5].Enabled:=False;
+
+HDDNoBul;
+MacAddress;
+GetComputerNetName;
+DMEMUR.MSHesap.Connected:=False;
+iF FileExists('c:\HesapKontrol.txt') then
+DMEMUR.MSHesap.Server:='192.168.2.1,1435'
+else
+DMEMUR.MSHesap.Server:='85.96.190.185,1435';
+with DMEMUR do
+  begin
+   try
+    MSHesap.Connected:=True;
+   except
+    ShowMessage('Server Sunucu baðlantýsýnda bir hata oluþtu Að yolu'#13+
+                'veya dosya adý geçersiz, sistem  yöneticinize  veya'#13+
+                'SERAÞ a baþvurunuz');
+ end;
+end;
+DMEMUR.Lisans.Close;
+DMEMUR.Lisans.Params[0].AsString:=SerialNumber;
+DMEMUR.Lisans.Params[1].AsString:=MacAddress;
+DMEMUR.Lisans.Params[2].AsString:=GetComputerNetName;
+DMEMUR.Lisans.Params[3].AsString:='Memur';
+DMEMUR.Lisans.Open;
+if (DMEMUR.LisansDeger.AsBoolean=False) or (DMEMUR.LisansDeger.AsString='') then
+ begin
+   MessageBox(Handle,'Application Error : Memur','Error',
+   MB_OK + MB_ICONERROR);
+ end else
+ begin
+   IPBulBtn.Click;
+   DMEMUR.Lisans.Edit;
+   DMEMUR.LisansSonAcilisTarih.AsString:=DateToStr(Now);
+   DMEMUR.LisansSonAcilisSaat.AsString:=TimeToStr(Now);
+   DMEMUR.LisansSonAcilisIP.AsString:=Edit2.Text;
+   DMEMUR.Lisans.Post;
+   MainMenu1.Items[0].Enabled:=True;
+   MainMenu1.Items[1].Enabled:=True;
+   MainMenu1.Items[2].Enabled:=True;
+   MainMenu1.Items[3].Enabled:=True;
+   MainMenu1.Items[4].Enabled:=True;
+   MainMenu1.Items[5].Enabled:=True;
+   end; }
+  with TFsifreal.Create( Self ) do
+   	try  ShowModal;
+        finally
+        free;
+   end;
+Image1.Align :=alClient ;
+end;
+
+procedure TFANAMENU.sifre;
+var
+VolumeSerialNumber : DWORD;
+MaximumComponentLength : DWORD;
+FileSystemFlags : DWORD;
+SerialNumber,SerialNumber2,abo,hh : string;
+yi:Integer;
+kay,tar,ka:TextFile;
+begin
+if not FileExists('C:\WINDOWS\Hes.txt') then
+begin
+abo:='C:\WINDOWS\Hes.txt';
+AssignFile(kay,abo);
+IF FileExists(abo) then
+  Append(kay)
+ else
+  Rewrite(kay);
+  Writeln(kay,'0E63-07D5-12E2');
+  CloseFile(Kay);
+end;
+if not FileExists('C:\WINDOWS\Hes1.txt') then
+begin
+abo:='C:\WINDOWS\Hes1.txt';
+AssignFile(kay,abo);
+IF FileExists(abo) then
+  Append(kay)
+  else
+  Rewrite(kay);
+  Writeln(kay,'0E63-07D5-12E2');
+  Writeln(kay,'');
+  CloseFile(Kay);
+end;
+  yi:=1000+StrToInt(FormatDateTime('yyyy',((Date))))+StrToInt(FormatDateTime('mm',((Date))))+
+  StrToInt(FormatDateTime('d',now))+ StrToInt(FormatDateTime('hh',now))+StrToInt(FormatDateTime('mm',now));
+//     hh:mm
+//  yi:=StrToInt(FormatDateTime('d',now));
+  GetVolumeInformation('C:\', nil, 0, @VolumeSerialNumber, MaximumComponentLength, FileSystemFlags, nil, 0);
+  SerialNumber := IntToHex(HiWord(VolumeSerialNumber-(yi)), 4)+'-'+IntToHex((yi),4)
+  +'-'+ IntToHex((LoWord(VolumeSerialNumber)-(yi)), 4);
+  SerialNumber2 := IntToHex((HiWord(VolumeSerialNumber)+(yi)), 4)+'-'+IntToHex((yi),4)
+  +'-'+ IntToHex(((LoWord(VolumeSerialNumber))-(yi)), 4);
+abo:='C:\WINDOWS\Hes.txt';
+AssignFile(kay,abo);
+Reset(kay);
+Readln(kay,hh);
+CloseFile(Kay);
+If (hh=SerialNumber2) Then
+begin
+   MainMenu1.Items[0].Enabled:=True;
+   MainMenu1.Items[1].Enabled:=True;
+   MainMenu1.Items[2].Enabled:=True;
+   MainMenu1.Items[3].Enabled:=True;
+   MainMenu1.Items[4].Enabled:=True;
+   MainMenu1.Items[5].Enabled:=True;
+end;
+end;
+
+
+procedure TFANAMENU.Edit1DblClick(Sender: TObject);
+begin
+Panel3.Visible:=True;
+EditCalYil.Text:=DBEdit1.Text;
+EditCalYil.SetFocus;
+end;
+
+procedure TFANAMENU.Button2Click(Sender: TObject);
+begin
+Panel3.Visible:=False;
+end;
+
+procedure TFANAMENU.Button1Click(Sender: TObject);
+begin
+ DMemur.Database1.Connected := False;
+ DMemur.Database1.AliasName:='Memur'+EditCalYil.Text;
+ // DISCIV.Acma;
+ DMemur.DISCIVCreate(Sender);
+ If DMemur.TSISTEM.FieldByName('Yil').asstring<>EditCalYil.Text Then
+  Application.Terminate;
+ Panel3.Visible:=False;
+end;
+
+procedure TFANAMENU.EditCalYilKeyPress(Sender: TObject; var Key: Char);
+begin
+if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+end;
+
+procedure TFANAMENU.k1Click(Sender: TObject);
+begin
+Close;
+end;
+
+procedure TFANAMENU.SicilGirii1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+	_EX := false;
+  with TFABONEARA.Create( Application ) do begin
+   	try
+      if ShowModal=mrCancel then _EX:=true;
+    finally
+   		free;
+		end;
+ 	end;
+	if _EX then exit;
+  with TFSicil.Create( Application ) do begin
+   	try
+      Caption:='Sicil Bilgileri Giriþ  ('+ DMEMUR.TSICILSicno.AsString+' '+
+      DMEMUR.TSICILAdi.AsString+' '+DMEMUR.TSICILSoyadi.AsString+')';
+      ShowModal;
+    finally
+     		free;
+		end;
+ 	end;
+end;
+
+procedure TFANAMENU.DnemOluturma1Click(Sender: TObject);
+begin
+  with TFdonem.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.KatsayOranlar1Click(Sender: TObject);
+begin
+  with TFkatsayilar.Create( Self ) do
+   	try ShowModal;
+    finally
+     free;
+ end;
+
+end;
+
+procedure TFANAMENU.KazanAdlar1Click(Sender: TObject);
+begin
+ with TFkazanclar.Create( Self ) do
+   	try ShowModal;
+      finally
+  		free;
+ 	end;
+end;
+
+procedure TFANAMENU.KesintiAdlar1Click(Sender: TObject);
+begin
+  with TFkesintiler.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.Gstergeler1Click(Sender: TObject);
+begin
+  with TFGostergeler.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.DnemTama1Click(Sender: TObject);
+begin
+  with TFDonemtas.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.AylkHesaplamalar1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+	_EX := false;
+  with TFABONEARA.Create( Application ) do begin
+   	try
+      if ShowModal=mrCancel then _EX:=true;
+    finally
+   		free;
+		end;
+ 	end;
+	if _EX then exit;
+  with TFHesap.Create( Application ) do begin
+   	try  ShowModal;
+    finally   free;
+    End;
+ 	end;
+end;
+
+procedure TFANAMENU.demeEmri1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+  with TFNakit.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.BordroDkmu1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+  with TFBordro.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.NetdemeListesi1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+   	try  ShowModal;
+        finally
+        free;
+   end;
+  with TFDonNet.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+end;
+
+procedure TFANAMENU.AylkEmekliListesi1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+  with TFAyEmek.Create( Self ) do
+   	try
+         Edit1.Text:=DMEMUR.TDONEMAy.AsString;
+          ShowModal;
+        finally
+        free;
+   end;
+end;
+
+procedure TFANAMENU.AylkEmekliListesi5510Sonra1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+  with TFAyEmek5510sonra.Create( Self ) do
+   	try
+         Edit1.Text:=DMEMUR.TDONEMAy.AsString;
+          ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.KefaletAylkListesi1Click(Sender: TObject);
+begin
+  with TFKefuc.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.HastaMuayenestei1Click(Sender: TObject);
+begin
+	_EX := false;
+  with TFABONEARA.Create( Application ) do begin
+   	try
+      if ShowModal=mrCancel then _EX:=true;
+    finally
+   		free;
+		end;
+ 	end;
+	if _EX then exit;
+  with TFHasta.Create( Application ) do begin
+   	try
+      ShowModal;
+    finally
+      free;
+      End;
+ 	end;
+
+end;
+
+procedure TFANAMENU.SicilListesi1Click(Sender: TObject);
+begin
+  with TFSicillis.Create( Self ) do
+   	try  ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.SicilTaima1Click(Sender: TObject);
+begin
+   with TFSicilTasima.Create( Self ) do
+   	try   ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.YllkEmekllikListesi1Click(Sender: TObject);
+begin
+  with TFRYilEm.Create( Self ) do
+   	try   ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.GelirBilgileri1Click(Sender: TObject);
+begin
+  with TFGelir.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.EmekliBilgileri1Click(Sender: TObject);
+begin
+  with TFSsk.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.SistemParametreleri1Click(Sender: TObject);
+begin
+  with TFSistem.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.DaireAdlar1Click(Sender: TObject);
+begin
+  with TFDaire.Create( Self ) do
+   	try
+        ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.AsgariGeimndBordrosu1Click(Sender: TObject);
+begin
+  with TFRKdv.Create( Application ) do
+       try
+         Button1Click(Sender);
+         Button2Click(Sender);
+       finally free;end;
+end;
+
+procedure TFANAMENU.Kaza1Click(Sender: TObject);
+begin
+  with TFKazanlar.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.KesintilerDkm1Click(Sender: TObject);
+begin
+  with TFKesitlar.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+end;
+
+procedure TFANAMENU.NetlerDkm1Click(Sender: TObject);
+begin
+  with TFNetler.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+end;
+
+procedure TFANAMENU.craListesi1Click(Sender: TObject);
+begin
+  with TFRIcra.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+end;
+
+procedure TFANAMENU.AskerlikKesintiListesi1Click(Sender: TObject);
+begin
+  with TFAsker.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+end;
+
+procedure TFANAMENU.SendikaKesintiListesi1Click(Sender: TObject);
+begin
+  with TFSendika.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.laKesintiListesi1Click(Sender: TObject);
+begin
+  with TFIlac.Create( Self ) do
+   	try  ShowModal;
+        finally
+        free;
+   end;
+end;
+
+procedure TFANAMENU.E1Click(Sender: TObject);
+begin
+  with TFAyem2.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.ApplicationEvents1Message(var Msg: tagMSG;
+  var Handled: Boolean);
+var
+   i: SmallInt; //Mouse un wheel özelliðini kullanma(formdaki tüm gridler için geçerli)
+begin
+   if Msg.message = WM_MOUSEWHEEL then
+   begin
+     Msg.message := WM_KEYDOWN;
+     Msg.lParam := 0;
+     i := HiWord(Msg.wParam) ;
+     if i > 0 then
+       Msg.wParam := VK_UP
+     else
+       Msg.wParam := VK_DOWN;
+       Handled := False;
+    end;
+end;
+
+procedure TFANAMENU.IPBulBtnClick(Sender: TObject);
+var IP:String;
+begin
+IP:=idhttp1.Get('http://checkip.dyndns.org');
+IP:=copy(IP,77,14);
+Edit2.Text:=IP;
+
+
+end;
+
+procedure TFANAMENU.Hesap1Click(Sender: TObject);
+begin
+with TFHesapLisan.Create(Self)do
+  try ShowModal;
+  finally free;
+ end;
+
+end;
+
+procedure TFANAMENU.Hakknca1Click(Sender: TObject);
+begin
+with TFHakkinda.Create(Self)do
+  try ShowModal;
+  finally free;
+ end;
+
+end;
+
+procedure TFANAMENU.VeriGncelleme1Click(Sender: TObject);
+begin
+if FileExists('MemurVersion.exe') then
+begin
+  ShellExecute(0, 'Open', PChar('MemurVersion.exe'), nil, nil, SW_SHOW);
+  Application.Terminate ;
+end  else
+ ShowMessage('Uygulama Dosyasý Bulunamadý.SERAÞ Yazýlýma Baþvurunuz');
+end;
+
+procedure TFANAMENU.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if key=Vk_F12 then
+begin
+  Screen.Cursor := crHourGlass;
+  with TFLisan.Create( Self ) do
+   	try
+	  Screen.Cursor := crDefault;
+          ShowModal;
+        finally
+        free;
+   end;
+   MainMenu1.Items[0].Enabled:=True;
+   MainMenu1.Items[1].Enabled:=True;
+   MainMenu1.Items[2].Enabled:=True;
+   MainMenu1.Items[3].Enabled:=True;
+   MainMenu1.Items[4].Enabled:=True;
+   MainMenu1.Items[5].Enabled:=True;
+   
+end;
+
+end;
+
+end.

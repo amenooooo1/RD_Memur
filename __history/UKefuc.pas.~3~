@@ -1,0 +1,319 @@
+unit UKefuc;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Buttons, Db, DBTables, DBAccess, MemDS, Math, Mask, DBCtrls, Grids, DBGrids,
+  quickrpt, Qrctrls, ExtCtrls, Uni;
+
+type
+  TFKefuc = class(TForm)
+    Panel1: TPanel;
+    HazirBt: TBitBtn;
+    YaziBt: TBitBtn;
+    Vazgec: TBitBtn;
+    Panel2: TPanel;
+    Label3: TLabel;
+    Label9: TLabel;
+    Label2: TLabel;
+    ComboBox1: TComboBox;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBGrid1: TDBGrid;
+    QuickRep1: TQuickRep;
+    QRBand4: TQRBand;
+    QRExpr1: TQRExpr;
+    QRExpr2: TQRExpr;
+    QRExpr3: TQRExpr;
+    QRExpr4: TQRExpr;
+    QRLabel29: TQRLabel;
+    QRLabel28: TQRLabel;
+    QRLabel30: TQRLabel;
+    QRMemo1: TQRMemo;
+    QRLabel31: TQRLabel;
+    QRLabel32: TQRLabel;
+    QRLabel33: TQRLabel;
+    QRLabel34: TQRLabel;
+    QRBand5: TQRBand;
+    QRDBText1: TQRDBText;
+    QRDBText2: TQRDBText;
+    QRDBText3: TQRDBText;
+    QRDBText4: TQRDBText;
+    QRDBText5: TQRDBText;
+    QRDBText6: TQRDBText;
+    QRDBText7: TQRDBText;
+    QRDBText13: TQRDBText;
+    QRDBText14: TQRDBText;
+    QRDBText15: TQRDBText;
+    QRDBText25: TQRDBText;
+    QRBand6: TQRBand;
+    QRDBText8: TQRDBText;
+    QRDBText9: TQRDBText;
+    QRLabel1: TQRLabel;
+    QRLabel2: TQRLabel;
+    QRLabel3: TQRLabel;
+    QRLabel4: TQRLabel;
+    QRDBText10: TQRDBText;
+    QRDBText11: TQRDBText;
+    QRLabel5: TQRLabel;
+    QRDBText12: TQRDBText;
+    QRLabel6: TQRLabel;
+    QRLabel7: TQRLabel;
+    QRLabel8: TQRLabel;
+    QRLabel9: TQRLabel;
+    QRDBText16: TQRDBText;
+    QRLabel10: TQRLabel;
+    QRDBText17: TQRDBText;
+    QRDBText18: TQRDBText;
+    QRLabel11: TQRLabel;
+    QRDBText19: TQRDBText;
+    QRDBText20: TQRDBText;
+    QRDBText21: TQRDBText;
+    QRLabel12: TQRLabel;
+    QRDBText22: TQRDBText;
+    QRDBText23: TQRDBText;
+    QRDBText24: TQRDBText;
+    QRLabel13: TQRLabel;
+    QRLabel14: TQRLabel;
+    QRLabel15: TQRLabel;
+    QRLabel16: TQRLabel;
+    QRLabel17: TQRLabel;
+    QRLabel18: TQRLabel;
+    QRLabel19: TQRLabel;
+    QRLabel20: TQRLabel;
+    QRLabel21: TQRLabel;
+    QRLabel22: TQRLabel;
+    QRLabel23: TQRLabel;
+    QRLabel24: TQRLabel;
+    QRLabel25: TQRLabel;
+    QRLabel26: TQRLabel;
+    QRLabel27: TQRLabel;
+    QRLabel72: TQRLabel;
+    QRSysData1: TQRSysData;
+    Table1: TUniTable;
+    DataSource1: TDataSource;
+    Table2: TUniTable;
+    DataSource2: TDataSource;
+    Query1: TUniQuery;
+    DataSource3: TDataSource;
+    Table2Il: TStringField;
+    Table2Ilce: TStringField;
+    Table2Bu: TStringField;
+    Table2Ky: TStringField;
+    Table2Dair: TStringField;
+    Table2M1: TCurrencyField;
+    Table2M2: TCurrencyField;
+    Table2M3: TCurrencyField;
+    Table2Tar1: TDateField;
+    Table2Tar2: TDateField;
+    Table2Tar3: TDateField;
+    Table2Say1: TStringField;
+    Table2Say2: TStringField;
+    Table2Say3: TStringField;
+    procedure VazgecClick(Sender: TObject);
+    procedure Kayit;
+    procedure Yaz;
+    procedure Yaz1;
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure HazirBtClick(Sender: TObject);
+    procedure YaziBtClick(Sender: TObject);
+    procedure ComboBox1KeyPress(Sender: TObject; var Key: Char);
+    procedure DBEdit1Exit(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FKefuc: TFKefuc;
+  i,s:Integer;
+
+implementation
+
+uses UMEMUR;
+
+{$R *.DFM}
+
+
+procedure TFKefuc.VazgecClick(Sender: TObject);
+begin
+Close;
+end;
+
+procedure TFKefuc.FormCreate(Sender: TObject);
+begin
+//Table1.Open;
+Table2.Open;
+Table2.Edit;
+Table2.Fields[0].VALUE:=DMEMUR.TSISTEM.Fields[1].VALUE;
+Table2.Fields[1].VALUE:=DMEMUR.TSISTEM.Fields[2].VALUE;
+Table2.Fields[4].VALUE:=DMEMUR.TSISTEM.FieldByName('yil').VALUE;
+Table2.Post;
+end;
+
+procedure TFKefuc.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Table1.Close;
+Table2.Close;
+end;
+
+procedure TFKefuc.HazirBtClick(Sender: TObject);
+begin
+Query1.Close;
+Query1.ParamByName('Yil').value:=DMEMUR.TSISTEM.FieldByName('yil').value;
+If ComboBox1.Text='Ocak Þubat Mart' then begin
+Query1.ParamByName('Ay').value:='01';
+Query1.ParamByName('Ay1').value:='03';
+QRLabel19.Caption:='Ocak';
+QRLabel22.Caption:='Þubat';
+QRLabel24.Caption:='Mart';
+end;
+If ComboBox1.Text='Nisan Mayis Haziran' then begin
+Query1.ParamByName('Ay').value:='04';
+Query1.ParamByName('Ay1').value:='06';
+QRLabel19.Caption:='Nisan';
+QRLabel22.Caption:='Mayis';
+QRLabel24.Caption:='Haziran';
+end;
+If ComboBox1.Text='Temmuz Aðustos Eylül' then begin
+Query1.ParamByName('Ay').value:='07';
+Query1.ParamByName('Ay1').value:='09';
+QRLabel19.Caption:='Temmuz';
+QRLabel22.Caption:='Aðustos';
+QRLabel24.Caption:='Eylül';
+end;
+If ComboBox1.Text='Ekim Kasim Aralýk' then begin
+Query1.ParamByName('Ay').value:='10';
+Query1.ParamByName('Ay1').value:='12';
+QRLabel19.Caption:='Ekim';
+QRLabel22.Caption:='Kasim';
+QRLabel24.Caption:='Aralýk';
+end;
+i:=0;
+Query1.Open;
+Table1.Open;
+//Table1.EmptyTable;
+yaz;
+yaz1;
+Query1.Close;
+Table1.IndexFieldNames:='Sira';
+Table1.First;
+Table2.Edit;
+while not Table1.eof do
+ begin
+ Table2.FieldByName('m1').VALUE:=Table2.FieldByName('m1').VALUE+
+ Table1.FieldByName('m1').VALUE;
+ Table2.FieldByName('m2').VALUE:=Table2.FieldByName('m2').VALUE+
+ Table1.FieldByName('m2').VALUE;
+ Table2.FieldByName('m3').VALUE:=Table2.FieldByName('m3').VALUE+
+ Table1.FieldByName('m3').VALUE;
+ Table1.Next;
+end;
+//Table2.Post;
+
+end;
+
+procedure TFKefuc.Yaz1;
+begin
+s:= ((i div 17)+1)*17;
+While  i <> s do
+begin
+  i:=i+1;
+ Table1.Insert;
+ Table1.Fields[0].value:=i;
+end;
+end;
+
+procedure TFKefuc.Yaz;
+begin
+Query1.First;
+while not Query1.eof do
+ begin
+ Kayit;
+ Query1.Next;
+end;
+end;
+
+procedure TFKefuc.Kayit;
+begin
+{with Table1 do
+begin
+try
+ IndexFieldNames:='Sicno';
+ SetKey;
+ FieldByName('Sicno').VALUE:=
+ Query1.FieldByName('Sicno').VALUE;
+ if not GotoKey then
+ Begin
+  Insert;
+  i:=i+1;
+  FieldByName('Sicno').VALUE:=
+  Query1.FieldByName('Sicno').VALUE;
+  FieldByName('Sira').VALUE:=i;
+  FieldByName('Cuzno').VALUE:=
+  Query1.FieldByName('TasNo').VALUE;
+  FieldByName('Göv').VALUE:=
+  Query1.FieldByName('Unvan').VALUE;
+  FieldByName('Tar').VALUE:=
+  Query1.FieldByName('Isgirtar').VALUE;
+  FieldByName('Atar').VALUE:=
+  Query1.FieldByName('Ciktar').VALUE;
+  FieldByName('adsoy').VALUE:=
+  Query1.FieldByName('Adi').VALUE+' '+
+  Query1.FieldByName('Soyadi').VALUE;
+  Post;
+  end
+ else
+ GotoKey
+ Except
+End;
+Edit;
+Case (Query1.FieldByName('Ay').value mod 3) of
+  0: begin
+  FieldByName('m3').VALUE:=FieldByName('m3').VALUE+
+  Query1.FieldByName('Pkaz26').value;
+  end;
+  1: begin
+  FieldByName('m1').VALUE:=FieldByName('m1').VALUE+
+  Query1.FieldByName('Pkaz26').value;
+  end;
+  2: begin
+  FieldByName('m2').VALUE:=FieldByName('m2').VALUE+
+  Query1.FieldByName('Pkaz26').value;
+  end;
+ end;
+  FieldByName('m4').VALUE:=FieldByName('m4').VALUE+
+  Query1.FieldByName('Pkaz26').value;
+  FieldByName('Ay').VALUE:=FieldByName('Ay').VALUE+
+  Query1.FieldByName('Pkaz1').value+Query1.FieldByName('Pkaz2').value;
+  Post;
+end;}
+end;
+
+procedure TFKefuc.YaziBtClick(Sender: TObject);
+begin
+QRLabel18.Caption:='Devresi '+ DMEMUR.TSISTEM.FieldByName('yil').value+' üç aylýk';
+s:= (i div 17);
+QRLabel72.Caption:='SAYFA NUMARASI  :'+IntToStr(S)+' / ';
+QuickRep1.Preview;
+end;
+
+procedure TFKefuc.ComboBox1KeyPress(Sender: TObject; var Key: Char);
+begin
+if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+end;
+
+procedure TFKefuc.DBEdit1Exit(Sender: TObject);
+begin
+Table2.Edit;
+Table2.Post;
+end;
+
+end.

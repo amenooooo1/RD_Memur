@@ -1,0 +1,1141 @@
+unit UNakit;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, DBCtrls, Mask, ExtCtrls, Grids, DBGrids, Buttons, DB,
+  DBTables, Uni, DBAccess, MemDS, QRCtrls, QuickRpt;
+
+type
+  TFNakit = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    ScrollBox: TScrollBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label9: TLabel;
+    Bevel1: TBevel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
+    Label22: TLabel;
+    Label23: TLabel;
+    Label24: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    Label27: TLabel;
+    Bevel2: TBevel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label28: TLabel;
+    Bevel3: TBevel;
+    Label3: TLabel;
+    EditYevmiye_No: TDBEdit;
+    EditYevmiye_Tarih: TDBEdit;
+    EditVerile_No: TDBEdit;
+    EditVerile_Tarih: TDBEdit;
+    EditVekil: TDBEdit;
+    EditAciklama: TDBEdit;
+    DBKisi_Kurum: TDBLookupComboBox;
+    DBDuzenleme: TDBMemo;
+    EditCek: TDBEdit;
+    EditNevi: TDBEdit;
+    EDitNumara: TDBEdit;
+    EditTarih: TDBEdit;
+    EditTutar: TDBEdit;
+    DBEkler: TDBMemo;
+    EditKasa: TDBEdit;
+    EdirVezne: TDBEdit;
+    EditMekul: TDBEdit;
+    EditGon_Emri: TDBEdit;
+    EditSif: TDBEdit;
+    EditIslemNo: TDBEdit;
+    EditIslemtarih: TDBEdit;
+    DBEdit1: TDBEdit;
+    DBLookupComboBox1: TDBLookupComboBox;
+    BitBtn2: TBitBtn;
+    Vazgec: TBitBtn;
+    Panel3: TPanel;
+    DBGrid1: TDBGrid;
+    Table1: TUniTable;
+    DataSource1: TDataSource;
+    Table1Sira: TFloatField;
+    Table1Islem: TFloatField;
+    Table1Hes_Kod: TStringField;
+    Table1E1: TStringField;
+    Table1E2: TStringField;
+    Table1E3: TStringField;
+    Table1E4: TStringField;
+    Table1Borc: TCurrencyField;
+    Table1Alacak: TCurrencyField;
+    Table1Tanim: TStringField;
+    Table1Sayman: TFloatField;
+    Table1Kisi: TFloatField;
+    Table1Ilgi: TFloatField;
+    Table1Y_Tarih: TDateField;
+    Table1H_Tarih: TDateField;
+    Table1Z_Tarih: TDateField;
+    Table1A_Sira: TFloatField;
+    Table1B_Sira: TFloatField;
+    Table1Odendi: TSmallintField;
+    Table1Yansitma: TStringField;
+    Table1AySonu: TFloatField;
+    Table1Islem_Turu: TFloatField;
+    Table1Onay: TStringField;
+    Query1: TUniQuery;
+    Query2: TUniQuery;
+    DataSource3: TDataSource;
+    DataSource4: TDataSource;
+    Table2: TUniTable;
+    DataSource2: TDataSource;
+    YaziBt: TBitBtn;
+    QuickRep1: TQuickRep;
+    PageFooterBand1: TQRBand;
+    ColumnHeaderBand1: TQRBand;
+    QRLabel1: TQRLabel;
+    QRLabel2: TQRLabel;
+    QRLabel3: TQRLabel;
+    QRLabel4: TQRLabel;
+    QRLabel5: TQRLabel;
+    QRLabel7: TQRLabel;
+    QRLabel8: TQRLabel;
+    QRLabel11: TQRLabel;
+    QRLabel12: TQRLabel;
+    QRLabel13: TQRLabel;
+    QRLabel14: TQRLabel;
+    QRLabel15: TQRLabel;
+    QRLabel16: TQRLabel;
+    QRLabel17: TQRLabel;
+    QRLabel18: TQRLabel;
+    QRShape2: TQRShape;
+    QRShape9: TQRShape;
+    QRShape10: TQRShape;
+    QRShape11: TQRShape;
+    QRShape12: TQRShape;
+    QRShape13: TQRShape;
+    QRShape14: TQRShape;
+    DetailBand1: TQRBand;
+    QRShape1: TQRShape;
+    QRShape3: TQRShape;
+    QRShape4: TQRShape;
+    QRShape5: TQRShape;
+    QRShape6: TQRShape;
+    QRShape7: TQRShape;
+    QRShape8: TQRShape;
+    QRDBText21: TQRDBText;
+    QRDBText26: TQRDBText;
+    QRBand1: TQRBand;
+    QRLabel6: TQRLabel;
+    QRLabel23: TQRLabel;
+    QRLabel29: TQRLabel;
+    QRDBText30: TQRDBText;
+    QRDBText31: TQRDBText;
+    QRDBText32: TQRDBText;
+    QRDBText33: TQRDBText;
+    QRDBText34: TQRDBText;
+    QRDBText35: TQRDBText;
+    QRDBText36: TQRDBText;
+    QRDBText37: TQRDBText;
+    QRDBText38: TQRDBText;
+    QRDBText39: TQRDBText;
+    QRDBText40: TQRDBText;
+    QRDBText41: TQRDBText;
+    QRDBText42: TQRDBText;
+    QRDBText43: TQRDBText;
+    QRDBText44: TQRDBText;
+    QRBand2: TQRBand;
+    QRSysData1: TQRSysData;
+    QRSysData2: TQRSysData;
+    QRLabel9: TQRLabel;
+    QRLabel19: TQRLabel;
+    QRLabel20: TQRLabel;
+    QRLabel21: TQRLabel;
+    QRLabel22: TQRLabel;
+    QRDBText3: TQRDBText;
+    QRKurum: TQRLabel;
+    QRDBText4: TQRDBText;
+    QRLabel24: TQRLabel;
+    QRLabel25: TQRLabel;
+    QRDBText5: TQRDBText;
+    QRDBText6: TQRDBText;
+    QRDBText8: TQRDBText;
+    QRLabel44: TQRLabel;
+    QRLabel10: TQRLabel;
+    QRLabel45: TQRLabel;
+    QRLabel46: TQRLabel;
+    QRDBText1: TQRDBText;
+    QRDBText2: TQRDBText;
+    QRLabel47: TQRLabel;
+    QRLabel48: TQRLabel;
+    QRDBText7: TQRDBText;
+    QRDBText20: TQRDBText;
+    QRDBText45: TQRDBText;
+    QRLabel49: TQRLabel;
+    QRLabel50: TQRLabel;
+    QRLabel88: TQRLabel;
+    QRLabel89: TQRLabel;
+    QRDBText46: TQRDBText;
+    QRDBText47: TQRDBText;
+    QRDBText48: TQRDBText;
+    QRDBText49: TQRDBText;
+    QRDBText50: TQRDBText;
+    ChildBand1: TQRChildBand;
+    QRLabel28: TQRLabel;
+    QRTahpara: TQRLabel;
+    QR5: TQRLabel;
+    QRLabel32: TQRLabel;
+    QRLabel34: TQRLabel;
+    QRLabel36: TQRLabel;
+    QRLabel38: TQRLabel;
+    QRLabel58: TQRLabel;
+    QRLabel59: TQRLabel;
+    QRLabel60: TQRLabel;
+    QRLabel61: TQRLabel;
+    QRDBText9: TQRDBText;
+    QRDBText10: TQRDBText;
+    QRDBText12: TQRDBText;
+    QRLabel67: TQRLabel;
+    QRDBText16: TQRDBText;
+    QRLabel69: TQRLabel;
+    QRLabel70: TQRLabel;
+    QRLabel71: TQRLabel;
+    QRDBText17: TQRDBText;
+    QRDBText18: TQRDBText;
+    QRDBText19: TQRDBText;
+    QRLabel72: TQRLabel;
+    QRShape15: TQRShape;
+    QRShape16: TQRShape;
+    QRShape17: TQRShape;
+    QRLabel74: TQRLabel;
+    QRLabel77: TQRLabel;
+    QRLabel78: TQRLabel;
+    QRLabel79: TQRLabel;
+    QRLabel80: TQRLabel;
+    QRLabel82: TQRLabel;
+    QRLabel83: TQRLabel;
+    QRLabel84: TQRLabel;
+    QRLabel85: TQRLabel;
+    QROdepara: TQRLabel;
+    QRLabel87: TQRLabel;
+    QRLabel31: TQRLabel;
+    QRLabel33: TQRLabel;
+    QRLabel35: TQRLabel;
+    QRDBText13: TQRDBText;
+    QRKes: TQRLabel;
+    QRDBText22: TQRDBText;
+    QRLabel39: TQRLabel;
+    QRMemo1: TQRMemo;
+    QRDBText23: TQRDBText;
+    QRDBText24: TQRDBText;
+    QRDBText25: TQRDBText;
+    QRLabel40: TQRLabel;
+    QRLabel41: TQRLabel;
+    QRShape19: TQRShape;
+    QRShape20: TQRShape;
+    QRtah: TQRLabel;
+    QROde: TQRLabel;
+    QRLabel26: TQRLabel;
+    QRLabel27: TQRLabel;
+    QR1: TQRLabel;
+    QR3: TQRLabel;
+    QR4: TQRLabel;
+    QR6: TQRLabel;
+    QRLabel51: TQRLabel;
+    QRLabel52: TQRLabel;
+    QRLabel53: TQRLabel;
+    QR7: TQRLabel;
+    QRShape18: TQRShape;
+    QRShape22: TQRShape;
+    QRLabel55: TQRLabel;
+    QROzel: TQRLabel;
+    QR2: TQRLabel;
+    QRLabel62: TQRLabel;
+    QRShape23: TQRShape;
+    QRShape21: TQRShape;
+    QR8: TQRLabel;
+    QR9: TQRLabel;
+    QR10: TQRLabel;
+    QRLabel42: TQRLabel;
+    QRShape27: TQRShape;
+    QRShape28: TQRShape;
+    QRShape29: TQRShape;
+    QRShape30: TQRShape;
+    QRLabel30: TQRLabel;
+    QRTahtpl: TQRLabel;
+    Label6: TLabel;
+    Label16: TLabel;
+    Table3: TUniTable;
+    DataSource5: TDataSource;
+    Entekre: TBitBtn;
+    Table2Sira: TFloatField;
+    Table2Islem: TFloatField;
+    Table2Hes_Kod: TStringField;
+    Table2E1: TStringField;
+    Table2E2: TStringField;
+    Table2E3: TStringField;
+    Table2E4: TStringField;
+    Table2Borc: TCurrencyField;
+    Table2Alacak: TCurrencyField;
+    Table2Tanim: TStringField;
+    Table2Sayman: TFloatField;
+    Table2Kisi: TFloatField;
+    Table2Ilgi: TFloatField;
+    Table2Y_Tarih: TDateField;
+    Table2H_Tarih: TDateField;
+    Table2Z_Tarih: TDateField;
+    Table2A_Sira: TFloatField;
+    Table2B_Sira: TFloatField;
+    Table2Odendi: TSmallintField;
+    Table2Yansitma: TStringField;
+    Table2AySonu: TFloatField;
+    Table2Islem_Turu: TFloatField;
+    Table2Onay: TStringField;
+    Table3Donem: TStringField;
+    Table3Daire: TStringField;
+    Table3Sira: TFloatField;
+    Table3Hes_Kod: TStringField;
+    Table3K4: TStringField;
+    Table3F1: TStringField;
+    Table3F2: TStringField;
+    Table3F3: TStringField;
+    Table3F4: TStringField;
+    Table3E1: TStringField;
+    Table3E2: TStringField;
+    Table3E3: TStringField;
+    Table3E4: TStringField;
+    Table3Borc: TCurrencyField;
+    Table3Alacak: TCurrencyField;
+    Table3Tanim: TStringField;
+    Table3Onay: TStringField;
+    Table4: TUniTable;
+    DataSource6: TDataSource;
+    Table4Donem: TStringField;
+    Table4Daire: TStringField;
+    Table4K4: TStringField;
+    Table4Onay: TStringField;
+    Table4Tur: TStringField;
+    DataSource7: TDataSource;
+    Query3: TUniQuery;
+    Query3Sira: TFloatField;
+    Query3Islem: TFloatField;
+    Query3Hes_Kod: TStringField;
+    Query3E1: TStringField;
+    Query3E2: TStringField;
+    Query3E3: TStringField;
+    Query3E4: TStringField;
+    Query3Borc: TCurrencyField;
+    Query3Alacak: TCurrencyField;
+    Query3Tanim: TStringField;
+    Query3Sayman: TFloatField;
+    Query3Kisi: TFloatField;
+    Query3Ilgi: TFloatField;
+    Query3Y_Tarih: TDateField;
+    Query3H_Tarih: TDateField;
+    Query3Z_Tarih: TDateField;
+    Query3A_Sira: TFloatField;
+    Query3B_Sira: TFloatField;
+    Query3Odendi: TSmallintField;
+    Query3Yansitma: TStringField;
+    Query3AySonu: TFloatField;
+    Query3Islem_Turu: TFloatField;
+    Query3Onay: TStringField;
+    Table3Kisi: TFloatField;
+    Table3Islem_Turu: TFloatField;
+    procedure BitBtn2Click(Sender: TObject);
+    procedure Yaz;
+    procedure Yaz1;
+    procedure Kaz11;
+    procedure Kes;
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure VazgecClick(Sender: TObject);
+    procedure YaziBtClick(Sender: TObject);
+    procedure ChildBand1BeforePrint(Sender: TQRCustomBand;
+      var PrintBand: Boolean);
+    procedure QRBand1BeforePrint(Sender: TQRCustomBand;
+      var PrintBand: Boolean);
+    procedure EntekreClick(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FNakit: TFNakit;
+  i,j,z,but:Integer;
+  Borc,Alacak,qtah,qode,borrr,ozelaa:Currency;
+  hes,e1,e2,e3,e4,Tanim:String;
+
+implementation
+
+uses UMEMUR, Paracevir;
+
+{$R *.dfm}
+
+
+
+procedure TFNakit.Kes;
+begin
+i:=7;
+j:=3;
+while i<>29 do
+ begin
+If i=14 then
+ begin
+ i:=i+1;
+ j:=j+1;
+end;
+ If (Query2.Fields[i].Value<>0) and (DMEMUR.TKATSAY2.Fields[j].Value<>0) then
+ begin
+  Borc:=0;
+  alacak:=Query2.Fields[i].Value;
+  case i of
+   1..16:
+      begin
+        DMEMUR.TGelirKod.SetKey;
+        DMEMUR.TGelirKod.Fields[0].Value:=DMEMUR.TKATSAY2.Fields[j].Value;
+        DMEMUR.TGelirKod.GotoKey;
+         hes:=DMEMUR.TGelirKodHes.AsString;
+         e1:=DMEMUR.TGelirKodE1.AsString;
+         e2:=DMEMUR.TGelirKodE2.AsString;
+         e3:=DMEMUR.TGelirKodE3.AsString;
+         e4:=DMEMUR.TGelirKodE4.AsString;
+         Tanim:=DMEMUR.TGelirKodAciklama.AsString;
+         yaz;
+
+      end;
+   17 :
+      begin
+        DMEMUR.TGelirKod.SetKey;
+        DMEMUR.TGelirKod.Fields[0].Value:=DMEMUR.TKATSAY2.Fields[j].Value;
+        DMEMUR.TGelirKod.GotoKey;
+         hes:=DMEMUR.TGelirKodHes.AsString;
+         e1:=DMEMUR.TGelirKodE1.AsString;
+         e2:=DMEMUR.TGelirKodE2.AsString;
+         e3:=DMEMUR.TGelirKodE3.AsString;
+         e4:=DMEMUR.TGelirKodE4.AsString;
+         Tanim:=DMEMUR.TGelirKodAciklama.AsString;
+         yaz;
+      end;
+   18..21:
+       begin
+        DMEMUR.TGelirKod.SetKey;
+        DMEMUR.TGelirKod.Fields[0].Value:=DMEMUR.TKATSAY2.Fields[j].Value;
+        DMEMUR.TGelirKod.GotoKey;
+         hes:=DMEMUR.TGelirKodHes.AsString;
+         e1:=DMEMUR.TGelirKodE1.AsString;
+         e2:=DMEMUR.TGelirKodE2.AsString;
+         e3:=DMEMUR.TGelirKodE3.AsString;
+         e4:=DMEMUR.TGelirKodE4.AsString;
+         Tanim:=DMEMUR.TGelirKodAciklama.AsString;
+         yaz;
+
+        end;
+   22:begin
+       If (Query2.FieldByName('A3').Value='E') then
+       begin
+         DMEMUR.TGelirKod.SetKey;
+         DMEMUR.TGelirKod.Fields[0].Value:='36101010200';
+         DMEMUR.TGelirKod.GotoKey;
+       end else
+       begin
+       If (Query2.FieldByName('Once5510').Value=True) then
+       begin
+        DMEMUR.TGelirKod.SetKey;
+        DMEMUR.TGelirKod.Fields[0].Value:='36101010298';
+        DMEMUR.TGelirKod.GotoKey;
+        alacak:=Query2.FieldByName('ISGSS').Value;
+        hes:=DMEMUR.TGelirKodHes.AsString;
+        e1:=DMEMUR.TGelirKodE1.AsString;
+        e2:=DMEMUR.TGelirKodE2.AsString;
+        e3:=DMEMUR.TGelirKodE3.AsString;
+        e4:=DMEMUR.TGelirKodE4.AsString;
+        Tanim:=DMEMUR.TGelirKodAciklama.AsString;
+        yaz;
+        DMEMUR.TGelirKod.SetKey;
+        DMEMUR.TGelirKod.Fields[0].Value:='36101010299';
+        DMEMUR.TGelirKod.GotoKey;
+        alacak:=Query2.FieldByName('ISMYS').Value;
+       end else
+       begin
+        DMEMUR.TGelirKod.SetKey;
+        DMEMUR.TGelirKod.Fields[0].Value:=DMEMUR.TKATSAY2.Fields[j].Value;
+        DMEMUR.TGelirKod.GotoKey;
+       end;
+      end;
+         hes:=DMEMUR.TGelirKodHes.AsString;
+         e1:=DMEMUR.TGelirKodE1.AsString;
+         e2:=DMEMUR.TGelirKodE2.AsString;
+         e3:=DMEMUR.TGelirKodE3.AsString;
+         e4:=DMEMUR.TGelirKodE4.AsString;
+         Tanim:=DMEMUR.TGelirKodAciklama.AsString;
+         yaz;
+
+     end;
+   23:begin
+      If (Query2.FieldByName('A3').Value='E') then
+       begin
+       DMEMUR.TGelirKod.SetKey;
+       DMEMUR.TGelirKod.Fields[0].Value:='36101020200';
+       DMEMUR.TGelirKod.GotoKey;
+       end else
+       begin
+       If (Query2.FieldByName('Once5510').Value=False) then
+       begin
+        DMEMUR.TGelirKod.SetKey;
+        DMEMUR.TGelirKod.Fields[0].Value:=DMEMUR.TKATSAY2.Fields[j].Value;
+        DMEMUR.TGelirKod.GotoKey;
+       end else
+       If (Query2.FieldByName('Once5510').Value=True) then
+       begin
+        DMEMUR.TGelirKod.SetKey;
+        DMEMUR.TGelirKod.Fields[0].Value:='36101020398';
+        DMEMUR.TGelirKod.GotoKey;
+        alacak:=Query2.FieldByName('ISVGSS').Value;
+        hes:=DMEMUR.TGelirKodHes.AsString;
+        e1:=DMEMUR.TGelirKodE1.AsString;
+        e2:=DMEMUR.TGelirKodE2.AsString;
+        e3:=DMEMUR.TGelirKodE3.AsString;
+        e4:=DMEMUR.TGelirKodE4.AsString;
+        Tanim:=DMEMUR.TGelirKodAciklama.AsString;
+        yaz;
+        DMEMUR.TGelirKod.SetKey;
+        DMEMUR.TGelirKod.Fields[0].Value:='36101020399';
+        DMEMUR.TGelirKod.GotoKey;
+        alacak:=Query2.FieldByName('ISVMYS').Value;
+       end else
+       begin
+        DMEMUR.TGelirKod.SetKey;
+        DMEMUR.TGelirKod.Fields[0].Value:=DMEMUR.TKATSAY2.Fields[j].Value;
+        DMEMUR.TGelirKod.GotoKey;
+
+       end;
+      end;
+         hes:=DMEMUR.TGelirKodHes.AsString;
+         e1:=DMEMUR.TGelirKodE1.AsString;
+         e2:=DMEMUR.TGelirKodE2.AsString;
+         e3:=DMEMUR.TGelirKodE3.AsString;
+         e4:=DMEMUR.TGelirKodE4.AsString;
+         Tanim:=DMEMUR.TGelirKodAciklama.AsString;
+         yaz;
+
+     end;
+   24..25:
+       begin
+         DMEMUR.TGelirKod.SetKey;
+         DMEMUR.TGelirKod.Fields[0].Value:=DMEMUR.TKATSAY2.Fields[j].Value;
+         DMEMUR.TGelirKod.GotoKey;
+         hes:=DMEMUR.TGelirKodHes.AsString;
+         e1:=DMEMUR.TGelirKodE1.AsString;
+         e2:=DMEMUR.TGelirKodE2.AsString;
+         e3:=DMEMUR.TGelirKodE3.AsString;
+         e4:=DMEMUR.TGelirKodE4.AsString;
+         Tanim:=DMEMUR.TGelirKodAciklama.AsString;
+         yaz;
+      end;
+   26:
+     begin
+     IF (but=1) then
+     begin
+
+
+         DMEMUR.TGelirKod.SetKey;
+         DMEMUR.TGelirKod.Fields[0].Value:='32001000000';
+         DMEMUR.TGelirKod.GotoKey;
+          Z:=Z+1;
+         hes:=DMEMUR.TGelirKodHes.AsString;
+         e1:=DMEMUR.TGelirKodE1.AsString;
+         e2:=DMEMUR.TGelirKodE2.AsString;
+         e3:=DMEMUR.TGelirKodE3.AsString;
+         e4:=DMEMUR.TGelirKodE4.AsString;
+         Tanim:=DMEMUR.TGelirKodAciklama.AsString;
+        Table1.Insert;
+        Table1Sira.Value:=Z;
+        Table1Hes_Kod.AsString:=hes;
+        Table1E1.AsString:=e1;
+        Table1E2.AsString:=e2;
+        Table1E3.AsString:=e3;
+        Table1E4.AsString:=e4;
+        Table1Tanim.AsString:=Tanim;
+        Table1Kisi.Value:=Query2.FieldByName('kisi').Value;
+        Table1Alacak.Value:=alacak;
+
+        Table1.Post;
+
+     end else begin
+         DMEMUR.TGelirKod.SetKey;
+         DMEMUR.TGelirKod.Fields[0].Value:=DMEMUR.TKATSAY2.Fields[j].Value;
+         DMEMUR.TGelirKod.GotoKey;
+         hes:=DMEMUR.TGelirKodHes.AsString;
+         e1:=DMEMUR.TGelirKodE1.AsString;
+         e2:=DMEMUR.TGelirKodE2.AsString;
+         e3:=DMEMUR.TGelirKodE3.AsString;
+         e4:=DMEMUR.TGelirKodE4.AsString;
+         Tanim:=DMEMUR.TGelirKodAciklama.AsString;
+         yaz;
+     end;
+      end;
+
+   27..29:
+       begin
+         DMEMUR.TGelirKod.SetKey;
+         DMEMUR.TGelirKod.Fields[0].Value:=DMEMUR.TKATSAY2.Fields[j].Value;
+         DMEMUR.TGelirKod.GotoKey;
+         hes:=DMEMUR.TGelirKodHes.AsString;
+         e1:=DMEMUR.TGelirKodE1.AsString;
+         e2:=DMEMUR.TGelirKodE2.AsString;
+         e3:=DMEMUR.TGelirKodE3.AsString;
+         e4:=DMEMUR.TGelirKodE4.AsString;
+         Tanim:=DMEMUR.TGelirKodAciklama.AsString;
+         yaz;
+      end;
+
+  end;
+
+
+ end;
+ j:=j+1;
+ i:=i+1;
+end;
+end;
+
+
+procedure TFNakit.Kaz11;
+begin
+    ///
+i:=7;
+j:=3;
+while i<>35 do
+ begin
+ If (Query1.Fields[i].Value<>0) And (DMEMUR.TKATSAY1.Fields[j].Value<>0) then
+ begin
+  Borc:=Query1.Fields[i].Value;
+  alacak:=0;
+  DMEMUR.TGelirKod.SetKey;
+  DMEMUR.TGelirKod.Fields[0].Value:=
+  DMEMUR.TKATSAY1.Fields[j].Value;
+  DMEMUR.TGelirKod.GotoKey;
+  hes:=DMEMUR.TGelirKodHes.AsString;
+  e1:=DMEMUR.TGelirKodE1.AsString;
+  e2:=DMEMUR.TGelirKodE2.AsString;
+  e3:=DMEMUR.TGelirKodE3.AsString;
+  e4:=DMEMUR.TGelirKodE4.AsString;
+  Tanim:=DMEMUR.TGelirKodAciklama.AsString;
+  yaz;
+ end;
+ j:=j+1;
+ i:=i+1;
+end;
+end;
+
+procedure TFNakit.yaz1;
+begin
+Table1.IndexFieldNames:='Sira';
+Table1.TableName:='Muhfis1.DB';
+Table1.Open;
+Table1.First;
+DMEMUR.TM2.First;
+Z:=0;
+while not DMEMUR.TM2.eof do
+ DMEMUR.TM2.Delete;
+while not Table1.eof do
+begin
+   Z:=z+1;
+   DMEMUR.TM2.Insert;
+   DMEMUR.TM2Sira.Value:=z;
+   DMEMUR.TM2Islem.Value:=10;
+   DMEMUR.TM2Hes_Kod.Value:=Table1Hes_Kod.Value;
+   DMEMUR.TM2E1.Value:=Table1E1.Value;
+   DMEMUR.TM2E2.Value:=Table1E2.Value;
+   DMEMUR.TM2E3.Value:=Table1E3.Value;
+   DMEMUR.TM2E4.Value:=Table1E4.Value;
+   DMEMUR.TM2Borc.Value:=Table1Borc.Value;
+   DMEMUR.TM2Alacak.Value:=Table1Alacak.Value;
+   DMEMUR.TM2Tanim.Value:=Table1Tanim.Value;
+   DMEMUR.TM2Islem_Turu.Value:=Table1Islem_Turu.Value;
+
+   If Table1Hes_Kod.AsString='830' then
+   begin
+    DMEMUR.TM2K1.Value:=DMEMUR.TDAIR.FieldByName('K1').AsString;
+    DMEMUR.TM2K2.Value:=DMEMUR.TDAIR.FieldByName('K2').AsString;
+    DMEMUR.TM2K3.Value:=DMEMUR.TDAIR.FieldByName('K3').AsString;
+    DMEMUR.TM2K4.Value:=DMEMUR.TDAIR.FieldByName('K4').AsString;
+    DMEMUR.TM2Birim.Value:='000';
+    DMEMUR.TM2F1.Value:=DMEMUR.TDAIR.FieldByName('F1').AsString;
+    DMEMUR.TM2F2.Value:=DMEMUR.TDAIR.FieldByName('F2').AsString;
+    DMEMUR.TM2F3.Value:=DMEMUR.TDAIR.FieldByName('F3').AsString;
+    DMEMUR.TM2F4.Value:=DMEMUR.TDAIR.FieldByName('F4').AsString;
+    DMEMUR.TM2Finans.Value:='5';
+   end;
+   DMEMUR.TM2.Post;
+
+
+  Table1.Next;
+End;
+Table1.Close;
+Table1.TableName:='Muhfis2.DB';
+Table1.Open;
+Table1.First;
+while not Table1.eof do
+begin
+   Z:=z+1;
+   DMEMUR.TM2.Insert;
+   DMEMUR.TM2Sira.Value:=z;
+   DMEMUR.TM2Islem.Value:=10;
+   DMEMUR.TM2Hes_Kod.Value:=Table1Hes_Kod.Value;
+   DMEMUR.TM2E1.Value:=Table1E1.Value;
+   DMEMUR.TM2E2.Value:=Table1E2.Value;
+   DMEMUR.TM2E3.Value:=Table1E3.Value;
+   DMEMUR.TM2E4.Value:=Table1E4.Value;
+   DMEMUR.TM2Borc.Value:=Table1Borc.Value;
+   DMEMUR.TM2Alacak.Value:=Table1Alacak.Value;
+   DMEMUR.TM2Tanim.Value:=Table1Tanim.Value;
+   DMEMUR.TM2Kisi.Value:=Table1Kisi.Value;
+
+   DMEMUR.TM2.Post;
+  Table1.Next;
+End;
+Table1.Close;
+Table1.TableName:='Muhfis1.DB';
+Table1.Open;
+Table1.First;
+while not Table1.eof do
+begin
+  If Table1Hes_Kod.Value='830' then
+  begin
+   Z:=z+1;
+   DMEMUR.TM2.Insert;
+   DMEMUR.TM2Sira.Value:=z;
+   DMEMUR.TM2Islem.Value:=10;
+   DMEMUR.TM2Hes_Kod.Value:='630';
+   DMEMUR.TM2E1.Value:=Table1E1.Value;
+   DMEMUR.TM2E2.Value:=Table1E2.Value;
+   DMEMUR.TM2E3.Value:=Table1E3.Value;
+   DMEMUR.TM2E4.Value:=Table1E4.Value;
+   DMEMUR.TM2Borc.Value:=Table1Borc.Value;
+   DMEMUR.TM2Alacak.Value:=Table1Alacak.Value;
+   DMEMUR.TM2Tanim.Value:=Table1Tanim.Value;
+   DMEMUR.TM2K1.Value:=DMEMUR.TDAIR.FieldByName('K1').AsString;
+   DMEMUR.TM2K2.Value:=DMEMUR.TDAIR.FieldByName('K2').AsString;
+   DMEMUR.TM2K3.Value:=DMEMUR.TDAIR.FieldByName('K3').AsString;
+   DMEMUR.TM2K4.Value:=DMEMUR.TDAIR.FieldByName('K4').AsString;
+   DMEMUR.TM2Birim.Value:='000';
+   DMEMUR.TM2F1.Value:=DMEMUR.TDAIR.FieldByName('F1').AsString;
+   DMEMUR.TM2F2.Value:=DMEMUR.TDAIR.FieldByName('F2').AsString;
+   DMEMUR.TM2F3.Value:=DMEMUR.TDAIR.FieldByName('F3').AsString;
+   DMEMUR.TM2F4.Value:=DMEMUR.TDAIR.FieldByName('F4').AsString;
+   DMEMUR.TM2Finans.Value:='5';
+   borrr:=borrr+ Table1Borc.Value;
+   DMEMUR.TM2.Post;
+  end;
+  Table1.Next;
+End;
+Table1.First;
+   Z:=z+1;
+   DMEMUR.TM2.Insert;
+   DMEMUR.TM2Sira.Value:=z;
+   DMEMUR.TM2Islem.Value:=10;
+   DMEMUR.TM2Hes_Kod.Value:='835';
+   DMEMUR.TM2E1.Value:='00';
+   DMEMUR.TM2E2.Value:='0';
+   DMEMUR.TM2E3.Value:='0';
+   DMEMUR.TM2E4.Value:='00';
+   DMEMUR.TM2Alacak.Value:=borrr;
+   DMEMUR.TM2Tanim.Value:='Gider Yansýtma Hesabý';
+   DMEMUR.TM2K1.Value:=DMEMUR.TDAIR.FieldByName('K1').AsString;
+   DMEMUR.TM2K2.Value:=DMEMUR.TDAIR.FieldByName('K2').AsString;
+   DMEMUR.TM2K3.Value:=DMEMUR.TDAIR.FieldByName('K3').AsString;
+   DMEMUR.TM2K4.Value:=DMEMUR.TDAIR.FieldByName('K4').AsString;
+   DMEMUR.TM2Birim.Value:='000';
+   DMEMUR.TM2F1.Value:=DMEMUR.TDAIR.FieldByName('F1').AsString;
+   DMEMUR.TM2F2.Value:=DMEMUR.TDAIR.FieldByName('F2').AsString;
+   DMEMUR.TM2F3.Value:=DMEMUR.TDAIR.FieldByName('F3').AsString;
+   DMEMUR.TM2F4.Value:=DMEMUR.TDAIR.FieldByName('F4').AsString;
+//   DMEMUR.TM2Finans.Value:=copy(DMEMUR.TDAIR.FieldByName('ButceKodu').AsString,9,2);
+   DMEMUR.TM2Finans.Value:='5';
+   DMEMUR.TM2.Post;
+Table1.First;
+while not Table1.eof do
+begin
+  If Table1Hes_Kod.Value='830' then
+  begin
+   Z:=z+1;
+   DMEMUR.TM2.Insert;
+   DMEMUR.TM2Sira.Value:=z;
+   DMEMUR.TM2Islem.Value:=10;
+   DMEMUR.TM2Hes_Kod.Value:='900';
+   DMEMUR.TM2E1.Value:=Table1E1.Value;
+   DMEMUR.TM2E2.Value:=Table1E2.Value;
+   DMEMUR.TM2E3.Value:=Table1E3.Value;
+   DMEMUR.TM2E4.Value:=Table1E4.Value;
+   DMEMUR.TM2Alacak.Value:=Table1Borc.Value;
+   DMEMUR.TM2Tanim.Value:=Table1Tanim.Value;
+   DMEMUR.TM2K1.Value:=DMEMUR.TDAIR.FieldByName('K1').AsString;
+   DMEMUR.TM2K2.Value:=DMEMUR.TDAIR.FieldByName('K2').AsString;
+   DMEMUR.TM2K3.Value:=DMEMUR.TDAIR.FieldByName('K3').AsString;
+   DMEMUR.TM2K4.Value:=DMEMUR.TDAIR.FieldByName('K4').AsString;
+   DMEMUR.TM2Birim.Value:='000';
+   DMEMUR.TM2F1.Value:=DMEMUR.TDAIR.FieldByName('F1').AsString;
+   DMEMUR.TM2F2.Value:=DMEMUR.TDAIR.FieldByName('F2').AsString;
+   DMEMUR.TM2F3.Value:=DMEMUR.TDAIR.FieldByName('F3').AsString;
+   DMEMUR.TM2F4.Value:=DMEMUR.TDAIR.FieldByName('F4').AsString;
+//   DMEMUR.TM2Finans.Value:=copy(DMEMUR.TDAIR.FieldByName('ButceKodu').AsString,9,2);
+   DMEMUR.TM2Finans.Value:='5';
+   DMEMUR.TM2.Post;
+  end;
+  Table1.Next;
+End;
+Table1.First;
+   Z:=z+1;
+   DMEMUR.TM2.Insert;
+   DMEMUR.TM2Sira.Value:=z;
+   DMEMUR.TM2Islem.Value:=10;
+   DMEMUR.TM2Hes_Kod.Value:='905';
+   DMEMUR.TM2E1.Value:='00';
+   DMEMUR.TM2E2.Value:='0';
+   DMEMUR.TM2E3.Value:='0';
+   DMEMUR.TM2E4.Value:='00';
+   DMEMUR.TM2Borc.Value:=borrr;
+   DMEMUR.TM2Tanim.Value:='Ödenekli Giderler Hesabý';
+   DMEMUR.TM2K1.Value:=DMEMUR.TDAIR.FieldByName('K1').AsString;
+   DMEMUR.TM2K2.Value:=DMEMUR.TDAIR.FieldByName('K2').AsString;
+   DMEMUR.TM2K3.Value:=DMEMUR.TDAIR.FieldByName('K3').AsString;
+   DMEMUR.TM2K4.Value:=DMEMUR.TDAIR.FieldByName('K4').AsString;
+   DMEMUR.TM2Birim.Value:='000';
+   DMEMUR.TM2F1.Value:=DMEMUR.TDAIR.FieldByName('F1').AsString;
+   DMEMUR.TM2F2.Value:=DMEMUR.TDAIR.FieldByName('F2').AsString;
+   DMEMUR.TM2F3.Value:=DMEMUR.TDAIR.FieldByName('F3').AsString;
+   DMEMUR.TM2F4.Value:=DMEMUR.TDAIR.FieldByName('F4').AsString;
+//   DMEMUR.TM2Finans.Value:=copy(DMEMUR.TDAIR.FieldByName('ButceKodu').AsString,9,2);
+   DMEMUR.TM2Finans.Value:='5';
+   DMEMUR.TM2.Post;
+
+Table1.Close;
+
+end;
+
+
+
+procedure TFNakit.yaz;
+begin
+ Table1.IndexFieldNames:= 'Hes_Kod;E1;E2;E3;E4';
+ Table1.CancelRange;
+ Table1.SetKey;
+ Table1Hes_Kod.Value:=hes;
+ Table1E1.Value:=e1;
+ Table1E2.Value:=e2;
+ Table1E3.Value:=e3;
+ Table1E4.Value:=e4;
+ if not Table1.GotoKey then
+   Begin
+   Z:=Z+1;
+   Table1.Insert;
+   Table1Sira.Value:=Z;
+   Table1Hes_Kod.AsString:=hes;
+   Table1E1.AsString:=e1;
+   Table1E2.AsString:=e2;
+   Table1E3.AsString:=e3;
+   Table1E4.AsString:=e4;
+   Table1Tanim.AsString:=Tanim;
+   Table1.Post;
+ End;
+ Table1.Edit;
+ Table1Borc.Value:=Table1Borc.Value+ borc;
+ Table1Alacak.Value:=Table1Alacak.Value+ alacak;
+ Table1.Post;
+end;
+
+
+
+
+procedure TFNakit.BitBtn2Click(Sender: TObject);
+begin
+ If MessageDlg('Bütçe Emanetine Alacakmýsýn ?',
+    mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+     but:=1 else
+     but:=0;
+
+Panel3.Left:=1;
+Query1.Close;
+Query1.ParamByName('T1').Value:=DBLookupComboBox1.Text;
+Query1.Open;
+Table1.TableName:='Muhfis1.DB';
+Table1.Open;
+Table1.First;
+Z:=0;
+borrr:=0;
+ozelaa:=0;
+
+while not Table1.eof do
+ Table1.Delete;
+Query1.First;
+while not Query1.eof do
+ begin
+   Kaz11;
+  Query1.Next;
+End;
+ z:=z+1;
+Query3.Close;
+Query3.Open;
+If Query3Borc.Value>0 Then
+Begin
+   Table1.Insert;
+   Table1Sira.Value:=z;
+   Table1Hes_Kod.Value:=Query3Hes_Kod.Value;
+   Table1E1.Value:=Query3E1.Value;
+   Table1E2.Value:=Query3E2.Value;
+   Table1E3.Value:=Query3E3.Value;
+   Table1E4.Value:=Query3E4.Value;
+   Table1Alacak.Value:=Query3Borc.Value;
+   Table1Tanim.Value:=Query3Tanim.Value;
+   Table1.Post;
+       //   Kaz18
+   DMEMUR.TGelirKod.SetKey;
+   DMEMUR.TGelirKod.Fields[0].Value:=DMEMUR.TKATSAY2Kaz18.Value;
+   DMEMUR.TGelirKod.GotoKey;
+   z:=z+1;
+  Table1.Insert;
+  Table1Sira.Value:=z;
+  Table1Hes_Kod.Value:=DMEMUR.TGelirKodHes.AsString;
+  Table1E1.Value:=DMEMUR.TGelirKodE1.AsString;
+  Table1E2.Value:=DMEMUR.TGelirKodE2.AsString;
+  Table1E3.Value:=DMEMUR.TGelirKodE3.AsString;
+  Table1E4.Value:=DMEMUR.TGelirKodE4.AsString;
+  Table1Tanim.Value:=DMEMUR.TGelirKodAciklama.AsString;
+  Table1Borc.Value:=Query3Borc.Value;
+  Table1Islem_Turu.Value:=50;
+
+  Table1.Post;
+Query3.Close;
+End;
+Table1.First;
+while not Table1.eof do
+begin
+   If (Table1Hes_Kod.Value<>'830') and (Table1Borc.Value>0)  Then
+   ozelaa:=ozelaa+Table1Borc.Value;
+ Table1.Next;
+end;
+
+Query1.Close;
+Query2.Close;
+Table1.Close;
+Query2.ParamByName('T1').Value:=DBLookupComboBox1.Text;
+Query2.Open;
+Table1.TableName:='Muhfis2.DB';
+Table1.Open;
+Table1.First;
+Z:=0;
+while not Table1.eof do
+ Table1.Delete;
+Query2.First;
+while not Query2.eof do
+ begin
+   Kes;
+  Query2.Next;
+End;
+//Query2.Close;
+Table1.Close;
+Yaz1;
+Borc:=0;
+Alacak:=0;
+DMEMUR.TM1.Edit;
+DMEMUR.TM1Borc.Value:=0;
+DMEMUR.TM2.First;
+while not DMEMUR.TM2.eof do
+begin
+  If DMEMUR.TM2Hes_Kod.Value='830' Then
+   DMEMUR.TM1Borc.Value:=DMEMUR.TM1Borc.Value+DMEMUR.TM2Borc.Value;
+
+  If DMEMUR.TM2Hes_Kod.Value='103' then
+   DMEMUR.TM1Ode.Value:=DMEMUR.TM2Alacak.Value;
+   Borc:=Borc+DMEMUR.TM2Borc.Value;
+   Alacak:=Alacak+DMEMUR.TM2Alacak.Value;
+
+ DMEMUR.TM2.Next;
+end;
+ DMEMUR.TM1Kes.Value:=DMEMUR.TM1Borc.Value+-DMEMUR.TM1Ode.Value;
+ DMEMUR.TM1.Post;
+
+qtah:=DMEMUR.TM1Borc.Value;
+qode:=DMEMUR.TM1Ode.Value;
+entekre.Visible:=True;
+YaziBt.Visible:=True;
+Panel3.Visible:=True;
+end;
+
+procedure TFNakit.FormCreate(Sender: TObject);
+begin
+DMEMUR.TGelirKod.Open;
+DMEMUR.TKATSAY1.Open;
+DMEMUR.TKATSAY2.Open;
+DMEMUR.TM1.Open;
+DMEMUR.TM2.Open;
+DMEMUR.TM1.Edit;
+
+DMEMUR.TM1Icerik.AsString:=DMEMUR.TDONEMYil.AsString+'/'+
+DMEMUR.TDONEMAy.AsString+'/'+DMEMUR.TDONEMDonem.AsString;
+
+
+end;
+
+procedure TFNakit.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+
+DMEMUR.TGelirKod.Close;
+DMEMUR.TKATSAY1.Close;
+DMEMUR.TKATSAY2.Close;
+DMEMUR.TM1.Close;
+DMEMUR.TM2.Close;
+
+end;
+
+procedure TFNakit.VazgecClick(Sender: TObject);
+begin
+if(DMEMUR.TM1.State=DsEdit)or(DMEMUR.TM1.State=Dsinsert) Then
+ DMEMUR.TM1.Post;
+
+end;
+
+procedure TFNakit.YaziBtClick(Sender: TObject);
+begin
+QRTahtpl.Caption:=FormatFloat('###,##0.00  ',borrr);
+QRtah.Caption:=FormatFloat('###,##0.00   ',DMEMUR.TM1Borc.Value);
+QROde.Caption:=FormatFloat('###,##0.00   ',DMEMUR.TM1Ode.Value);
+QRKes.Caption:=FormatFloat('###,##0.00   ',((DMEMUR.TM1Borc.Value+ozelaa)-DMEMUR.TM1Ode.Value));
+QROzel.Caption:=FormatFloat('###,##0.00   ',0);
+QRMemo1.Lines.Add(DMEMUR.TM1Icerik.AsString);
+QuickRep1.Preview;
+Panel3.Visible:=False;
+
+end;
+
+procedure TFNakit.ChildBand1BeforePrint(Sender: TQRCustomBand;
+  var PrintBand: Boolean);
+var para:Currency;
+begin
+
+
+para:=qtah;
+QRTahpara.Caption:='Yalnýz: '+yazdir(currtostr(para))+'  Lira tamamen ve nakten aldým';
+para:=qode;
+QROdepara.Caption:='Yalnýz: '+yazdir(currtostr(para))+'  Lira tamamen ve nakten aldým';
+
+end;
+
+procedure TFNakit.QRBand1BeforePrint(Sender: TQRCustomBand;
+  var PrintBand: Boolean);
+begin
+QRLabel23.Caption:=FormatFloat('###,##0.00  ',Borc);
+QRLabel29.Caption:=FormatFloat('###,##0.00  ',Alacak);
+QROzel.Caption:=FormatFloat('###,##0.00   ',ozelaa);
+
+end;
+
+procedure TFNakit.EntekreClick(Sender: TObject);
+begin
+i:=0;
+Table3.Open;
+Table4.Open;
+Table4.SetKey;
+Table4Donem.Value:=DMEMUR.TDONEMYil.Value+'/'+DMEMUR.TDONEMAy.Value+'/'+DMEMUR.TDONEMDonem.Value;
+Table4Daire.Value:=DMEMUR.TDAIRDaireAdi.Value;
+Table4Tur.Value:='M';
+If Not Table4.GotoKey then
+begin
+ Table4.Insert;
+ Table4Donem.Value:=DMEMUR.TDONEMYil.Value+'/'+DMEMUR.TDONEMAy.Value+'/'+DMEMUR.TDONEMDonem.Value;
+ Table4Daire.Value:=DMEMUR.TDAIRDaireAdi.Value;
+ Table4K4.Value:=DMEMUR.TDAIRK4.Value;
+ Table4Tur.Value:='M';
+ Table4.Post;
+end else
+ Table4.GotoKey;
+If Table4Onay.AsString='E' then
+ ShowMessage('Bu Maaþ Muhasebeleþtirilmiþ')
+else
+begin
+ while not Table3.eof do
+  Table3.Delete;
+ Table1.Open;
+ Table1.First;
+while not Table1.eof do
+begin
+ i:=i+1;
+ Table3.Insert;
+ Table3Donem.Value:=DMEMUR.TDONEMYil.Value+'/'+DMEMUR.TDONEMAy.Value+'/'+DMEMUR.TDONEMDonem.Value;
+ Table3Daire.Value:=DMEMUR.TDAIRDaireAdi.Value;
+ Table3Sira.Value:=i;
+ If Table1Hes_Kod.Value='830' then
+ begin
+  Table3K4 .Value:=DMEMUR.TDAIR.FieldByName('K4').AsString;
+  Table3F1.Value:=DMEMUR.TDAIR.FieldByName('F1').AsString;
+  Table3F2.Value:=DMEMUR.TDAIR.FieldByName('F2').AsString;
+  Table3F3.Value:=DMEMUR.TDAIR.FieldByName('F3').AsString;
+  Table3F4.Value:=DMEMUR.TDAIR.FieldByName('F4').AsString;
+ end;
+ Table3Hes_Kod.Value:=Table1Hes_Kod.Value;
+ Table3E1.Value:=Table1E1.Value;
+ Table3E2.Value:=Table1E2.Value;
+ Table3E3.Value:=Table1E3.Value;
+ Table3E4.Value:=Table1E4.Value;
+ Table3Borc.Value:=Table1Borc.Value;
+ Table3Alacak.Value:=Table1Alacak.Value;
+ Table3Tanim.Value:=Table1Tanim.Value;
+ Table3Islem_Turu.Value:=Table1Islem_Turu.Value;
+
+ Table3.Post;
+ Table1.Next;
+end;
+Table1.Close;
+Table2.Open;
+Table2.First;
+while not Table2.eof do
+begin
+ i:=i+1;
+ Table3.Insert;
+ Table3Donem.Value:=DMEMUR.TDONEMYil.Value+'/'+DMEMUR.TDONEMAy.Value+'/'+DMEMUR.TDONEMDonem.Value;
+ Table3Daire.Value:=DMEMUR.TDAIRDaireAdi.Value;
+ Table3Sira.Value:=i;
+ Table3Hes_Kod.Value:=Table2Hes_Kod.Value;
+ Table3E1.Value:=Table2E1.Value;
+ Table3E2.Value:=Table2E2.Value;
+ Table3E3.Value:=Table2E3.Value;
+ Table3E4.Value:=Table2E4.Value;
+ Table3Borc.Value:=Table2Borc.Value;
+ Table3Alacak.Value:=Table2Alacak.Value;
+ Table3Tanim.Value:=Table2Tanim.Value;
+ Table3Kisi.Value:=Table2Kisi.Value;
+ Table3Islem_Turu.Value:=Table2Islem_Turu.Value;
+ Table3.Post;
+ Table2.Next;
+end;
+end;
+Table2.Close;
+Table4.Close;
+Table3.First;
+while not Table3.eof do
+begin
+     Table3.Edit;
+    If Table3Borc.Value=0 then
+       Table3Borc.AsString:='';
+    If Table3Alacak.Value=0 then
+       Table3Alacak.AsString:='';
+    Table3.Next;
+end;
+Table3.Close;
+ ShowMessage('Ýþlem Tamamlanmýþtýr');
+
+end;
+
+end.

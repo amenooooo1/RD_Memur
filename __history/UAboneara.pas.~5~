@@ -1,0 +1,125 @@
+unit UAboneara;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Buttons, Grids, DBGrids, DBCtrls, ExtCtrls;
+
+type
+  TFAboneara = class(TForm)
+    Panel2: TPanel;
+    ScrollBox: TScrollBox;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    Edit7: TEdit;
+    Edit8: TEdit;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    DBGrid1: TDBGrid;
+    Label2: TLabel;
+    Label1: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Edit13: TEdit;
+    Vazgec: TBitBtn;
+    BitBtn1: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure Edit2Change(Sender: TObject);
+    procedure Edit3Change(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit13Change(Sender: TObject);
+    procedure VazgecClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FAboneara: TFAboneara;
+
+implementation
+
+uses UMEMUR;
+
+{$R *.DFM}
+
+procedure TFAboneara.BitBtn1Click(Sender: TObject);
+begin
+   ModalResult:=mrOk;
+end;
+
+procedure TFAboneara.DBGrid1DblClick(Sender: TObject);
+begin
+  BitBtn1Click(Sender);
+end;
+
+procedure TFAboneara.Edit2Change(Sender: TObject);
+begin
+  DMEMUR.TSICIL.IndexFieldNames:='Yil;Ay;Donem;Soyadi';
+//  DMEMUR.TSICIL.SetKey;
+  DMEMUR.TSICIL.FieldByName('yil' ).Value :=DMEMUR.TDONEMYil.Value;
+  DMEMUR.TSICIL.FieldByName('ay' ).Value :=DMEMUR.TDONEMAy.Value;
+  DMEMUR.TSICIL.FieldByName('donem' ).Value :=DMEMUR.TDONEMDonem.Value;
+  DMEMUR.TSICIL.FieldByName( 'Soyadi' ).AsString := Edit2.Text;
+//  DMEMUR.TSICIL.GotoNearest;
+End;
+
+procedure TFAboneara.Edit3Change(Sender: TObject);
+begin
+  DMEMUR.TSICIL.IndexFieldNames:='Yil;Ay;Donem;adi';
+//  DMEMUR.TSICIL.SetKey;
+  DMEMUR.TSICIL.FieldByName('yil' ).Value :=DMEMUR.TDONEMYil.Value;
+  DMEMUR.TSICIL.FieldByName('ay' ).Value :=DMEMUR.TDONEMAy.Value;
+  DMEMUR.TSICIL.FieldByName('donem' ).Value :=DMEMUR.TDONEMDonem.Value;
+  DMEMUR.TSICIL.FieldByName( 'Adi' ).AsString := Edit3.Text;
+//  DMEMUR.TSICIL.GotoNearest;
+End;
+
+procedure TFAboneara.Edit1Change(Sender: TObject);
+begin
+  DMEMUR.TSICIL.IndexFieldNames:='Yil;Ay;Donem;Sicno';
+//  DMEMUR.TSICIL.SetKey;
+  DMEMUR.TSICIL.FieldByName('yil' ).Value :=DMEMUR.TDONEMYil.Value;
+  DMEMUR.TSICIL.FieldByName('ay' ).Value :=DMEMUR.TDONEMAy.Value;
+  DMEMUR.TSICIL.FieldByName('donem' ).Value :=DMEMUR.TDONEMDonem.Value;
+  DMEMUR.TSICIL.FieldByName('Sicno' ).AsString := Edit1.Text;
+//  DMEMUR.TSICIL.GotoKey;
+End;
+
+procedure TFAboneara.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+end;
+
+procedure TFAboneara.Edit13Change(Sender: TObject);
+begin
+  DMEMUR.TSICIL.IndexFieldNames:='Yil;Ay;Donem;dair';
+//  DMEMUR.TSICIL.SetKey;
+  DMEMUR.TSICIL.FieldByName('yil' ).Value :=DMEMUR.TDONEMYil.Value;
+  DMEMUR.TSICIL.FieldByName('ay' ).Value :=DMEMUR.TDONEMAy.Value;
+  DMEMUR.TSICIL.FieldByName('donem' ).Value :=DMEMUR.TDONEMDonem.Value;
+  DMEMUR.TSICIL.FieldByName( 'Dair' ).AsString := Edit13.Text;
+ // DMEMUR.TSICIL.GotoNearest;
+end;
+
+
+procedure TFAboneara.VazgecClick(Sender: TObject);
+begin
+Close;
+end;
+
+procedure TFAboneara.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+If key=Vk_F2 then BitBtn1Click(Sender);
+end;
+
+end.

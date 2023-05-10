@@ -1,0 +1,635 @@
+unit UANAMENU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  ExtCtrls, StdCtrls, DBCtrls, Buttons, Mask, DB, DBTables, Uni, DBAccess, MemDS, Menus, ComCtrls,
+  AppEvnts, jpeg, IdBaseComponent, IdComponent, IdTCPConnection,
+  IdTCPClient,ShellApi, IdHTTP, dxGDIPlusClasses, RzStatus, RzLabel,
+  frxExportRTF, frxExportPDF, frxClass, frxExportXLS, frxExportText, QRPDFFilt,
+  QRExport, frxExportBIFF;
+
+type
+  TFANAMENU = class(TForm)
+    MainMenu1: TMainMenu;
+    Parametereler1: TMenuItem;
+    SicilGirii1: TMenuItem;
+    AylkHesaplamalar1: TMenuItem;
+    Raporlar1: TMenuItem;
+    k1: TMenuItem;
+    DnemOluturma1: TMenuItem;
+    KatsayOranlar1: TMenuItem;
+    KazanAdlar1: TMenuItem;
+    KesintiAdlar1: TMenuItem;
+    Gstergeler1: TMenuItem;
+    DnemTama1: TMenuItem;
+    Veriler1: TMenuItem;
+    GelirBilgileri1: TMenuItem;
+    EmekliBilgileri1: TMenuItem;
+    DaireAdlar1: TMenuItem;
+    SistemParametreleri1: TMenuItem;
+    demeEmri1: TMenuItem;
+    BordroDkmu1: TMenuItem;
+    NetdemeListesi1: TMenuItem;
+    DigerRaporlar1: TMenuItem;
+    AylkEmekliListesi1: TMenuItem;
+    KefaletAylkListesi1: TMenuItem;
+    HastaMuayenestei1: TMenuItem;
+    SicilListesi1: TMenuItem;
+    AsgariGeimndBordrosu1: TMenuItem;
+    Kaza1: TMenuItem;
+    KesintilerDkm1: TMenuItem;
+    NetlerDkm1: TMenuItem;
+    craListesi1: TMenuItem;
+    AskerlikKesintiListesi1: TMenuItem;
+    SendikaKesintiListesi1: TMenuItem;
+    laKesintiListesi1: TMenuItem;
+    E1: TMenuItem;
+    ApplicationEvents1: TApplicationEvents;
+    Timer1: TTimer;
+    AylkEmekliListesi5510Sonra1: TMenuItem;
+    SicilTaima1: TMenuItem;
+    Panel1: TPanel;
+    RzURLLabel1: TRzURLLabel;
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    DBText2: TDBText;
+    DBText3: TDBText;
+    Label3: TLabel;
+    Label4: TLabel;
+    DBText4: TDBText;
+    Label5: TLabel;
+    DBText5: TDBText;
+    DBText6: TDBText;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label15: TLabel;
+    DBText7: TDBText;
+    Label14: TLabel;
+    RzVersionInfoStatus1: TRzVersionInfoStatus;
+    Image1: TImage;
+    Panel2: TPanel;
+    StatusBar1: TStatusBar;
+    RzVersionInfo1: TRzVersionInfo;
+    frxPDFExport1: TfrxPDFExport;
+    frxRTFExport1: TfrxRTFExport;
+    frxSimpleTextExport1: TfrxSimpleTextExport;
+    QRExcelFilter1: TQRExcelFilter;
+    QRRTFFilter1: TQRRTFFilter;
+    QRPDFFilter1: TQRPDFFilter;
+    YlKazanListesi1: TMenuItem;
+    YlKesintiListesi1: TMenuItem;
+    frxBIFFExport1: TfrxBIFFExport;
+    procedure BitBtn5Click(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure FormCreate(Sender: TObject);
+    procedure k1Click(Sender: TObject);
+    procedure SicilGirii1Click(Sender: TObject);
+    procedure DnemOluturma1Click(Sender: TObject);
+    procedure KatsayOranlar1Click(Sender: TObject);
+    procedure KazanAdlar1Click(Sender: TObject);
+    procedure KesintiAdlar1Click(Sender: TObject);
+    procedure Gstergeler1Click(Sender: TObject);
+    procedure DnemTama1Click(Sender: TObject);
+    procedure AylkHesaplamalar1Click(Sender: TObject);
+    procedure demeEmri1Click(Sender: TObject);
+    procedure BordroDkmu1Click(Sender: TObject);
+    procedure NetdemeListesi1Click(Sender: TObject);
+    procedure AylkEmekliListesi1Click(Sender: TObject);
+    procedure KefaletAylkListesi1Click(Sender: TObject);
+    procedure HastaMuayenestei1Click(Sender: TObject);
+    procedure SicilListesi1Click(Sender: TObject);
+    procedure YllkEmekllikListesi1Click(Sender: TObject);
+    procedure GelirBilgileri1Click(Sender: TObject);
+    procedure EmekliBilgileri1Click(Sender: TObject);
+    procedure SistemParametreleri1Click(Sender: TObject);
+    procedure DaireAdlar1Click(Sender: TObject);
+    procedure AsgariGeimndBordrosu1Click(Sender: TObject);
+    procedure Kaza1Click(Sender: TObject);
+    procedure KesintilerDkm1Click(Sender: TObject);
+    procedure NetlerDkm1Click(Sender: TObject);
+    procedure craListesi1Click(Sender: TObject);
+    procedure AskerlikKesintiListesi1Click(Sender: TObject);
+    procedure SendikaKesintiListesi1Click(Sender: TObject);
+    procedure laKesintiListesi1Click(Sender: TObject);
+    procedure E1Click(Sender: TObject);
+    procedure ApplicationEvents1Message(var Msg: tagMSG;
+      var Handled: Boolean);
+    procedure AylkEmekliListesi5510Sonra1Click(Sender: TObject);
+    procedure SicilTaima1Click(Sender: TObject);
+    procedure StatusBarHint(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure YlKazanListesi1Click(Sender: TObject);
+    procedure YlKesintiListesi1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FANAMENU: TFANAMENU;
+  SerialNumber : string;
+ Func_Start:function(ya:integer):integer;
+  SerDll       : THandle;
+  FuncPtr    : TFarProc;
+  SerasHesap:Procedure(ya:integer);
+  a:TextFile;
+
+ _EX:boolean;
+
+implementation
+
+uses USicil, UDon,  USIFREAL, Udonem,
+  Ukatsayilar, Ukazanclar, Ukesintiler, UGostergeler, UDonemtas, UHesapi,
+  UNakit, UBordro, UDonNet, UAyEmek, UKefuc, UHasta, USicilLis, URYilEm,
+  UGelir, USsk, USistem, Udair, URKdv, UKazanlar, UKesitlar, UNetler,
+  URIcra, UAsker, URSendika, UIlac, UAyem2,
+  UAyEmek5510sonra, USicilTasima, UData, UAcilis, UYilKazanlar, UYilKesintiler,
+  USicilAra;
+
+{$R *.DFM}
+
+procedure TFANAMENU.BitBtn5Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFANAMENU.FormActivate(Sender: TObject);
+begin
+  Label9.Caption:=FData.UniMemur.ProviderName;
+  Label10.Caption:=FData.UniMemur.Server;
+  Label12.Caption:=FData.UniMemur.ServerVersionFull;
+  Label13.Caption:=FData.UniMemur.Database;
+end;
+
+procedure TFANAMENU.StatusBarHint(Sender: TOBject);
+begin
+  StatusBar1.Panels[1].Text:= GetLongHint(Application.Hint);
+end;
+
+procedure TFANAMENU.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+ if MessageBox( handle, 'Programdan çýkmak istediðinize emin misiniz?', 'UYARI' , MB_YESNO +
+ MB_ICONWARNING )<>mrYes then canclose:=false;
+end;
+
+procedure TFANAMENU.FormCreate(Sender: TObject);
+begin
+  with TFAcilis.Create( Self ) do
+  try
+    ShowModal;
+  finally
+    free;
+  end;
+  FData.DataAc;
+  Panel1.Align := alClient;
+  Application.OnHint := StatusBarHint;
+  StatusBar1.Panels[2].Text:=FormatDateTime('DDDDDD',Now);
+end;
+
+procedure TFANAMENU.k1Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFANAMENU.SicilGirii1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+   try
+     ShowModal;
+   finally
+      free;
+   end;
+	_EX := false;
+  with TFSicilAra.Create( Application ) do begin
+   	try
+      if ShowModal=mrCancel then _EX:=true;
+    finally
+   		free;
+		end;
+ 	end;
+	if _EX then exit;
+  with TFSicil.Create( Application ) do begin
+   	try
+      ShowModal;
+    finally
+     		free;
+		end;
+ 	end;
+end;
+
+procedure TFANAMENU.DnemOluturma1Click(Sender: TObject);
+begin
+  with TFdonem.Create( Self ) do
+  try
+    ShowModal;
+  finally
+    free;
+  end;
+end;
+
+procedure TFANAMENU.KatsayOranlar1Click(Sender: TObject);
+begin
+  with TFkatsayilar.Create( Self ) do
+  try
+    ShowModal;
+  finally
+    free;
+  end;
+end;
+
+procedure TFANAMENU.KazanAdlar1Click(Sender: TObject);
+begin
+ with TFkazanclar.Create( Self ) do
+   	try ShowModal;
+      finally
+  		free;
+ 	end;
+end;
+
+procedure TFANAMENU.KesintiAdlar1Click(Sender: TObject);
+begin
+  with TFkesintiler.Create( Self ) do
+  try
+    ShowModal;
+  finally
+    free;
+  end;
+end;
+
+procedure TFANAMENU.Gstergeler1Click(Sender: TObject);
+begin
+  with TFGostergeler.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.DnemTama1Click(Sender: TObject);
+begin
+  with TFDonemtas.Create( Self ) do
+  try
+    ShowModal;
+  finally
+    free;
+  end;
+end;
+
+procedure TFANAMENU.AylkHesaplamalar1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+   	try
+      ShowModal;
+    finally
+      free;
+    end;
+	_EX := false;
+  with TFSicilAra.Create( Application ) do begin
+   	try
+      if ShowModal=mrCancel then _EX:=true;
+    finally
+   		free;
+		end;
+ 	end;
+	if _EX then exit;
+  with TFHesap.Create( Application ) do begin
+   	try  ShowModal;
+    finally   free;
+    End;
+ 	end;
+end;
+
+procedure TFANAMENU.demeEmri1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+  with TFNakit.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.BordroDkmu1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+  with TFBordro.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.NetdemeListesi1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+   	try  ShowModal;
+        finally
+        free;
+   end;
+  with TFDonNet.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+end;
+
+procedure TFANAMENU.AylkEmekliListesi1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+  with TFAyEmek.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+end;
+
+procedure TFANAMENU.AylkEmekliListesi5510Sonra1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+  with TFAyEmek5510sonra.Create( Self ) do
+   	try  ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.KefaletAylkListesi1Click(Sender: TObject);
+begin
+  with TFKefuc.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.HastaMuayenestei1Click(Sender: TObject);
+begin
+	_EX := false;
+  with TFSicilAra.Create( Application ) do begin
+   	try
+      if ShowModal=mrCancel then _EX:=true;
+    finally
+   		free;
+		end;
+ 	end;
+	if _EX then exit;
+  with TFHasta.Create( Application ) do begin
+   	try
+      ShowModal;
+    finally
+      free;
+      End;
+ 	end;
+
+end;
+
+procedure TFANAMENU.SicilListesi1Click(Sender: TObject);
+begin
+  with TFSicillis.Create( Self ) do
+   	try  ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.SicilTaima1Click(Sender: TObject);
+begin
+  with TFSicilTasima.Create( Self ) do
+  try
+    ShowModal;
+  finally
+    free;
+  end;
+end;
+
+procedure TFANAMENU.YlKazanListesi1Click(Sender: TObject);
+begin
+    with TFYilKazanlar.Create( Self ) do
+   	try   ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.YlKesintiListesi1Click(Sender: TObject);
+begin
+   with TFYilKesintiler.Create( Self ) do
+   	try   ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.YllkEmekllikListesi1Click(Sender: TObject);
+begin
+  with TFRYilEm.Create( Self ) do
+   	try   ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.GelirBilgileri1Click(Sender: TObject);
+begin
+  with TFGelir.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.EmekliBilgileri1Click(Sender: TObject);
+begin
+  with TFSsk.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.SistemParametreleri1Click(Sender: TObject);
+begin
+  with TFSistem.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.DaireAdlar1Click(Sender: TObject);
+begin
+  with TFDaire.Create( Self ) do
+  try
+    ShowModal;
+  finally
+    free;
+  end;
+end;
+
+procedure TFANAMENU.AsgariGeimndBordrosu1Click(Sender: TObject);
+begin
+  with TFRKdv.Create( Application ) do
+       try
+         Button1Click(Sender);
+         Button2Click(Sender);
+       finally free;end;
+end;
+
+procedure TFANAMENU.Kaza1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+
+  with TFKazanlar.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.KesintilerDkm1Click(Sender: TObject);
+begin
+  with TFDon.Create( Self ) do
+  try
+    ShowModal;
+  finally
+    free;
+  end;
+  with TFKesitlar.Create( Self ) do
+  try
+    ShowModal;
+  finally
+    free;
+  end;
+end;
+
+procedure TFANAMENU.NetlerDkm1Click(Sender: TObject);
+begin
+  with TFNetler.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+end;
+
+procedure TFANAMENU.craListesi1Click(Sender: TObject);
+begin
+  with TFRIcra.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+end;
+
+procedure TFANAMENU.AskerlikKesintiListesi1Click(Sender: TObject);
+begin
+  with TFAsker.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+end;
+
+procedure TFANAMENU.SendikaKesintiListesi1Click(Sender: TObject);
+begin
+  with TFSendika.Create( Self ) do
+   	try
+          ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.laKesintiListesi1Click(Sender: TObject);
+begin
+  with TFIlac.Create( Self ) do
+   	try  ShowModal;
+        finally
+        free;
+   end;
+end;
+
+procedure TFANAMENU.E1Click(Sender: TObject);
+begin
+  with TFAyem2.Create( Self ) do
+   	try ShowModal;
+        finally
+        free;
+   end;
+
+end;
+
+procedure TFANAMENU.ApplicationEvents1Message(var Msg: tagMSG;
+  var Handled: Boolean);
+var
+   i: SmallInt; //Mouse un wheel özelliðini kullanma(formdaki tüm gridler için geçerli)
+begin
+   if Msg.message = WM_MOUSEWHEEL then
+   begin
+     Msg.message := WM_KEYDOWN;
+     Msg.lParam := 0;
+     i := HiWord(Msg.wParam) ;
+     if i > 0 then
+       Msg.wParam := VK_UP
+     else
+       Msg.wParam := VK_DOWN;
+       Handled := False;
+    end;
+end;
+
+end.

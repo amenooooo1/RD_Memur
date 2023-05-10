@@ -1,0 +1,71 @@
+unit USicBuy;
+
+interface
+
+uses
+  SysUtils, Windows, Messages, Classes, Graphics, Controls,
+  StdCtrls, ExtCtrls, Forms, Quickrpt, QRCtrls, Db, DBTables, Uni, DBAccess, MemDS, Uni, DBAccess, MemDS, QRExport,
+  QRPDFFilt;
+
+type
+  TFSicBuy = class(TForm)
+    QuickRep1 : TQuickRep;
+    TitleBand1 : TQRBand;
+    QRLabel1 : TQRLabel;
+    PageFooterBand1 : TQRBand;
+    ColumnHeaderBand1 : TQRBand;
+    DetailBand1 : TQRBand;
+    QRLabel2 : TQRLabel;
+    QRLabel3 : TQRLabel;
+    QRExpr2 : TQRExpr;
+    QRLabel4 : TQRLabel;
+    QRExpr3 : TQRExpr;
+    QRLabel5 : TQRLabel;
+    QRExpr4 : TQRExpr;
+    QRLabel6 : TQRLabel;
+    QRExpr5 : TQRExpr;
+    QRLabel7: TQRLabel;
+    QRExpr6: TQRExpr;
+    QRLabel8: TQRLabel;
+    QRExpr7: TQRExpr;
+    QRLabel9: TQRLabel;
+    QRExpr8: TQRExpr;
+    QRLabel10: TQRLabel;
+    QRExpr9: TQRExpr;
+    QRLabel11: TQRLabel;
+    QRExpr10: TQRExpr;
+    QRLabel12: TQRLabel;
+    QRLabel13: TQRLabel;
+    QRExpr11: TQRExpr;
+    QRExpr12: TQRExpr;
+    QRLabel14: TQRLabel;
+    QRExpr13: TQRExpr;
+    QRLabel15: TQRLabel;
+    QRLabel17: TQRLabel;
+    QRSysData1: TQRSysData;
+    QRExpr14: TQRExpr;
+    QRExpr16: TQRExpr;
+    QRLabel18: TQRLabel;
+    QRDBText1: TQRDBText;
+    QRLabel19: TQRLabel;
+    QRSysData2: TQRSysData;
+    QRExpr1: TQRExpr;
+    QRPDFFilter1: TQRPDFFilter;
+    QRTextFilter1: TQRTextFilter;
+    QRRTFFilter1: TQRRTFFilter;
+    QRExcelFilter1: TQRExcelFilter;
+  private
+  end;
+
+var
+  FSicBuy: TFSicBuy;
+  sayi:integer;
+
+implementation
+
+uses UMEMUR;
+
+{$R *.DFM}
+
+
+end.

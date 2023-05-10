@@ -1,0 +1,539 @@
+unit USicil;
+
+interface
+
+uses
+  SysUtils, Windows, Messages, Classes, Graphics, Controls, Forms, DBCtrls, DB,
+  DBTables, Uni, DBAccess, MemDS, Mask, ExtCtrls, Buttons, Dialogs,
+  ComCtrls, Tabnotbk, cxGraphics, cxControls, cxLookAndFeels,
+  cxLookAndFeelPainters, cxContainer, cxEdit, cxTextEdit, cxMaskEdit,
+  cxDropDownEdit, cxCalendar, cxDBEdit, dxSkinsCore, dxSkinBlueprint,
+  dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinHighContrast,
+  dxSkinLilian, dxSkinSevenClassic, dxSkinSharpPlus, dxSkinTheAsphaltWorld,
+  dxSkinVS2010, dxSkinWhiteprint, frxClass, frxDBSet, Vcl.StdCtrls;
+
+type
+  TFSicil = class(TForm)
+    Panel1: TPanel;
+    TabbedNotebook1: TTabbedNotebook;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label18: TLabel;
+    Label15: TLabel;
+    Label21: TLabel;
+    Label24: TLabel;
+    Label41: TLabel;
+    Label19: TLabel;
+    Label31: TLabel;
+    Label32: TLabel;
+    Label33: TLabel;
+    Label16: TLabel;
+    Label38: TLabel;
+    Label39: TLabel;
+    Label14: TLabel;
+    Label13: TLabel;
+    Label43: TLabel;
+    Label44: TLabel;
+    Label45: TLabel;
+    Label46: TLabel;
+    Label47: TLabel;
+    Label48: TLabel;
+    Label49: TLabel;
+    Edit1: TEdit;
+    Label50: TLabel;
+    Label40: TLabel;
+    Label42: TLabel;
+    Label52: TLabel;
+    Label54: TLabel;
+    Label61: TLabel;
+    Label55: TLabel;
+    Label56: TLabel;
+    Label51: TLabel;
+    Label58: TLabel;
+    Label62: TLabel;
+    Label57: TLabel;
+    Label59: TLabel;
+    Label26: TLabel;
+    Label65: TLabel;
+    Label66: TLabel;
+    Label67: TLabel;
+    Label70: TLabel;
+    Label72: TLabel;
+    Label73: TLabel;
+    Label74: TLabel;
+    Label75: TLabel;
+    Label79: TLabel;
+    Label80: TLabel;
+    Label81: TLabel;
+    Label82: TLabel;
+    Label83: TLabel;
+    Label84: TLabel;
+    Label85: TLabel;
+    Label86: TLabel;
+    Label87: TLabel;
+    Label88: TLabel;
+    Label89: TLabel;
+    Label90: TLabel;
+    Label94: TLabel;
+    Label95: TLabel;
+    Label96: TLabel;
+    Label97: TLabel;
+    Label98: TLabel;
+    Label99: TLabel;
+    Label100: TLabel;
+    Label101: TLabel;
+    Label102: TLabel;
+    Label103: TLabel;
+    Label104: TLabel;
+    Label105: TLabel;
+    Label106: TLabel;
+    Label107: TLabel;
+    Label109: TLabel;
+    Label110: TLabel;
+    Label111: TLabel;
+    Label112: TLabel;
+    Label113: TLabel;
+    Label114: TLabel;
+    Label118: TLabel;
+    Label119: TLabel;
+    Label120: TLabel;
+    Label121: TLabel;
+    Label122: TLabel;
+    Label123: TLabel;
+    Label124: TLabel;
+    Label126: TLabel;
+    Label127: TLabel;
+    Label128: TLabel;
+    Label129: TLabel;
+    Label130: TLabel;
+    Label131: TLabel;
+    Label133: TLabel;
+    Label134: TLabel;
+    Label135: TLabel;
+    Label136: TLabel;
+    Label137: TLabel;
+    Label138: TLabel;
+    Label139: TLabel;
+    Label140: TLabel;
+    Label141: TLabel;
+    Label142: TLabel;
+    Label143: TLabel;
+    Label144: TLabel;
+    Label145: TLabel;
+    Label146: TLabel;
+    Label148: TLabel;
+    Label76: TLabel;
+    Label77: TLabel;
+    Label78: TLabel;
+    Label91: TLabel;
+    Label92: TLabel;
+    Label93: TLabel;
+    Label149: TLabel;
+    Label150: TLabel;
+    Label151: TLabel;
+    Label152: TLabel;
+    Label153: TLabel;
+    Label154: TLabel;
+    Label155: TLabel;
+    Label108: TLabel;
+    DBNavigator1: TDBNavigator;
+    BitBtn2: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn11: TBitBtn;
+    Vazgec: TBitBtn;
+    Label29: TLabel;
+    Label60: TLabel;
+    Label117: TLabel;
+    Label125: TLabel;
+    Label132: TLabel;
+    Label156: TLabel;
+    Label157: TLabel;
+    Label158: TLabel;
+    Label159: TLabel;
+    Label28: TLabel;
+    Label116: TLabel;
+    BitBtn1: TBitBtn;
+    Label115: TLabel;
+    Label160: TLabel;
+    Label161: TLabel;
+    EditSak: TDBEdit;
+    DBCheckBox1: TDBCheckBox;
+    DBCheckBox3: TDBCheckBox;
+    DBCheckBox4: TDBCheckBox;
+    DBCheckBox7: TDBCheckBox;
+    DBCheckBox13: TDBCheckBox;
+    DBEdit22: TDBEdit;
+    DBEdit15: TDBEdit;
+    DBEdit8: TDBEdit;
+    DBEdit33: TDBEdit;
+    EditOzelsig: TDBEdit;
+    EditLoj: TDBEdit;
+    DBEdit20: TDBEdit;
+    DBEdit21: TDBEdit;
+    EditCezatop: TDBEdit;
+    EditCezakal: TDBEdit;
+    EditCeza: TDBEdit;
+    DBEdit18: TDBEdit;
+    DBEdit4: TDBEdit;
+    EditIcratop: TDBEdit;
+    DBEdit3: TDBEdit;
+    EditIcra: TDBEdit;
+    DBEdit9: TDBEdit;
+    DBEdit10: TDBEdit;
+    DBEdit16: TDBEdit;
+    DBEdit11: TDBEdit;
+    DBEdit17: TDBEdit;
+    DBEdit35: TDBEdit;
+    DBEdit13: TDBEdit;
+    EditAvans: TDBEdit;
+    EditNafaka: TDBEdit;
+    DBEdit23: TDBEdit;
+    EditBanhes: TDBEdit;
+    DBEdit14: TDBEdit;
+    Label162: TLabel;
+    DBCheckBox8: TDBCheckBox;
+    Label27: TLabel;
+    Label163: TLabel;
+    DBCheckBox6: TDBCheckBox;
+    Label164: TLabel;
+    Label165: TLabel;
+    Label166: TLabel;
+    Label167: TLabel;
+    EditSicno: TDBEdit;
+    EditAdi: TDBEdit;
+    EditSoyadi: TDBEdit;
+    DBLookupComboBox1: TDBLookupComboBox;
+    EditSinif: TDBEdit;
+    EditUnvan: TDBEdit;
+    EditServis: TDBEdit;
+    EditEmNo: TDBEdit;
+    EditTasNo: TDBEdit;
+    DBEdit29: TDBEdit;
+    DBEdit30: TDBEdit;
+    EditDer: TDBEdit;
+    EditKad: TDBEdit;
+    EditEkGos: TDBEdit;
+    EditMder: TDBEdit;
+    EditMkad: TDBEdit;
+    EditMekGos: TDBEdit;
+    EditKid: TDBEdit;
+    DBEdit31: TDBEdit;
+    DBEdit12: TDBEdit;
+    DBEdit39: TDBEdit;
+    DBCheckBox9: TDBCheckBox;
+    DBCheckBox2: TDBCheckBox;
+    DBEdit34: TDBEdit;
+    DBCheckBox5: TDBCheckBox;
+    EditCosay: TDBEdit;
+    DBEdit32: TDBEdit;
+    EditYanPu: TDBEdit;
+    EditIsri: TDBEdit;
+    EditTemg: TDBEdit;
+    EditMals: TDBEdit;
+    EditOzhiz: TDBEdit;
+    DBEdit19: TDBEdit;
+    EditTder: TDBEdit;
+    EditTkad: TDBEdit;
+    EditTekGos: TDBEdit;
+    EditTtar: TDBEdit;
+    DBEdit37: TDBEdit;
+    DBEdit27: TDBEdit;
+    DBEdit25: TDBEdit;
+    DBEdit26: TDBEdit;
+    DBEdit28: TDBEdit;
+    DBEdit38: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit1: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBText1: TDBText;
+    DBText2: TDBText;
+    DBText3: TDBText;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBEdit24: TDBEdit;
+    DBEdit40: TDBEdit;
+    DBText4: TDBText;
+    DBText5: TDBText;
+    DBText6: TDBText;
+    DBText7: TDBText;
+    DBText8: TDBText;
+    DBText9: TDBText;
+    DBText10: TDBText;
+    DBText11: TDBText;
+    DBText12: TDBText;
+    DBText13: TDBText;
+    DBText14: TDBText;
+    DBText15: TDBText;
+    DBLookupComboBox3: TDBLookupComboBox;
+    cxDBDateEdit1: TcxDBDateEdit;
+    cxDBDateEdit2: TcxDBDateEdit;
+    Label17: TLabel;
+    Label20: TLabel;
+    DBEdit36: TDBEdit;
+    Label22: TLabel;
+    Label23: TLabel;
+    cxDBDateEdit3: TcxDBDateEdit;
+    CheckBes: TDBCheckBox;
+    BtnBes: TSpeedButton;
+    QBes: TUniQuery;
+    QDtar: TUniQuery;
+    DBPersonel: TfrxDBDataset;
+    RPersonel: TfrxReport;
+    QDtarDonem: TWideStringField;
+    QDtarSicno: TIntegerField;
+    QDtarPersonel: TWideStringField;
+    QBesKontrol: TUniQuery;
+    QBesKontrolMesaj: TWideStringField;
+    QBesKontrolIslem: TBooleanField;
+    procedure EditSicnoKeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Edit1Exit(Sender: TObject);
+    procedure DBCheckBox12KeyPress(Sender: TObject; var Key: Char);
+    procedure VazgecClick(Sender: TObject);
+    procedure DBEdit3KeyPress(Sender: TObject; var Key: Char);
+    procedure DBEdit14KeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure EditMekGosExit(Sender: TObject);
+    procedure BitBtn11Click(Sender: TObject);
+    procedure DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure BtnBesClick(Sender: TObject);
+    procedure CheckBesClick(Sender: TObject);
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  FSicil: TFSicil;
+
+implementation
+
+uses UData, USicilAra, UEcra, USicil2, UIcraGirisi;
+
+{$R *.DFM}
+
+procedure TFSicil.EditSicnoKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = Chr(VK_Return) Then
+    Perform(Wm_NextDlgCtl, 0, 0);
+end;
+
+procedure TFSicil.FormCreate(Sender: TObject);
+begin
+  Caption := 'Sicil Bilgileri Giriþ  (' + FData.TSICILSicno.AsString + ' ' +
+    FData.TSICILAdi.AsString + ' ' + FData.TSICILSoyadi.AsString + ')' +
+    ' Dönem: ' + FData.TSICILYil.AsString + '\' + FData.TSICILAy.AsString + '\'
+    + FData.TSICILDonem.AsString;
+end;
+
+procedure TFSicil.BitBtn1Click(Sender: TObject);
+begin
+  if MessageBox(handle, 'Dikkat Kesintilerin Tümünü Siliyorsunuz ', 'KAPANIÞ',
+    mb_YesNo + MB_ICONQUESTION) = mrYes then
+    BEGIN FData.TSICIL.IndexFieldNames := 'Sicno';
+  while not FData.TSICIL.eof do
+  begin
+    FData.TSICIL.Edit;
+    FData.TSICILIlac.Value := 0;
+    FData.TSICILYemeky.Value := 0;
+    FData.TSICILKeft.Value := 0;
+    FData.TSICILCeza.Value := 0;
+    FData.TSICILTemizy.Value := 0;
+    FData.TSICIL.Next;
+  END;
+END;
+end;
+
+procedure TFSicil.Edit1Exit(Sender: TObject);
+begin
+  if Not(FData.TSICIL.Locate('Sicno', Edit1.Text, [loPartialKey])) then
+  Begin
+    FData.TSICIL.Insert;
+    FData.TSICIL.FieldByName('Sicno').AsString := Edit1.Text;
+    FData.TSICIL.post;
+  end;
+  FData.TSICIL.Refresh;
+  Edit1.Visible := False;
+  EditSicno.Visible := True;
+end;
+
+procedure TFSicil.DBCheckBox12KeyPress(Sender: TObject; var Key: Char);
+begin
+  TabbedNotebook1.ActivePage := 'Sayfa &2';
+  EditSak.SetFocus;
+end;
+
+procedure TFSicil.VazgecClick(Sender: TObject);
+begin
+  if (FData.TSicil.State = DsEdit) or (FData.TSICIL.State = Dsinsert) then
+  begin
+    if MessageBox(handle, 'Deðiþikleri Kaydedilsinmi', 'KAPANIÞ',
+      mb_YesNo + MB_ICONQUESTION) <> mrYes then
+      FData.TSICIL.Cancel
+    else
+      FData.TSICIL.post;
+  end;
+  Close;
+end;
+
+procedure TFSicil.DBEdit3KeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = Chr(VK_Return) Then
+  begin
+    TabbedNotebook1.ActivePage := 'Sayfa &2';
+    TabbedNotebook1.Enabled := True;
+    EditSak.SetFocus;
+  end;
+end;
+
+procedure TFSicil.DBEdit14KeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = Chr(VK_Return) Then
+  begin
+    TabbedNotebook1.ActivePage := 'Sayfa &1';
+    TabbedNotebook1.Enabled := True;
+    EditSicno.SetFocus;
+  end;
+end;
+
+procedure TFSicil.BitBtn2Click(Sender: TObject);
+begin
+  Screen.Cursor := crHourGlass;
+  with TFSicilAra.Create(Self) do
+    try
+      Screen.Cursor := crDefault;
+      ShowModal;
+    finally
+      free;
+    end;
+  Caption := 'Sicil Bilgileri Giriþ  (' + FData.TSICILSicno.AsString + ' ' +
+    FData.TSICILAdi.AsString + ' ' + FData.TSICILSoyadi.AsString + ')' +
+    ' Dönem: ' + FData.TSICILYil.AsString + '\' + FData.TSICILAy.AsString + '\'
+    + FData.TSICILDonem.AsString;
+end;
+
+procedure TFSicil.EditMekGosExit(Sender: TObject);
+begin
+
+  if (FData.TSicil.State = DsEdit) or (FData.TSICIL.State = Dsinsert) then
+  begin
+    if FData.TSICILOnce5510.Value = False then
+    begin
+      if (FData.TKatoran.Fields[3].Value <= FData.TSICIL.FieldByName('ekGos')
+        .Value) and (FData.TKatoran.Fields[4].Value > FData.TSICIL.FieldByName
+        ('ekGos').Value) then
+        FData.TSICIL.FieldByName('kat').Value := FData.TKatoran.Fields
+          [10].Value;
+      If(FData.TKatoran.Fields[4].Value <= FData.TSICIL.FieldByName('ekGos')
+        .Value) and (FData.TKatoran.Fields[5].Value > FData.TSICIL.FieldByName
+        ('ekGos').Value) then FData.TSICIL.FieldByName('kat').Value :=
+        FData.TKatoran.Fields[11].Value;
+
+      If(FData.TKatoran.Fields[5].Value <= FData.TSICIL.FieldByName('ekGos')
+        .Value) and (FData.TKatoran.Fields[6].Value > FData.TSICIL.FieldByName
+        ('ekGos').Value) then FData.TSICIL.FieldByName('kat').Value :=
+        FData.TKatoran.Fields[12].Value;
+      If(FData.TKatoran.Fields[6].Value <= FData.TSICIL.FieldByName('ekGos')
+        .Value) and (FData.TKatoran.Fields[7].Value > FData.TSICIL.FieldByName
+        ('ekGos').Value) then FData.TSICIL.FieldByName('kat').Value :=
+        FData.TKatoran.Fields[13].Value;
+    end;
+  end;
+end;
+
+procedure TFSicil.BitBtn11Click(Sender: TObject);
+begin
+  with TFEcra.Create(Self) do
+    try
+      ShowModal;
+    finally
+      free;
+    end;
+end;
+
+procedure TFSicil.DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
+begin
+  Caption := 'Sicil Bilgileri Giriþ  (' + FData.TSICILSicno.AsString + ' ' +
+    FData.TSICILAdi.AsString + ' ' + FData.TSICILSoyadi.AsString + ')' +
+    ' Dönem: ' + FData.TSICILYil.AsString + '\' + FData.TSICILAy.AsString + '\'
+    + FData.TSICILDonem.AsString;
+  If Button = nbinsert Then
+  Begin
+    EditSicno.Visible := False;
+    Edit1.Visible := True;
+    FData.TSICIL.SQL.Clear;
+    FData.TSICIL.SQL.Add('Select * from Sicil Order by Sicno');
+    FData.TSICIL.Open;
+    FData.TSICIL.Last;
+    TabbedNotebook1.ActivePage := 'Sayfa &1';
+    TabbedNotebook1.Enabled := True;
+    Edit1.Text := FData.TSICIL.FieldByName('Sicno').Value + 1;
+    Edit1.SetFocus;
+  end;
+end;
+
+procedure TFSicil.BitBtn4Click(Sender: TObject);
+begin
+  Screen.Cursor := crHourGlass;
+  with TFSicil2.Create(Self) do
+    try
+      Screen.Cursor := crDefault;
+      ShowModal;
+    finally
+      free;
+    end;
+end;
+
+procedure TFSicil.BtnBesClick(Sender: TObject);
+begin
+  QDtar.Open;
+  if QDtar.RecordCount > 0 then
+  begin
+    ShowMessage('Listedeki personellerin doðum günü bilgisi bulunmamaktadýr.' +
+      #13 + 'Doðum günü bilgilerini girdikten sonra iþlemi tekrarlayýn');
+    RPersonel.ShowReport;
+    Exit;
+  end;
+  if MessageDlg('45 Yaþ altý personellere B.E.S kesintisi uygulanacak',
+    mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes then
+  begin
+    QBes.Execute;
+    ShowMessage('45 Yaþ altý personellere B.E.S uygulama iþi tamamlandý');
+    FData.TSICIL.Refresh;
+  end;
+  QDtar.Close;
+end;
+
+procedure TFSicil.CheckBesClick(Sender: TObject);
+begin
+  if CheckBes.Checked then
+  begin
+    QBesKontrol.Params[0].AsInteger := FData.TSICILSicno.AsInteger;
+    QBesKontrol.ParamByName('Yil').AsString := FData.TDONEMYil.AsString;
+    QBesKontrol.ParamByName('Ay').AsString := FData.TDONEMAy.AsString;
+    QBesKontrol.ParamByName('Donem').AsString := FData.TDONEMDonem.AsString;
+    QBesKontrol.ParamByName('Bes').AsBoolean := True;
+    QBesKontrol.Open;
+    if QBesKontrolIslem.AsBoolean = False then
+    begin
+      ShowMessage(QBesKontrolMesaj.AsString);
+      CheckBes.Checked := False;
+    end;
+  end;
+end;
+
+end.

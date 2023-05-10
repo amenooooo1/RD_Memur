@@ -1,0 +1,100 @@
+unit ULisan;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, DBCtrls, Db, DBTables, Uni, DBAccess, MemDS, Uni, DBAccess, MemDS, Mask, Buttons, Grids, DBGrids;
+
+type
+  TFLisan = class(TForm)
+    Table2: TUniTable;
+    DataSource1: TDataSource;
+    Label1: TLabel;
+    Label2: TLabel;
+    Table3: TUniTable;
+    DataSource2: TDataSource;
+    Label3: TLabel;
+    Edit1: TEdit;
+    BitBtn2: TBitBtn;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Edit2: TEdit;
+    Label7: TLabel;
+    procedure FormCreate(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+ FLisan: TFLisan;
+ yi:Integer;
+ SerialNumber,SerialNumber1,SerialNumber2 : string;
+ kay1,tar,ka:TextFile;
+ abo:String;
+
+implementation
+
+uses DateUtils;
+
+
+{$R *.DFM}
+
+procedure TFLisan.FormCreate(Sender: TObject);
+var
+VolumeSerialNumber : DWORD;
+MaximumComponentLength : DWORD;
+FileSystemFlags : DWORD;
+begin
+  yi:=1000+StrToInt(FormatDateTime('yyyy',((Date))))+StrToInt(FormatDateTime('mm',((Date))))+
+  StrToInt(FormatDateTime('d',now))+ StrToInt(Copy(TimeToStr(Time),1,2))+StrToInt(Copy(TimeToStr(Time),4,2))+
+  StrToInt(Copy(TimeToStr(Time),7,2));
+
+  Label7.Caption:=IntToHex((yi),4);
+  GetVolumeInformation('C:\', nil, 0, @VolumeSerialNumber, MaximumComponentLength, FileSystemFlags, nil, 0);
+  SerialNumber := IntToHex(HiWord(VolumeSerialNumber-(yi)), 4)+'-'+IntToHex((yi),4)
+  +'-'+ IntToHex((LoWord(VolumeSerialNumber)-(yi)), 4);
+  Label1.Caption:=SerialNumber;
+  SerialNumber1:=IntToHex((yi),4);
+
+  SerialNumber1:= IntToHex((HiWord(VolumeSerialNumber)-yi), 4)+'-'+IntToHex((yi),4)
+  +'-'+ IntToHex((LoWord(VolumeSerialNumber)+yi), 4);
+  SerialNumber2 := IntToHex((HiWord(VolumeSerialNumber)+(yi)), 4)+'-'+IntToHex((yi),4)
+  +'-'+ IntToHex(((LoWord(VolumeSerialNumber))-(yi)), 4);
+  Label3.Caption:= IntToHex((HiWord(VolumeSerialNumber)-yi), 4)+'-'+IntToHex((yi),4)
+  +'-'+ IntToHex((LoWord(VolumeSerialNumber)+yi), 4);
+ Edit2.Text:= IntToHex((HiWord(VolumeSerialNumber)-yi), 4)+'-'+IntToHex((yi),4)
+  +'-'+ IntToHex((LoWord(VolumeSerialNumber)+yi), 4);
+
+
+end;
+
+procedure TFLisan.BitBtn1Click(Sender: TObject);
+begin
+Table2.Edit;
+Table2.Post;
+end;
+
+
+
+
+procedure TFLisan.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+if Key=Chr(VK_Return) Then Perform(Wm_NextDlgCtl,0 ,0);
+end;
+
+procedure TFLisan.BitBtn2Click(Sender: TObject);
+begin
+If Edit1.Text=SerialNumber1 then
+  Close
+ else   Application.Terminate ;
+
+end;
+
+end.

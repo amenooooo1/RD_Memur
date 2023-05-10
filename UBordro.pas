@@ -1,0 +1,569 @@
+unit UBordro;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Qrctrls, quickrpt, ExtCtrls, Db, DBTables, Uni, DBAccess, MemDS,
+  Buttons, DBCtrls, StdCtrls, Grids, DBGrids, frxClass, frxDBSet, cxGraphics,
+  cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxContainer, cxEdit,
+  dxSkinsCore, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLookupEdit,
+  cxDBLookupEdit, cxDBLookupComboBox, dxSkinBlueprint,
+  dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinHighContrast,
+  dxSkinLilian, dxSkinSevenClassic, dxSkinSharpPlus, dxSkinTheAsphaltWorld,
+  dxSkinVS2010, dxSkinWhiteprint;
+
+type
+  TFBordro = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label4: TLabel;
+    Label6: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
+    DBGrid1: TDBGrid;
+    DBLookupComboBox2: TDBLookupComboBox;
+    Edit5: TEdit;
+    RadioGroup1: TRadioGroup;
+    DataSource1: TDataSource;
+    Query1: TUniQuery;
+    Query2: TUniQuery;
+    HazirBt: TBitBtn;
+    YaziBt: TBitBtn;
+    BitBtn1: TBitBtn;
+    BitBtn5: TBitBtn;
+    YaziMBt: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    Vazgec: TBitBtn;
+    Button111: TButton;
+    frxReport1: TfrxReport;
+    frxDBDMaas: TfrxDBDataset;
+    QSicil: TUniQuery;
+    QSicilYil: TWideStringField;
+    QSicilAy: TWideStringField;
+    QSicilSicno: TIntegerField;
+    QSicilAdi: TWideStringField;
+    DSicil: TUniDataSource;
+    DData: TUniDataSource;
+    QData: TUniQuery;
+    QDataSicil1: TIntegerField;
+    QDataSicil2: TIntegerField;
+    DBLSicil1: TcxDBLookupComboBox;
+    DBLSicil2: TcxDBLookupComboBox;
+    procedure Editx1KeyPress(Sender: TObject; var Key: Char);
+    procedure HazirBtClick(Sender: TObject);
+    procedure YaziBtClick(Sender: TObject);
+    procedure VazgecBtClick(Sender: TObject);
+    procedure YaziMBtClick(Sender: TObject);
+    procedure RadioGroup1Click(Sender: TObject);
+    procedure VazgecClick(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Edit5KeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Button1Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure Button111Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure DBLSicil1PropertiesCloseUp(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FBordro: TFBordro;
+
+implementation
+
+uses UData, URBordro, URBorKuc, URBorKuc1, UA4bordro;
+
+{$R *.DFM}
+
+procedure TFBordro.Editx1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = Chr(VK_Return) Then
+    Perform(Wm_NextDlgCtl, 0, 0);
+end;
+
+procedure TFBordro.HazirBtClick(Sender: TObject);
+begin
+  Query2.Close;
+  Query1.Close;
+  If(RadioGroup1.ItemIndex = 0) OR (RadioGroup1.ItemIndex = 2) then
+  begin
+    Query2.Params[0].AsString := FData.TDONEM.Fields[0].AsString;
+    Query2.Params[1].AsString := FData.TDONEM.Fields[1].AsString;
+    Query2.Params[2].AsString := FData.TDONEM.Fields[2].AsString;
+    Query2.ParamByName('T1').AsInteger := QDataSicil1.AsInteger;
+    Query2.ParamByName('T2').AsInteger := QDataSicil2.AsInteger;
+    Query2.Open;
+  End;
+  If RadioGroup1.ItemIndex = 1 then
+  begin
+    Query1.Params[0].AsString := FData.TDONEM.Fields[0].AsString;
+    Query1.Params[1].AsString := FData.TDONEM.Fields[1].AsString;
+    Query1.Params[2].AsString := FData.TDONEM.Fields[2].AsString;
+    Query1.ParamByName('T1').AsString := DBLookupComboBox2.Text;
+    Query1.Open;
+  End;
+end;
+
+procedure TFBordro.YaziBtClick(Sender: TObject);
+begin
+  With TFRBordro.Create(Self) do
+    try
+      if RadioGroup1.ItemIndex = 1 then
+      begin
+        QRLabel129.Caption := 'Maaþ Kts :' + FData.TKATSAYKatsayi.AsString +
+          ' Taban Ayl. Kts: ' + FData.TKATSAYTabKay.AsString + ' Yan Ödeme: ' +
+          FData.TKATSAYYanKat.AsString;
+        If Edit5.Text = 'H' then
+        Begin
+          QRBand3.Height := 0;
+          QuickR4.Preview;
+        end;
+        If Edit5.Text = 'E' then
+        Begin
+          QRBand4.Height := 0;
+          QuickR4.Preview;
+        end;
+        If Edit5.Text = 'T' then QuickR4.Preview;
+      End;
+      if RadioGroup1.ItemIndex = 0 then
+      begin
+        QRLabel130.Caption := 'Maaþ Kts :' + FData.TKATSAYKatsayi.AsString +
+          ' Taban Ayl. Kts: ' + FData.TKATSAYTabKay.AsString + ' Yan Ödeme: ' +
+          FData.TKATSAYYanKat.AsString;
+        If Edit5.Text = 'H' then
+        Begin
+          QRBand1.Height := 0;
+          QuickR2.Preview;
+        end;
+        If Edit5.Text = 'E' then
+        Begin
+          QRBand10.Height := 0;
+          QuickR2.Preview;
+        end;
+        If Edit5.Text = 'T' then QuickR2.Preview;
+      End;
+    Finally
+      Free;
+    end;
+end;
+
+procedure TFBordro.VazgecBtClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFBordro.YaziMBtClick(Sender: TObject);
+begin
+  If FileExists('C:\Program Files\SKYBS\Extensions\MemurMatbu.fr3') then
+  begin
+    frxReport1.LoadFromFile('C:\Program Files\SKYBS\Extensions\MemurMatbu.fr3');
+    frxReport1.ShowReport;
+  end
+  else
+  begin
+    If RadioGroup1.ItemIndex = 0 then
+    begin
+      with TFRBorKuc1.Create(Application) do
+        try
+          Query2.Close;
+          Query2.Params[0].AsString := FData.TDONEM.Fields[0].AsString;
+          Query2.Params[1].AsString := FData.TDONEM.Fields[1].AsString;
+          Query2.Params[2].AsString := FData.TDONEM.Fields[2].AsString;
+          Query2.ParamByName('T1').AsInteger := QDataSicil1.AsInteger;
+          Query2.ParamByName('T2').AsInteger := QDataSicil2.AsInteger;
+          Query2.Open;
+          QuickRep4.DataSet := Query2;
+          QuickRep4.Preview;
+          Query2.Close;
+        finally
+          Free;
+        end;
+    end;
+
+    If RadioGroup1.ItemIndex = 1 then
+    begin
+      with TFRBorKuc1.Create(Application) do
+        try
+          Query1.Close;
+          Query1.Params[0].AsString := FData.TDONEM.Fields[0].AsString;
+          Query1.Params[1].AsString := FData.TDONEM.Fields[1].AsString;
+          Query1.Params[2].AsString := FData.TDONEM.Fields[2].AsString;
+          Query1.ParamByName('T1').AsString := DBLookupComboBox2.Text;
+          Query1.Open;
+          QuickRep4.DataSet := Query1;
+          QuickRep4.Preview;
+          Query1.Close;
+        finally
+          Free;
+        end;
+    end;
+  end;
+end;
+
+procedure TFBordro.RadioGroup1Click(Sender: TObject);
+begin
+  if RadioGroup1.ItemIndex = 0 then
+  begin
+    QSicil.Close;
+    DBLSicil1.Properties.ListFieldNames := 'Sicno;Adi';
+    DBLSicil2.Properties.ListFieldNames := 'Sicno;Adi';
+    QSicil.Open;
+    DataSource1.DataSet := Query2;
+    DBLookupComboBox2.Visible := False;
+    DBLSicil1.Visible := True;
+    DBLSicil2.Visible := True;
+    DBLSicil1.SetFocus;
+    Label1.Visible := True;
+    Label2.Visible := True;
+    Label4.Visible := False;
+  end;
+  if RadioGroup1.ItemIndex = 1 then
+  begin
+    DataSource1.DataSet := Query1;
+    DBLookupComboBox2.Visible := True;
+    DBLSicil1.Visible := False;
+    DBLSicil2.Visible := False;
+    Label4.Visible := True;
+    Label1.Visible := False;
+    Label2.Visible := False;
+    DBLookupComboBox2.SetFocus;
+  end;
+  if RadioGroup1.ItemIndex = 2 then
+  begin
+    Label4.Caption := 'Son Sicil';
+    QSicil.Close;
+    DBLSicil1.Properties.ListFieldNames := 'Adi;Sicno';
+    DBLSicil2.Properties.ListFieldNames := 'Adi;Sicno';
+    QSicil.Open;
+    DataSource1.DataSet := Query2;
+    DBLookupComboBox2.Visible := False;
+    DBLSicil1.Visible := True;
+    DBLSicil2.Visible := True;
+    DBLSicil1.SetFocus;
+    Label1.Visible := True;
+    Label2.Visible := True;
+    Label4.Visible := False;
+  end;
+end;
+
+procedure TFBordro.VazgecClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFBordro.BitBtn1Click(Sender: TObject);
+begin
+  With TFRBorKuc.Create(Self) do
+    try
+      if RadioGroup1.ItemIndex = 1 then
+      begin
+        QRLabel183.Caption := 'Maaþ Kts :' + FData.TKATSAYKatsayi.AsString +
+          ' Taban Ayl. Kts: ' + FData.TKATSAYTabKay.AsString + ' Yan Ödeme: ' +
+          FData.TKATSAYYanKat.AsString;
+        Query1.Close;
+        Query1.Params[0].AsString := FData.TDONEM.Fields[0].AsString;
+        Query1.Params[1].AsString := FData.TDONEM.Fields[1].AsString;
+        Query1.Params[2].AsString := FData.TDONEM.Fields[2].AsString;
+        Query1.ParamByName('T1').AsString := DBLookupComboBox2.Text;
+        Query1.Open;
+        If Edit5.Text = 'H' then
+        Begin
+          QRBand6.Height := 0;
+          QuickR2.Preview;
+        end;
+        If Edit5.Text = 'E' then
+        Begin
+          QRBand1.Height := 0;
+          QuickR2.Preview;
+        end;
+        If Edit5.Text = 'T' then QuickR2.Preview;
+      End;
+      if RadioGroup1.ItemIndex = 0 then
+      begin
+        QRLabel184.Caption := 'Maaþ Kts :' + FData.TKATSAYKatsayi.AsString +
+          ' Taban Ayl. Kts: ' + FData.TKATSAYTabKay.AsString + ' Yan Ödeme: ' +
+          FData.TKATSAYYanKat.AsString;
+        Query2.Close;
+        Query2.Params[0].AsString := FData.TDONEM.Fields[0].AsString;
+        Query2.Params[1].AsString := FData.TDONEM.Fields[1].AsString;
+        Query2.Params[2].AsString := FData.TDONEM.Fields[2].AsString;
+        Query2.ParamByName('T1').AsInteger := QDataSicil1.AsInteger;
+        Query2.ParamByName('T2').AsInteger := QDataSicil2.AsInteger;
+        Query2.Open;
+        If Edit5.Text = 'H' then
+        Begin
+          QRBand7.Height := 0;
+          QuickRep1.Preview;
+        end;
+        If Edit5.Text = 'E' then
+        Begin
+          QRBand8.Height := 0;
+          QuickRep1.Preview;
+        end;
+        If Edit5.Text = 'T' then QuickRep1.Preview;
+      End;
+    Finally
+      Free;
+    end;
+  Query1.Close;
+  Query2.Close;
+end;
+
+procedure TFBordro.Edit5KeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = Chr(VK_Return) Then
+    HazirBt.SetFocus;
+end;
+
+procedure TFBordro.BitBtn3Click(Sender: TObject);
+begin
+  If RadioGroup1.ItemIndex = 0 then
+  begin
+    with TFRBorKuc.Create(Application) do
+      try
+        Query2.Close;
+        Query2.Params[0].AsString := FData.TDONEM.Fields[0].AsString;
+        Query2.Params[1].AsString := FData.TDONEM.Fields[1].AsString;
+        Query2.Params[2].AsString := FData.TDONEM.Fields[2].AsString;
+        Query2.ParamByName('T1').AsInteger := QDataSicil1.AsInteger;
+        Query2.ParamByName('T2').AsInteger := QDataSicil2.AsInteger;
+        Query2.Open;
+        QuickRep2.DataSet := Query2;
+        QuickRep2.Preview;
+        Query2.Close;
+      finally
+        Free;
+      end;
+  end;
+  If RadioGroup1.ItemIndex = 1 then
+  begin
+    with TFRBorKuc.Create(Application) do
+      try
+        Query1.Close;
+        Query1.Params[0].Value := FData.TDONEM.Fields[0].Value;
+        Query1.Params[1].Value := FData.TDONEM.Fields[1].Value;
+        Query1.Params[2].Value := FData.TDONEM.Fields[2].Value;
+        Query1.ParamByName('T1').Value := DBLookupComboBox2.Text;
+        Query1.Open;
+        QuickRep2.DataSet := Query1;
+        QuickRep2.Preview;
+        Query1.Close;
+      finally
+        Free;
+      end;
+  end;
+end;
+
+procedure TFBordro.BitBtn2Click(Sender: TObject);
+begin
+  If RadioGroup1.ItemIndex = 0 then
+  begin
+    with TFRBorKuc.Create(Application) do
+      try
+        Query2.Close;
+        Query2.Params[0].AsString := FData.TDONEM.Fields[0].AsString;
+        Query2.Params[1].AsString := FData.TDONEM.Fields[1].AsString;
+        Query2.Params[2].AsString := FData.TDONEM.Fields[2].AsString;
+        Query2.ParamByName('T1').AsInteger := QDataSicil1.AsInteger;
+        Query2.ParamByName('T2').AsInteger := QDataSicil2.AsInteger;
+        Query2.Open;
+        QuickR1.DataSet := Query2;
+        QuickR1.Preview;
+        Query2.Close;
+      finally
+        Free;
+      end;
+  end;
+  If RadioGroup1.ItemIndex = 1 then
+  begin
+    with TFRBorKuc.Create(Application) do
+      try
+        Query1.Close;
+        Query1.Params[0].Value := FData.TDONEM.Fields[0].Value;
+        Query1.Params[1].Value := FData.TDONEM.Fields[1].Value;
+        Query1.Params[2].Value := FData.TDONEM.Fields[2].Value;
+        Query1.ParamByName('T1').Value := DBLookupComboBox2.Text;
+        Query1.Open;
+        QuickR1.DataSet := Query1;
+        QuickR1.Preview;
+        Query1.Close;
+      finally
+        Free;
+      end;
+  end;
+end;
+
+procedure TFBordro.BitBtn4Click(Sender: TObject);
+begin
+  If RadioGroup1.ItemIndex = 0 then
+  begin
+    with TFA4bordro.Create(Application) do
+      try
+        Query2.Close;
+        Query2.Params[0].AsString := FData.TDONEM.Fields[0].AsString;
+        Query2.Params[1].AsString := FData.TDONEM.Fields[1].AsString;
+        Query2.Params[2].AsString := FData.TDONEM.Fields[2].AsString;
+        Query2.ParamByName('T1').AsInteger := QDataSicil1.AsInteger;
+        Query2.ParamByName('T2').AsInteger := QDataSicil2.AsInteger;
+        Query2.Open;
+        QuickRep3.DataSet := Query2;
+        QRLabel87.Caption := '';
+        QRLabel90.Caption := 'Maaþ Kts :' + FData.TKATSAYKatsayi.AsString +
+          ' Taban Ayl. Kts: ' + FData.TKATSAYTabKay.AsString + ' Yan Ödeme: ' +
+          FData.TKATSAYYanKat.AsString;
+
+        QRLabel206.Caption := FData.TDONEMYil.AsString + '/' +
+          FData.TDONEMAy.AsString + ' ' + FData.TDONEMDonem.AsString + ' ( ' +
+          FData.TDONEMIlktar.AsString + ' - ' + FData.TDONEMSontar.AsString +
+          ' ) Bordrosu';
+        QuickRep3.Preview;
+        Query2.Close;
+      finally
+        Free;
+      end;
+  end;
+  If RadioGroup1.ItemIndex = 1 then
+  begin
+    with TFA4bordro.Create(Application) do
+      try
+        Query1.Close;
+        Query1.Params[0].Value := FData.TDONEM.Fields[0].Value;
+        Query1.Params[1].Value := FData.TDONEM.Fields[1].Value;
+        Query1.Params[2].Value := FData.TDONEM.Fields[2].Value;
+        Query1.ParamByName('T1').Value := DBLookupComboBox2.Text;
+        Query1.Open;
+        QuickRep3.DataSet := Query1;
+        QRLabel87.Caption := 'Daire Adý :' + DBLookupComboBox2.Text;
+        QRLabel90.Caption := 'Maaþ Kts :' + FData.TKATSAYKatsayi.AsString +
+          ' Taban Ayl. Kts: ' + FData.TKATSAYTabKay.AsString + ' Yan Ödeme: ' +
+          FData.TKATSAYYanKat.AsString;
+        QRLabel206.Caption := FData.TDONEMYil.AsString + '/' +
+          FData.TDONEMAy.AsString + ' ' + FData.TDONEMDonem.AsString + ' ( ' +
+          FData.TDONEMIlktar.AsString + ' - ' + FData.TDONEMSontar.AsString +
+          ' ) Bordrosu';
+        QuickRep3.Preview;
+        Query1.Close;
+      finally
+        Free;
+      end;
+  end;
+end;
+
+procedure TFBordro.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  FData.TYAZ.Close;
+end;
+
+procedure TFBordro.FormCreate(Sender: TObject);
+begin
+  QSicil.ParamByName('Y').AsString := FData.TDONEMYil.AsString;
+  QSicil.ParamByName('A').AsString := FData.TDONEMAy.AsString;
+  QSicil.Open;
+  QData.Open;
+end;
+
+procedure TFBordro.Button111Click(Sender: TObject);
+begin
+  frxReport1.LoadFromFile('C:\Program Files\SKYBS\Extensions\MemurMatbu.fr3');
+  frxReport1.DesignReport;
+end;
+
+procedure TFBordro.Button1Click(Sender: TObject);
+begin
+  with TFA4bordro.Create(Application) do
+    try
+      If RadioGroup1.ItemIndex = 0 then
+      begin
+        Query2.Close;
+        Query2.ParamByName('t1').Value := QDataSicil1.AsInteger;
+        Query2.ParamByName('t2').Value := QDataSicil2.AsInteger;
+        Query2.Open;
+        QuickR2.DataSet := Query2;
+        QRLabel4.Caption := FData.TDONEMYil.AsString + '/' +
+          FData.TDONEMAy.AsString + ' ' + FData.TDONEMDonem.AsString + ' ( ' +
+          FData.TDONEMIlktar.AsString + ' - ' + FData.TDONEMSontar.AsString +
+          ' ) Bordrosu';
+        QuickR2.Preview;
+        Query2.Close;
+      end
+      else
+      begin
+        Query1.Close;
+        Query1.Params[0].AsString := FData.TDONEM.Fields[0].AsString;
+        Query1.Params[1].AsString := FData.TDONEM.Fields[1].AsString;
+        Query1.Params[2].AsString := FData.TDONEM.Fields[2].AsString;
+        Query1.ParamByName('T1').AsString := DBLookupComboBox2.Text;
+        Query1.Open;
+        QuickR2.DataSet := Query1;
+        QRLabel4.Caption := FData.TDONEMYil.AsString + '/' +
+          FData.TDONEMAy.AsString + ' ' + FData.TDONEMDonem.AsString + ' ( ' +
+          FData.TDONEMIlktar.AsString + ' - ' + FData.TDONEMSontar.AsString +
+          ' ) Bordrosu';
+        QuickR2.Preview;
+        Query1.Close;
+      end;
+    finally
+      Free;
+    end;
+end;
+
+procedure TFBordro.DBLSicil1PropertiesCloseUp(Sender: TObject);
+begin
+  QData.Edit;
+  QDataSicil2.AsInteger := QSicilSicno.AsInteger;
+  QData.Post;
+end;
+
+procedure TFBordro.BitBtn5Click(Sender: TObject);
+begin
+  with TFA4bordro.Create(Application) do
+    try
+      If RadioGroup1.ItemIndex = 0 then
+      begin
+        Query2.Close;
+        Query2.Params[0].AsString := FData.TDONEM.Fields[0].AsString;
+        Query2.Params[1].AsString := FData.TDONEM.Fields[1].AsString;
+        Query2.Params[2].AsString := FData.TDONEM.Fields[2].AsString;
+        Query2.ParamByName('T1').AsInteger := QDataSicil1.AsInteger;
+        Query2.ParamByName('T2').AsInteger := QDataSicil2.AsInteger;
+        Query2.Open;
+        QuickR2.DataSet := Query2;
+        QRLabel4.Caption := FData.TDONEMYil.AsString + '/' +
+          FData.TDONEMAy.AsString + ' ' + FData.TDONEMDonem.AsString + ' ( ' +
+          FData.TDONEMIlktar.AsString + ' - ' + FData.TDONEMSontar.AsString +
+          ' ) Bordrosu';
+        QuickR2.Preview;
+        Query2.Close;
+      end
+    else
+    begin
+      Query1.Close;
+      Query1.Params[0].Value := FData.TDONEM.Fields[0].Value;
+      Query1.Params[1].Value := FData.TDONEM.Fields[1].Value;
+      Query1.Params[2].Value := FData.TDONEM.Fields[2].Value;
+      Query1.ParamByName('T1').Value := DBLookupComboBox2.Text;
+      Query1.Open;
+      QuickR2.DataSet := Query1;
+      QRLabel4.Caption := FData.TDONEMYil.AsString + '/' +
+        FData.TDONEMAy.AsString + ' ' + FData.TDONEMDonem.AsString + ' ( ' +
+        FData.TDONEMIlktar.AsString + ' - ' + FData.TDONEMSontar.AsString +
+        ' ) Bordrosu';
+      QuickR2.Preview;
+      Query1.Close;
+    end;
+  finally
+    Free;
+  end;
+end;
+
+end.

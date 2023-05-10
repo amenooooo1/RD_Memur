@@ -1,0 +1,65 @@
+unit UIcraGirisi;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, StdCtrls, Buttons, ExtCtrls, DB, DBAccess, Uni, MemDS;
+
+type
+  TFIcraGirisi = class(TForm)
+    Panel1: TPanel;
+    Vazgec: TBitBtn;
+    DBGrid1: TDBGrid;
+    UniQIcra: TUniQuery;
+    UniDataSource1: TUniDataSource;
+    UniQIcraId: TIntegerField;
+    UniQIcraSicno: TIntegerField;
+    UniQIcraIcraNo: TWideStringField;
+    UniQIcraIcraninGeldiYer: TWideStringField;
+    UniQIcraIcraToplam: TFloatField;
+    UniQIcraIcraKalan: TFloatField;
+    UniQIcraKesilen: TBooleanField;
+    procedure VazgecClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FIcraGirisi: TFIcraGirisi;
+
+implementation
+
+uses UData;
+
+{$R *.dfm}
+
+procedure TFIcraGirisi.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+
+
+UniQIcra.Filtered:=True;
+
+
+
+
+
+UniQIcra.Close;
+
+end;
+
+procedure TFIcraGirisi.FormCreate(Sender: TObject);
+begin
+UniQIcra.Execute;
+end;
+
+procedure TFIcraGirisi.VazgecClick(Sender: TObject);
+begin
+Close;
+end;
+
+end.
